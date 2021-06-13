@@ -1,0 +1,24 @@
+\begin{thebibliography}{1}
+
+\bibitem{misc_1}
+J.~Autor.
+\newblock Nazwa strony internetowej.
+\newblock \url{http://www.dlugi.adres.url.zlamie.sie.gdzies.w.srodku.com}, stan
+  z 01.01.2010 r.
+
+\bibitem{article_1}
+U.~Autor and W.~Kolejny.
+\newblock Tytu³ publikacji.
+\newblock {\em Nazwa czasopisma}, 12(2):132--145, May 2012.
+
+\bibitem{inproceedings_1}
+B.~Inny.
+\newblock Tytu³ publikacji.
+\newblock In {\em Tytu³ ksi¹¿ki}, pages 5--32, Feb 2011.
+
+\bibitem{book_1}
+Z.~Test and K.~Nastêpny.
+\newblock {\em {Tytu³ ksi¹¿ki}}.
+\newblock Wydawca, Adres, 1995.
+
+\end{thebibliography}
