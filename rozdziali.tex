@@ -1,8 +1,29 @@
 \chapter{Ogólny problem}
 ogolna teoria na temat, metody takie i owakie. ktrótkie opisy
 
+Problem komiwoja¿era (ang. travelling salesman problem - TSP) nale¿y do rodziny problemów NP-trudnych. Znalezienie najlepszego rozwi¹zania dla tego problemu jest trudne i fascynuje naukowców od wielu lat. Niektórzy poddaj¹ pod w¹tpliwoœæ znalezienie efektywnego rozwi¹zania czyli takiego którego czas dzia³ania jest maksymalnie wielomianowy. Aktualnie istnieje wiele rozwi¹zañ tego problemu, a proponowane podejœcia s¹ bardzo interesuj¹ce. Niektóre z nich bazuj¹ na lokalnych przeszukiwaniach grafu, a inne opieraj¹ siê na rozwoju.
 
+Podobnym problemem do TSP jest problem konika szachowego. Problem ten jest równie¿ problemem NP-zupe³nym. Ju¿ w XVIII wieku badania nad tym problemem rozpocz¹³ Euler. Rozwi¹zanie tego problemu polega na znalezieniu œcie¿ki jak¹ ma przebyæ konik szachowy, tak aby odwiedziæ ka¿de pole na szachownicy tylko i wy³¹cznie raz. Skoczek porusza siê po planszy zgodnie z okreœlonym ruchem, a plansza szachowa mo¿e mieæ ró¿ny rozmiar. Konik porusza siê a¿ do momentu odwiedzenia wszystkich pól lub do momentu w którym nie ma mo¿liwoœci odwiedzenia kolejnego pola.
 
+W rozwi¹zaniu problemu komiwoja¿era nale¿y znaleŸæ cykl w grafie. W sk³ad takiego cyklu musi zostaæ zawarty ka¿dy z wierzcho³ków. Ka¿dy z wierzcho³ków mo¿e znajdowaæ siê w rozwi¹zaniu dok³adnie tylko raz. Cykl która spe³nia wymieniony warunek jest cyklem Hamiltona. Jeœli w grafie mo¿na wyró¿niæ cykl z opisanymi powy¿ej warunkami, to graf jest grafem Hamiltonowskim. 
+
+Na \ref{kl_graf_nie_hamiltona} zosta³ przedstawiony graf bez cyklu Hamiltona. W grafie tym nie mo¿na znaleŸæ takiego po³¹czenia które zawiera wszystkie wierzcho³ki przechodz¹c przez ka¿dy z nich dok³adnie raz. Istnieje mo¿liwoœæ przejœcia przez wszystkie wierzcho³ki jedynie po powtórnym odwiedzeniu przynajmniej jednego wierzcho³ka.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{grafika/kl_graf_nie_hamiltona.png}
+	\caption{Graf bez cyklu Hamiltona.}
+	\label{fig:kl_graf_nie_hamiltona}
+\end{figure}
+
+Graf z \ref{kl_graf_hamiltona} posiada po³¹czenie krawêdzi dziêki któremu mo¿na przejœæ po wszystkich wierzcho³kach dok³adnie raz. Takie przejœcie jest w³aœnie cyklem Hamiltona w zwi¹zku z czym graf jest Hamiltonowski. Wyruszaj¹c przyk³adowo z punktu F mo¿emy przejœæ kolejno do E - G - D - B - A - C. W ten sposób odwiedzimy wszystkie wierzcho³ki tylko raz. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{grafika/kl_graf_hamiltona.png}
+	\caption{Graf z cyklem Hamiltona.}
+	\label{fig:kl_graf_hamiltona}
+\end{figure}
 
 \section{Algorytm genetyczny}
 

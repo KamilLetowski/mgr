@@ -1,43 +1,88 @@
-\chapter{Rozdzia³ 3}
+\chapter{Algorytm mrówkowy}
 
-Prosta tabela \ref{tabela_1}.
+S³owo rozwój mo¿e byæ zestawiane z wieloma rzeczownikami. Wiele dziedzin ci¹gle siê rozwija, powstaj¹ nowe udogodnienia które wp³ywaj¹ na wiele dziedzin ¿ycia. Dziêki rozwojowi techniki ludzie s¹ w stanie osi¹gaæ cele które jakiœ czas temu mog³y byæ tylko marzeniami. Rozwój techniki równie¿ potrzebuje inspiracji do tworzenia nowych, lepszych rozwi¹zañ
 
-\begin{table}[htb]
-\centering
-\caption[Krótki podpis tabeli 1 -- do spisu treœci]{D³ugi podpis tabeli 1, który pojawi siê nad ni¹. Jak chcecie podpis pod tabel¹, umieœæcie caption przed samym end\{table\} - ale to niezgodne z wytycznymi.}
-\begin{tabular}{|c|c|c|c|}
-\hline
-Kolumna 1 & Kolumna 2 & Kolumna 3 & Kolumna 4 \\\hline
-Kolumna 1 & Kolumna 2 & Kolumna 3 & Kolumna 4 \\\hline
-Kolumna 1 & Kolumna 2 & Kolumna 3 & Kolumna 4 \\\hline
-Kolumna 1 & Kolumna 2 & Kolumna 3 & Kolumna 4 \\\hline
-\end{tabular}
-\label{tabela_1}
-\end{table}
+Szybkoœæ oraz dok³adnoœæ rozwoju zale¿y od wielu czynników. Dziêki pracy zespo³owej pewne problemy mog¹ byæ rozwi¹zywane szybciej i dok³adniej. Wysi³ek w³o¿ony przez grupê procentuje szybko, a same efekty mog¹ byæ równie¿ satysfakcjonuj¹ce. Istotnym czynnikiem jest wysi³ek wk³adany przez ka¿dego cz³onka grupy.
 
-Przyk³adowa tabela \ref{tabela_2}, nieco bardziej skomplikowana.
+Obserwuj¹c przyrodê mo¿emy zauwa¿yæ w jaki sposób zwierzêta radz¹ sobie z ró¿nymi problemami. Z³o¿one grupy mog¹ byæ spokojniejsze o zdobycie po¿ywienia czy te¿ o przetrwanie w ciê¿kich warunkach. Praca zespo³owa jest jedn¹ z cech której osobniki w grupie ucz¹ siê nie bêd¹c nawet tego do koñca œwiadomym.
 
-\begin{table}[htb]
-\centering
-\caption[Krótki podpis tabeli 2 -- do spisu treœci]{D³ugi podpis tabeli 2, który pojawi siê nad ni¹}
-\scalebox{0.6}{
-\begin{tabular}{|>{\bfseries}!a||^c|^c|^c|^c|^c|^c|^c|^c|^c|^c|}
-\hline
-\rowcolor{Gray}
-\rowstyle{\bfseries}
-Kolumna wyró¿niona & \makecell{Kolumna \\ pierwsza} & \makecell{Kolumna \\ druga}& \makecell{Kolumna \\ kolejna \\ d³uga \\ nazwa} & \makecell{Przeno- \\ szenie \\ s³owa} & \makecell{Kolumna \\ kolejna} & \makecell{Kolumna \\ kolejna} & \makecell{Kolumna \\ kolejna} & \makecell{Kolumna \\ kolejna} & \makecell{Kolumna \\ kolejna} & \makecell{Kolumna \\ kolejna} \\\hline
-Wiersz jakiœ tam & 1 & 2 & \cellcolor{LightGray}3 & 4 & 5 & 6 & 7 & \cellcolor{LightGray}8 & 9 & 10 \\\hline \hline
-Wiersz ze statystykami & 11,56 & 92,38 & 827,21 & 41,92 & 29,71 & 28,77 & \cellcolor{LightRed}29,61 & 55,02 & 72,33 & 95,82 \\\hline
-Wiersz ze statystykami & 11,56 & \textbf{92,38} & 827,21 & 41,92 & 29,71 & \cellcolor{LightGreen}28,77 & 29,61 & 55,02 & 72,33 & \cellcolor{LightRed}95,82 \\\hline
-Wiersz ze statystykami & 11,56 & \textbf{92,38} & 827,21 & 41,92 & 29,71 & 28,77 & 29,61 & 55,02 & \cellcolor{LightGreen}72,33 & 95,82 \\\hline
-Wiersz ze statystykami & 11,56 & 92,38 & \cellcolor{LightGreen}827,21 & 41,92 & 29,71 & 28,77 & 29,61 & 55,02 & 72,33 & 95,82 \\\hline
-Wiersz ze statystykami & \cellcolor{LightGreen}11,56 & 92,38 & \cellcolor{LightRed}827,21 & 41,92 & 29,71 & 28,77 & 29,61 & 55,02 & 72,33 & 95,82 \\\hline
-Wiersz ze statystykami & 11,56 & 92,38 & 827,21 & \textbf{41,92} & 29,71 & 28,77 & 29,61 & 55,02 & \cellcolor{LightRed}72,33 & 95,82 \\\hline
-Wiersz ze statystykami & 11,56 & 92,38 & 827,21 & 41,92 & 29,71 & 28,77 & \cellcolor{LightRed}29,61 & 55,02 & 72,33 & 95,82 \\\hline
-Wiersz ze statystykami & 11,56 & \cellcolor{LightGreen}92,38 & 827,21 & 41,92 & 29,71 & 28,77 & \cellcolor{LightGreen}29,61 & 55,02 & 72,33 & 95,82 \\\hline
-Wiersz ze statystykami & 11,56 & \cellcolor{LightRed}92,38 & 827,21 & 41,92 & 29,71 & 28,77 & \textbf{29,61} & 55,02 & 72,33 & 95,82 \\\hline
-Wiersz ze statystykami & 11,56 & 92,38 & 827,21 & 41,92 & \cellcolor{LightRed}29,71 & \cellcolor{LightRed}28,77 & 29,61 & 55,02 & 72,33 & 95,82 \\\hline \hline
-\end{tabular}
-}
-\label{tabela_2}
-\end{table}
+\section{Wprowadzenie do algorytmu}
+
+Na przestrzeni czasu wiele gatunków zwierz¹t ¿yj¹cych na ziemi przystosowa³o siê do panuj¹cych tu warunków. Jedn¹ z takich gatunków s¹ mrówki. Te niewielkich rozmiarów owady posiadaj¹ zdolnoœci pomagaj¹ce im przetrwaæ wœród najciê¿szych warunków. Mrówki ¿yj¹ w stadach w zwi¹zku z czym wykorzystuj¹ pracê zespo³ow¹ do rozwi¹zywania problemów jakie codziennie napotykaj¹ na swojej drodze.
+
+Aby zapewniæ przetrwanie stadu mrówki potrzebuj¹ zapewniæ sobie dostêp do pokarmu. Dziesi¹tki tysiêcy mrówek maj¹ swoje schronienie w mrowiskach. To tam trafia zdobyty przez nich pokarm. Wystarczy aby jedna mrówka znalaz³a miejsce z pokarmem, to po powrocie do mrowiska inne osobniki s¹ w stanie odtworzyæ drogê do po¿ywienia. Na tym etapie nale¿a³oby siê zastanowiæ, w jaki sposób mrówki s¹ w stanie komunikowaæ siê miêdzy sob¹?
+
+Jednym z opisywanych przez nas rozwi¹zañ do wyznaczania zoptymalizowanej trasy jest algorytm mrówkowy, inaczej nazywany ACO - Ant Colony Optimization. Pomys³ ten zosta³ zaczerpniêty z natury. Jak sama nazwa wskazuje dzia³anie algorytmy jest zwi¹zane z mrówkami, a dok³adnie z koloni¹ mrówek. Pomys³ na algorytm zosta³ zaproponowany na pocz¹tku lat 90 XX wieku przez w³oskiego badacza - Marco Dorigo.
+
+Tak jak wspomnia³em wczeœniej, algorytm opiera siê na pracy mrówek. Chodzi tutaj dok³adnie o trasê jako mrówki pokonuj¹ od swojego siedliska do miejsca w którym znajduje siê po¿ywienie. Wa¿ne jest znaczenie tutaj pracy zespo³owej. Trasê kszta³tuje ca³a kolonia mrówek, a nie pojedyncze przypadki. Mrówki z ka¿d¹ kolejn¹ podró¿¹ wykszta³caj¹ coraz to bardziej optymaln¹ trasê.
+
+\section{Opis dzia³ania algorytmu}
+
+Mrówka w celu znalezienia pokarmu w sposób losowy wyrusza z mrowiska. Losowo przeszukuj¹c teren szuka pokarmu. Gdy ju¿ go znajdzie wraca do siedliska i informuje o tym fakcie pozosta³e mrówki. Aby dostarczyæ wiêcej pokarmu mrówki wyruszaj¹ do miejsca spoczynku po¿ywienia. Chc¹c unikn¹æ sytuacji w której zdobycz mo¿e zostaæ zabrana przez inne owady, mrówki musz¹ jak najbardziej zoptymalizowaæ trasê jak¹ maj¹ do pokonania.
+
+Mimo posiadania informacje o znalezionym pokarmie, ka¿da mrówka sama musi zlokalizowaæ Ÿród³o. Czy mrówki poruszaj¹ siê t¹ sam¹ tras¹ przy ka¿dym wyjœciu z mrowiska? Aby trafiæ do miejsca w którym znajduje siê pokarm, wspomniane owady wykorzystuj¹ œlady pozostawione przez osobników które ju¿ natrafi³y na po¿ywienie. W ten sposób mrówka która wyrusza w sposób losowy, natrafia na œlad poprzednika który jest wskazówk¹ do znalezienia poszukiwanego pokarmu. Wspomniany œlad nazywa siê feromonem. To dziêki tej w³aœciwoœci mrówki s¹ w stanie lokalizowaæ trasy prowadz¹ce do pokarmu.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{grafika/kl_przyklad1}
+	\caption{Pocz¹tkowy graf}
+	\label{fig:kl_przyklad1}
+\end{figure}
+
+Na rysunku \ref{kl_przyklad1} zosta³ przedstawiony graf z wierzcho³kami A-B-C-D-E-F. Nad krawêdziami kolorem czerwonym zosta³y oznaczone wagi. Na pocz¹tku za³ó¿my, ¿e mamy do dyspozycji 80 agentów. Przez kilka pierwszych iteracjach mrówki porusza³y siê losowo i powsta³ nastêpuj¹cy podzia³:
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{grafika/kl_przyklad2}
+	\caption{Rozk³ad œcie¿ek na grafie po pierwszych iteracjach}
+	\label{fig:kl_przyklad2}
+\end{figure}
+
+Tak jak mo¿na to zauwa¿yæ na grafice \ref{kl_przyklad2}, po pierwszych iteracjach, przez obie œcie¿ki przechodzi taka sama iloœæ agentów. Dzieje siê tak poniewa¿ mrówki rozpoczynaj¹ pracê w sposób losowy. W dalszych krokach nastêpuj¹ modyfikacje i agenci d¹¿¹ do wyznaczenia najoptymalniejszej œcie¿ki.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{grafika/kl_przyklad3}
+	\caption{Rozk³ad agentów w grafie po optymalizacji}
+	\label{fig:kl_przyklad3}
+\end{figure}
+
+Iloœæ agentów odwiedzaj¹cych œcie¿ki zmienia siê. Bardziej optymalna trasa zyskuje widoczn¹ przewagê. W kolejnych iteracjach mrówki wykorzystuj¹ si³ê feromonów. Bardziej optymalne œcie¿ki s¹ czêœciej odwiedzane w zwi¹zku z czym zapach na tych krawêdziach jest silniejszy oraz podtrzymywany. Na mniej optymalnych trasach zapach zanika i przestaj¹ one byæ atrakcyjne dla agentów. Opisana sytuacja prowadzi do wyznaczenia trasy która jest najatrakcyjniejsza do przebycia dla mrówek.
+
+Feromony posiadaj¹ cechê która mo¿e siê wydawaæ, ¿e negatywnie wp³ywa na wyznaczanie œcie¿ki. Chodzi tutaj o ulatnianie siê zostawionego zapachu. Na pierwszy rzut oka mo¿e siê to zjawisko wydawaæ niepo¿¹danym, ale w rzeczywistoœci ma du¿y wp³ywa na optymalizacjê. Jeœli feromony nie straci³yby na swojej sile, to bardzo prawdopodobne, ¿e pierwotna œcie¿ka mog³aby zostaæ uznana za najbardziej optymaln¹.
+
+W jaki sposób wyznaczona zostaje najbardziej optymalna œcie¿ka? Zapach feromonów jest podtrzymywany przez wêdruj¹ce mrówki. Z czasem owady te same zbaczaj¹ z drogi w celu poszukiwania alternatywnej trasy. Jeœli wybrana trasa jest optymalniejsza od pozosta³ych to œlad jest podtrzymywany, a na innych zanika. Dziêki temu w sposób iteracyjny mo¿na wyró¿niæ trasê najoptymalniejsz¹, a s³absze z czasem zostaj¹ odrzucone poniewa¿ przestaj¹ byæ odwiedzane.
+
+\section{Pozosta³e zastosowania algorytmu mrówkowego}
+
+Algorytm mrówkowy znajduje swoje zastosowanie w rozwi¹zywaniu innych problemów. Problem plecakowy jest jednym z takich przyk³adów. Pojawia siê on najczêœciej przy optymalnym zarz¹dzaniu zasobami. Mamy dany zbiór jakichœ przedmiotów z czego ka¿dy z nich posiada okreœlony ciê¿ar i wartoœæ. Do plecaka musimy za³adowaæ przedmioty o jak najwiêkszej wartoœci. Naszym ograniczeniem jest jednak ³¹czny ciê¿ar przedmiotów które mo¿emy udŸwign¹æ. 
+
+Algorytm mrówkowy wygl¹da bardzo podobnie w tym przypadku. Na pocz¹tku mamy pewnê geracjê agentów - mrówek. Ka¿dy agent iteracyjnie poszukuje jak najlepszego rozwi¹zania. Po ka¿dej iteracji mo¿na wyró¿niæ trzy typy rozwi¹zañ: rozwi¹zanie poœrednie, rozwi¹zanie czêœciowe lub stan. Agenci w celu znalezienia rozwi¹zania wykorzystuje swoje naturalne umiejêtnoœci czyli zostawia na wszystkich obiektach w plecaku feromony. Dziêki lotnoœci feromonów mrówki s¹ w stanie identyfikowaæ bardziej zadowalaj¹ce przedmioty.
+
+Krzysztof Schiff w jednym z artyku³ów przedstawi³ rozwi¹zanie problemu plecakowego przy u¿yciu trzech metod optymalizacji algorytmu mrówkowego. Wszystkie te metody mo¿na opisaæ za pomoc¹ wzorów. Zgodnie z przyjêt¹ konwencj¹ przez autora artyku³u metody maj¹ odpowiednie nazwy: AKA1, AKA2 oraz AKA3. Atrakcyjnoœæ jest obliczana wed³ug wzorów: 
+AKA1 = z/ w/V,  gdzie:
+- z jest zyskiem wybranego obiektu;
+- w jest wag¹ wybranego obiektu;
+- V jest aktualn¹ ³adownoœci¹ plecaka
+AKA2 = z/ w\^2, gdzie:
+- z jest zyskiem wybranego obiektu;
+- w jest wag¹ wybranego obiektu;
+AKA3 = z/ w/C, gdzie:
+- z jest zyskiem wybranego obiektu;
+- w jest wag¹ wybranego obiektu;
+- C jest ca³kowit¹ wag¹ plecaka
+
+Poni¿ej przedstawione zosta³y wyniki badañ:
+
+WYNIKI BADAN
+
+Problem komiwoja¿era i problem plecakowy s¹ problemami kombinatorycznymi i ich rozwi¹zanie polega poszukiwaniu optymalnej œcie¿ki na grafie pe³nym. Inn¹ wariacj¹ problemu jest poszukiwanie rozwi¹zania problemu od razu zadanego na grafie. Jako przyk³ad mo¿e pos³u¿yæ problem kolorowania grafu. Dla wszystkich wierzcho³ków w grafie nale¿y dobraæ takie kolory, aby ¿adne dwa s¹siednie wierzcho³ki nie mia³y tego samego koloru. 
+
+Mrówki nie dzia³aj¹ bezpoœrednio na grafie pocz¹tkowym poniewa¿ graf ten nie musi byæ grafem pe³nym. Nale¿y stworzyæ dla mrówek alternatywê podobn¹ do orygina³u z zachowaniem takiego samego zbioru wierzcho³ków ale z pe³nymi krawêdziami. Nastêpnie nale¿y dobraæ numeryczne wartoœci odpowiadaj¹ce konkretnym kolorom. Jeœli mrówka odwiedzi dany wierzcho³ek, to zostaje on pokolorowany na najni¿szy kolor który nie zosta³ dotychczas u¿yty do kolorowania któregoœ z s¹siadów.
+
+Tak jak w przypadku poprzednich algorytmów wykorzystywane s¹ zapachy pozostawiane przez mrówki. Iloœæ u¿ytych unikalnych kolorów by³aby odwrotnie proporcjonalna do iloœci feromonów. W efekcie czego heurystyka by³aby odwrotnie proporcjonalna do wykorzystanych kolorów po kolejnych iteracjach. Wynikiem tych operacji bêdzie rozwi¹zanie w którym w grafie oryginalnym ka¿dy wierzcho³ek bêdzie odwiedzany tylko raz.
+
+Ostatni z przyk³adów wykorzystania algorytmu mrówkowego jest harmonogram produkcji. W porównaniu do poprzednich metod w tym algorytmie zachodzi pewna modyfikacja. G³ównym problemem w harmonogramie produkcji jest znalezienie takiej kolejnoœci przetwarzanych zadañ, aby jak najszybciej je przetworzyæ. Aby lepiej zobrazowaæ t¹ sytuacjê nale¿y sobie wyobraziæ fabrykê w której znajduj¹ siê linie produkcyjne. Na linii s¹ przetwarzane zadania w odpowiedniej kolejnoœci oraz ka¿de z zadañ mo¿e zostaæ wykonane w ró¿nym czasie. 
+
+W tej metodzie, podobnie jak w metodzie do rozwi¹zania problemu plecakowego, nale¿y stworzyæ graf pe³ny z wierzcho³kami odpowiadaj¹cymi konkretnym zadaniom. Nastêpnie mrówki przechodz¹ przez wszystkie wierzcho³ki i zostawiaj¹ feromony. Czynnikiem decyduj¹cym o wyborze wierzcho³ków nadal jest zwi¹zana z feromonami. Do rozwi¹zania tego problemu nie jest brana pod uwagê iloœæ feromonów na krawêdzi pomiêdzy wierzcho³kiem a jego s¹siadami. Wykorzystywana jest natomiast suma feromonów na wszystkich krawêdziach do odwiedzanych wierzcho³ków z wierzcho³kami ju¿ odwiedzonymi.
+
