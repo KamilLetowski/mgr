@@ -1,34 +1,5 @@
 \chapter{Algorytm genetyczny}
-	sKolejnym podejœciem do rozwi¹zania problemu jest algorytm genetyczny czyli rodzaj algorytmu, który bazuje na ewolucji. Jest on oparty na zjawiskach zachodz¹cych przyrodzie jak dziedziczenie cech oraz dobór naturalny. D¹¿y on do tego, aby pocz¹tkowe pokolenia w raz z kolejnymi iteracjami ewoluowa³y w coraz to lepsze rozwi¹zania. Najwa¿niejsz¹ cech¹ jak¹ odwzorowuj¹ algorytmy genetyczne z ewolucji, jest przetrwanie najlepszych osobników. W przyrodzie czêsto najs³absze osobniki w stadach nie bior¹ udzia³u w reprodukcji i czêsto gin¹. Podobnie w algorytmie genetycznym populacja(czyli zbiór rozwi¹zañ) poddawana jest operacjom genetycznym: selekcja rodziców, krzy¿owanie oraz mutacja. Zastosowanie tych trzech operatorów prowadzi do powstawania w ka¿dym kolejnym pokoleniu lepiej przystosowanych osobników czyli lepszych rozwi¹zañ problemu.
-
-	Algorytmy genetyczne s¹ od dawna stosowane informatyce do rozwi¹zywania problemów komiwoja¿era oraz innych NP trudnych zagadnieñ.  Pionierem algorytmów genetycznych by³ John Henry Holland, który w latach 70 napisa³ ksi¹¿kê o algorytmach ewolucyjnych "Adaptation in Natural and Artificial Systems". Poza tym algorytmy genetyczne maj¹ równie¿ zastosowanie w medycynie przy leczeniu chorób nowotworowych \cite{article_2} lub w przemyœle chemicznym \cite{article_1}.
-
-\section{Opis dzia³ania algorytmu}
-
-\begin{figure}[htb]
-	\centering
-	\includegraphics[width=8cm]{grafika/algorytm_genetyczny.eps}
-	\caption{Schemat algorytmu genetycznego}
-	\label{genetic}
-\end{figure}
 	
-	Pierwszym krokiem algorytmu jest wylosowanie populacji pocz¹tkowej algorytmu. Wielkoœæ populacji podczas trwania ca³ego algorytmu jest sta³a $N$. Wa¿ne jest aby wszystkie by³y jak najbardziej zró¿nicowane i wygenerowane losowo. Ka¿dy z osobników nastêpnie musi zostaæ zakodowany do postaci chromosomów, które bêd¹ przechowywaæ w sobie informacjê o odwiedzanych punktach w postaci genów.
-	
-	W populacji ka¿dy osobnik musi zostaæ poddany funkcji przystosowania. Wynik tej funkcji determinuje jak dobre jest dane rozwi¹zanie. Im wiêksza wartoœæ tym lepszy jest to osobnik. W badanym problemie najlepsze rozwi¹zanie jest równoznaczne najkrótszej trasie. Dlatego funkcja oceny przyjmie odwrotnoœæ d³ugoœci trasy
-\begin{equation}
-	f = 1 / (s + 1)
-	\label{e6}
-\end{equation}
-gdzie f - funkcja przystosowania, s - d³ugoœæ trasy reprezentowana przez chromosom.
-
-	Kolejnym krokiem algorytmu jest wyselekcjonowanie rodziców do reprodukcji. Najpopularniejszymi metodami wyboru rodziców jest metoda selekcji oraz metoda turniejowa.
-Pierwsza metoda s³abiej rozró¿nia osobniki gorsze od lepszych, mogê zdarzyæ siê, ¿e dwa najs³absze osobniki ulegn¹ reprodukcji. Natomiast w drugiej metodzie osobniki ze sob¹ rywalizuj¹ i wybierane s¹ najlepsze.
-
-	Wybrani rodzice zostaj¹ poddani krzy¿owaniu, czyli poszczególne ich geny mieszaj¹ siê ze sob¹ w pewien z góry ustalony sposób, tworz¹c ca³kowicie nowe osobniki. Nastêpnie podobnie jak w przyrodzie mo¿e zajœæ mutacja chromosomu, czyli wprowadzona losowa zmiana pojedynczego lub grupy genów.
-	
-	Przedostatnim krokiem jest sprawdzenie warunku koñcowego algorytm. Bez tego miejsca ca³y algorytm dzia³a³ by w nieskoñczonoœæ. Najczêœciej algorytm wykonuje siê pewn¹ okreœlon¹ iloœæ - $K$. Dobiera siê ten parametr tak aby algorytm wykona³ siê w akceptowalnym czasie.
-	
-	Na koñcu z ostatniej populacji wybierany jest najlepszy osobnik i on w³aœnie stanowi rozwi¹zanie. Algorytm genetyczny w zale¿noœci od z³o¿onoœci danych, mo¿e dawaæ inne rozwi¹zania dla tych samych parametrów, ale bêd¹ one zbiegaæ do tego samego rozwi¹zania. Schemat blokowy algorytm genetycznego zosta³ pokazany na rysunku \ref{genetic}
 
 \section{Chromosom}
 	Chromosom z definicji jest to ci¹g genów reprezentuj¹cy dane rozwi¹zanie. Z kolei gen przenosi informacjê o cechach. Mo¿liwoœæ osi¹gniêcia sukcesu jest tylko wtedy, gdy odpowiednio zakoduje siê informacjê i ustali funkcjê przystosowania. Do zakodowania badanego problemu u¿yjê metody permutacyjnej, gdzie ka¿dy punkt musi zostaæ odwiedzony tylko raz. Ka¿demu punktowi przed wylosowanie tras zostanie przypisany unikalny indeks, bêdzie on odpowiada³ genowi. Nastêpnie dla ka¿dego z $K$ osobników zostanie zapisany chromosom w postaci ci¹gu permutacyjnego. Mo¿e to byæ $[ 1 2 3 4 5 6 7]$ jak równie¿ $[6 1 2 4 5 7 3]$. Te dwa chromosomy odwiedzaj¹ wszystkie punkty w ró¿nej kolejnoœci oraz tylko raz. 
