@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.5.23)  16 JUN 2021 23:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.5.23)  21 JUN 2021 20:10
 entering extended mode
 **./glowny.tex
 (glowny.tex
@@ -1077,8 +1077,8 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./grafika/karta_dyplomowa-eps-converted-to.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<grafika/karta_dyplomowa-eps-converted-to.pdf, id=96, 414.54875pt x 587.19376pt
->
+<grafika/karta_dyplomowa-eps-converted-to.pdf, id=108, 414.54875pt x 587.19376p
+t>
 File: grafika/karta_dyplomowa-eps-converted-to.pdf Graphic file (type pdf)
 <use grafika/karta_dyplomowa-eps-converted-to.pdf>
 Package pdftex.def Info: grafika/karta_dyplomowa-eps-converted-to.pdf  used on 
@@ -1125,49 +1125,52 @@ iaªu In-for-ma-tyki jest
 
 ) [7] [8
 
-] (glowny.toc)
+] (glowny.toc [9])
 \tf@toc=\write5
 \openout5 = `glowny.toc'.
 
- (wstep.tex [9] [10
+ (wstep.tex [10]) (rozdziali.tex [11
 
-]) (rozdziali.tex [11] [12
+] [12
 
 ]
 Rozdzia\l  1.
 
-LaTeX Warning: Reference `kl_graf_nie_hamiltona' on page 13 undefined on input 
-line 10.
+Underfull \hbox (badness 1546) in paragraph at lines 9--10
+[]\T1/ptm/m/n/12 W XIX wieku Wil-liam Ha-mil-ton stwo-rzyª fun-da-menty pod de-
+fi-ni-cj¦ TSP. W
+ []
 
-<grafika/kl_graf_nie_hamiltona.png, id=163, 443.6575pt x 262.9825pt>
+
+LaTeX Warning: Reference `kl_graf_nie_hamiltona' on page 13 undefined on input 
+line 11.
+
+<grafika/kl_graf_nie_hamiltona.png, id=178, 443.6575pt x 262.9825pt>
 File: grafika/kl_graf_nie_hamiltona.png Graphic file (type png)
 <use grafika/kl_graf_nie_hamiltona.png>
 Package pdftex.def Info: grafika/kl_graf_nie_hamiltona.png  used on input line 
-14.
+15.
 (pdftex.def)             Requested size: 332.7423pt x 197.23637pt.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: Reference `kl_graf_hamiltona' on page 13 undefined on input line
- 19.
-
-<grafika/kl_graf_hamiltona.png, id=165, 443.6575pt x 262.9825pt>
-File: grafika/kl_graf_hamiltona.png Graphic file (type png)
-<use grafika/kl_graf_hamiltona.png>
-Package pdftex.def Info: grafika/kl_graf_hamiltona.png  used on input line 23.
-(pdftex.def)             Requested size: 332.7423pt x 197.23637pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-) (rozdzialii.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [13]
-[14 <./grafika/kl_graf_nie_hamiltona.png> <./grafika/kl_graf_hamiltona.png>]
+
+LaTeX Warning: Reference `kl_graf_hamiltona' on page 14 undefined on input line
+ 20.
+
+<grafika/kl_graf_hamiltona.png, id=185, 443.6575pt x 262.9825pt>
+File: grafika/kl_graf_hamiltona.png Graphic file (type png)
+<use grafika/kl_graf_hamiltona.png>
+Package pdftex.def Info: grafika/kl_graf_hamiltona.png  used on input line 24.
+(pdftex.def)             Requested size: 332.7423pt x 197.23637pt.
+[14 <./grafika/kl_graf_nie_hamiltona.png> <./grafika/kl_graf_hamiltona.png>])
+(rozdzialii.tex [15] [16
+
+]
 Rozdzia\l  2.
 
-LaTeX Warning: Citation `article_2' on page 15 undefined on input line 4.
+LaTeX Warning: Citation `article_2' on page 17 undefined on input line 4.
 
 
 Underfull \hbox (badness 1655) in paragraph at lines 4--5
@@ -1190,7 +1193,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./grafika/algorytm_genetyczny-eps-converted-to.p
 df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<grafika/algorytm_genetyczny-eps-converted-to.pdf, id=183, 248.93pt x 512.91624
+<grafika/algorytm_genetyczny-eps-converted-to.pdf, id=206, 248.93pt x 512.91624
 pt>
 File: grafika/algorytm_genetyczny-eps-converted-to.pdf Graphic file (type pdf)
 <use grafika/algorytm_genetyczny-eps-converted-to.pdf>
@@ -1200,21 +1203,19 @@ Package pdftex.def Info: grafika/algorytm_genetyczny-eps-converted-to.pdf  used
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [15
-
-]
+ [17]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [16])
-(rozdzialiii.tex [17] [18 <./grafika/algorytm_genetyczny-eps-converted-to.pdf>]
+ [18])
+(rozdzialiii.tex [19] [20 <./grafika/algorytm_genetyczny-eps-converted-to.pdf>]
 Rozdzia\l  3.
 
 Underfull \vbox (badness 5711) has occurred while \output is active []
 
- [19
+ [21
 
 ]
-<grafika/kl_przyklad1.png, id=219, 177.66376pt x 318.18875pt>
+<grafika/kl_przyklad1.png, id=241, 177.66376pt x 318.18875pt>
 File: grafika/kl_przyklad1.png Graphic file (type png)
 <use grafika/kl_przyklad1.png>
 Package pdftex.def Info: grafika/kl_przyklad1.png  used on input line 27.
@@ -1224,9 +1225,9 @@ Package pdftex.def Info: grafika/kl_przyklad1.png  used on input line 27.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Reference `kl_przyklad1' on page 20 undefined on input line 32.
+LaTeX Warning: Reference `kl_przyklad1' on page 22 undefined on input line 32.
 
-<grafika/kl_przyklad2.png, id=220, 177.66376pt x 318.18875pt>
+<grafika/kl_przyklad2.png, id=242, 177.66376pt x 318.18875pt>
 File: grafika/kl_przyklad2.png Graphic file (type png)
 <use grafika/kl_przyklad2.png>
 Package pdftex.def Info: grafika/kl_przyklad2.png  used on input line 36.
@@ -1235,9 +1236,9 @@ Package pdftex.def Info: grafika/kl_przyklad2.png  used on input line 36.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Reference `kl_przyklad2' on page 20 undefined on input line 41.
+LaTeX Warning: Reference `kl_przyklad2' on page 22 undefined on input line 41.
 
-<grafika/kl_przyklad3.png, id=221, 177.66376pt x 318.18875pt>
+<grafika/kl_przyklad3.png, id=243, 177.66376pt x 318.18875pt>
 File: grafika/kl_przyklad3.png Graphic file (type png)
 <use grafika/kl_przyklad3.png>
 Package pdftex.def Info: grafika/kl_przyklad3.png  used on input line 45.
@@ -1245,27 +1246,27 @@ Package pdftex.def Info: grafika/kl_przyklad3.png  used on input line 45.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[20] [21 <./grafika/kl_przyklad1.png>]
+[22] [23 <./grafika/kl_przyklad1.png>]
 Underfull \vbox (badness 6559) has occurred while \output is active []
 
- [22 <./grafika/kl_przyklad2.png>]
+ [24 <./grafika/kl_przyklad2.png>]
 Underfull \vbox (badness 1946) has occurred while \output is active []
 
- [23 <./grafika/kl_przyklad3.png>]) (rozdzialiv.tex [24]
+ [25 <./grafika/kl_przyklad3.png>]) (rozdzialiv.tex [26]
 Rozdzia\l  4.
-) (rozdzialv.tex [25
+) (rozdzialv.tex [27
 
-] [26
+] [28
 
 ]
 Rozdzia\l  5.
-) (rozdzialvi.tex [27] [28
+) (rozdzialvi.tex [29] [30
 
 ]
 Rozdzia\l  6.
-) (podsumowanie.tex [29] [30
+) (podsumowanie.tex [31] [32
 
-]) (glowny.bbl [31] [32
+]) (glowny.bbl [33] [34
 
 ]
 LaTeX Font Info:    Trying to load font information for T1+pcr on input line 6.
@@ -1274,52 +1275,46 @@ LaTeX Font Info:    Trying to load font information for T1+pcr on input line 6.
 (C:\Users\kamil\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 ))
-[33] [34
+[35] [36
 
 ] (glowny.lot)
 \tf@lot=\write6
 \openout6 = `glowny.lot'.
 
- [35] [36
+ [37] [38
 
 ] (glowny.lof)
 \tf@lof=\write7
 \openout7 = `glowny.lof'.
 
- [37] [38
+ [39] [40
 
 ] (glowny.lol)
 \tf@lol=\write8
 \openout8 = `glowny.lol'.
 
- [39]
-[40
+ [41]
+[42
 
 ] (glowny.loa)
 \tf@loa=\write9
 \openout9 = `glowny.loa'.
 
- [41] (glowny.aux)
+ [43] (glowny.aux)
 
 LaTeX Warning: There were undefined references.
 
-
-Package rerunfilecheck Warning: File `glowny.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `glowny.out':
-(rerunfilecheck)             Before: D93157BF1A81D00E0C38962F34BEA0FE;2366
-(rerunfilecheck)             After:  85B46F1345F14EF691F28756611039C2;3021.
+Package rerunfilecheck Info: File `glowny.out' has not changed.
+(rerunfilecheck)             Checksum: 85B46F1345F14EF691F28756611039C2;3021.
  ) 
 Here is how much of TeX's memory you used:
- 27539 strings out of 479334
- 479295 string characters out of 2857084
- 773834 words of memory out of 3000000
- 44356 multiletter control sequences out of 15000+200000
+ 27544 strings out of 479334
+ 479348 string characters out of 2857084
+ 773837 words of memory out of 3000000
+ 44359 multiletter control sequences out of 15000+200000
  453905 words of font info for 84 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,18n,102p,889b,621s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 102i,18n,102p,890b,621s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/kamil/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}{C:
 /Users/kamil/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/mnsymbol/MnSymbolC.e
 nc}{C:/Users/kamil/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/mnsymbol/MnSym
@@ -1334,9 +1329,9 @@ rier/ucrr8a.pfb><C:/Users/kamil/AppData/Local/Programs/MiKTeX/fonts/type1/urw/t
 imes/utmb8a.pfb><C:/Users/kamil/AppData/Local/Programs/MiKTeX/fonts/type1/urw/t
 imes/utmr8a.pfb><C:/Users/kamil/AppData/Local/Programs/MiKTeX/fonts/type1/urw/t
 imes/utmri8a.pfb>
-Output written on glowny.pdf (41 pages, 256157 bytes).
+Output written on glowny.pdf (43 pages, 261987 bytes).
 PDF statistics:
- 393 PDF objects out of 1000 (max. 8388607)
- 83 named destinations out of 1000 (max. 500000)
- 208 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 415 PDF objects out of 1000 (max. 8388607)
+ 85 named destinations out of 1000 (max. 500000)
+ 232 words of extra memory for PDF output out of 10000 (max. 10000000)
 
