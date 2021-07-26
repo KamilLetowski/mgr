@@ -75,7 +75,92 @@ Pierwsza metoda s³abiej rozró¿nia osobniki gorsze od lepszych, mogê zdarzyæ siê,
 
 \section{Algorytm mrowkowy}
 
+Obserwacje nad zachowaniami w przyrodzie wielokrotnie mia³y wp³yw na rozwój nowych rozwi¹zañ. Tak jak w przypadku algorytmu genetycznego, tak i w przypadku algorytmu mrówkowego pomys³ zosta³ zaczerpniêty z przyrody. Dok³adne dzia³anie algorytmu mrówkowego wzoruje siê na zachowaniu kolonii mrówek. Dziêki pracy zespo³owej, owady te s¹ w stanie wypracowaæ optymaln¹ œcie¿kê miêdzy siedliskiem a znalezionym pokarmem.
 
+Dla niejednego gatunku problematyczne mog³oby byæ odtworzenie przebytej œcie¿ki. Na pocz¹tku nale¿a³oby zadaæ sobie pytanie w jaki sposób te niewielkich rozmiarów owady s¹ w stanie znacz¹co u³atwiæ sobie przetrwanie? Istotn¹ rolê odgrywa tutaj wspomniana ju¿ praca zespo³owa. To dziêki wspó³pracy mrówki s¹ w stanie optymalizowaæ trasê. Innym wa¿nym czynnikiem determinuj¹cym poprawê œcie¿ki jest zapach jaki zostawiaj¹ mrówki. 
+
+Zapach nie jest niczym innym jak feromonem wytwarzanym przez mrówki. Dziêki pozostawionemu zapachowi mrówki wiedzia³y w jaki sposób poruszali siê ich poprzednicy w zwi¹zku z czym odtworzenie trasy nie stanowi³o ju¿ powa¿nego problemu. Przy kolejnych iteracjach kolonia próbuje optymalizowaæ aktualn¹ trasê. W tym celu równie¿ wykorzystuje zapach pozostawiony w poprzednich przejœciach. Œcie¿ka jest losowo zmieniana w celu optymalizacji. Jeœli modyfikacja przynios³a oczekiwany efekt, to trasa zostaje zmieniona. 
+
+Feromony s¹ istotnym czynnikiem w ca³ym procesie. To dziêki nim trasa jest ulepszana. Zapach posiada jedn¹ z charakterystyk która na pocz¹tku mo¿e wydawaæ siê problematyczna. Wraz z up³ywem czasu si³a zapachu s³abnie a¿ do ca³kowitego zanikniêcia. W³aœciwoœæ ta jest zaletê, a nie wadê. To dziêki pracy zespo³owej zapach na najlepszej trasie jest podtrzymywany, a na s³abszych zanika. Dziêki tej selekcji d³u¿sze trasy nie s¹ brane pod uwagê w wyniku czego zostaje trasa najkorzystniejsza.
+
+\subsection{Opis dzia³ania algorytmu}
+
+Do wyznaczenia optymalnej trasy potrzebne s¹ d³ugoœci jakie nale¿y przebyæ do przemieszczania siê miêdzy punktami. W \ref{tabela_kosztow_ant} przedstawione s¹ przyk³adowe odleg³oœci.
+
+\begin{table}[htb]
+\centering
+\caption[Krótki podpis tabeli 1 -- do spisu treœci]{Wartoœci kosztów}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+  & A & B & C & D \\\hline
+A & 0 & 3 & 8 & 2 \\\hline
+B & 3 & 0 & 2 & 4 \\\hline
+C & 8 & 2 & 0 & 1 \\\hline
+D & 2 & 4 & 1 & 0 \\\hline
+\end{tabular}
+\label{tabela_kosztow_ant}
+\end{table}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{grafika/kl_init_trasa_alg.png}
+	\caption{Graf z wagami}
+	\label{fig:kl_init_trasa_alg}
+\end{figure}
+
+Równie wa¿ne jest wyznaczenie pocz¹tkowych wspó³czynników feromonów. Na pocz¹tku nadajmy wszystkim krawêdziom w grafie wartoœci równe 1, a wspó³czynnik parowania niech wynosi 0.5.
+
+\begin{table}[htb]
+\centering
+\caption[Krótki podpis tabeli 1 -- do spisu treœci]{Wartoœci feromonów}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+  & A & B & C & D \\\hline
+A & 0 & 1 & 1 & 1 \\\hline
+B & 1 & 0 & 1 & 1 \\\hline
+C & 1 & 1 & 0 & 1 \\\hline
+D & 1 & 1 & 1 & 0 \\\hline
+\end{tabular}
+\label{tabela_feromonow_ant}
+\end{table}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{grafika/kl_init_p_alg.png}
+	\caption{Graf z pocz¹tkowymi wartoœciami feromonów}
+	\label{fig:kl_init_trasa_alg}
+\end{figure}
+
+Posiadaj¹c pocz¹tkowe dane wyznaczmy w sposób losowy trasy dla dwóch agentów: L1 i L2. Agent L1 porusza³ siê tras¹ w której odwiedzi³ wierzcho³ki w nastêpuj¹cej kolejnoœci: A, B, C, D, A. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{grafika/kl_l1_trasa_alg.png}
+	\caption{Trasa przebyta przez agenta L1}
+	\label{fig:kl_init_trasa_alg}
+\end{figure}
+
+Agent L2 wyznaczy³ nastêpuj¹c¹ trasê: A, C, B, D, A. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{grafika/kl_l2_trasa_alg.png}
+	\caption{Trasa przebyta przez agenta L2}
+	\label{fig:kl_init_trasa_alg}
+\end{figure}
+
+Mrówki odpowiednio pokona³y dystans 8 i 16 punktów. Dziêki tej informacji mo¿na zaktualizowaæ wartoœci feromonów na poszczególnych krawêdziach. Do obliczeñ wykorzystany jest wzór: TUTAJ WZÓR DODAÆ. Krawêdzie A-B i C-D zosta³y odwiedzona jedynie przez agenta L1 w wyniku czego wartoœæ feromonu zostaje zmieniona na 10/16. Nastêpnie krawêdzie A-C i B-D zostaj¹ zaktualizowane na 9/16. Krawêdzie A-D i B-C s¹ odwiedzone dwukrotnie a wartoœæ feromonów wynosi 11/16.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{grafika/kl_p_alg.png}
+	\caption{Graf z wartoœciami feromonów po modyfikacji}
+	\label{fig:kl_init_trasa_alg}
+\end{figure}
+
+Ostatni¹ faz¹ algorytmu jest wyznaczenie prawdopodobieñstwa z jakim kolejni agenci bêd¹ wybieraæ kolejny wierzcho³ek. W kolejnej iteracji agent L3 znajduje siê w wierzcho³ku B. Do wyboru ma krawêdzie A, C i D. Wed³ug wzoru TUTAJ WZÓR DODAÆ wyliczane jest prawdopodobieñstwo dla wszystkich mo¿liwoœci. Przejœcie z krawêdzi B do krawêdzi A wynosi oko³o 20 PROCENT, do krawêdzi D 30 procent, a do krawêdzi C oko³o 50 PROCENT. 
+
+Optymalna trasa zostanie wykszta³cona po wykonaniu wielu iteracji. Iloœæ iteracji nie jest zdefiniowana i dla ka¿dego przypadku mo¿e byæ ró¿na. Sytuacja wygl¹da identycznie w przypadku wyboru wartoœci p. Wa¿ne jest natomiast to, aby w trakcie dzia³ania algorytmu nie modyfikowaæ tej wartoœci. Powinno ona byæ taka sama na ka¿dym kroku algorytmu.
 
 \section{Algorytm zachlanne}
 
