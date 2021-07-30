@@ -59,23 +59,130 @@ Oprócz standardowych przeszukiwañ zbiorów na przestrzeni lat pojawi³y siê propoz
 	
 	Schemat blokowy klasycznego algorytm genetycznego zosta³ pokazany na rysunku \ref{genetic}
 	
-	Pierwszym krokiem algorytmu jest wylosowanie populacji pocz¹tkowej algorytmu. Wielkoœæ populacji podczas trwania ca³ego algorytmu jest sta³a $N$. Wa¿ne jest, aby wszystkie by³y jak najbardziej zró¿nicowane i wygenerowane losowo. Ka¿dy z osobników nastêpnie musi zostaæ zakodowany do postaci chromosomów, które bêd¹ przechowywaæ w sobie informacjê o odwiedzanych punktach w postaci genów.
+	Pierwszym krokiem  jest wylosowanie populacji pocz¹tkowej algorytmu. Wielkoœæ populacji podczas trwania ca³ego algorytmu jest sta³a $N$. Wa¿ne jest, aby wszystkie osobniki by³y jak najbardziej zró¿nicowane i wygenerowane losowo. Ka¿dy z nich nastêpnie musi zostaæ zakodowany do postaci chromosomów, które bêd¹ przechowywaæ w sobie informacjê o odwiedzanych punktach w postaci genów.
 	
-	W populacji ka¿dy osobnik musi zostaæ poddany ocenie funkcji przystosowania. Wynik tej funkcji determinuje jak dobre jest dane rozwi¹zanie. W klasycznym algorytmie d¹¿y siê do maksymalizacji tej funkcji. Okreœlenie jak dana funkcja przystosowania bêdzie wygl¹daæ, jest to jedn¹ z najwa¿niejszych rzeczy przy algorytmie genetycznym.  Jeœli zostanie Ÿle zdefiniowana, znalezione osobnik mo¿e nie spe³niaæ wymagañ rozwi¹zania problemu.
+	W populacji ka¿dy osobnik musi zostaæ poddany ocenie funkcji przystosowania. Jej wynik determinuje jak dobre jest dane rozwi¹zanie. W klasycznym algorytmie d¹¿y siê do maksymalizacji tej funkcji. Okreœlenie jak dana funkcja przystosowania bêdzie wygl¹daæ, jest to jedn¹ z najwa¿niejszych czêœci algorytmu genetycznego. Jeœli zostanie Ÿle zdefiniowana, znalezione osobnik mo¿e nie spe³niaæ wymagañ rozwi¹zania problemu.
 	
 	Po ocenie osobników zostaje sprawdzony warunek koñcowy algorytmu. W zale¿noœci od problemu zostaje zdefiniowany inny warunek. W klasycznych podejœciach s¹ dwa rodzaje warunków koñcowych. Pierwszym popularnym warunkiem koñcowym jest sta³a iloœæ iteracji algorytmu, czyli po wykonaniu okreœlonej iloœci razy ewolucji, wybierany jest najlepszy osobnik z populacji. Drugim warunkiem zazwyczaj jest przetwarzanie algorytmu dopóki nie zostanie znaleziony dostatecznie dobry osobnik. Nale¿y równie¿ za³o¿yæ, ¿e jeœli w kolejnych pokoleniach nie zachodzi poprawa najlepszego rozwi¹zania, nale¿y przerwaæ. Wybór  w jaki sposób bêdzie wygl¹daæ warunek koñcowy zale¿y od wielu czynników. Jeœli wa¿ny jest krótki czas, nale¿y za³o¿yæ pierwszy wariant. Jeœli natomiast algorytm mo¿e szukaæ rozwi¹zania nawet kilka godzin, mo¿na przyj¹æ drugi wariant.
 	
-	Kolejnym krokiem algorytmu jest wyselekcjonowanie rodziców do reprodukcji. Polega ona na tym, ¿e osobniki lepsze(maj¹ wiêksz¹ wartoœæ oceny przystosowania)maj¹ wiêksze szansê na pozostanie rodzicem i przekazanie swoich cech. \cite{genetic_3}. Najpopularniejszymi metodami wyboru rodziców jest metoda selekcji oraz metoda turniejowa.
-Pierwsza metoda s³abiej rozró¿nia osobniki gorsze od lepszych, mogê zdarzyæ siê, ¿e dwa najs³absze osobniki ulegn¹ reprodukcji. Natomiast w drugiej metodzie osobniki ze sob¹ rywalizuj¹ i wybierane s¹ najlepsze.
+	Kolejnym krokiem algorytmu jest wyselekcjonowanie rodziców do reprodukcji. Polega ona na tym, ¿e osobniki lepsze(maj¹ wiêksz¹ wartoœæ oceny przystosowania)maj¹ wiêksze szansê na pozostanie rodzicem i przekazanie swoich cech. \cite{genetic_3}. Najpopularniejszymi metodami wyboru rodziców jest metoda ruletki oraz turniejowa.
 
-	Wybrani rodzice zostaj¹ poddani operatorom genetycznym: krzy¿owanie(ang. crossover) oraz mutacji(ang. mutation). Krzy¿owanie polega na po³¹czeniu czêœci chromosomu jednego rodzica z czêœci¹ drugiego. Wynikiem takiego po³¹czenia jest nowy osobnik. Proces krzy¿owania w zale¿noœci mo¿e przebiegaæ w ró¿ny ale zawsze okreœlony sposób. Wszystko zale¿y od metody zakodowania chromosomu oraz od tego czy kolejnoœæ genów i ich unikalnoœæ ma znaczenie. W klasycznym podejœciu polega na rozciêciu w dowolnym miejscu genotypu u dwóch osobników, a nastêpnie skrzy¿owaniu ich. Nastêpnie u nowego osobnika mo¿e z prawdopodobieñstwem $pm$ wyst¹piæ mutacja. Jest to zmiana dowolnego jednego lub ci¹gu genów na inny. $pm$ w klasycznych algorytmach jest stosunkowo niskie. Mutacja ma na celu delikatne zró¿nicowanie osobników w celu przeszukania nowej przestrzeni rozwi¹zañ. Natomiast gdyby zachodzi³a czêsto, mog³aby powodowaæ niszczenie dobrych rozwi¹zañ.
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{grafika/ag_kolowy.png}
+	\caption{Metoda ruletki}
+	\label{ruletka}
+\end{figure}
+	Na rysunku \ref{ruletka} zosta³a zilustrowana pierwsza metoda ruletki. Ka¿dy z osobników dostaje wirtualny wycinek ko³a fortuny. Jego wielkoœæ zale¿y od wartoœci funkcji prawdopodobieñstwa. Przy ka¿dym wyborze rodzica nastêpuje zakrêceniem ko³a i do reprodukcji zostaje wybrany osobnik na który bêdzie wskazywa³ sta³y punkt. 
+	
+	W metodzie turniejowej zostaje wybranych $r$ osobników z populacji $N$. Z poœród nich zostaje wybrany zwyciêzca(najwiêksza wartoœæ funkcji przystosowania), który trafia do puli rodzicielskiej.Im wiêksza jest iloœæ osobników $r$ tym mniejsze szanse, ¿e s³absze osobniki zostan¹ wybrane.
+	
+	Wybrani rodzice zostaj¹ poddani operatorom genetycznym: krzy¿owanie(ang. crossover) oraz mutacji(ang. mutation). Krzy¿owanie polega na po³¹czeniu czêœci chromosomu jednego rodzica z czêœci¹ drugiego. Wynikiem takiego po³¹czenia jest nowy osobnik. Proces krzy¿owania w zale¿noœci mo¿e przebiegaæ w ró¿ny ale zawsze okreœlony sposób. Wszystko zale¿y od metody zakodowania chromosomu oraz od tego czy kolejnoœæ genów i ich unikalnoœæ ma znaczenie. W klasycznym podejœciu polega na rozciêciu w dowolnym miejscu genotypu u dwóch osobników oraz skrzy¿owaniu ich ze sob¹ w tym punkcie rys. \ref{crossover}.
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{grafika/ag_krzyzowanie.png}
+	\caption{Klasyczne krzy¿owanie}
+	\label{crossover}
+\end{figure}	
+	 Nastêpnie u nowego osobnika mo¿e z prawdopodobieñstwem $pm$ wyst¹piæ mutacja. Jest to zmiana dowolnego pojedynczego rys \ref{mutacja} lub ci¹gu genów na inny. Wartoœæ $pm$ w klasycznych algorytmach jest stosunkowo niskie. Mutacja ma na celu delikatne zró¿nicowanie osobników w celu przeszukania nowej przestrzeni rozwi¹zañ. Natomiast gdyby zachodzi³a czêsto, mog³aby powodowaæ niszczenie dobrych rozwi¹zañ.
+	 \begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{grafika/ag_mutacja.png}
+	\caption{Mutacja genotypu}
+	\label{mutacja}
+\end{figure}	
 	
 	Nastêpnie nowa populacja jest poddawana ocenie przystosowania i jeœli wyst¹pi³ warunek koñcowy, wybierane jest najlepsze rozwi¹zanie. 
 
 
 \section{Algorytm mrowkowy}
 
+Obserwacje nad zachowaniami w przyrodzie wielokrotnie mia³y wp³yw na rozwój nowych rozwi¹zañ. Tak jak w przypadku algorytmu genetycznego, tak i w przypadku algorytmu mrówkowego pomys³ zosta³ zaczerpniêty z przyrody. Dok³adne dzia³anie algorytmu mrówkowego wzoruje siê na zachowaniu kolonii mrówek. Dziêki pracy zespo³owej, owady te s¹ w stanie wypracowaæ optymaln¹ œcie¿kê miêdzy siedliskiem a znalezionym pokarmem.
 
+Dla niejednego gatunku problematyczne mog³oby byæ odtworzenie przebytej œcie¿ki. Na pocz¹tku nale¿a³oby zadaæ sobie pytanie w jaki sposób te niewielkich rozmiarów owady s¹ w stanie znacz¹co u³atwiæ sobie przetrwanie? Istotn¹ rolê odgrywa tutaj wspomniana ju¿ praca zespo³owa. To dziêki wspó³pracy mrówki s¹ w stanie optymalizowaæ trasê. Innym wa¿nym czynnikiem determinuj¹cym poprawê œcie¿ki jest zapach jaki zostawiaj¹ mrówki. 
+
+Zapach nie jest niczym innym jak feromonem wytwarzanym przez mrówki. Dziêki pozostawionemu zapachowi mrówki wiedzia³y w jaki sposób poruszali siê ich poprzednicy w zwi¹zku z czym odtworzenie trasy nie stanowi³o ju¿ powa¿nego problemu. Przy kolejnych iteracjach kolonia próbuje optymalizowaæ aktualn¹ trasê. W tym celu równie¿ wykorzystuje zapach pozostawiony w poprzednich przejœciach. Œcie¿ka jest losowo zmieniana w celu optymalizacji. Jeœli modyfikacja przynios³a oczekiwany efekt, to trasa zostaje zmieniona. 
+
+Feromony s¹ istotnym czynnikiem w ca³ym procesie. To dziêki nim trasa jest ulepszana. Zapach posiada jedn¹ z charakterystyk która na pocz¹tku mo¿e wydawaæ siê problematyczna. Wraz z up³ywem czasu si³a zapachu s³abnie a¿ do ca³kowitego zanikniêcia. W³aœciwoœæ ta jest zaletê, a nie wadê. To dziêki pracy zespo³owej zapach na najlepszej trasie jest podtrzymywany, a na s³abszych zanika. Dziêki tej selekcji d³u¿sze trasy nie s¹ brane pod uwagê w wyniku czego zostaje trasa najkorzystniejsza.
+
+\subsection{Opis dzia³ania algorytmu}
+
+Do wyznaczenia optymalnej trasy potrzebne s¹ d³ugoœci jakie nale¿y przebyæ do przemieszczania siê miêdzy punktami. W \ref{tabela_kosztow_ant} przedstawione s¹ przyk³adowe odleg³oœci.
+
+\begin{table}[htb]
+\centering
+\caption[Krótki podpis tabeli 1 -- do spisu treœci]{Wartoœci kosztów}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+  & A & B & C & D \\\hline
+A & 0 & 3 & 8 & 2 \\\hline
+B & 3 & 0 & 2 & 4 \\\hline
+C & 8 & 2 & 0 & 1 \\\hline
+D & 2 & 4 & 1 & 0 \\\hline
+\end{tabular}
+\label{tabela_kosztow_ant}
+\end{table}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{grafika/kl_init_trasa_alg.png}
+	\caption{Graf z wagami}
+	\label{fig:kl_init_trasa_alg}
+\end{figure}
+
+Równie wa¿ne jest wyznaczenie pocz¹tkowych wspó³czynników feromonów. Na pocz¹tku nadajmy wszystkim krawêdziom w grafie wartoœci równe 1, a wspó³czynnik parowania niech wynosi 0.5.
+
+\begin{table}[htb]
+\centering
+\caption[Krótki podpis tabeli 1 -- do spisu treœci]{Wartoœci feromonów}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+  & A & B & C & D \\\hline
+A & 0 & 1 & 1 & 1 \\\hline
+B & 1 & 0 & 1 & 1 \\\hline
+C & 1 & 1 & 0 & 1 \\\hline
+D & 1 & 1 & 1 & 0 \\\hline
+\end{tabular}
+\label{tabela_feromonow_ant}
+\end{table}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{grafika/kl_init_p_alg.png}
+	\caption{Graf z pocz¹tkowymi wartoœciami feromonów}
+	\label{fig:kl_init_trasa_alg}
+\end{figure}
+
+Posiadaj¹c pocz¹tkowe dane wyznaczmy w sposób losowy trasy dla dwóch agentów: L1 i L2. Agent L1 porusza³ siê tras¹ w której odwiedzi³ wierzcho³ki w nastêpuj¹cej kolejnoœci: A, B, C, D, A. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{grafika/kl_l1_trasa_alg.png}
+	\caption{Trasa przebyta przez agenta L1}
+	\label{fig:kl_init_trasa_alg}
+\end{figure}
+
+Agent L2 wyznaczy³ nastêpuj¹c¹ trasê: A, C, B, D, A. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{grafika/kl_l2_trasa_alg.png}
+	\caption{Trasa przebyta przez agenta L2}
+	\label{fig:kl_init_trasa_alg}
+\end{figure}
+
+Mrówki odpowiednio pokona³y dystans 8 i 16 punktów. Dziêki tej informacji mo¿na zaktualizowaæ wartoœci feromonów na poszczególnych krawêdziach. Do obliczeñ wykorzystany jest wzór: TUTAJ WZÓR DODAÆ. Krawêdzie A-B i C-D zosta³y odwiedzona jedynie przez agenta L1 w wyniku czego wartoœæ feromonu zostaje zmieniona na 10/16. Nastêpnie krawêdzie A-C i B-D zostaj¹ zaktualizowane na 9/16. Krawêdzie A-D i B-C s¹ odwiedzone dwukrotnie a wartoœæ feromonów wynosi 11/16.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{grafika/kl_p_alg.png}
+	\caption{Graf z wartoœciami feromonów po modyfikacji}
+	\label{fig:kl_init_trasa_alg}
+\end{figure}
+
+Ostatni¹ faz¹ algorytmu jest wyznaczenie prawdopodobieñstwa z jakim kolejni agenci bêd¹ wybieraæ kolejny wierzcho³ek. W kolejnej iteracji agent L3 znajduje siê w wierzcho³ku B. Do wyboru ma krawêdzie A, C i D. Wed³ug wzoru TUTAJ WZÓR DODAÆ wyliczane jest prawdopodobieñstwo dla wszystkich mo¿liwoœci. Przejœcie z krawêdzi B do krawêdzi A wynosi oko³o 20 PROCENT, do krawêdzi D 30 procent, a do krawêdzi C oko³o 50 PROCENT. 
+
+Optymalna trasa zostanie wykszta³cona po wykonaniu wielu iteracji. Iloœæ iteracji nie jest zdefiniowana i dla ka¿dego przypadku mo¿e byæ ró¿na. Sytuacja wygl¹da identycznie w przypadku wyboru wartoœci p. Wa¿ne jest natomiast to, aby w trakcie dzia³ania algorytmu nie modyfikowaæ tej wartoœci. Powinno ona byæ taka sama na ka¿dym kroku algorytmu.
 
 \section{Algorytm zachlanne}
 
