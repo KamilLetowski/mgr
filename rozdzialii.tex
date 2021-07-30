@@ -1,11 +1,54 @@
-\chapter{Algorytm genetyczny}
+\chapter{Algorytm genetyczny - Pawe³}
 	
-
 \section{Chromosom}
-	Chromosom z definicji jest to ci¹g genów reprezentuj¹cy dane rozwi¹zanie. Z kolei gen przenosi informacjê o cechach. Mo¿liwoœæ osi¹gniêcia sukcesu jest tylko wtedy, gdy odpowiednio zakoduje siê informacjê i ustali funkcjê przystosowania. Do zakodowania badanego problemu u¿yjê metody permutacyjnej, gdzie ka¿dy punkt musi zostaæ odwiedzony tylko raz. Ka¿demu punktowi przed wylosowanie tras zostanie przypisany unikalny indeks, bêdzie on odpowiada³ genowi. Nastêpnie dla ka¿dego z $K$ osobników zostanie zapisany chromosom w postaci ci¹gu permutacyjnego. Mo¿e to byæ $[ 1 2 3 4 5 6 7]$ jak równie¿ $[6 1 2 4 5 7 3]$. Te dwa chromosomy odwiedzaj¹ wszystkie punkty w ró¿nej kolejnoœci oraz tylko raz. 
+	Chromosom z definicji jest to ci¹g genów reprezentuj¹cy dane rozwi¹zanie. Z kolei gen przenosi informacjê o cechach. Mo¿liwoœæ osi¹gniêcia sukcesu jest tylko wtedy, gdy odpowiednio zakoduje siê cechy i ustali funkcjê przystosowania. Do zakodowania badanego problemu zostanie u¿yta metody permutacyjna, gdzie ka¿dy punkt musi zostaæ odwiedzony tylko raz. Ka¿demu punktowi przed wylosowanie tras zostanie przypisany unikalny indeks, bêdzie on odpowiada³ genowi. Nastêpnie dla ka¿dego z $N$ osobników zostanie zapisany chromosom w postaci ci¹gu permutacyjnego. Na rysunku \ref{kodowanie} zosta³y zilustrowane przyk³ady kodowania permutacyjnego. Nale¿y zwróciæ uwagê, ¿e pocz¹tek nie jest wa¿ny, wiec chromosom 1-2-3-4-5-6-7 bêdzie taki sam jak 5-6-7-1-2-3-4.
 	
-\section{Selekcja}
-	W algorytmie genetycznym przed wykonaniem operatorów nale¿y dokonaæ selekcji rodziców. Istnieje wiele ró¿nych sposobów, ja przebadam dwie najpopularniejsze. Jest to metoda ruletki oraz turniejowa
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{grafika/chromosom.png}
+	\caption{Kodowanie chromosomów}
+	\label{kodowanie}
+\end{figure}
 	
-\subsection{Metoda ruletki}
+\section{Funkcja przystosowania}
+	Algorytm genetyczny z definicji szuka osobnika z najwiêksz¹ wartoœci¹ funkcji przystosowania. W badanym problemie nale¿y znaleŸæ najkrótsz¹ trasê. W momencie, gdy d³ugoœæ takiej trasy zostanie odwrócona, to oka¿e siê, ¿e im wiêksza wartoœæ odwrotnoœci tym krótsza trasa. Zatem wzór funkcji przystosowania to \[ fp = \frac{1}{s+1}\]	gdzie s - d³ugoœæ trasy.
+
+\section{Metody krzy¿owania}
+	W pracy zostan¹ zbadane trzy rodzaje metod krzy¿owania.
+\subsection{Krzy¿owanie z czêœciowym odwzorowaniem - PMX}
+	PMX (ang. Partially mapped crossover) polega na wylosowaniu dwóch punktów czyli jest odmian¹ krzy¿owania dwupunktowego w którym powstaje dwójka potomstwa. W tych wylosowanych miejscach rozcina siê rodziców. Po czym zamienia siê wyciête segmenty miejscami (rys. \ref{krzyzowanie1}). Kolejnym krokiem jest naprawa pozosta³ych genów, poniewa¿ w tak powsta³ych chromosomach nie jest spe³niona zasada, aby ka¿dy gen wyst¹pi³ tylko raz. Nale¿y okreœliæ mapowanie genów w segmencie, po czym w ka¿dym dziecku te geny zostaj¹ zamienione (rys. \ref{krzyzowanie2}). Tak powsta³e dzieci maj¹ ju¿ strukturê permutacyjn¹.
+	
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{grafika/krzyzowanie1.png}
+	\caption{Krzy¿owanie PMX czêœæ 1}
+	\label{krzyzowanie1}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{grafika/krzyzowanie2.png}
+	\caption{Krzy¿owanie PMX czêœæ 2}
+	\label{krzyzowanie2}
+\end{figure}
+
+\subsection{Krzy¿owanie z zachowaniem porz¹dku - OX}
+	OX (ang. Order crossover) jest równie¿ odmian¹ krzy¿owania dwupunktowego. W przeciwieñstwie do PMX wynikiem bêdzie tylko jedno dziecko. Pierwszym krokiem jest wylosowanie dwóch dowolnych punktów w których zostanie rozciêty pierwszy rodzic. Nastêpnie w drugim rodzicu nale¿y usun¹æ punkty, które znajduj¹ siê w wyciêtym segmencie pierwszego rodzica. Ten wyciêty segment nale¿y wkleiæ w to samo miejsce w rodzicu drugim (rys. \ref{krzyzowanie2}).
+	
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{grafika/krzyzowanie3.png}
+	\caption{Krzy¿owanie OX}
+	\label{krzyzowanie2}
+\end{figure}
+
+\subsection{Krzy¿owanie cykliczne - CX}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{grafika/krzyzowanie4.png}
+	\caption{Krzy¿owanie CX}
+	\label{krzyzowanie3}
+\end{figure}
+
 	
