@@ -38,7 +38,10 @@ Oprócz standardowych przeszukiwañ zbiorów na przestrzeni lat pojawi³y siê propoz
 	Kolejnym podejœciem do rozwi¹zania problemu komiwoja¿era jest algorytm genetyczny(z ang. Genetic Algorithm - GA), czyli algorytm, który bazuje na ewolucji. Jest on oparty na zjawiskach zachodz¹cych przyrodzie jak dziedziczenie cech oraz dobór naturalny\cite{genetic_2}. D¹¿y on do tego, aby pocz¹tkowe pokolenia w raz z kolejnymi iteracjami ewoluowa³y w coraz to lepsze rozwi¹zania. Najwa¿niejsz¹ cech¹ jak¹ odwzorowuj¹ algorytmy genetyczne z przyrody, jest przetrwanie najlepszych osobników. W przyrodzie czêsto najs³absze osobniki w stadach nie bior¹ udzia³u w reprodukcji i  gin¹. Podobnie w algorytmie genetycznym populacja poddawana jest operatorom genetycznym: selekcja najlepszych osobników, krzy¿owanie oraz mutacja. Zastosowanie tych trzech operatorów prowadzi do powstawania w ka¿dym kolejnym pokoleniu lepiej przystosowanych osobników, czyli lepszych rozwi¹zañ problemu.
 
 \subsection{Zastosowanie}
-	Algorytmy genetyczne s¹ od dawna stosowane informatyce do rozwi¹zywania problemów komiwoja¿era oraz innych NP trudnych zagadnieñ.  Pionierem algorytmów genetycznych by³ John Henry Holland\cite{genetic_1}, który w latach 70 napisa³ ksi¹¿kê o algorytmach ewolucyjnych "Adaptation in Natural and Artificial Systems". Maj¹ zastosowanie w takich dziedzinach jak np: optymalizacje funkcji, minimalizacja kosztów, przemys³ lotniczy, projektowanie sieci przemys³owych itp. \cite{genetic_1}
+	Algorytmy genetyczne s¹ od dawna stosowane informatyce do rozwi¹zywania problemów komiwoja¿era oraz innych NP trudnych zagadnieñ.  Pionierem algorytmów genetycznych by³ John Henry Holland\cite{genetic_1}, który w latach 70 napisa³ ksi¹¿kê o algorytmach ewolucyjnych "Adaptation in Natural and Artificial Systems". Maj¹ zastosowanie w takich dziedzinach jak np: optymalizacje funkcji, minimalizacja kosztów, przemys³ lotniczy, projektowanie sieci przemys³owych itp. \cite{genetic_2}
+	Medycyna jest jedn¹ z wa¿niejszych dziedzin, gdzie wykorzystuje siê algorytmy genetyczne. Zbiory danych i przestrzeñ przeszukiwañ jest ogromna i z³o¿ona. Zazwyczaj w oparciu o te informacjê, lekarz musi podj¹æ decyzjê, czy np. nowotwór jest z³oœliwy, czy ma ³agodny przebieg. \cite{genetic_2}
+	
+	
 
 \subsection{Opis dzia³ania algorytmu}
 	Przed przejœciem do omawiania algorytmu, nale¿y wyjaœniæ podstawowe pojêcia, które wystêpuj¹ w algorytmie genetycznym:
@@ -93,7 +96,8 @@ Oprócz standardowych przeszukiwañ zbiorów na przestrzeni lat pojawi³y siê propoz
 	\label{mutacja}
 \end{figure}	
 	
-	Nastêpnie nowa populacja jest poddawana ocenie przystosowania i jeœli wyst¹pi³ warunek koñcowy, wybierane jest najlepsze rozwi¹zanie. 
+	Nastêpnie nowa populacja jest poddawana ocenie przystosowania i jeœli wyst¹pi³ warunek koñcowy, wybierane jest najlepsze rozwi¹zanie.
+	Algorytmy genetyczne i jego odmiany zrewolucjonizowa³y systemy informatyczne. Nie s¹ one algorytmami, które wyliczaj¹ dok³adne wyniki, ale przy odpowiedniej implementacji i ustaleniu parametrów wyjœciowych, pozwalaj¹ osi¹gn¹æ wystarczaj¹ce rezultaty. Bardzo wa¿ny jest czas, znalezienia takiego rozwi¹zania. Jeœli rozwi¹zanie  szukane jest w ci¹gu 24 godzin przez algorytm dok³adny, a algorytm genetyczny w trakcie kilku minut znajdzie rozwi¹zanie bêd¹ce w 95 procentach tak dobre samo dobre,to w systemach czasu rzeczywistego, bêdzie wybrany algorytm genetyczny, gdy¿ u¿ytkownik, nie bêdzie chcia³ czekaæ ca³ej doby na wynik swojego zapytania. Oczywiœcie, algorytmy genetyczne te¿ mog¹ znaleŸæ najlepsze rozwi¹zanie. Kwesti¹ ograniczenia jest zawsze czas.
 
 
 \section{Algorytm mrowkowy}
