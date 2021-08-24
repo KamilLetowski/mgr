@@ -189,13 +189,8 @@ Ostatni¹ faz¹ algorytmu jest wyznaczenie prawdopodobieñstwa z jakim kolejni agen
 
 Optymalna trasa zostanie wykszta³cona po wykonaniu wielu iteracji. Iloœæ iteracji nie jest zdefiniowana i dla ka¿dego przypadku mo¿e byæ ró¿na. Sytuacja wygl¹da identycznie w przypadku wyboru wartoœci p. Wa¿ne jest natomiast to, aby w trakcie dzia³ania algorytmu nie modyfikowaæ tej wartoœci. Powinno ona byæ taka sama na ka¿dym kroku algorytmu.
 
-\section{Algorytm zachlanne}
-
-\subsection{Metoda A*}
-	
-	
-\subsection{Metoda A+}
-	
-\subsection{Metoda A-}
+\section{Algorytmy zachlanne}
+	Kolejnym spojrzeniem na poruszany w pracy problem komiwoja¿era s¹ algorytmy zach³anne (ang. greedy algorithms). Nie znajdziemy dowodu na to czy dla podanego problemu algorytm zach³anny znalaz³ poprawny wynik, jednak stosuj¹c siê do pewnych zasad mo¿emy okreœliæ, ¿e dla naszego problemu istnieje rozwi¹zanie zach³anne. G³ówn¹ strategi¹ jak¹ siê kieruj¹ jak sama nazwa wskazuje jest dokonywanie wyborów, które w danej chwili wydaj¹ siê najlepsze. Oznacza to, ¿e dokonuje siê wyborów optymalnych lokalnie w nadziei, ¿e te wybory doprowadz¹ do rozwi¹zania globalnego w rozs¹dnym czasie. W odró¿nieniu do strategii zastosowanej w programowaniu dynamicznym wybory podejmowane przez algorytmy zach³anne nie s¹ uzale¿nione od wyborów przesz³ych. Kolejnym kryterium stosowanym do ocenienia poprawnoœci rozwi¹zania zach³annego jest w³asnoœæ optymalnej pod struktury, mówi¹ca o tym, ¿e optymalne rozwi¹zanie dla ca³ego problemu istnieje jedynie przy optymalnym rozwi¹zaniu pod problemów. Dane kryterium jest równie¿ istotne w przypadku rozwi¹zywania problemów metod¹ programowania dynamicznego. Algorytmy zach³anne nie zawsze prowadz¹ jednak do optymalnych rozwi¹zañ, jednak¿e dla w wiêkszoœci problemów daj¹ wystarczaj¹ce rezultaty.
+	Skorzystanie z algorytmów zach³annych czêsto okazuje siê niewystarczaj¹ce. Aby uzyskaæ lepszy efekt i polepszyæ zbudowane ju¿ trasy mo¿emy wykorzystaæ algorytmy lokalnej optymalizacji (ang. local search). U¿ycie ich na zwróconych przez algorytmy zach³anne trasach powinno zminimalizowaæ odleg³oœci miêdzy wierzcho³kami w celu poprawienia otrzymanego rozwi¹zania. Dok³adniejszy opis dzia³ania wybranych algorytmów zach³annych i metod optymalizuj¹cych zosta³ przedstawiony w podrozdzia³ach.
 	
 
