@@ -1,8 +1,8 @@
 \chapter{Ogólny problem}
 
-Problem komiwoja¿era (ang. travelling salesman problem - TSP) nale¿y do rodziny problemów NP-trudnych. Znalezienie najlepszego rozwi¹zania dla tego problemu jest trudne i fascynuje naukowców od wielu lat. Niektórzy poddaj¹ pod w¹tpliwoœæ znalezienie efektywnego rozwi¹zania czyli takiego którego czas dzia³ania jest maksymalnie wielomianowy. Aktualnie istnieje wiele rozwi¹zañ tego problemu, a proponowane podejœcia s¹ bardzo interesuj¹ce. Niektóre z nich bazuj¹ na lokalnych przeszukiwaniach grafu, a inne opieraj¹ siê na rozwoju.
+Problem komiwoja¿era (ang. travelling salesman problem - TSP) nale¿y do rodziny problemów NP-trudnych. Znalezienie najlepszego rozwi¹zania jest trudne i fascynuje naukowców od wielu lat. Niektórzy poddaj¹ pod w¹tpliwoœæ znalezienie efektywnego rozwi¹zania, czyli takiego którego czas dzia³ania jest maksymalnie wielomianowy. Aktualnie istnieje wiele rozwi¹zañ tego problemu, a proponowane podejœcia s¹ bardzo interesuj¹ce. Niektóre z nich bazuj¹ na lokalnych przeszukiwaniach grafu, a inne opieraj¹ siê na przyk³adach które wystêpuj¹ w przyrodzie.
 
-Podobnym problemem do TSP jest problem konika szachowego. Problem ten jest problemem NP-zupe³nym. Ju¿ w XVIII wieku badania nad tym problemem rozpocz¹³ Euler. Rozwi¹zanie tego problemu polega na znalezieniu œcie¿ki jak¹ ma przebyæ konik szachowy, tak aby odwiedziæ ka¿de pole na szachownicy tylko i wy³¹cznie raz. Skoczek porusza siê po planszy zgodnie z okreœlonym ruchem, a plansza szachowa mo¿e mieæ ró¿ny rozmiar. Konik porusza siê a¿ do momentu odwiedzenia wszystkich pól lub do momentu w którym nie ma mo¿liwoœci odwiedzenia kolejnego pola.
+Podobnym problemem do TSP jest problem konika szachowego. Problem ten równie¿ nale¿y do rodziny problemów NP-zupe³nym. Ju¿ w XVIII wieku badania nad tym problemem rozpocz¹³ Euler. Rozwi¹zanie tego problemu polega na znalezieniu œcie¿ki jak¹ ma przebyæ konik szachowy, tak aby odwiedziæ ka¿de pole na szachownicy tylko i wy³¹cznie raz. Skoczek porusza siê po planszy zgodnie z okreœlonym ruchem, a plansza szachowa mo¿e mieæ ró¿ny rozmiar. Konik porusza siê a¿ do momentu odwiedzenia wszystkich pól lub do momentu w którym nie ma mo¿liwoœci odwiedzenia kolejnego pola.
 
 Optymalizacja tras od zawsze jest obecna w historii ludzkoœci. Nawet takie trywialne problemy jak podró¿ pomiêdzy 3 miejscowoœciami mo¿e zostaæ sklasyfikowany jako problem komiwoja¿era. Chocia¿ dok³adne wskazanie na Ÿród³o problemu TSP nie jest znane, to ju¿ w 1832 roku w przewodniku dla podró¿uj¹cych po Niemczech i Szwajcarii zosta³a zawarta informacja o optymalizacji trasy przejazdu. Nie ma tam zawartych ¿adnych teorii matematycznych w zwi¹zku z czym nie mo¿na uznaæ tego dzie³a za pocz¹tek rozwa¿añ nad problemem komiwoja¿era.
 
@@ -26,11 +26,11 @@ Graf z \ref{kl_graf_hamiltona} posiada po³¹czenie krawêdzi dziêki któremu mo¿na 
 	\label{kl_graf_hamiltona}
 \end{figure}
 
-W latach 30 XX wieku Merrill Meeks Flood rozpocz¹³ rozwa¿ania nad optymalizacj¹ przejazdu autobusów szkolnych. Dzia³alnoœæ t¹ mo¿emy uznaæ za pocz¹tek pracy nad problemem TSP. Wraz z up³ywem czasu zainteresowanie problemem optymalizacyjnym narasta³o a co za tym idzie powstawa³y nowe pomys³y na algorytmy. Jednak ¿aden z pomys³ów nie jest w stanie zaproponowaæ dok³adnego rozwi¹zania które jest w stanie przedstawiæ rezultat w czasie wyra¿onym za pomoc¹ wielomianu.
+W latach 30 XX wieku Merrill Meeks Flood rozpocz¹³ rozwa¿ania nad optymalizacj¹ przejazdu autobusów szkolnych. Dzia³alnoœæ t¹ mo¿emy uznaæ za pocz¹tek pracy nad problemem TSP. Wraz z up³ywem czasu zainteresowanie problemem optymalizacyjnym narasta³o, a co za tym idzie powstawa³y nowe pomys³y na algorytmy. Jednak ¿aden z pomys³ów nie jest w stanie zaproponowaæ dok³adnego rozwi¹zania które jest w stanie przedstawiæ rezultat w czasie wyra¿onym za pomoc¹ wielomianu.
 
-Jednym z proponowanych rozwi¹zañ jest algorytm Helda Karpa który jest oparty na programowaniu dynamicznym. Z³o¿onoœæ pamiêciowa tego algorytmy wynosi O(n razy 2 do n), a czasowa O(n do 2 razy 2 do n). W algorytmie tym na ka¿dym kroku wyznaczamy punkt który powinien byæ przedostatni na trasie. Aby wyznaczyæ poprzednika nale¿y skorzystaæ ze wzoru w którym poszukiwana jest najmniejsza wartoœæ pomiêdzy punktami.
+Jednym z proponowanych rozwi¹zañ jest algorytm Helda Karpa który jest oparty na programowaniu dynamicznym. Z³o¿onoœæ pamiêciowa tego algorytmy wynosi \[ \Theta(n2^n) \] , a z³o¿onoœæ czasowa \[ \Theta(n^2 2^n) \]. W algorytmie tym na ka¿dym kroku wyznaczamy punkt który powinien byæ przedostatni na trasie. Aby wyznaczyæ poprzednika nale¿y skorzystaæ ze wzoru w którym poszukiwana jest najmniejsza wartoœæ pomiêdzy punktami.
 
-Innym przyk³adem algorytmu który mo¿na wykorzystaæ do rozwi¹zania problemu komiwoja¿era jest algorytm najbli¿szego s¹siada. Rozwi¹zanie to wykorzystuje strategiê zach³ann¹. W algorytmie szukamy aktualnie najlepszego ruchu. W tym celu przeszukiwani s¹ jedynie s¹siedzi którzy s¹ najbli¿ej aktualnego punktu. Z³o¿onoœæ takiego algorytmu jest szacowana na O(n do 2).
+Innym przyk³adem algorytmu który mo¿na wykorzystaæ do rozwi¹zania problemu komiwoja¿era jest algorytm najbli¿szego s¹siada. Rozwi¹zanie to wykorzystuje strategiê zach³ann¹. W algorytmie szukamy aktualnie najlepszego ruchu. W tym celu przeszukiwani s¹ jedynie s¹siedzi którzy s¹ najbli¿ej aktualnego punktu. Z³o¿onoœæ takiego algorytmu jest szacowana na \[ \Theta(n^2) \].
 
 Oprócz standardowych przeszukiwañ zbiorów na przestrzeni lat pojawi³y siê propozycje które wprowadzaj¹ elementy losowoœci. Przyk³adem takiego rozwi¹zania mogê byæ algorytm genetyczny oraz algorytm mrówkowy. Powsta³y równie¿ rozwi¹zania wykorzystuj¹ce bla bla bla a jako przyk³ad mog¹ pos³y¿yæ bla bla bla
 
@@ -96,11 +96,11 @@ Oprócz standardowych przeszukiwañ zbiorów na przestrzeni lat pojawi³y siê propoz
 	Nastêpnie nowa populacja jest poddawana ocenie przystosowania i jeœli wyst¹pi³ warunek koñcowy, wybierane jest najlepsze rozwi¹zanie. 
 
 
-\section{Algorytm mrowkowy}
+\section{Algorytm mrówkowy}
 
 Obserwacje nad zachowaniami w przyrodzie wielokrotnie mia³y wp³yw na rozwój nowych rozwi¹zañ. Tak jak w przypadku algorytmu genetycznego, tak i w przypadku algorytmu mrówkowego pomys³ zosta³ zaczerpniêty z przyrody. Dok³adne dzia³anie algorytmu mrówkowego wzoruje siê na zachowaniu kolonii mrówek. Dziêki pracy zespo³owej, owady te s¹ w stanie wypracowaæ optymaln¹ œcie¿kê miêdzy siedliskiem a znalezionym pokarmem.
 
-Dla niejednego gatunku problematyczne mog³oby byæ odtworzenie przebytej œcie¿ki. Na pocz¹tku nale¿a³oby zadaæ sobie pytanie w jaki sposób te niewielkich rozmiarów owady s¹ w stanie znacz¹co u³atwiæ sobie przetrwanie? Istotn¹ rolê odgrywa tutaj wspomniana ju¿ praca zespo³owa. To dziêki wspó³pracy mrówki s¹ w stanie optymalizowaæ trasê. Innym wa¿nym czynnikiem determinuj¹cym poprawê œcie¿ki jest zapach jaki zostawiaj¹ mrówki. 
+Dla niejednego gatunku problematyczne mog³oby byæ odtworzenie przebytej œcie¿ki. Na pocz¹tku nale¿a³oby zadaæ sobie pytanie w jaki sposób te niewielkich rozmiarów owady s¹ w stanie znacz¹co u³atwiæ sobie przetrwanie? Istotn¹ rolê odgrywa tutaj wspomniana ju¿ praca zespo³owa. To dziêki niej mrówki s¹ w stanie optymalizowaæ trasê. Innym wa¿nym czynnikiem determinuj¹cym poprawê œcie¿ki jest zapach jaki zostawiaj¹ mrówki. 
 
 Zapach nie jest niczym innym jak feromonem wytwarzanym przez mrówki. Dziêki pozostawionemu zapachowi mrówki wiedzia³y w jaki sposób poruszali siê ich poprzednicy w zwi¹zku z czym odtworzenie trasy nie stanowi³o ju¿ powa¿nego problemu. Przy kolejnych iteracjach kolonia próbuje optymalizowaæ aktualn¹ trasê. W tym celu równie¿ wykorzystuje zapach pozostawiony w poprzednich przejœciach. Œcie¿ka jest losowo zmieniana w celu optymalizacji. Jeœli modyfikacja przynios³a oczekiwany efekt, to trasa zostaje zmieniona. 
 

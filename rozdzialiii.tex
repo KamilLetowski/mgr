@@ -60,14 +60,23 @@ Algorytm mrówkowy znajduje swoje zastosowanie w rozwi¹zywaniu innych problemów. 
 Algorytm mrówkowy wygl¹da bardzo podobnie w tym przypadku. Na pocz¹tku mamy pewnê geracjê agentów - mrówek. Ka¿dy agent iteracyjnie poszukuje jak najlepszego rozwi¹zania. Po ka¿dej iteracji mo¿na wyró¿niæ trzy typy rozwi¹zañ: rozwi¹zanie poœrednie, rozwi¹zanie czêœciowe lub stan. Agenci w celu znalezienia rozwi¹zania wykorzystuje swoje naturalne umiejêtnoœci czyli zostawia na wszystkich obiektach w plecaku feromony. Dziêki lotnoœci feromonów mrówki s¹ w stanie identyfikowaæ bardziej zadowalaj¹ce przedmioty.
 
 Krzysztof Schiff w jednym z artyku³ów przedstawi³ rozwi¹zanie problemu plecakowego przy u¿yciu trzech metod optymalizacji algorytmu mrówkowego. Wszystkie te metody mo¿na opisaæ za pomoc¹ wzorów. Zgodnie z przyjêt¹ konwencj¹ przez autora artyku³u metody maj¹ odpowiednie nazwy: AKA1, AKA2 oraz AKA3. Atrakcyjnoœæ jest obliczana wed³ug wzorów: 
-AKA1 = z/ w/V,  gdzie:
+	\[
+	    AKA1 = \frac{z}{\frac{w}{V}}
+	\]
+gdzie:
 - z jest zyskiem wybranego obiektu;
 - w jest wag¹ wybranego obiektu;
 - V jest aktualn¹ ³adownoœci¹ plecaka
-AKA2 = z/ w\^2, gdzie:
+	\[
+	    AKA2 = \frac{z}{w^2}
+	\]
+gdzie:
 - z jest zyskiem wybranego obiektu;
 - w jest wag¹ wybranego obiektu;
-AKA3 = z/ w/C, gdzie:
+	\[
+	    AKA3 = \frac{z}{\frac{w}{C}}
+	\]
+gdzie:
 - z jest zyskiem wybranego obiektu;
 - w jest wag¹ wybranego obiektu;
 - C jest ca³kowit¹ wag¹ plecaka
