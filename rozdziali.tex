@@ -64,13 +64,13 @@ Algorytmy genetyczne s¹ od dawna stosowane informatyce do rozwi¹zywania problemó
 	
 	Schemat blokowy klasycznego algorytm genetycznego zosta³ pokazany na rysunku \ref{genetic}
 	
-	Pierwszym krokiem  jest wylosowanie populacji pocz¹tkowej algorytmu. Wielkoœæ populacji podczas trwania ca³ego algorytmu jest sta³a $N$. Wa¿ne jest, aby wszystkie osobniki by³y jak najbardziej zró¿nicowane i wygenerowane losowo. Ka¿dy z nich nastêpnie musi zostaæ zakodowany do postaci chromosomów, które bêd¹ przechowywaæ w sobie informacjê o odwiedzanych punktach w postaci genów.
+Pierwszym krokiem  jest wylosowanie populacji pocz¹tkowej algorytmu. Wielkoœæ populacji podczas trwania ca³ego algorytmu jest sta³a $N$. Wa¿ne jest, aby wszystkie osobniki by³y jak najbardziej zró¿nicowane i wygenerowane losowo. Ka¿dy z nich nastêpnie musi zostaæ zakodowany do postaci chromosomów, które bêd¹ przechowywaæ w sobie informacjê o odwiedzanych punktach w postaci genów.
 	
-	W populacji ka¿dy osobnik musi zostaæ poddany ocenie funkcji przystosowania. Jej wynik determinuje jak dobre jest dane rozwi¹zanie. W klasycznym algorytmie d¹¿y siê do maksymalizacji tej funkcji. Okreœlenie jak dana funkcja przystosowania bêdzie wygl¹daæ, jest to jedn¹ z najwa¿niejszych czêœci algorytmu genetycznego. Jeœli zostanie Ÿle zdefiniowana, znalezione osobnik mo¿e nie spe³niaæ wymagañ rozwi¹zania problemu.
+W populacji ka¿dy osobnik musi zostaæ poddany ocenie funkcji przystosowania. Jej wynik determinuje jak dobre jest dane rozwi¹zanie. W klasycznym algorytmie d¹¿y siê do maksymalizacji tej funkcji. Okreœlenie jak dana funkcja przystosowania bêdzie wygl¹daæ, jest to jedn¹ z najwa¿niejszych czêœci algorytmu genetycznego. Jeœli zostanie Ÿle zdefiniowana, znalezione osobnik mo¿e nie spe³niaæ wymagañ rozwi¹zania problemu.
 	
-	Po ocenie osobników zostaje sprawdzony warunek koñcowy algorytmu. W zale¿noœci od problemu zostaje zdefiniowany inny warunek. W klasycznych podejœciach s¹ dwa rodzaje warunków koñcowych. Pierwszym popularnym warunkiem koñcowym jest sta³a iloœæ iteracji algorytmu, czyli po wykonaniu okreœlonej iloœci razy ewolucji, wybierany jest najlepszy osobnik z populacji. Drugim warunkiem zazwyczaj jest przetwarzanie algorytmu dopóki nie zostanie znaleziony dostatecznie dobry osobnik. Nale¿y równie¿ za³o¿yæ, ¿e jeœli w kolejnych pokoleniach nie zachodzi poprawa najlepszego rozwi¹zania, nale¿y przerwaæ. Wybór  w jaki sposób bêdzie wygl¹daæ warunek koñcowy zale¿y od wielu czynników. Jeœli wa¿ny jest krótki czas, nale¿y za³o¿yæ pierwszy wariant. Jeœli natomiast algorytm mo¿e szukaæ rozwi¹zania nawet kilka godzin, mo¿na przyj¹æ drugi wariant.
+Po ocenie osobników zostaje sprawdzony warunek koñcowy algorytmu. W zale¿noœci od problemu zostaje zdefiniowany inny warunek. W klasycznych podejœciach s¹ dwa rodzaje warunków koñcowych. Pierwszym popularnym warunkiem koñcowym jest sta³a iloœæ iteracji algorytmu, czyli po wykonaniu okreœlonej iloœci razy ewolucji, wybierany jest najlepszy osobnik z populacji. Drugim warunkiem zazwyczaj jest przetwarzanie algorytmu dopóki nie zostanie znaleziony dostatecznie dobry osobnik. Nale¿y równie¿ za³o¿yæ, ¿e jeœli w kolejnych pokoleniach nie zachodzi poprawa najlepszego rozwi¹zania, nale¿y przerwaæ. Wybór  w jaki sposób bêdzie wygl¹daæ warunek koñcowy zale¿y od wielu czynników. Jeœli wa¿ny jest krótki czas, nale¿y za³o¿yæ pierwszy wariant. Jeœli natomiast algorytm mo¿e szukaæ rozwi¹zania nawet kilka godzin, mo¿na przyj¹æ drugi wariant.
 	
-	Kolejnym krokiem algorytmu jest wyselekcjonowanie rodziców do reprodukcji. Polega ona na tym, ¿e osobniki lepsze(maj¹ wiêksz¹ wartoœæ oceny przystosowania)maj¹ wiêksze szansê na pozostanie rodzicem i przekazanie swoich cech. \cite{genetic_3}. Najpopularniejszymi metodami wyboru rodziców jest metoda ruletki oraz turniejowa.
+Kolejnym krokiem algorytmu jest wyselekcjonowanie rodziców do reprodukcji. Polega ona na tym, ¿e osobniki lepsze(maj¹ wiêksz¹ wartoœæ oceny przystosowania)maj¹ wiêksze szansê na pozostanie rodzicem i przekazanie swoich cech. \cite{genetic_3}. Najpopularniejszymi metodami wyboru rodziców jest metoda ruletki oraz turniejowa.
 
 \begin{figure}[h]
 	\centering
@@ -78,11 +78,11 @@ Algorytmy genetyczne s¹ od dawna stosowane informatyce do rozwi¹zywania problemó
 	\caption{Metoda ruletki}
 	\label{ruletka}
 \end{figure}
-	Na rysunku \ref{ruletka} zosta³a zilustrowana pierwsza metoda ruletki. Ka¿dy z osobników dostaje wirtualny wycinek ko³a fortuny. Jego wielkoœæ zale¿y od wartoœci funkcji prawdopodobieñstwa. Przy ka¿dym wyborze rodzica nastêpuje zakrêceniem ko³a i do reprodukcji zostaje wybrany osobnik na który bêdzie wskazywa³ sta³y punkt. 
+Na rysunku \ref{ruletka} zosta³a zilustrowana pierwsza metoda ruletki. Ka¿dy z osobników dostaje wirtualny wycinek ko³a fortuny. Jego wielkoœæ zale¿y od wartoœci funkcji prawdopodobieñstwa. Przy ka¿dym wyborze rodzica nastêpuje zakrêceniem ko³a i do reprodukcji zostaje wybrany osobnik na który bêdzie wskazywa³ sta³y punkt. 
 	
-	W metodzie turniejowej zostaje wybranych $r$ osobników z populacji $N$. Z poœród nich zostaje wybrany zwyciêzca(najwiêksza wartoœæ funkcji przystosowania), który trafia do puli rodzicielskiej.Im wiêksza jest iloœæ osobników $r$ tym mniejsze szanse, ¿e s³absze osobniki zostan¹ wybrane.
+W metodzie turniejowej zostaje wybranych $r$ osobników z populacji $N$. Z poœród nich zostaje wybrany zwyciêzca(najwiêksza wartoœæ funkcji przystosowania), który trafia do puli rodzicielskiej. Im wiêksza jest iloœæ osobników $r$ tym mniejsze szanse, ¿e s³absze osobniki zostan¹ wybrane.
 	
-	Wybrani rodzice zostaj¹ poddani operatorom genetycznym: krzy¿owanie(ang. crossover) oraz mutacji(ang. mutation). Krzy¿owanie polega na po³¹czeniu czêœci chromosomu jednego rodzica z czêœci¹ drugiego. Wynikiem takiego po³¹czenia jest nowy osobnik. Proces krzy¿owania w zale¿noœci mo¿e przebiegaæ w ró¿ny ale zawsze okreœlony sposób. Wszystko zale¿y od metody zakodowania chromosomu oraz od tego czy kolejnoœæ genów i ich unikalnoœæ ma znaczenie. W klasycznym podejœciu polega na rozciêciu w dowolnym miejscu genotypu u dwóch osobników oraz skrzy¿owaniu ich ze sob¹ w tym punkcie rys. \ref{crossover}.
+Wybrani rodzice zostaj¹ poddani operatorom genetycznym: krzy¿owanie(ang. crossover) oraz mutacji(ang. mutation). Krzy¿owanie polega na po³¹czeniu czêœci chromosomu jednego rodzica z czêœci¹ drugiego. Wynikiem takiego po³¹czenia jest nowy osobnik. Proces krzy¿owania w zale¿noœci mo¿e przebiegaæ w ró¿ny ale zawsze okreœlony sposób. Wszystko zale¿y od metody zakodowania chromosomu oraz od tego czy kolejnoœæ genów i ich unikalnoœæ ma znaczenie. W klasycznym podejœciu polega na rozciêciu w dowolnym miejscu genotypu u dwóch osobników oraz skrzy¿owaniu ich ze sob¹ w tym punkcie(rys. \ref{crossover}).
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.75]{grafika/ag_krzyzowanie.png}
@@ -97,7 +97,7 @@ Algorytmy genetyczne s¹ od dawna stosowane informatyce do rozwi¹zywania problemó
 	\label{mutacja}
 \end{figure}	
 	
-	Nastêpnie nowa populacja jest poddawana ocenie przystosowania i jeœli wyst¹pi³ warunek koñcowy, wybierane jest najlepsze rozwi¹zanie.
+	Po zastosowaniu wszystkich operatorów genetycznych, nowa populacja jest poddawana ocenie przystosowania i jeœli wyst¹pi³ warunek koñcowy, wybierane jest najlepsze rozwi¹zanie.
 	Algorytmy genetyczne i jego odmiany zrewolucjonizowa³y systemy informatyczne. Nie s¹ one algorytmami, które wyliczaj¹ dok³adne wyniki, ale przy odpowiedniej implementacji i ustaleniu parametrów wyjœciowych, pozwalaj¹ osi¹gn¹æ wystarczaj¹ce rezultaty. Bardzo wa¿ny jest czas znalezienia takiego rozwi¹zania. Jeœli rozwi¹zanie idealne obliczane jest w ci¹gu 24 godzin przez algorytm dok³adny, a algorytm genetyczny w trakcie kilku minut znajdzie rozwi¹zanie bêd¹ce w s¹siedztwie, swoj¹ efektywnoœci¹ wygra ten drugi, gdy¿ u¿ytkownik, nie bêdzie chcia³ czekaæ ca³ej doby na wynik swojego zapytania. Oczywiœcie, algorytmy genetyczne te¿ mog¹ znaleŸæ najlepsze rozwi¹zanie. Kwesti¹ ograniczenia jest zawsze czas.
 
 
