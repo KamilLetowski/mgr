@@ -1,5 +1,7 @@
 \chapter{Ogólny problem}
+Badany przez nas problem jest w informatyce nazywany problemem komiwoja¿era. W tym rozdziale zostanie on omówiony oraz metody optymalizacji.
 
+\section{Problem komiwoja¿era} 
 Problem komiwoja¿era (ang. travelling salesman problem - TSP) nale¿y do rodziny problemów NP-trudnych. Znalezienie najlepszego rozwi¹zania dla tego problemu jest trudne i fascynuje naukowców od wielu lat. Niektórzy poddaj¹ pod w¹tpliwoœæ znalezienie efektywnego rozwi¹zania czyli takiego którego czas dzia³ania jest maksymalnie wielomianowy. Aktualnie istnieje wiele rozwi¹zañ tego problemu, a proponowane podejœcia s¹ bardzo interesuj¹ce. Niektóre z nich bazuj¹ na lokalnych przeszukiwaniach grafu, a inne opieraj¹ siê na rozwoju.
 
 Podobnym problemem do TSP jest problem konika szachowego. Problem ten jest problemem NP-zupe³nym. Ju¿ w XVIII wieku badania nad tym problemem rozpocz¹³ Euler. Rozwi¹zanie tego problemu polega na znalezieniu œcie¿ki jak¹ ma przebyæ konik szachowy, tak aby odwiedziæ ka¿de pole na szachownicy tylko i wy³¹cznie raz. Skoczek porusza siê po planszy zgodnie z okreœlonym ruchem, a plansza szachowa mo¿e mieæ ró¿ny rozmiar. Konik porusza siê a¿ do momentu odwiedzenia wszystkich pól lub do momentu w którym nie ma mo¿liwoœci odwiedzenia kolejnego pola.
@@ -34,16 +36,15 @@ Innym przyk³adem algorytmu który mo¿na wykorzystaæ do rozwi¹zania problemu komiw
 
 Oprócz standardowych przeszukiwañ zbiorów na przestrzeni lat pojawi³y siê propozycje które wprowadzaj¹ elementy losowoœci. Przyk³adem takiego rozwi¹zania mogê byæ algorytm genetyczny oraz algorytm mrówkowy. Powsta³y równie¿ rozwi¹zania wykorzystuj¹ce bla bla bla a jako przyk³ad mog¹ pos³y¿yæ bla bla bla
 
-\section{Algorytm genetyczny [Pawe³]} 
+\section{Metody optymalizacji} 
+W tym podrozdziale zos
+
+\subsection{Algorytm genetyczny - Pawe³}
 	Kolejnym podejœciem do rozwi¹zania problemu komiwoja¿era jest algorytm genetyczny(z ang. Genetic Algorithm - GA), czyli algorytm, który bazuje na ewolucji. Jest on oparty na zjawiskach zachodz¹cych przyrodzie jak dziedziczenie cech oraz dobór naturalny\cite{genetic_2}. D¹¿y on do tego, aby pocz¹tkowe pokolenia w raz z kolejnymi iteracjami ewoluowa³y w coraz to lepsze rozwi¹zania. Najwa¿niejsz¹ cech¹ jak¹ odwzorowuj¹ algorytmy genetyczne z przyrody, jest przetrwanie najlepszych osobników. W przyrodzie czêsto najs³absze osobniki w stadach nie bior¹ udzia³u w reprodukcji i  gin¹. Podobnie w algorytmie genetycznym populacja poddawana jest operatorom genetycznym: selekcja najlepszych osobników, krzy¿owanie oraz mutacja. Zastosowanie tych trzech operatorów prowadzi do powstawania w ka¿dym kolejnym pokoleniu lepiej przystosowanych osobników, czyli lepszych rozwi¹zañ problemu.
 
-\subsection{Zastosowanie}
 	Algorytmy genetyczne s¹ od dawna stosowane informatyce do rozwi¹zywania problemów komiwoja¿era oraz innych NP trudnych zagadnieñ.  Pionierem algorytmów genetycznych by³ John Henry Holland\cite{genetic_1}, który w latach 70 napisa³ ksi¹¿kê o algorytmach ewolucyjnych "Adaptation in Natural and Artificial Systems". Maj¹ zastosowanie w takich dziedzinach jak np: optymalizacje funkcji, minimalizacja kosztów, przemys³ lotniczy, projektowanie sieci przemys³owych itp. \cite{genetic_2}
 	Medycyna jest jedn¹ z wa¿niejszych dziedzin, gdzie wykorzystuje siê algorytmy genetyczne. Zbiory danych i przestrzeñ przeszukiwañ jest ogromna i z³o¿ona. Zazwyczaj w oparciu o te informacjê, lekarz musi podj¹æ decyzjê, czy np. nowotwór jest z³oœliwy, czy ma ³agodny przebieg. \cite{genetic_2}
 	
-	
-
-\subsection{Opis dzia³ania algorytmu}
 	Przed przejœciem do omawiania algorytmu, nale¿y wyjaœniæ podstawowe pojêcia, które wystêpuj¹ w algorytmie genetycznym:
 \begin{description}[font=$\bullet$~\normalfont\scshape]
  \item[Osobnik] pojedyncze rozwi¹zanie problemu, zakodowane w postaci chromosomu.
@@ -100,7 +101,7 @@ Oprócz standardowych przeszukiwañ zbiorów na przestrzeni lat pojawi³y siê propoz
 	Algorytmy genetyczne i jego odmiany zrewolucjonizowa³y systemy informatyczne. Nie s¹ one algorytmami, które wyliczaj¹ dok³adne wyniki, ale przy odpowiedniej implementacji i ustaleniu parametrów wyjœciowych, pozwalaj¹ osi¹gn¹æ wystarczaj¹ce rezultaty. Bardzo wa¿ny jest czas, znalezienia takiego rozwi¹zania. Jeœli rozwi¹zanie  szukane jest w ci¹gu 24 godzin przez algorytm dok³adny, a algorytm genetyczny w trakcie kilku minut znajdzie rozwi¹zanie bêd¹ce w 95 procentach tak dobre samo dobre,to w systemach czasu rzeczywistego, bêdzie wybrany algorytm genetyczny, gdy¿ u¿ytkownik, nie bêdzie chcia³ czekaæ ca³ej doby na wynik swojego zapytania. Oczywiœcie, algorytmy genetyczne te¿ mog¹ znaleŸæ najlepsze rozwi¹zanie. Kwesti¹ ograniczenia jest zawsze czas.
 
 
-\section{Algorytm mrowkowy}
+\subsection{Algorytm mrówkowy}
 
 Obserwacje nad zachowaniami w przyrodzie wielokrotnie mia³y wp³yw na rozwój nowych rozwi¹zañ. Tak jak w przypadku algorytmu genetycznego, tak i w przypadku algorytmu mrówkowego pomys³ zosta³ zaczerpniêty z przyrody. Dok³adne dzia³anie algorytmu mrówkowego wzoruje siê na zachowaniu kolonii mrówek. Dziêki pracy zespo³owej, owady te s¹ w stanie wypracowaæ optymaln¹ œcie¿kê miêdzy siedliskiem a znalezionym pokarmem.
 
@@ -109,8 +110,6 @@ Dla niejednego gatunku problematyczne mog³oby byæ odtworzenie przebytej œcie¿ki.
 Zapach nie jest niczym innym jak feromonem wytwarzanym przez mrówki. Dziêki pozostawionemu zapachowi mrówki wiedzia³y w jaki sposób poruszali siê ich poprzednicy w zwi¹zku z czym odtworzenie trasy nie stanowi³o ju¿ powa¿nego problemu. Przy kolejnych iteracjach kolonia próbuje optymalizowaæ aktualn¹ trasê. W tym celu równie¿ wykorzystuje zapach pozostawiony w poprzednich przejœciach. Œcie¿ka jest losowo zmieniana w celu optymalizacji. Jeœli modyfikacja przynios³a oczekiwany efekt, to trasa zostaje zmieniona. 
 
 Feromony s¹ istotnym czynnikiem w ca³ym procesie. To dziêki nim trasa jest ulepszana. Zapach posiada jedn¹ z charakterystyk która na pocz¹tku mo¿e wydawaæ siê problematyczna. Wraz z up³ywem czasu si³a zapachu s³abnie a¿ do ca³kowitego zanikniêcia. W³aœciwoœæ ta jest zaletê, a nie wadê. To dziêki pracy zespo³owej zapach na najlepszej trasie jest podtrzymywany, a na s³abszych zanika. Dziêki tej selekcji d³u¿sze trasy nie s¹ brane pod uwagê w wyniku czego zostaje trasa najkorzystniejsza.
-
-\subsection{Opis dzia³ania algorytmu}
 
 Do wyznaczenia optymalnej trasy potrzebne s¹ d³ugoœci jakie nale¿y przebyæ do przemieszczania siê miêdzy punktami. W \ref{tabela_kosztow_ant} przedstawione s¹ przyk³adowe odleg³oœci.
 
@@ -189,7 +188,7 @@ Ostatni¹ faz¹ algorytmu jest wyznaczenie prawdopodobieñstwa z jakim kolejni agen
 
 Optymalna trasa zostanie wykszta³cona po wykonaniu wielu iteracji. Iloœæ iteracji nie jest zdefiniowana i dla ka¿dego przypadku mo¿e byæ ró¿na. Sytuacja wygl¹da identycznie w przypadku wyboru wartoœci p. Wa¿ne jest natomiast to, aby w trakcie dzia³ania algorytmu nie modyfikowaæ tej wartoœci. Powinno ona byæ taka sama na ka¿dym kroku algorytmu.
 
-\section{Algorytmy zachlanne}
+\subsection{Algorytmy zach³anne}
 	Kolejnym spojrzeniem na poruszany w pracy problem komiwoja¿era s¹ algorytmy zach³anne (ang. greedy algorithms). Nie znajdziemy dowodu na to czy dla podanego problemu algorytm zach³anny znalaz³ poprawny wynik, jednak stosuj¹c siê do pewnych zasad mo¿emy okreœliæ, ¿e dla naszego problemu istnieje rozwi¹zanie zach³anne. G³ówn¹ strategi¹ jak¹ siê kieruj¹ jak sama nazwa wskazuje jest dokonywanie wyborów, które w danej chwili wydaj¹ siê najlepsze. Oznacza to, ¿e dokonuje siê wyborów optymalnych lokalnie w nadziei, ¿e te wybory doprowadz¹ do rozwi¹zania globalnego w rozs¹dnym czasie. W odró¿nieniu do strategii zastosowanej w programowaniu dynamicznym wybory podejmowane przez algorytmy zach³anne nie s¹ uzale¿nione od wyborów przesz³ych. Kolejnym kryterium stosowanym do ocenienia poprawnoœci rozwi¹zania zach³annego jest w³asnoœæ optymalnej pod struktury, mówi¹ca o tym, ¿e optymalne rozwi¹zanie dla ca³ego problemu istnieje jedynie przy optymalnym rozwi¹zaniu pod problemów. Dane kryterium jest równie¿ istotne w przypadku rozwi¹zywania problemów metod¹ programowania dynamicznego. Algorytmy zach³anne nie zawsze prowadz¹ jednak do optymalnych rozwi¹zañ, jednak¿e dla w wiêkszoœci problemów daj¹ wystarczaj¹ce rezultaty.
 	Skorzystanie z algorytmów zach³annych czêsto okazuje siê niewystarczaj¹ce. Aby uzyskaæ lepszy efekt i polepszyæ zbudowane ju¿ trasy mo¿emy wykorzystaæ algorytmy lokalnej optymalizacji (ang. local search). U¿ycie ich na zwróconych przez algorytmy zach³anne trasach powinno zminimalizowaæ odleg³oœci miêdzy wierzcho³kami w celu poprawienia otrzymanego rozwi¹zania. Dok³adniejszy opis dzia³ania wybranych algorytmów zach³annych i metod optymalizuj¹cych zosta³ przedstawiony w podrozdzia³ach.
 	
