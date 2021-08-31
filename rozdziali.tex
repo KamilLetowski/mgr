@@ -4,7 +4,7 @@ Problem komiwoja¿era (ang. travelling salesman problem - TSP) nale¿y do rodziny 
 
 Podobnym problemem do TSP jest problem konika szachowego. Problem ten równie¿ nale¿y do rodziny problemów NP-zupe³nym. Ju¿ w XVIII wieku badania nad tym problemem rozpocz¹³ Euler. Rozwi¹zanie tego problemu polega na znalezieniu œcie¿ki jak¹ ma przebyæ konik szachowy, tak aby odwiedziæ ka¿de pole na szachownicy tylko i wy³¹cznie raz. Skoczek porusza siê po planszy zgodnie z okreœlonym ruchem, a plansza szachowa mo¿e mieæ ró¿ny rozmiar. Konik porusza siê a¿ do momentu odwiedzenia wszystkich pól lub do momentu w którym nie ma mo¿liwoœci odwiedzenia kolejnego pola.
 
-Optymalizacja tras od zawsze jest obecna w historii ludzkoœci. Nawet takie trywialne problemy jak podró¿ pomiêdzy 3 miejscowoœciami mo¿e zostaæ sklasyfikowany jako problem komiwoja¿era. Chocia¿ dok³adne wskazanie na Ÿród³o problemu TSP nie jest znane, to ju¿ w 1832 roku w przewodniku dla podró¿uj¹cych po Niemczech i Szwajcarii zosta³a zawarta informacja o optymalizacji trasy przejazdu. Nie ma tam zawartych ¿adnych teorii matematycznych w zwi¹zku z czym nie mo¿na uznaæ tego dzie³a za pocz¹tek rozwa¿añ nad problemem komiwoja¿era.
+Optymalizacja tras od zawsze jest obecna w historii ludzkoœci. Nawet takie trywialne problemy jak podró¿ pomiêdzy 3 miejscowoœciami mo¿e zostaæ sklasyfikowany jako problem komiwoja¿era. Chocia¿ dok³adne wskazanie na Ÿród³o problemu TSP nie jest znane, to ju¿ w 1832 roku w przewodniku dla podró¿uj¹cych po Niemczech i Szwajcarii zosta³a zawarta informacja o optymalizacji trasy przejazdu. Nie ma tam zawartych ¿adnych teorii matematycznych w zwi¹zku z czym nie mo¿na uznaæ tego dzie³a za pocz¹tek rozwa¿añ nad problemem komiwoja¿era.\cite{kl_poczatek_rozwazan}
 
 W XIX wieku William Hamilton stworzy³ fundamenty pod definicjê TSP. W rozwi¹zaniu problemu komiwoja¿era nale¿y znaleŸæ cykl w grafie. W sk³ad takiego cyklu musi zostaæ zawarty ka¿dy z wierzcho³ków. Ka¿dy z wierzcho³ków mo¿e znajdowaæ siê w rozwi¹zaniu dok³adnie tylko raz. Cykl który spe³nia wymieniony warunek jest cyklem Hamiltona. Jeœli w grafie mo¿na wyró¿niæ cykl z opisanymi powy¿ej warunkami, to graf jest grafem Hamiltonowskim. 
 
@@ -28,7 +28,7 @@ Graf z \ref{kl_graf_hamiltona} posiada po³¹czenie krawêdzi dziêki któremu mo¿na 
 
 W latach 30 XX wieku Merrill Meeks Flood rozpocz¹³ rozwa¿ania nad optymalizacj¹ przejazdu autobusów szkolnych. Dzia³alnoœæ t¹ mo¿emy uznaæ za pocz¹tek pracy nad problemem TSP. Wraz z up³ywem czasu zainteresowanie problemem optymalizacyjnym narasta³o, a co za tym idzie powstawa³y nowe pomys³y na algorytmy. Jednak ¿aden z pomys³ów nie jest w stanie zaproponowaæ dok³adnego rozwi¹zania które jest w stanie przedstawiæ rezultat w czasie wyra¿onym za pomoc¹ wielomianu.
 
-Jednym z proponowanych rozwi¹zañ jest algorytm Helda Karpa który jest oparty na programowaniu dynamicznym. Z³o¿onoœæ pamiêciowa tego algorytmy wynosi \[ \Theta(n2^n) \] , a z³o¿onoœæ czasowa \[ \Theta(n^2 2^n) \]. W algorytmie tym na ka¿dym kroku wyznaczamy punkt który powinien byæ przedostatni na trasie. Aby wyznaczyæ poprzednika nale¿y skorzystaæ ze wzoru w którym poszukiwana jest najmniejsza wartoœæ pomiêdzy punktami.
+Jednym z proponowanych rozwi¹zañ jest algorytm Helda Karpa który jest oparty na programowaniu dynamicznym. Z³o¿onoœæ pamiêciowa tego algorytmy wynosi \[ \Theta(n2^n) \] , a z³o¿onoœæ czasowa \[ \Theta(n^2 2^n) \]. W algorytmie tym na ka¿dym kroku wyznaczamy punkt który powinien byæ przedostatni na trasie. Aby wyznaczyæ poprzednika nale¿y skorzystaæ ze wzoru w którym poszukiwana jest najmniejsza wartoœæ pomiêdzy punktami \cite{kl_alg_helda_karpa}.
 
 Innym przyk³adem algorytmu który mo¿na wykorzystaæ do rozwi¹zania problemu komiwoja¿era jest algorytm najbli¿szego s¹siada. Rozwi¹zanie to wykorzystuje strategiê zach³ann¹. W algorytmie szukamy aktualnie najlepszego ruchu. W tym celu przeszukiwani s¹ jedynie s¹siedzi którzy s¹ najbli¿ej aktualnego punktu. Z³o¿onoœæ takiego algorytmu jest szacowana na \[ \Theta(n^2) \].
 
@@ -38,10 +38,7 @@ Oprócz standardowych przeszukiwañ zbiorów na przestrzeni lat pojawi³y siê propoz
 	Kolejnym podejœciem do rozwi¹zania problemu komiwoja¿era jest algorytm genetyczny(z ang. Genetic Algorithm - GA), czyli algorytm, który bazuje na ewolucji. Jest on oparty na zjawiskach zachodz¹cych przyrodzie jak dziedziczenie cech oraz dobór naturalny\cite{genetic_2}. D¹¿y on do tego, aby pocz¹tkowe pokolenia w raz z kolejnymi iteracjami ewoluowa³y w coraz to lepsze rozwi¹zania. Najwa¿niejsz¹ cech¹ jak¹ odwzorowuj¹ algorytmy genetyczne z przyrody, jest przetrwanie najlepszych osobników. W przyrodzie czêsto najs³absze osobniki w stadach nie bior¹ udzia³u w reprodukcji i  gin¹. Podobnie w algorytmie genetycznym populacja poddawana jest operatorom genetycznym: selekcja najlepszych osobników, krzy¿owanie oraz mutacja. Zastosowanie tych trzech operatorów prowadzi do powstawania w ka¿dym kolejnym pokoleniu lepiej przystosowanych osobników, czyli lepszych rozwi¹zañ problemu.
 
 \subsection{Zastosowanie}
-	Algorytmy genetyczne s¹ od dawna stosowane informatyce do rozwi¹zywania problemów komiwoja¿era oraz innych NP trudnych zagadnieñ.  Pionierem algorytmów genetycznych by³ John Henry Holland\cite{genetic_1}, który w latach 70 napisa³ ksi¹¿kê o algorytmach ewolucyjnych "Adaptation in Natural and Artificial Systems". Maj¹ zastosowanie w takich dziedzinach jak np: optymalizacje funkcji, minimalizacja kosztów, przemys³ lotniczy, projektowanie sieci przemys³owych itp. \cite{genetic_2}
-	Medycyna jest jedn¹ z wa¿niejszych dziedzin, gdzie wykorzystuje siê algorytmy genetyczne. Zbiory danych i przestrzeñ przeszukiwañ jest ogromna i z³o¿ona. Zazwyczaj w oparciu o te informacjê, lekarz musi podj¹æ decyzjê, czy np. nowotwór jest z³oœliwy, czy ma ³agodny przebieg. \cite{genetic_2}
-	
-	
+	Algorytmy genetyczne s¹ od dawna stosowane informatyce do rozwi¹zywania problemów komiwoja¿era oraz innych NP trudnych zagadnieñ.  Pionierem algorytmów genetycznych by³ John Henry Holland\cite{genetic_1}, który w latach 70 napisa³ ksi¹¿kê o algorytmach ewolucyjnych "Adaptation in Natural and Artificial Systems". Maj¹ zastosowanie w takich dziedzinach jak np: optymalizacje funkcji, minimalizacja kosztów, przemys³ lotniczy, projektowanie sieci przemys³owych itp. \cite{genetic_1}
 
 \subsection{Opis dzia³ania algorytmu}
 	Przed przejœciem do omawiania algorytmu, nale¿y wyjaœniæ podstawowe pojêcia, które wystêpuj¹ w algorytmie genetycznym:
@@ -96,8 +93,7 @@ Oprócz standardowych przeszukiwañ zbiorów na przestrzeni lat pojawi³y siê propoz
 	\label{mutacja}
 \end{figure}	
 	
-	Nastêpnie nowa populacja jest poddawana ocenie przystosowania i jeœli wyst¹pi³ warunek koñcowy, wybierane jest najlepsze rozwi¹zanie.
-	Algorytmy genetyczne i jego odmiany zrewolucjonizowa³y systemy informatyczne. Nie s¹ one algorytmami, które wyliczaj¹ dok³adne wyniki, ale przy odpowiedniej implementacji i ustaleniu parametrów wyjœciowych, pozwalaj¹ osi¹gn¹æ wystarczaj¹ce rezultaty. Bardzo wa¿ny jest czas, znalezienia takiego rozwi¹zania. Jeœli rozwi¹zanie  szukane jest w ci¹gu 24 godzin przez algorytm dok³adny, a algorytm genetyczny w trakcie kilku minut znajdzie rozwi¹zanie bêd¹ce w 95 procentach tak dobre samo dobre,to w systemach czasu rzeczywistego, bêdzie wybrany algorytm genetyczny, gdy¿ u¿ytkownik, nie bêdzie chcia³ czekaæ ca³ej doby na wynik swojego zapytania. Oczywiœcie, algorytmy genetyczne te¿ mog¹ znaleŸæ najlepsze rozwi¹zanie. Kwesti¹ ograniczenia jest zawsze czas.
+	Nastêpnie nowa populacja jest poddawana ocenie przystosowania i jeœli wyst¹pi³ warunek koñcowy, wybierane jest najlepsze rozwi¹zanie. 
 
 
 \section{Algorytm mrówkowy}
@@ -189,8 +185,13 @@ Ostatni¹ faz¹ algorytmu jest wyznaczenie prawdopodobieñstwa z jakim kolejni agen
 
 Optymalna trasa zostanie wykszta³cona po wykonaniu wielu iteracji. Iloœæ iteracji nie jest zdefiniowana i dla ka¿dego przypadku mo¿e byæ ró¿na. Sytuacja wygl¹da identycznie w przypadku wyboru wartoœci p. Wa¿ne jest natomiast to, aby w trakcie dzia³ania algorytmu nie modyfikowaæ tej wartoœci. Powinno ona byæ taka sama na ka¿dym kroku algorytmu.
 
-\section{Algorytmy zachlanne}
-	Kolejnym spojrzeniem na poruszany w pracy problem komiwoja¿era s¹ algorytmy zach³anne (ang. greedy algorithms). Nie znajdziemy dowodu na to czy dla podanego problemu algorytm zach³anny znalaz³ poprawny wynik, jednak stosuj¹c siê do pewnych zasad mo¿emy okreœliæ, ¿e dla naszego problemu istnieje rozwi¹zanie zach³anne. G³ówn¹ strategi¹ jak¹ siê kieruj¹ jak sama nazwa wskazuje jest dokonywanie wyborów, które w danej chwili wydaj¹ siê najlepsze. Oznacza to, ¿e dokonuje siê wyborów optymalnych lokalnie w nadziei, ¿e te wybory doprowadz¹ do rozwi¹zania globalnego w rozs¹dnym czasie. W odró¿nieniu do strategii zastosowanej w programowaniu dynamicznym wybory podejmowane przez algorytmy zach³anne nie s¹ uzale¿nione od wyborów przesz³ych. Kolejnym kryterium stosowanym do ocenienia poprawnoœci rozwi¹zania zach³annego jest w³asnoœæ optymalnej pod struktury, mówi¹ca o tym, ¿e optymalne rozwi¹zanie dla ca³ego problemu istnieje jedynie przy optymalnym rozwi¹zaniu pod problemów. Dane kryterium jest równie¿ istotne w przypadku rozwi¹zywania problemów metod¹ programowania dynamicznego. Algorytmy zach³anne nie zawsze prowadz¹ jednak do optymalnych rozwi¹zañ, jednak¿e dla w wiêkszoœci problemów daj¹ wystarczaj¹ce rezultaty.
-	Skorzystanie z algorytmów zach³annych czêsto okazuje siê niewystarczaj¹ce. Aby uzyskaæ lepszy efekt i polepszyæ zbudowane ju¿ trasy mo¿emy wykorzystaæ algorytmy lokalnej optymalizacji (ang. local search). U¿ycie ich na zwróconych przez algorytmy zach³anne trasach powinno zminimalizowaæ odleg³oœci miêdzy wierzcho³kami w celu poprawienia otrzymanego rozwi¹zania. Dok³adniejszy opis dzia³ania wybranych algorytmów zach³annych i metod optymalizuj¹cych zosta³ przedstawiony w podrozdzia³ach.
+\section{Algorytm zachlanne}
+
+\subsection{Metoda A*}
+	
+	
+\subsection{Metoda A+}
+	
+\subsection{Metoda A-}
 	
 
