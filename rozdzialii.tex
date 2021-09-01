@@ -1,7 +1,61 @@
 \chapter{Algorytm genetyczny - Pawe³}
-W tym rozdziale zostanie przedstawiony sposób w jaki zostanie zastosowany algorytm genetyczny przy wyznaczaniu najlepszych tras dla ciê¿arówek przewozu odpadów komunalnych. W przypadku mutacji oraz krzy¿owania zostan¹ zbadane trzy ró¿ne metody, w celu znalezienia daj¹cej najlepsze wyniki dla badanego problemu.
+W tym rozdziale zostanie przedstawiony sposób w jaki zostanie zastosowany algorytm genetyczny przy wyznaczaniu najlepszych tras dla ciê¿arówek przewozu odpadów komunalnych. 
+
+\section{Wprowadzenie do algorytmu}
+Przed przejœciem do omawiania algorytmu, nale¿y wyjaœniæ podstawowe pojêcia, które wystêpuj¹ w algorytmie genetycznym:
+\begin{description}[font=$\bullet$~\normalfont\scshape]
+ \item[Osobnik] -- pojedyncze rozwi¹zanie problemu, zakodowane w postaci chromosomu,
+ \item[Populacja] -- zbiór osobników o sta³ej liczbie $N$ w przekroju trwania ca³ego algorytmu,
+ \item[Gen] -- przechowuje informacjê o dowolnej cesze osobnika. W zale¿noœci od sposobu kodowania mo¿e to byæ bit, dowolna cyfra lub znak,
+ \item[Chromosom] -- sk³ada siê z uporz¹dkowanego ci¹gu genów, przechowuje wszystkie cechy osobnika,
+ \item[Genotyp] -- w przyrodzie mo¿e sk³adaæ siê z kilku chromosomów i okreœla sk³ad osobnika. W algorytmach genetycznych przyjmuje siê, ¿e jest to pojedynczy chromosom \cite{genetic_1}.
+ \item[Funkcja przystosowania]
+\end{description} 
+ 
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{grafika/algorytm_genetyczny.png}
+	\caption{Schemat algorytmu genetycznego}
+	\label{genetic}
+\end{figure}
+	
+	Schemat blokowy klasycznego algorytm genetycznego zosta³ pokazany na rysunku \ref{genetic}. Pierwszym krokiem  jest wylosowanie populacji pocz¹tkowej algorytmu. Wielkoœæ populacji podczas trwania ca³ego algorytmu jest sta³a $N$. Wa¿ne jest, aby wszystkie osobniki by³y jak najbardziej zró¿nicowane i wygenerowane losowo. Ka¿dy z nich nastêpnie musi zostaæ zakodowany do postaci chromosomów, które bêd¹ przechowywaæ w sobie informacjê o odwiedzanych punktach w postaci genów.
+	
+W populacji ka¿dy osobnik musi zostaæ poddany ocenie funkcji przystosowania. Jej wynik determinuje jak dobre jest dane rozwi¹zanie. W klasycznym algorytmie d¹¿y siê do maksymalizacji tej funkcji. Okreœlenie jak dana funkcja przystosowania bêdzie wygl¹daæ, jest to jedn¹ z najwa¿niejszych czêœci algorytmu genetycznego. Jeœli zostanie Ÿle zdefiniowana, znalezione osobnik mo¿e nie spe³niaæ wymagañ rozwi¹zania problemu.
+	
+Po ocenie osobników zostaje sprawdzony warunek koñcowy algorytmu. W zale¿noœci od problemu zostaje zdefiniowany inny warunek. W klasycznych podejœciach s¹ dwa rodzaje warunków koñcowych. Pierwszym popularnym warunkiem koñcowym jest sta³a iloœæ iteracji algorytmu, czyli po wykonaniu okreœlonej iloœci razy ewolucji, wybierany jest najlepszy osobnik z populacji. Drugim warunkiem zazwyczaj jest przetwarzanie algorytmu dopóki nie zostanie znaleziony dostatecznie dobry osobnik. Nale¿y równie¿ za³o¿yæ, ¿e jeœli w kolejnych pokoleniach nie zachodzi poprawa najlepszego rozwi¹zania, nale¿y przerwaæ. Wybór  w jaki sposób bêdzie wygl¹daæ warunek koñcowy zale¿y od wielu czynników. Jeœli wa¿ny jest krótki czas, nale¿y za³o¿yæ pierwszy wariant. Jeœli natomiast algorytm mo¿e szukaæ rozwi¹zania nawet kilka godzin, mo¿na przyj¹æ drugi wariant.
+	
+Kolejnym krokiem algorytmu jest wyselekcjonowanie rodziców do reprodukcji. Polega ona na tym, ¿e osobniki lepsze(maj¹ wiêksz¹ wartoœæ oceny przystosowania)maj¹ wiêksze szansê na pozostanie rodzicem i przekazanie swoich cech. \cite{genetic_3}. Najpopularniejszymi metodami wyboru rodziców jest metoda ruletki oraz turniejowa.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{grafika/ag_kolowy.png}
+	\caption{Metoda ruletki}
+	\label{ruletka}
+\end{figure}
+Na rysunku \ref{ruletka} zosta³a zilustrowana metoda ruletki. Ka¿dy z osobników dostaje wirtualny wycinek ko³a fortuny. Jego wielkoœæ zale¿y od wartoœci funkcji prawdopodobieñstwa. Przy ka¿dym wyborze rodzica nastêpuje zakrêcenie ko³a i do reprodukcji zostaje wybrany osobnik na który bêdzie wskazywa³ sta³y punkt. 
+	
+W metodzie turniejowej zostaje wybranych $r$ osobników z populacji $N$. Z poœród nich zostaje wybrany zwyciêzca(najwiêksza wartoœæ funkcji przystosowania), który trafia do puli rodzicielskiej. Im wiêksza jest iloœæ osobników $r$ tym mniejsze szanse, ¿e s³absze osobniki zostan¹ wybrane.
+	
+Wybrani rodzice zostaj¹ poddani operatorom genetycznym: krzy¿owanie(ang. \textit{crossover}) oraz mutacji(ang. \textit{mutation}). Krzy¿owanie polega na po³¹czeniu czêœci chromosomu jednego rodzica z czêœci¹ drugiego. Wynikiem takiego po³¹czenia jest nowy osobnik. Metody krzy¿owania s¹ ró¿ne, ale zawsze wykonywane musz¹ byæ w ten sam okreœlony sposób. Wszystko zale¿y od metody zakodowania chromosomu oraz od tego czy kolejnoœæ genów i ich unikalnoœæ ma znaczenie. W klasycznym podejœciu polega na rozciêciu w dowolnym miejscu genotypu u dwóch osobników oraz skrzy¿owaniu ich ze sob¹ w tym punkcie (Rys. \ref{crossover}).
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{grafika/ag_krzyzowanie.png}
+	\caption{Klasyczne krzy¿owanie}
+	\label{crossover}
+\end{figure}	
+
+Nastêpnie u nowego osobnika mo¿e z prawdopodobieñstwem $pm$ wyst¹piæ mutacja. Jest to zmiana dowolnego pojedynczego lub ci¹gu genów na inny (Rys \ref{mutacja}). Wartoœæ $pm$ w klasycznych algorytmach jest stosunkowo niska. Mutacja ma na celu delikatne zró¿nicowanie osobników w celu przeszukania nowej przestrzeni rozwi¹zañ. Natomiast gdyby zachodzi³a czêsto, mog³aby powodowaæ niszczenie dobrych rozwi¹zañ.
+	 \begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{grafika/ag_mutacja.png}
+	\caption{Mutacja genotypu}
+	\label{mutacja}
+\end{figure}	
+Po zastosowaniu wszystkich operatorów genetycznych, nowa populacja jest poddawana ocenie przystosowania i jeœli wyst¹pi³ warunek koñcowy, wybierane jest najlepsze rozwi¹zanie.
+
 \section{Chromosom}
-	W algorytmie genetycznym, ka¿dy osobnik z populacji reprezentuje jedno rozwi¹zanie. Jakoœæ takiego rozwi¹zania jest zapisywana do zakodowanej postaci chromosomu. Chromosom z definicji jest to ci¹g genów reprezentuj¹cy dane rozwi¹zanie. Z kolei gen przenosi informacjê o cechach. Mo¿liwoœæ osi¹gniêcia sukcesu w algorytmie genetycznym jest tylko wtedy, gdy odpowiednio zakoduje siê cechy i ustali funkcjê przystosowania. Do zakodowania badanego problemu zostanie u¿yta metody permutacyjna bez powtórzeñ. Permutacja to jest dowolnie utworzony ci¹g ze wszystkich elementów zbiorów. W badanym problemie ka¿demu punktowi przed wylosowanie tras zostanie przypisany unikalny indeks, bêdzie on odpowiada³ genowi. Nastêpnie dla ka¿dego z $N$ osobników zostanie zapisany chromosom w postaci ci¹gu permutacyjnego. Na rysunku \ref{kodowanie} zosta³y zilustrowane przyk³ady kodowania permutacyjnego bez powtórzeñ. W przysz³ych podrozdzia³ach gen bêdzie oznacza³ jeden z punktów za³adowañ na trasie ciê¿arówki. Chromosom bêdzie oznacza³ kolejnoœæ odwiedzania tych punktów(genów) przez pojazd.
+W algorytmie genetycznym, ka¿dy osobnik z populacji reprezentuje jedno rozwi¹zanie. Jakoœæ takiego rozwi¹zania jest zapisywana do zakodowanej postaci chromosomu. Chromosom z definicji jest to ci¹g genów reprezentuj¹cy dane rozwi¹zanie. Z kolei gen przenosi informacjê o cechach. Mo¿liwoœæ osi¹gniêcia sukcesu w algorytmie genetycznym jest tylko wtedy, gdy odpowiednio zakoduje siê cechy i ustali funkcjê przystosowania. Do zakodowania badanego problemu zostanie u¿yta metody permutacyjna bez powtórzeñ. Permutacja to jest dowolnie utworzony ci¹g ze wszystkich elementów zbiorów. W badanym problemie ka¿demu punktowi przed wylosowanie tras zostanie przypisany unikalny indeks, bêdzie on odpowiada³ genowi. Nastêpnie dla ka¿dego z $N$ osobników zostanie zapisany chromosom w postaci ci¹gu permutacyjnego. Na rysunku \ref{kodowanie} zosta³y zilustrowane przyk³ady kodowania permutacyjnego bez powtórzeñ. W przysz³ych podrozdzia³ach gen bêdzie oznacza³ jeden z punktów za³adowañ na trasie ciê¿arówki. Chromosom bêdzie oznacza³ kolejnoœæ odwiedzania tych punktów(genów) przez pojazd.
 	
 \begin{figure}[h]
 	\centering
@@ -16,27 +70,24 @@ W tym rozdziale zostanie przedstawiony sposób w jaki zostanie zastosowany algory
 \section{Metody krzy¿owania}
 	W pracy zostan¹ zbadane trzy rodzaje metod krzy¿owania. Ka¿de z nich charakteryzuje siê czymœ innym jeœli chodzi o liczbê potomków oraz porz¹dek genów wzglêdem rodziców. Warunkiem koniecznym jest aby wynik krzy¿owañ, nie zaburza³ struktury permutacyjnej chromosomu.
 \subsection{Krzy¿owanie z czêœciowym odwzorowaniem - PMX}
-	PMX (ang. Partially Mapped Crossover) jest odmian¹ krzy¿owania dwupunktowego, w którym powstaje dwójka potomstwa. Za³ó¿my, ¿e mamy wyselekcjonowanych dwóch rodziców: 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 oraz 4 - 3 - 6 - 1 - 8 - 7 - 2 - 5 (Rys. \ref{krzyzowanie1}). 
+	PMX\cite{genetic_7} (ang. \textit{Partially Mapped Crossover}) jest odmian¹ krzy¿owania dwupunktowego, w którym powstaje dwójka potomstwa. Za³ó¿my, ¿e mamy wyselekcjonowanych dwóch rodziców: 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 oraz 4 - 3 - 6 - 1 - 8 - 7 - 2 - 5 (Rys. \ref{krzyzowanie1}). 
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.75]{grafika/krzyzowanie1.png}
 	\caption{Krzy¿owanie PMX - czêœæ 1}
 	\label{krzyzowanie1}
 \end{figure}
-
 Losowane s¹ dwa dowolne punkty w których siê ich rozcina, w tym wypadku jest znajduj¹ siê one po trzecim i szóstym genie. Powsta³e w ten sposób segmenty pomiêdzy tymi punktami, s¹ to: 4 - 5 - 6 oraz 1 - 8 - 7, wymienia siê ze sob¹. W wyniku tej operacji powsta³y dwa chromosomy: 1 - 2 - 3 - 1 - 8 - 7 - 7 - 8 oraz 4 - 3 - 6 - 4 - 5 - 6 - 2 - 5. Oba z nich nie s¹ permutacyjne i wystêpuj¹ w nich powtórzenia. Nale¿y je zamieniæ na te geny, które zosta³y wyciête. W tym celu nastêpuje okreœlenie relacji pomiêdzy genami w wyciêtych segmentach, które nastêpnie siê zamienia ze sob¹ w chromosomach (Rys. \ref{krzyzowanie2}).
-
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.75]{grafika/krzyzowanie2.png}
 	\caption{Krzy¿owanie PMX - czêœæ 2}
 	\label{krzyzowanie2}
 \end{figure}
-
-W pierwszym dziecku zamieniamy: 1 -> 4, 8 -> 5  oraz 7 -> 6. W drugim nale¿y wykonaæ odwrotne mapowanie: 4 -> 1, 5 -> 8 oraz 6 -> 7 Tak powsta³e dzieci posiadaj¹ ju¿ strukturê permutacyjn¹ i mog¹ braæ udzia³ w kolejnych etapach.
+W pierwszym dziecku nale¿y zamieniæ odpowiednie geny: 1 -> 4, 8 -> 5  oraz 7 -> 6. W drugim nale¿y wykonaæ odwrotne mapowanie: 4 -> 1, 5 -> 8 oraz 6 -> 7. Tak powsta³e dzieci posiadaj¹ ju¿ strukturê permutacyjn¹ i mog¹ braæ udzia³ w kolejnych etapach.
 
 \subsection{Krzy¿owanie z zachowaniem porz¹dku - OX}
-	OX (ang. Order Crossover) jest równie¿ odmian¹ krzy¿owania dwupunktowego. W przeciwieñstwie do PMX wynikiem bêdzie tylko jedno dziecko. Rozwa¿my rodziców z poprzedniego przyk³adu. Pierwszym krokiem jest wylosowanie dwóch dowolnych punktów w których zostanie rozciêty pierwszy rodzic. Za³ó¿my podobnie jak poprzednio, ¿e s¹ to punkty po trzecim i szóstym genie (Rys \ref{krzyzowanie3}). Oba punkty tworz¹ segment 4 - 5 - 6.
+	OX\cite{genetic_6} (ang. \textit{Order Crossover}) jest równie¿ odmian¹ krzy¿owania dwupunktowego. W przeciwieñstwie do PMX wynikiem bêdzie tylko jedno dziecko. Rozwa¿my rodziców z poprzedniego przyk³adu. Pierwszym krokiem jest wylosowanie dwóch dowolnych punktów w których zostanie rozciêty pierwszy rodzic. Za³ó¿my podobnie jak poprzednio, ¿e s¹ to punkty po trzecim i szóstym genie (Rys \ref{krzyzowanie3}). Oba punkty tworz¹ segment 4 - 5 - 6.
 	
 \begin{figure}[h]
 	\centering
@@ -45,18 +96,17 @@ W pierwszym dziecku zamieniamy: 1 -> 4, 8 -> 5  oraz 7 -> 6. W drugim nale¿y wyk
 	\label{krzyzowanie3}
 \end{figure}
 
-	 Nastêpnie w drugim rodzicu nale¿y usun¹æ geny, które zosta³y z pierwszego rodzica wyciête. Na rysunku \ref{krzyzowanie3} zosta³y one podkreœlone. Ostatnim krokiem jest wstawienie wycinka 4 - 5 - 6 do drugiego rodzica, w to samo miejsce z jakiego zosta³y usuniête. Powsta³ potomek 3 - 1 - 8 - 4 - 5 - 6 - 7 - 2. Na pierwszy rzut oka mo¿na zauwa¿yæ, geny które zosta³y wyciête z pierwszego rodzica znajduj¹ siê na tych samych miejscach, pozosta³e natomiast siê przemieœci³y.
+	 Nastêpnie w drugim rodzicu nale¿y usun¹æ geny, które zosta³y z pierwszego rodzica wyciête. Ostatnim krokiem jest wstawienie wycinka 4 - 5 - 6 do drugiego rodzica, w to samo miejsce z jakiego zosta³y usuniête w pierwszym rodzicu. Powsta³ potomek 3 - 1 - 8 - 4 - 5 - 6 - 7 - 2, który posiada strukturê permutacyjn¹.
 
 \subsection{Krzy¿owanie cykliczne - CX}
-	CX (ang. Cycle Crossover) w przeciwieñstwie do PX i OX nie polega na krzy¿owaniu w dwóch okreœlonych punktach. Aby wyznaczyæ potomka, nale¿y w dowolnym rodzicu znaleŸæ cykl permutacji, zaczynaj¹c od dowolnego miejsca. Rozwa¿my dwa chromosomy: 4 - 3 - 6 - 1 - 8 - 7 - 2 - 5 oraz 1 - 2 - 4 - 5 - 6 - 3 - 7 - 8 (Rys. \ref{krzyzowanie4}). Szukanie cyklu polega na kopiowaniu genów z jednego rodzica wed³ug pozycji okreœlonych przez rodzica drugiego. 
+	CX\cite{genetic_8} (ang. \textit{Cycle Crossover}) w przeciwieñstwie do PX i OX nie polega na krzy¿owaniu w dwóch okreœlonych punktach. Aby wyznaczyæ potomka, nale¿y w dowolnym rodzicu znaleŸæ cykl permutacji, zaczynaj¹c od dowolnego miejsca.  dwa chromosomy: 4 - 3 - 6 - 1 - 8 - 7 - 2 - 5 oraz 1 - 2 - 4 - 5 - 6 - 3 - 7 - 8 (Rys. \ref{krzyzowanie4}). Szukanie cyklu polega na kopiowaniu genów z jednego rodzica wed³ug pozycji okreœlonych przez rodzica drugiego. 
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.75]{grafika/krzyzowanie4.png}
 	\caption{Krzy¿owanie CX}
 	\label{krzyzowanie4}
 \end{figure}
-
-	Za³ó¿my, ¿e zaczynamy od pierwszego genu czyli 4, jej odpowiednikiem w drugim rodzicu jest gen 1. Szukamy tego genu w pierwszym rodzicu. Znajduje siê on na czwartym miejscu, jej odpowiednikiem jest gen 5, którego nastêpnie szukamy w pierwszym chromosomie. Czynnoœæ powtarzamy do momentu, a¿ zostanie wykryty cykl. W podanym przyk³adzie cykl wystêpuje dla 4 - 1 - 5 - 8 - 6. Odpowiednikiem dla 6 genu jest ju¿ 4, wiêc zosta³ wyznaczony cykl. Kolejnym krokiem jest wyciêcie cyklu z chromosomu, w którym zosta³ wyznaczony. W ten sposób zostaje przepisane 4 - X - 6 - 1 - 8 - X - X - 5.  Aby skoñczyæ krzy¿owanie, w puste miejsce nale¿y wpisaæ geny z drugiego rodzica, które nie wyst¹pi³y w cyklu. W tak powsta³ym dziecku 4 - 2 - 6 - 1 - 8 - 3 - 7 - 5, wszystkie geny zajmuj¹ tak¹ sam¹ pozycjê jak w którymœ z rodziców, inaczej ni¿ to by³o przy krzy¿owaniu OX.
+	Zak³adaj¹c, ¿e zaczynamy od pierwszego genu czyli 4, jej odpowiednikiem w drugim rodzicu jest gen 1. Szukamy tego genu w pierwszym rodzicu. Znajduje siê on na czwartym miejscu, jej odpowiednikiem jest gen 5, którego nastêpnie szukamy w pierwszym chromosomie. Czynnoœæ powtarzamy do momentu, a¿ zostanie wykryty cykl. W podanym przyk³adzie cykl wystêpuje dla 4 - 1 - 5 - 8 - 6. Odpowiednikiem dla 6 genu jest ju¿ 4, wiêc zosta³ wyznaczony cykl. Kolejnym krokiem jest wyciêcie cyklu z chromosomu, w którym zosta³ wyznaczony. W ten sposób zostaje przepisane 4 - X - 6 - 1 - 8 - X - X - 5.  Aby skoñczyæ krzy¿owanie, w X  nale¿y wpisaæ geny z drugiego rodzica, które nie wyst¹pi³y w cyklu. W tak powsta³ym dziecku 4 - 2 - 6 - 1 - 8 - 3 - 7 - 5, wszystkie geny zajmuj¹ tak¹ sam¹ pozycjê jak w którymœ z rodziców, inaczej ni¿ to by³o przy krzy¿owaniu OX.
 
 
 \section{Mutacje}
@@ -71,7 +121,7 @@ W pierwszym dziecku zamieniamy: 1 -> 4, 8 -> 5  oraz 7 -> 6. W drugim nale¿y wyk
 	\label{mutacja1}
 \end{figure}
 \subsection{Mutacja wstawiaj¹ca}
-	W tej mutacji dowolny gen jest przestawia siê w losowe miejsce. Jest to najprostsza mutacja, ale teoretycznie, mo¿e mo¿e generowaæ rozwi¹zaniach w ca³kowicie nowych przestrzeniach przeszukiwañ, gdy¿ jeœli punkt, który znajduje siê na koñcu trasy, mo¿e znaleŸæ siê na pocz¹tku. Na rysunku \ref{mutacja2} zosta³ wylosowany gen 5, który znajdowa³ siê na pi¹tym miejscu, po mutacji znalaz³ siê na drugim miejscu, w rezultacie chromosom po mutacji ma postaæ 1 - 5 - 2 - 3 - 4 - 6 - 7 - 8. 
+	W tej mutacji dowolny gen jest przestawia siê w losowe miejsce. Jest to najprostsza mutacja, ale teoretycznie, mo¿e  generowaæ rozwi¹zaniach w ca³kowicie nowych przestrzeniach przeszukiwañ. Punkt znajduj¹cy siê na koñcu trasy, mo¿e znaleŸæ siê na pocz¹tku. Na rysunku \ref{mutacja2} zosta³ wylosowany gen 5, który znajdowa³ siê na pi¹tym miejscu, po mutacji znalaz³ siê na drugim miejscu, w rezultacie chromosom po mutacji ma postaæ 1 - 5 - 2 - 3 - 4 - 6 - 7 - 8. 
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.75]{grafika/mutacja2.png}
@@ -79,7 +129,7 @@ W pierwszym dziecku zamieniamy: 1 -> 4, 8 -> 5  oraz 7 -> 6. W drugim nale¿y wyk
 	\label{mutacja2}
 \end{figure}
 \subsection{Mutacja zamieniaj¹ca}
- 	W mutacji zamieniaj¹cej zamienia siê dwa dowolne geny miejscami. Jest to tak naprawdê, rozszerzona wersja mutacji wstawiaj¹cej. Losujemy dwa dowolne geny, za³ó¿my, ¿e s¹ to 2 i 5, po czym zamieniamy je miejscami, tak jak na rysunku {\ref{mutacja3}}. Powsta³y chromosom to 1 - 5 - 3 - 4 - 2 - 6 - 7 - 8. 
+ 	W mutacji zamieniaj¹cej zamienia siê dwa dowolne geny miejscami. Jest to tak naprawdê, rozszerzona wersja mutacji wstawiaj¹cej. Losowane s¹ dwa dowolne geny, na rysunku {\ref{mutacja3}} s¹ to 2 i 5, po czym zamieniamy je miejscami. Powsta³y chromosom to 1 - 5 - 3 - 4 - 2 - 6 - 7 - 8. 
  \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.75]{grafika/mutacja3.png}
