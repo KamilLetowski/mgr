@@ -14,11 +14,11 @@ Aby zapewniæ przetrwanie stadu mrówki potrzebuj¹ zapewniæ sobie dostêp do pokarm
 
 Jednym z opisywanych przez nas rozwi¹zañ do wyznaczania zoptymalizowanej trasy jest algorytm mrówkowy, inaczej nazywany ACO - Ant Colony Optimization. Pomys³ ten zosta³ zaczerpniêty z natury. Jak sama nazwa wskazuje dzia³anie algorytmy jest zwi¹zane z mrówkami, a dok³adnie z koloni¹ mrówek. Pomys³ na algorytm zosta³ zaproponowany na pocz¹tku lat 90 XX wieku przez w³oskiego badacza - Marco Dorigo.
 
-Tak jak wspomnia³em wczeœniej, algorytm opiera siê na pracy mrówek. Chodzi tutaj dok³adnie o trasê jako mrówki pokonuj¹ od swojego siedliska do miejsca w którym znajduje siê po¿ywienie. Wa¿ne jest znaczenie tutaj pracy zespo³owej. Trasê kszta³tuje ca³a kolonia mrówek, a nie pojedyncze przypadki. Mrówki z ka¿d¹ kolejn¹ podró¿¹ wykszta³caj¹ coraz to bardziej optymaln¹ trasê.
+Tak jak zosta³o wspomniane wczeœniej, algorytm opiera siê na pracy mrówek. Chodzi tutaj dok³adnie o trasê jak¹ mrówki pokonuj¹ od swojego siedliska do miejsca w którym znajduje siê po¿ywienie. Wa¿ne jest znaczenie tutaj pracy zespo³owej. Trasê kszta³tuje ca³a kolonia mrówek, a nie pojedyncze przypadki. Mrówki z ka¿d¹ kolejn¹ podró¿¹ wykszta³caj¹ coraz to bardziej optymaln¹ trasê.
 
 \section{Opis dzia³ania algorytmu}
 
-Mrówka w celu znalezienia pokarmu w sposób losowy wyrusza z mrowiska. Losowo przeszukuj¹c teren szuka pokarmu. Gdy ju¿ go znajdzie wraca do siedliska i informuje o tym fakcie pozosta³e mrówki. Aby dostarczyæ wiêcej pokarmu mrówki wyruszaj¹ do miejsca spoczynku po¿ywienia. Chc¹c unikn¹æ sytuacji w której zdobycz mo¿e zostaæ zabrana przez inne owady, mrówki musz¹ jak najbardziej zoptymalizowaæ trasê jak¹ maj¹ do pokonania.
+Mrówka w celu znalezienia pokarmu w sposób losowy wyrusza z mrowiska. Losowo przesuwaj¹c siê po terenie szuka pokarmu. Gdy ju¿ go znajdzie wraca do siedliska i informuje o tym fakcie pozosta³e mrówki. Aby dostarczyæ wiêcej pokarmu mrówki wyruszaj¹ do miejsca spoczynku po¿ywienia. Chc¹c unikn¹æ sytuacji w której zdobycz mo¿e zostaæ zabrana przez inne owady, mrówki musz¹ jak najbardziej zoptymalizowaæ trasê jak¹ maj¹ do pokonania.
 
 Mimo posiadania informacje o znalezionym pokarmie, ka¿da mrówka sama musi zlokalizowaæ Ÿród³o. Czy mrówki poruszaj¹ siê t¹ sam¹ tras¹ przy ka¿dym wyjœciu z mrowiska? Aby trafiæ do miejsca w którym znajduje siê pokarm, wspomniane owady wykorzystuj¹ œlady pozostawione przez osobników które ju¿ natrafi³y na po¿ywienie. W ten sposób mrówka która wyrusza w sposób losowy, natrafia na œlad poprzednika który jest wskazówk¹ do znalezienia poszukiwanego pokarmu. Wspomniany œlad nazywa siê feromonem. To dziêki tej w³aœciwoœci mrówki s¹ w stanie lokalizowaæ trasy prowadz¹ce do pokarmu.
 
@@ -49,44 +49,88 @@ Tak jak mo¿na to zauwa¿yæ na grafice \ref{kl_przyklad2}, po pierwszych iteracjac
 
 Liczba agentów odwiedzaj¹cych œcie¿ki zmienia siê. Bardziej optymalna trasa zyskuje widoczn¹ przewagê. W kolejnych iteracjach mrówki wykorzystuj¹ si³ê feromonów. Bardziej optymalne œcie¿ki s¹ czêœciej odwiedzane w zwi¹zku z czym zapach na tych krawêdziach jest silniejszy oraz podtrzymywany. Na mniej optymalnych trasach zapach zanika i przestaj¹ one byæ atrakcyjne dla agentów. Opisana sytuacja prowadzi do wyznaczenia trasy która jest najatrakcyjniejsza do przebycia dla mrówek.
 
+\section{Feromony}
+
 Feromony posiadaj¹ cechê która mo¿e siê wydawaæ, ¿e negatywnie wp³ywa na wyznaczanie œcie¿ki. Chodzi tutaj o ulatnianie siê zostawionego zapachu. Na pierwszy rzut oka mo¿e siê to zjawisko wydawaæ niepo¿¹danym, ale w rzeczywistoœci ma du¿y wp³ywa na optymalizacjê. Jeœli feromony nie straci³yby na swojej sile, to bardzo prawdopodobne, ¿e pierwotna œcie¿ka mog³aby zostaæ uznana za najbardziej optymaln¹.
 
 W jaki sposób wyznaczona zostaje najbardziej optymalna œcie¿ka? Zapach feromonów jest podtrzymywany przez wêdruj¹ce mrówki. Z czasem owady te same zbaczaj¹ z drogi w celu poszukiwania alternatywnej trasy. Jeœli wybrana trasa jest optymalniejsza od pozosta³ych to œlad jest podtrzymywany, a na innych zanika. Dziêki temu w sposób iteracyjny mo¿na wyró¿niæ trasê najoptymalniejsz¹, a s³absze z czasem zostaj¹ odrzucone poniewa¿ przestaj¹ byæ odwiedzane.
 
-\section{Pozosta³e zastosowania algorytmu mrówkowego}
+Feromony s¹ istotnym czynnikiem w ca³ym procesie. To dziêki nim trasa jest ulepszana. Zapach posiada jedn¹ z charakterystyk która na pocz¹tku mo¿e wydawaæ siê problematyczna. Wraz z up³ywem czasu si³a zapachu s³abnie a¿ do ca³kowitego zanikniêcia. W³aœciwoœæ ta jest zaletê, a nie wadê. To dziêki pracy zespo³owej zapach na najlepszej trasie jest podtrzymywany, a na s³abszych zanika. Dziêki tej selekcji d³u¿sze trasy nie s¹ brane pod uwagê w wyniku czego zostaje trasa najkorzystniejsza.
 
-Algorytm mrówkowy znajduje swoje zastosowanie w rozwi¹zywaniu innych problemów. Problem plecakowy jest jednym z takich przyk³adów. Pojawia siê on najczêœciej przy optymalnym zarz¹dzaniu zasobami. Mamy dany zbiór jakichœ przedmiotów z czego ka¿dy z nich posiada okreœlony ciê¿ar i wartoœæ. Do plecaka musimy za³adowaæ przedmioty o jak najwiêkszej wartoœci. Naszym ograniczeniem jest jednak ³¹czny ciê¿ar przedmiotów które mo¿emy udŸwign¹æ. 
+Do wyznaczenia optymalnej trasy potrzebne s¹ d³ugoœci jakie nale¿y przebyæ do przemieszczania siê miêdzy punktami. W \ref{tabela_kosztow_ant} przedstawione s¹ przyk³adowe odleg³oœci.
 
-Algorytm mrówkowy wygl¹da bardzo podobnie w tym przypadku. Na pocz¹tku mamy pewn¹ geracjê agentów - mrówek. Ka¿dy agent iteracyjnie poszukuje jak najlepszego rozwi¹zania. Po ka¿dej iteracji mo¿na wyró¿niæ trzy typy rozwi¹zañ: rozwi¹zanie poœrednie, rozwi¹zanie czêœciowe lub stan. Agenci w celu znalezienia rozwi¹zania wykorzystuje swoje naturalne umiejêtnoœci czyli zostawia na wszystkich obiektach w plecaku feromony. Dziêki lotnoœci feromonów mrówki s¹ w stanie identyfikowaæ bardziej zadowalaj¹ce przedmioty.
+\begin{table}[htb]
+\centering
+\caption[Krótki podpis tabeli 1 -- do spisu treœci]{Wartoœci kosztów}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+  & A & B & C & D \\\hline
+A & 0 & 3 & 8 & 2 \\\hline
+B & 3 & 0 & 2 & 4 \\\hline
+C & 8 & 2 & 0 & 1 \\\hline
+D & 2 & 4 & 1 & 0 \\\hline
+\end{tabular}
+\label{tabela_kosztow_ant}
+\end{table}
 
-Krzysztof Schiff w jednym z artyku³ów przedstawi³ rozwi¹zanie problemu plecakowego. Do wyboru najlepszego rozwi¹zania wykorzystane zosta³y trzy metody. Zgodnie z przyjêt¹ konwencj¹ przez autora artyku³u metody maj¹ odpowiednie nazwy: AKA1, AKA2 oraz AKA3. Za wybór najlepszego rozwi¹zania odpowiadaj¹ wzory: 
-	\[
-	    AKA1 = \frac{z}{\frac{w}{V}}
-	\]
-	\[
-	    AKA2 = \frac{z}{w^2}
-	\]
-	\[
-	    AKA3 = \frac{z}{\frac{w}{C}}
-	\]
-gdzie:\\
-- z jest zyskiem wybranego obiektu;\\
-- w jest wag¹ wybranego obiektu;\\
-- V jest aktualn¹ ³adownoœci¹ plecaka\\
-- z jest zyskiem wybranego obiektu;\\
-- C jest ca³kowit¹ wag¹ plecaka.\\
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{grafika/kl_init_trasa_alg.png}
+	\caption{Graf z wagami}
+	\label{fig:kl_init_trasa_alg}
+\end{figure}
 
-Poni¿ej przedstawione zosta³y wyniki badañ \cite{kl_alg_plecakowy}:
+Równie wa¿ne jest wyznaczenie pocz¹tkowych wspó³czynników feromonów. Na pocz¹tku nadajmy wszystkim krawêdziom w grafie wartoœci równe 1, a wspó³czynnik parowania niech wynosi 0.5.
 
-WYNIKI BADAN
+\begin{table}[htb]
+\centering
+\caption[Krótki podpis tabeli 1 -- do spisu treœci]{Wartoœci feromonów}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+  & A & B & C & D \\\hline
+A & 0 & 1 & 1 & 1 \\\hline
+B & 1 & 0 & 1 & 1 \\\hline
+C & 1 & 1 & 0 & 1 \\\hline
+D & 1 & 1 & 1 & 0 \\\hline
+\end{tabular}
+\label{tabela_feromonow_ant}
+\end{table}
 
-Problem komiwoja¿era i problem plecakowy s¹ problemami kombinatorycznymi i ich rozwi¹zanie polega poszukiwaniu optymalnej œcie¿ki na grafie pe³nym. Inn¹ wariacj¹ problemu jest poszukiwanie rozwi¹zania problemu od razu zadanego na grafie. Jako przyk³ad mo¿e pos³u¿yæ problem kolorowania grafu. Dla wszystkich wierzcho³ków w grafie nale¿y dobraæ takie kolory, aby ¿adne dwa s¹siednie wierzcho³ki nie mia³y tego samego koloru \cite{kl_inne_alg_mrowkowe}. 
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{grafika/kl_init_p_alg.png}
+	\caption{Graf z pocz¹tkowymi wartoœciami feromonów}
+	\label{fig:kl_init_trasa_alg}
+\end{figure}
 
-Mrówki nie dzia³aj¹ bezpoœrednio na grafie pocz¹tkowym poniewa¿ graf ten nie musi byæ grafem pe³nym. Nale¿y stworzyæ dla mrówek alternatywê podobn¹ do orygina³u z zachowaniem takiego samego zbioru wierzcho³ków ale z pe³nymi krawêdziami. Nastêpnie nale¿y dobraæ numeryczne wartoœci odpowiadaj¹ce konkretnym kolorom. Jeœli mrówka odwiedzi dany wierzcho³ek, to zostaje on pokolorowany na najni¿szy kolor który nie zosta³ dotychczas u¿yty do kolorowania któregoœ z s¹siadów.
+Posiadaj¹c pocz¹tkowe dane wyznaczmy w sposób losowy trasy dla dwóch agentów: L1 i L2. Agent L1 porusza³ siê tras¹ w której odwiedzi³ wierzcho³ki w nastêpuj¹cej kolejnoœci: A, B, C, D, A. 
 
-Tak jak w przypadku poprzednich algorytmów wykorzystywane s¹ zapachy pozostawiane przez mrówki. Iloœæ u¿ytych unikalnych kolorów by³aby odwrotnie proporcjonalna do iloœci feromonów. W efekcie czego heurystyka by³aby odwrotnie proporcjonalna do wykorzystanych kolorów po kolejnych iteracjach. Wynikiem tych operacji bêdzie rozwi¹zanie w którym w grafie oryginalnym ka¿dy wierzcho³ek bêdzie odwiedzany tylko raz.
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{grafika/kl_l1_trasa_alg.png}
+	\caption{Trasa przebyta przez agenta L1}
+	\label{fig:kl_init_trasa_alg}
+\end{figure}
 
-Ostatni z przyk³adów wykorzystania algorytmu mrówkowego jest harmonogram produkcji. W porównaniu do poprzednich metod w tym algorytmie zachodzi pewna modyfikacja. G³ównym problemem w harmonogramie produkcji jest znalezienie takiej kolejnoœci przetwarzanych zadañ, aby jak najszybciej je przetworzyæ. Aby lepiej zobrazowaæ t¹ sytuacjê nale¿y sobie wyobraziæ fabrykê w której znajduj¹ siê linie produkcyjne. Na linii s¹ przetwarzane zadania w odpowiedniej kolejnoœci oraz ka¿de z zadañ mo¿e zostaæ wykonane w ró¿nym czasie\cite{kl_inne_alg_mrowkowe}. 
+Agent L2 wyznaczy³ nastêpuj¹c¹ trasê: A, C, B, D, A. 
 
-W tej metodzie, podobnie jak w metodzie do rozwi¹zania problemu plecakowego, nale¿y stworzyæ graf pe³ny z wierzcho³kami odpowiadaj¹cymi konkretnym zadaniom. Nastêpnie mrówki przechodz¹ przez wszystkie wierzcho³ki i zostawiaj¹ feromony. Czynnikiem decyduj¹cym o wyborze wierzcho³ków nadal jest zwi¹zana z feromonami. Do rozwi¹zania tego problemu nie jest brana pod uwagê liczba feromonów na krawêdzi pomiêdzy wierzcho³kiem a jego s¹siadami. Wykorzystywana jest natomiast suma feromonów na wszystkich krawêdziach do odwiedzanych wierzcho³ków z wierzcho³kami ju¿ odwiedzonymi.
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{grafika/kl_l2_trasa_alg.png}
+	\caption{Trasa przebyta przez agenta L2}
+	\label{fig:kl_init_trasa_alg}
+\end{figure}
+
+Mrówki odpowiednio pokona³y dystans 8 i 16 punktów. Dziêki tej informacji mo¿na zaktualizowaæ wartoœci feromonów na poszczególnych krawêdziach. Do obliczeñ wykorzystany jest wzór: $\tau\textsubscript{i,j}=$\((1-p)\tau\textsubscript{i,j}+\sum\limits_{k=1}^m \Delta\tau_{i,j}^k\). Krawêdzie A-B i C-D zosta³y odwiedzona jedynie przez agenta L1 w wyniku czego wartoœæ feromonu zostaje zmieniona na 10/16. Nastêpnie krawêdzie A-C i B-D zostaj¹ zaktualizowane na 9/16. Krawêdzie A-D i B-C s¹ odwiedzone dwukrotnie a wartoœæ feromonów wynosi 11/16.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{grafika/kl_p_alg.png}
+	\caption{Graf z wartoœciami feromonów po modyfikacji}
+	\label{fig:kl_init_trasa_alg}
+\end{figure}
+
+Ostatni¹ faz¹ algorytmu jest wyznaczenie prawdopodobieñstwa z jakim kolejni agenci bêd¹ wybieraæ kolejny wierzcho³ek. W kolejnej iteracji agent L3 znajduje siê w wierzcho³ku B. Do wyboru ma krawêdzie A, C i D. Wed³ug wzoru $p\textsubscript{i,j}=\frac{(\tau\textsubscript{i,j})^\alpha(\eta\textsubscript{i,j})^\beta}{\sum(\tau\textsubscript{i,j})^\alpha(\eta\textsubscript{i,j})^\beta)}\) wyliczane jest prawdopodobieñstwo dla wszystkich mo¿liwoœci. Przejœcie z krawêdzi B do krawêdzi A wynosi oko³o 20\%, do krawêdzi D 30\%, a do krawêdzi C oko³o 50\%. 
+
+Optymalna trasa zostanie wykszta³cona po wykonaniu wielu iteracji. Iloœæ iteracji nie jest zdefiniowana i dla ka¿dego przypadku mo¿e byæ ró¿na. Sytuacja wygl¹da identycznie w przypadku wyboru wartoœci p. Wa¿ne jest natomiast to, aby w trakcie dzia³ania algorytmu nie modyfikowaæ tej wartoœci. Powinno ona byæ taka sama na ka¿dym kroku algorytmu.
 
