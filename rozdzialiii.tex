@@ -25,20 +25,20 @@ Mimo posiadania informacje o znalezionym pokarmie, ka¿da mrówka sama musi zlokal
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.75]{grafika/kl_przyklad1}
-	\caption{Pocz¹tkowy graf}
+	\caption{Po³o¿enie œcie¿ek na przyk³adowym grafie}
 	\label{fig:kl_przyklad1}
 \end{figure}
 
-Na rysunku \ref{kl_przyklad1} zosta³ przedstawiony graf z wierzcho³kami A-B-C-D-E-F. Nad krawêdziami kolorem czerwonym zosta³y oznaczone wagi. Na pocz¹tku za³ó¿my, ¿e mamy do dyspozycji 80 agentów. Przez kilka pierwszych iteracjach mrówki porusza³y siê losowo i powsta³ nastêpuj¹cy podzia³:
+Na rysunku \ref{kl_przyklad1} zosta³ przedstawiony graf z wierzcho³kami A-B-C-D-E-F. Nad krawêdziami kolorem czerwonym zosta³y oznaczone wagi. Na pocz¹tku za³ó¿my, ¿e mamy do dyspozycji 80 agentów. Przez N pierwszych iteracji mrówki porusza³y siê losowo i powsta³ nastêpuj¹cy podzia³:
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.75]{grafika/kl_przyklad2}
-	\caption{Rozk³ad œcie¿ek na grafie po pierwszych iteracjach}
+	\caption{Rozk³ad agentów na grafie po N pocz¹tkowych iteracjach}
 	\label{fig:kl_przyklad2}
 \end{figure}
 
-Tak jak mo¿na to zauwa¿yæ na grafice \ref{kl_przyklad2}, po pierwszych iteracjach, przez obie œcie¿ki przechodzi taka sama iloœæ agentów. Dzieje siê tak poniewa¿ mrówki rozpoczynaj¹ pracê w sposób losowy. W dalszych krokach nastêpuj¹ modyfikacje i agenci d¹¿¹ do wyznaczenia najoptymalniejszej œcie¿ki.
+Tak jak mo¿na to zauwa¿yæ na grafice \ref{kl_przyklad2}, po pierwszych iteracjach, przez obie œcie¿ki przechodzi taka sama liczba agentów. Dzieje siê tak poniewa¿ mrówki rozpoczynaj¹ pracê w sposób losowy. W dalszych krokach nastêpuj¹ modyfikacje i agenci d¹¿¹ do wyznaczenia najoptymalniejszej œcie¿ki.
 
 \begin{figure}[h]
 	\centering
@@ -47,7 +47,7 @@ Tak jak mo¿na to zauwa¿yæ na grafice \ref{kl_przyklad2}, po pierwszych iteracjac
 	\label{fig:kl_przyklad3}
 \end{figure}
 
-Iloœæ agentów odwiedzaj¹cych œcie¿ki zmienia siê. Bardziej optymalna trasa zyskuje widoczn¹ przewagê. W kolejnych iteracjach mrówki wykorzystuj¹ si³ê feromonów. Bardziej optymalne œcie¿ki s¹ czêœciej odwiedzane w zwi¹zku z czym zapach na tych krawêdziach jest silniejszy oraz podtrzymywany. Na mniej optymalnych trasach zapach zanika i przestaj¹ one byæ atrakcyjne dla agentów. Opisana sytuacja prowadzi do wyznaczenia trasy która jest najatrakcyjniejsza do przebycia dla mrówek.
+Liczba agentów odwiedzaj¹cych œcie¿ki zmienia siê. Bardziej optymalna trasa zyskuje widoczn¹ przewagê. W kolejnych iteracjach mrówki wykorzystuj¹ si³ê feromonów. Bardziej optymalne œcie¿ki s¹ czêœciej odwiedzane w zwi¹zku z czym zapach na tych krawêdziach jest silniejszy oraz podtrzymywany. Na mniej optymalnych trasach zapach zanika i przestaj¹ one byæ atrakcyjne dla agentów. Opisana sytuacja prowadzi do wyznaczenia trasy która jest najatrakcyjniejsza do przebycia dla mrówek.
 
 Feromony posiadaj¹ cechê która mo¿e siê wydawaæ, ¿e negatywnie wp³ywa na wyznaczanie œcie¿ki. Chodzi tutaj o ulatnianie siê zostawionego zapachu. Na pierwszy rzut oka mo¿e siê to zjawisko wydawaæ niepo¿¹danym, ale w rzeczywistoœci ma du¿y wp³ywa na optymalizacjê. Jeœli feromony nie straci³yby na swojej sile, to bardzo prawdopodobne, ¿e pierwotna œcie¿ka mog³aby zostaæ uznana za najbardziej optymaln¹.
 
@@ -59,27 +59,22 @@ Algorytm mrówkowy znajduje swoje zastosowanie w rozwi¹zywaniu innych problemów. 
 
 Algorytm mrówkowy wygl¹da bardzo podobnie w tym przypadku. Na pocz¹tku mamy pewn¹ geracjê agentów - mrówek. Ka¿dy agent iteracyjnie poszukuje jak najlepszego rozwi¹zania. Po ka¿dej iteracji mo¿na wyró¿niæ trzy typy rozwi¹zañ: rozwi¹zanie poœrednie, rozwi¹zanie czêœciowe lub stan. Agenci w celu znalezienia rozwi¹zania wykorzystuje swoje naturalne umiejêtnoœci czyli zostawia na wszystkich obiektach w plecaku feromony. Dziêki lotnoœci feromonów mrówki s¹ w stanie identyfikowaæ bardziej zadowalaj¹ce przedmioty.
 
-Krzysztof Schiff w jednym z artyku³ów przedstawi³ rozwi¹zanie problemu plecakowego przy u¿yciu trzech metod optymalizacji algorytmu mrówkowego. Wszystkie te metody mo¿na opisaæ za pomoc¹ wzorów. Zgodnie z przyjêt¹ konwencj¹ przez autora artyku³u metody maj¹ odpowiednie nazwy: AKA1, AKA2 oraz AKA3. Atrakcyjnoœæ jest obliczana wed³ug wzorów: 
+Krzysztof Schiff w jednym z artyku³ów przedstawi³ rozwi¹zanie problemu plecakowego. Do wyboru najlepszego rozwi¹zania wykorzystane zosta³y trzy metody. Zgodnie z przyjêt¹ konwencj¹ przez autora artyku³u metody maj¹ odpowiednie nazwy: AKA1, AKA2 oraz AKA3. Za wybór najlepszego rozwi¹zania odpowiadaj¹ wzory: 
 	\[
 	    AKA1 = \frac{z}{\frac{w}{V}}
 	\]
-gdzie:
-- z jest zyskiem wybranego obiektu;
-- w jest wag¹ wybranego obiektu;
-- V jest aktualn¹ ³adownoœci¹ plecaka
 	\[
 	    AKA2 = \frac{z}{w^2}
 	\]
-gdzie:
-- z jest zyskiem wybranego obiektu;
-- w jest wag¹ wybranego obiektu;
 	\[
 	    AKA3 = \frac{z}{\frac{w}{C}}
 	\]
-gdzie:
-- z jest zyskiem wybranego obiektu;
-- w jest wag¹ wybranego obiektu;
-- C jest ca³kowit¹ wag¹ plecaka
+gdzie:\\
+- z jest zyskiem wybranego obiektu;\\
+- w jest wag¹ wybranego obiektu;\\
+- V jest aktualn¹ ³adownoœci¹ plecaka\\
+- z jest zyskiem wybranego obiektu;\\
+- C jest ca³kowit¹ wag¹ plecaka.\\
 
 Poni¿ej przedstawione zosta³y wyniki badañ \cite{kl_alg_plecakowy}:
 
@@ -93,5 +88,5 @@ Tak jak w przypadku poprzednich algorytmów wykorzystywane s¹ zapachy pozostawian
 
 Ostatni z przyk³adów wykorzystania algorytmu mrówkowego jest harmonogram produkcji. W porównaniu do poprzednich metod w tym algorytmie zachodzi pewna modyfikacja. G³ównym problemem w harmonogramie produkcji jest znalezienie takiej kolejnoœci przetwarzanych zadañ, aby jak najszybciej je przetworzyæ. Aby lepiej zobrazowaæ t¹ sytuacjê nale¿y sobie wyobraziæ fabrykê w której znajduj¹ siê linie produkcyjne. Na linii s¹ przetwarzane zadania w odpowiedniej kolejnoœci oraz ka¿de z zadañ mo¿e zostaæ wykonane w ró¿nym czasie\cite{kl_inne_alg_mrowkowe}. 
 
-W tej metodzie, podobnie jak w metodzie do rozwi¹zania problemu plecakowego, nale¿y stworzyæ graf pe³ny z wierzcho³kami odpowiadaj¹cymi konkretnym zadaniom. Nastêpnie mrówki przechodz¹ przez wszystkie wierzcho³ki i zostawiaj¹ feromony. Czynnikiem decyduj¹cym o wyborze wierzcho³ków nadal jest zwi¹zana z feromonami. Do rozwi¹zania tego problemu nie jest brana pod uwagê iloœæ feromonów na krawêdzi pomiêdzy wierzcho³kiem a jego s¹siadami. Wykorzystywana jest natomiast suma feromonów na wszystkich krawêdziach do odwiedzanych wierzcho³ków z wierzcho³kami ju¿ odwiedzonymi.
+W tej metodzie, podobnie jak w metodzie do rozwi¹zania problemu plecakowego, nale¿y stworzyæ graf pe³ny z wierzcho³kami odpowiadaj¹cymi konkretnym zadaniom. Nastêpnie mrówki przechodz¹ przez wszystkie wierzcho³ki i zostawiaj¹ feromony. Czynnikiem decyduj¹cym o wyborze wierzcho³ków nadal jest zwi¹zana z feromonami. Do rozwi¹zania tego problemu nie jest brana pod uwagê liczba feromonów na krawêdzi pomiêdzy wierzcho³kiem a jego s¹siadami. Wykorzystywana jest natomiast suma feromonów na wszystkich krawêdziach do odwiedzanych wierzcho³ków z wierzcho³kami ju¿ odwiedzonymi.
 

@@ -1,7 +1,5 @@
 \chapter{Ogólny problem}
-Badany przez nas problem jest w informatyce nazywany problemem komiwoja¿era. W tym rozdziale zostanie on omówiony oraz metody optymalizacji.
-
-Problem komiwoja¿era (ang. travelling salesman problem - TSP) nale¿y do rodziny problemów NP-trudnych. Znalezienie najlepszego rozwi¹zania jest trudne i fascynuje naukowców od wielu lat. Niektórzy poddaj¹ pod w¹tpliwoœæ znalezienie efektywnego rozwi¹zania, czyli takiego którego czas dzia³ania jest maksymalnie wielomianowy. Aktualnie istnieje wiele rozwi¹zañ tego problemu, a proponowane podejœcia s¹ bardzo interesuj¹ce. Niektóre z nich bazuj¹ na lokalnych przeszukiwaniach grafu, a inne opieraj¹ siê na przyk³adach które wystêpuj¹ w przyrodzie.
+Badany przez nas problem jest w informatyce nazywany problemem komiwoja¿era. W tym rozdziale zostanie on omówiony oraz metody optymalizacji. Problem komiwoja¿era (ang. travelling salesman problem - TSP) nale¿y do rodziny problemów NP-trudnych. Znalezienie najlepszego rozwi¹zania jest trudne i fascynuje naukowców od wielu lat. Niektórzy poddaj¹ pod w¹tpliwoœæ znalezienie efektywnego rozwi¹zania, czyli takiego którego czas dzia³ania jest maksymalnie wielomianowy. Aktualnie istnieje wiele rozwi¹zañ tego problemu, a proponowane podejœcia s¹ bardzo interesuj¹ce. Niektóre z nich bazuj¹ na lokalnych przeszukiwaniach grafu, a inne opieraj¹ siê na przyk³adach które wystêpuj¹ w przyrodzie.
 
 Podobnym problemem do TSP jest problem konika szachowego. Problem ten równie¿ nale¿y do rodziny problemów NP-zupe³nym. Ju¿ w XVIII wieku badania nad tym problemem rozpocz¹³ Euler. Rozwi¹zanie tego problemu polega na znalezieniu œcie¿ki jak¹ ma przebyæ konik szachowy, tak aby odwiedziæ ka¿de pole na szachownicy tylko i wy³¹cznie raz. Skoczek porusza siê po planszy zgodnie z okreœlonym ruchem, a plansza szachowa mo¿e mieæ ró¿ny rozmiar. Konik porusza siê a¿ do momentu odwiedzenia wszystkich pól lub do momentu w którym nie ma mo¿liwoœci odwiedzenia kolejnego pola.
 
@@ -183,7 +181,7 @@ Mrówki odpowiednio pokona³y dystans 8 i 16 punktów. Dziêki tej informacji mo¿na 
 	\label{fig:kl_init_trasa_alg}
 \end{figure}
 
-Ostatni¹ faz¹ algorytmu jest wyznaczenie prawdopodobieñstwa z jakim kolejni agenci bêd¹ wybieraæ kolejny wierzcho³ek. W kolejnej iteracji agent L3 znajduje siê w wierzcho³ku B. Do wyboru ma krawêdzie A, C i D. Wed³ug wzoru TUTAJ WZÓR DODAÆ wyliczane jest prawdopodobieñstwo dla wszystkich mo¿liwoœci. Przejœcie z krawêdzi B do krawêdzi A wynosi oko³o 20 PROCENT, do krawêdzi D 30 procent, a do krawêdzi C oko³o 50 PROCENT. 
+Ostatni¹ faz¹ algorytmu jest wyznaczenie prawdopodobieñstwa z jakim kolejni agenci bêd¹ wybieraæ kolejny wierzcho³ek. W kolejnej iteracji agent L3 znajduje siê w wierzcho³ku B. Do wyboru ma krawêdzie A, C i D. Wed³ug wzoru TUTAJ WZÓR DODAÆ wyliczane jest prawdopodobieñstwo dla wszystkich mo¿liwoœci. Przejœcie z krawêdzi B do krawêdzi A wynosi oko³o 20\%, do krawêdzi D 30\%, a do krawêdzi C oko³o 50\%. 
 
 Optymalna trasa zostanie wykszta³cona po wykonaniu wielu iteracji. Iloœæ iteracji nie jest zdefiniowana i dla ka¿dego przypadku mo¿e byæ ró¿na. Sytuacja wygl¹da identycznie w przypadku wyboru wartoœci p. Wa¿ne jest natomiast to, aby w trakcie dzia³ania algorytmu nie modyfikowaæ tej wartoœci. Powinno ona byæ taka sama na ka¿dym kroku algorytmu.
 
