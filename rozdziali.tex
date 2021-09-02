@@ -1,5 +1,9 @@
 \chapter{Ogólny problem}
-Badany przez nas problem jest w informatyce nazywany problemem komiwoja¿era. W tym rozdziale zostanie on omówiony oraz metody optymalizacji. Problem komiwoja¿era (ang. travelling salesman problem - TSP) nale¿y do rodziny problemów NP-trudnych. Znalezienie najlepszego rozwi¹zania jest trudne i fascynuje naukowców od wielu lat. Niektórzy poddaj¹ pod w¹tpliwoœæ znalezienie efektywnego rozwi¹zania, czyli takiego którego czas dzia³ania jest maksymalnie wielomianowy. Aktualnie istnieje wiele rozwi¹zañ tego problemu, a proponowane podejœcia s¹ bardzo interesuj¹ce. Niektóre z nich bazuj¹ na lokalnych przeszukiwaniach grafu, a inne opieraj¹ siê na przyk³adach które wystêpuj¹ w przyrodzie.
+
+Badany przez nas problem jest w informatyce nazywany problemem komiwoja¿era. W tym rozdziale zostanie on omówiony oraz metody optymalizacji.
+
+\section{Problem komiwoja¿era} 
+Problem komiwoja¿era (ang. travelling salesman problem - TSP) nale¿y do rodziny problemów NP-trudnych. Znalezienie najlepszego rozwi¹zania jest trudne i fascynuje naukowców od wielu lat. Niektórzy poddaj¹ pod w¹tpliwoœæ znalezienie efektywnego rozwi¹zania, czyli takiego którego czas dzia³ania jest maksymalnie wielomianowy. Aktualnie istnieje wiele rozwi¹zañ tego problemu, a proponowane podejœcia s¹ bardzo interesuj¹ce. Niektóre z nich bazuj¹ na lokalnych przeszukiwaniach grafu, a inne opieraj¹ siê na przyk³adach które wystêpuj¹ w przyrodzie.
 
 Podobnym problemem do TSP jest problem konika szachowego. Problem ten równie¿ nale¿y do rodziny problemów NP-zupe³nym. Ju¿ w XVIII wieku badania nad tym problemem rozpocz¹³ Euler. Rozwi¹zanie tego problemu polega na znalezieniu œcie¿ki jak¹ ma przebyæ konik szachowy, tak aby odwiedziæ ka¿de pole na szachownicy tylko i wy³¹cznie raz. Skoczek porusza siê po planszy zgodnie z okreœlonym ruchem, a plansza szachowa mo¿e mieæ ró¿ny rozmiar. Konik porusza siê a¿ do momentu odwiedzenia wszystkich pól lub do momentu w którym nie ma mo¿liwoœci odwiedzenia kolejnego pola.
 
@@ -38,64 +42,11 @@ Oprócz standardowych przeszukiwañ zbiorów na przestrzeni lat pojawi³y siê propoz
 W pracy zostan¹ zbadane rozwi¹zania problemu za pomoc¹ algorytmu genetycznego, mrówkowego oraz zach³annego. W pozosta³ych podrozdzia³ach zostan¹ opisane ich klasyczne wersje.
 
 \subsection{Algorytm genetyczny - Pawe³}
-Algorytm genetyczny(ang. Genetic Algorithm - GA) polega na symulacji procesów genetycznych. W przyrodzie czêsto najs³absze osobniki, nie bior¹ udzia³u w reprodukcji, przez co nie mog¹ przekazaæ swoich s³abych genów potomkom. Podobnie w algorytmie genetycznym populacja poddawana jest operatorom genetycznym: selekcja najlepszych osobników, krzy¿owanie oraz mutacja. Algorytm d¹¿y do tego, aby pocz¹tkowe pokolenia z kolejnymi iteracjami ewoluowa³y w coraz to lepsze rozwi¹zania. Algorytm zawiera wiele elementów losowych np. rozmiar populacji, iloœæ pokoleñ lub prawdopodobieñstwo krzy¿owani/mutacji. Te czynniki powoduj¹, ¿e wyniki za ka¿dym razem mog¹ zdarzaæ siê inne. Wszystko zale¿y od z³o¿onoœci badanego problemu oraz danych.\cite{genetic_2}. 
+Algorytm genetyczny (ang.  \textit{GA - Genetic Algorithm}) polega na symulacji procesów genetycznych. W przyrodzie czêsto najs³absze osobniki, nie bior¹ udzia³u w reprodukcji, przez co nie mog¹ przekazaæ swoich s³abych genów potomkom. Podobnie w algorytmie genetycznym populacja poddawana jest operatorom genetycznym: selekcja najlepszych osobników, krzy¿owanie oraz mutacja. Algorytm d¹¿y do tego, aby pocz¹tkowe pokolenia z kolejnymi iteracjami ewoluowa³y w coraz to lepsze rozwi¹zania. Algorytm zawiera wiele elementów losowych np. rozmiar populacji, iloœæ pokoleñ lub prawdopodobieñstwo krzy¿owani/mutacji. Te czynniki powoduj¹, ¿e wyniki za ka¿dym razem mog¹ zdarzaæ siê inne. Wszystko zale¿y od z³o¿onoœci badanego problemu oraz danych.\cite{genetic_2}. 
  
 Algorytmy genetyczne s¹ od dawna stosowane informatyce do rozwi¹zywania problemów komiwoja¿era oraz innych NP trudnych zagadnieñ.  Pionierem algorytmów genetycznych by³ John Henry Holland\cite{genetic_1}, który w latach 70 napisa³ ksi¹¿kê o algorytmach ewolucyjnych "Adaptation in Natural and Artificial Systems". Medycyna jest jedn¹ z wa¿niejszych dziedzin, gdzie wykorzystuje siê algorytmy genetyczne. Zbiory danych i przestrzeñ przeszukiwañ jest ogromna i z³o¿ona. Zazwyczaj w oparciu o te informacjê, lekarz musi podj¹æ decyzjê, czy np. nowotwór jest z³oœliwy, czy ma ³agodny przebieg. Algorytm genetyczny pozwala wspomóc lekarza przy podejmowania takich decyzji, przetwarzaj¹c i analizuj¹c te ogromne zbiory. \cite{genetic_2}. Kolejn¹ ga³êzi¹ gospodarki, w których zastosowanie znajduje algorytm genetyczny, jest przemys³ spo¿ywczy, a konkretnie optymalizacja linii produkcyjnych. Za ich pomoc¹ algorytmu genetycznego wyznacza siê parametry takie jak temperatura, ciœnieniu lub zapotrzebowanie mocy. Dziêki temu wszystkie procesy technologiczne zachodz¹ce w maszynach i urz¹dzeniach s¹ wydajne i zoptymalizowane\cite{genetic_4}. Algorytmy genetyczne czêsto stosuje siê jako  wskazanie punktów pocz¹tkowych w innych metodach optymalizacyjnych. Poza podanymi przyk³adami, znajduj¹ one zastosowanie praktycznie wszêdzie: ekonomia, gie³da, przemys³ lotniczy, kombinatoryka, sieci komputerowe, zarz¹dzanie ³añcuchem dostaw a tak¿e ustalanie czasu reklamy w telewizji \cite{genetic_5}.
 
-	Przed przejœciem do omawiania algorytmu, nale¿y wyjaœniæ podstawowe pojêcia, które wystêpuj¹ w algorytmie genetycznym:
-\begin{description}[font=$\bullet$~\normalfont\scshape]
- \item[Osobnik] pojedyncze rozwi¹zanie problemu, zakodowane w postaci chromosomu.
- \item[Populacja]zbiór osobników o sta³ej liczbie $N$ w przekroju trwania ca³ego algorytmu.
- \item[Gen] przechowuje informacjê o dowolnej cesze osobnika. W zale¿noœci od sposobu kodowania mo¿e to byæ bit, dowolna cyfra, znak itp.
- \item[Chromosom] sk³ada siê z uporz¹dkowanego ci¹gu genów, przechowuje wszystkie cechy osobnika
- \item[Genotyp] w przyrodzie mo¿e sk³adaæ siê z kilku chromosomów i okreœla sk³ad osobnika. W algorytmach genetycznych przyjmuje siê, ¿e jest to pojedynczy chromosom \cite{genetic_1}.
- \item[Funkcja przystosowania]
-\end{description} 
- 
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=0.75]{grafika/algorytm_genetyczny.png}
-	\caption{Schemat algorytmu genetycznego}
-	\label{genetic}
-\end{figure}
-	
-	Schemat blokowy klasycznego algorytm genetycznego zosta³ pokazany na rysunku \ref{genetic}
-	
-Pierwszym krokiem  jest wylosowanie populacji pocz¹tkowej algorytmu. Wielkoœæ populacji podczas trwania ca³ego algorytmu jest sta³a $N$. Wa¿ne jest, aby wszystkie osobniki by³y jak najbardziej zró¿nicowane i wygenerowane losowo. Ka¿dy z nich nastêpnie musi zostaæ zakodowany do postaci chromosomów, które bêd¹ przechowywaæ w sobie informacjê o odwiedzanych punktach w postaci genów.
-	
-W populacji ka¿dy osobnik musi zostaæ poddany ocenie funkcji przystosowania. Jej wynik determinuje jak dobre jest dane rozwi¹zanie. W klasycznym algorytmie d¹¿y siê do maksymalizacji tej funkcji. Okreœlenie jak dana funkcja przystosowania bêdzie wygl¹daæ, jest to jedn¹ z najwa¿niejszych czêœci algorytmu genetycznego. Jeœli zostanie Ÿle zdefiniowana, znalezione osobnik mo¿e nie spe³niaæ wymagañ rozwi¹zania problemu.
-	
-Po ocenie osobników zostaje sprawdzony warunek koñcowy algorytmu. W zale¿noœci od problemu zostaje zdefiniowany inny warunek. W klasycznych podejœciach s¹ dwa rodzaje warunków koñcowych. Pierwszym popularnym warunkiem koñcowym jest sta³a iloœæ iteracji algorytmu, czyli po wykonaniu okreœlonej iloœci razy ewolucji, wybierany jest najlepszy osobnik z populacji. Drugim warunkiem zazwyczaj jest przetwarzanie algorytmu dopóki nie zostanie znaleziony dostatecznie dobry osobnik. Nale¿y równie¿ za³o¿yæ, ¿e jeœli w kolejnych pokoleniach nie zachodzi poprawa najlepszego rozwi¹zania, nale¿y przerwaæ. Wybór  w jaki sposób bêdzie wygl¹daæ warunek koñcowy zale¿y od wielu czynników. Jeœli wa¿ny jest krótki czas, nale¿y za³o¿yæ pierwszy wariant. Jeœli natomiast algorytm mo¿e szukaæ rozwi¹zania nawet kilka godzin, mo¿na przyj¹æ drugi wariant.
-	
-Kolejnym krokiem algorytmu jest wyselekcjonowanie rodziców do reprodukcji. Polega ona na tym, ¿e osobniki lepsze(maj¹ wiêksz¹ wartoœæ oceny przystosowania)maj¹ wiêksze szansê na pozostanie rodzicem i przekazanie swoich cech. \cite{genetic_3}. Najpopularniejszymi metodami wyboru rodziców jest metoda ruletki oraz turniejowa.
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=0.75]{grafika/ag_kolowy.png}
-	\caption{Metoda ruletki}
-	\label{ruletka}
-\end{figure}
-Na rysunku \ref{ruletka} zosta³a zilustrowana pierwsza metoda ruletki. Ka¿dy z osobników dostaje wirtualny wycinek ko³a fortuny. Jego wielkoœæ zale¿y od wartoœci funkcji prawdopodobieñstwa. Przy ka¿dym wyborze rodzica nastêpuje zakrêceniem ko³a i do reprodukcji zostaje wybrany osobnik na który bêdzie wskazywa³ sta³y punkt. 
-	
-W metodzie turniejowej zostaje wybranych $r$ osobników z populacji $N$. Z poœród nich zostaje wybrany zwyciêzca(najwiêksza wartoœæ funkcji przystosowania), który trafia do puli rodzicielskiej. Im wiêksza jest iloœæ osobników $r$ tym mniejsze szanse, ¿e s³absze osobniki zostan¹ wybrane.
-	
-Wybrani rodzice zostaj¹ poddani operatorom genetycznym: krzy¿owanie(ang. crossover) oraz mutacji(ang. mutation). Krzy¿owanie polega na po³¹czeniu czêœci chromosomu jednego rodzica z czêœci¹ drugiego. Wynikiem takiego po³¹czenia jest nowy osobnik. Proces krzy¿owania w zale¿noœci mo¿e przebiegaæ w ró¿ny ale zawsze okreœlony sposób. Wszystko zale¿y od metody zakodowania chromosomu oraz od tego czy kolejnoœæ genów i ich unikalnoœæ ma znaczenie. W klasycznym podejœciu polega na rozciêciu w dowolnym miejscu genotypu u dwóch osobników oraz skrzy¿owaniu ich ze sob¹ w tym punkcie(rys. \ref{crossover}).
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=0.75]{grafika/ag_krzyzowanie.png}
-	\caption{Klasyczne krzy¿owanie}
-	\label{crossover}
-\end{figure}	
-	 Nastêpnie u nowego osobnika mo¿e z prawdopodobieñstwem $pm$ wyst¹piæ mutacja. Jest to zmiana dowolnego pojedynczego rys \ref{mutacja} lub ci¹gu genów na inny. Wartoœæ $pm$ w klasycznych algorytmach jest stosunkowo niskie. Mutacja ma na celu delikatne zró¿nicowanie osobników w celu przeszukania nowej przestrzeni rozwi¹zañ. Natomiast gdyby zachodzi³a czêsto, mog³aby powodowaæ niszczenie dobrych rozwi¹zañ.
-	 \begin{figure}[h]
-	\centering
-	\includegraphics[scale=0.75]{grafika/ag_mutacja.png}
-	\caption{Mutacja genotypu}
-	\label{mutacja}
-\end{figure}	
-	
-	Po zastosowaniu wszystkich operatorów genetycznych, nowa populacja jest poddawana ocenie przystosowania i jeœli wyst¹pi³ warunek koñcowy, wybierane jest najlepsze rozwi¹zanie.
-	Algorytmy genetyczne i jego odmiany zrewolucjonizowa³y systemy informatyczne. Nie s¹ one algorytmami, które wyliczaj¹ dok³adne wyniki, ale przy odpowiedniej implementacji i ustaleniu parametrów wyjœciowych, pozwalaj¹ osi¹gn¹æ wystarczaj¹ce rezultaty. Bardzo wa¿ny jest czas znalezienia takiego rozwi¹zania. Jeœli rozwi¹zanie idealne obliczane jest w ci¹gu 24 godzin przez algorytm dok³adny, a algorytm genetyczny w trakcie kilku minut znajdzie rozwi¹zanie bêd¹ce w s¹siedztwie, swoj¹ efektywnoœci¹ wygra ten drugi, gdy¿ u¿ytkownik, nie bêdzie chcia³ czekaæ ca³ej doby na wynik swojego zapytania. Oczywiœcie, algorytmy genetyczne te¿ mog¹ znaleŸæ najlepsze rozwi¹zanie. Kwesti¹ ograniczenia jest zawsze czas.
+Algorytmy genetyczne i jego odmiany zrewolucjonizowa³y systemy informatyczne. Nie s¹ one algorytmami, które wyliczaj¹ dok³adne wyniki, ale przy odpowiedniej implementacji i ustaleniu parametrów wyjœciowych, pozwalaj¹ osi¹gn¹æ wystarczaj¹ce rezultaty. Bardzo wa¿ny jest czas znalezienia takiego rozwi¹zania. Jeœli rozwi¹zanie idealne obliczane jest w ci¹gu 24 godzin przez algorytm dok³adny, a algorytm genetyczny w trakcie kilku minut znajdzie rozwi¹zanie bêd¹ce w s¹siedztwie, swoj¹ efektywnoœci¹ wygra ten drugi, gdy¿ u¿ytkownik, nie bêdzie chcia³ czekaæ ca³ej doby na wynik swojego zapytania. Oczywiœcie, algorytmy genetyczne te¿ mog¹ znaleŸæ najlepsze rozwi¹zanie. Kwesti¹ ograniczenia jest zawsze czas.
 
 
 \subsection{Algorytm mrówkowy}
