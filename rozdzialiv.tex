@@ -1,65 +1,47 @@
 \chapter{Algorytmy zach³anne}
-	Istnieje wiele algorytmów zach³annych pozwalaj¹cych otrzymaæ optymalne rozwi¹zanie dla problemu znalezienia najkrótszej trasy. W tym rozdziale skupimy siê jednak na algorytmie najbli¿szego s¹siada, algorytmie najmniejszej krawêdzi oraz algorytmie a*. W celu zoptymalizowania otrzymanych rozwi¹zañ stosowaæ bêdziemy operator 2-opt oraz operator 3-opt.
+	Istnieje wiele algorytmów zach³annych pozwalaj¹cych otrzymaæ optymalne rozwi¹zanie dla problemu znalezienia najkrótszej trasy. W poni¿szym rozdziale opisane dok³adniej zosta³o dzia³anie algorytmu najbli¿szego s¹siada, algorytmu najmniejszej krawêdzi oraz algorytmu a*. W celu zoptymalizowania otrzymanych rozwi¹zañ zastosowane zostan¹ operatory 2-opt oraz 3-opt.
 
 \section{Algorytm najbli¿szego s¹siada}
-	Poni¿szy podrozdzia³ przybli¿y dzia³anie algorytmu najbli¿szego s¹siada. Wszystkie wymagane dla algorytmu operacje zostan¹ opisane krok po kroku oraz przedstawione na krótkim przyk³adzie.
+	Poni¿szy podrozdzia³ przybli¿y dzia³anie algorytmu najbli¿szego s¹siada. Wszystkie wymagane dla algorytmu operacje zostan¹ opisane krok po kroku oraz przedstawione na krótkim przyk³adzie. Jak sama nazwa wskazuje jest to algorytm polegaj¹cy na odwiedzaniu, zaczynaj¹c od wybranego wierzcho³ka pocz¹tkowego nastêpnego wierzcho³ka znajduj¹cego siê najbli¿ej poprzednio odwiedzonego. 
 
-\subsection{Wprowadzenie do algorytmu}
-	Jak sama nazwa wskazuje jest to algorytm polegaj¹cy na odwiedzaniu, zaczynaj¹c od wybranego wierzcho³ka pocz¹tkowego nastêpnego wierzcho³ka znajduj¹cego siê najbli¿ej poprzednio odwiedzonego. Omawiany algorytm mo¿emy podzieliæ na nastêpuj¹ce kroki:
-\begin{description}[font=$\bullet$~\normalfont\scshape]
- \item[1] Wybieramy wierzcho³ek pocz¹tkowy, który staje siê naszym aktualnym i oznaczamy go jako odwiedzony.
- \item[2] Nastêpnie dla aktualnego wierzcho³ka obliczamy i wyznaczamy najkrótsz¹ krawêdŸ, która po³¹czy nasz aktualny wierzcho³ek tylko z tymi, które s¹ nieodwiedzone.
- \item[3] Znalezion¹ najkrótsz¹ krawêdŸ w punkcie nr 2 do³¹czamy do rozwi¹zania.
- \item[4] Drugi wierzcho³ek, który nale¿y do znalezionej krawêdzi staje siê naszym aktualnym oraz oznaczamy go jako odwiedzony.
- \item[5] Je¿eli w naszym grafie znajduj¹ siê jeszcze nieodwiedzone wierzcho³ki, przechodzimy do punktu 2.
- \item[6] Natomiast je¿eli wszystkie wierzcho³ki s¹ ju¿ odwiedzone, ³¹czymy ostatni aktualny z pocz¹tkowym wierzcho³kiem tworz¹c cykl oraz koñcz¹c dzia³anie algorytmu.
-\end{description} 
-
-	Po wykonaniu wszystkich kroków otrzymujemy optymalne rozwi¹zanie dla algorytmu najbli¿szego s¹siada.
-	
-
-\subsection{Opis dzia³ania algorytmu}
-
-	Aby lepiej zobrazowaæ otrzymanie rozwi¹zania przez algorytm przeœledŸmy jego dzia³anie na przyk³adzie przedstawionym poni¿ej na rysunku 5.1 .
-	
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.35]{grafika/ans_last.png}
+	\includegraphics[scale=0.5]{grafika/ans_graph.png}
+	\caption{Schemat algorytmu najbli¿szego s¹siada}
+	\label{nearest_neighbour}
+\end{figure}
+
+Na rysunku 4.1 zosta³ pokazany schemat blokowy algorytmu najbli¿szego s¹siada. Pierwszym krokiem jest wyznaczenie wyznaczenie wierzcho³ka startowego. Nastêpnie dla aktualnego wierzcho³ka nale¿y obliczyæ najkrótsz¹ krawêdŸ ³¹cz¹c¹ aktualny wierzcho³ek spoœród kolekcji wierzcho³ków nieodwiedzonych. Wybór najlepszej opcji po³¹czenia dwóch wierzcho³ków nale¿y dodaæ do rozwi¹zania, a drugi wierzcho³ek staje siê aktualnym od którego bêdziemy wyznaczaæ kolejne odleg³oœci do nieodwiedzonych jeszcze wierzcho³ków. Czynnoœci nale¿y powtarzaæ do momentu odwiedzenia wszystkich wierzcho³ków w podanym grafie. Na samym koñcu wystarczy jedynie po³¹czyæ ostatni wierzcho³ek z pocz¹tkowym. Po wykonaniu wszystkich kroków algorytm najbli¿szego s¹siada powinien zwróciæ optymalne dla niego rozwi¹zanie.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.3]{grafika/ans_last.png}
 	\caption{Algorytm najbli¿szego s¹siada}
 	\label{nearest_neighbour}
 \end{figure}
 
-	Zaczynamy od wyboru wierzcho³ka nr 2 jako pocz¹tkowego i tym samym ustawiamy go jako aktualny w danym momencie. Po obliczeniu wszystkich odleg³oœci prowadzonych do wierzcho³ków nieodwiedzonych wychodzi, ¿e najkrótsza krawêdŸ prowadzi do wierzcho³ka nr 4, wiêc do³¹czamy wybrana krawêdŸ do rozwi¹zania i ustawiamy nowy aktualny wierzcho³ek, który staje siê równie¿ odwiedzonym. W naszym grafie znajduj¹ siê nadal nieodwiedzone wierzcho³ki, dlatego powtarzamy krok algorytmu w celu znalezienia kolejnej najkrótszej krawêdzi. Kolejn¹ najlepsz¹ odnalezion¹ w danym momencie krawêdzi¹, któr¹ dodamy do naszego rozwi¹zania bêdzie krawêdŸ o wartoœci 3 ³¹cz¹ca nasz aktualny wierzcho³ek z wierzcho³kiem nr 5. Kroki 4, 5 oraz 6 przedstawiaj¹ kolejne powtarzalne iteracje algorytmu dochodz¹c w ostatnim kroku do utworzenia cyklu i tym zakoñczeniu dzia³ania algorytmu. W ten sposób otrzymaliœmy zach³anne rozwi¹zanie 2 - 4 - 5 - 3 - 1 - 2. Warto zaznaczyæ, ¿e dziêki oznaczaniu wierzcho³ków jako odwiedzone nie musimy w ¿adnej iteracji martwiæ siê o to czy do³¹czenie kolejnej krawêdzi z nieodwiedzonym wierzcho³kiem spowoduje utworzenie niepo¿¹danego cyklu.
+	Aby lepiej zobrazowaæ otrzymanie rozwi¹zania przez algorytm przedstawiono poni¿ej na rysunku 5.1 jego dzia³anie na przyk³adzie. W podanym przypadku nale¿y za³o¿yæ ¿e wierzcho³ek nr 2 jest wierzcho³kiem startowym, wiêc nale¿y ustawiæ go jako aktualny w danym momencie. Po obliczeniu wszystkich odleg³oœci prowadzonych do wierzcho³ków nieodwiedzonych wychodzi, ¿e najkrótsza krawêdŸ prowadzi do wierzcho³ka nr 4, wiêc nale¿y do³¹czyæ wybrana krawêdŸ do rozwi¹zania i oznaczyæ nowy aktualny wierzcho³ek, który staje siê równie¿ odwiedzonym. W podanym grafie znajduj¹ siê nadal nieodwiedzone wierzcho³ki, dlatego algorytm powtarza krok nr 2 w celu znalezienia kolejnej najkrótszej krawêdzi. Kolejn¹ najlepsz¹ odnalezion¹ w danym momencie krawêdzi¹, któr¹ algorytm doda do rozwi¹zania bêdzie krawêdŸ o wartoœci 3 ³¹cz¹ca aktualny wierzcho³ek z wierzcho³kiem nr 5. Kroki 4, 5 oraz 6 przedstawiaj¹ kolejne powtarzalne iteracje algorytmu dochodz¹c w ostatnim kroku do utworzenia cyklu i tym zakoñczeniu dzia³ania algorytmu. W ten sposób otrzymano zach³anne rozwi¹zanie 2 - 4 - 5 - 3 - 1 - 2. Warto zaznaczyæ, ¿e dziêki oznaczaniu wierzcho³ków jako odwiedzone nie trzeba w ¿adnej iteracji martwiæ siê o to czy do³¹czenie kolejnej krawêdzi z nieodwiedzonym wierzcho³kiem spowoduje utworzenie niepo¿¹danego cyklu.
 
 \section{Algorytm najmniejszej krawêdzi}
-	Kolejny podrozdzia³ algorytmów zach³annych zosta³ poœwiêcony dok³adniejszemu opisie dzia³ania algorytmu najmniejszej krawêdzi, który w swoim dzia³aniu przypomina algorytm poszukuj¹cy minimalnego drzewa rozpinaj¹cego, poprzez do³¹czenie do aktualnego rozwi¹zania najkrótszych wœród dopuszczalnych krawêdzi.	
-	
-\subsection{Wprowadzenie do algorytmu}
-
-	Aby otrzymaæ zach³anne rozwi¹zanie przy wykorzystaniu algorytmu najmniejszej krawêdzi nale¿y wykonaæ nastêpuj¹ce kroki:
-\begin{description}[font=$\bullet$~\normalfont\scshape]
- \item[1] Algorytm zaczynamy od posortowania wszystkich mo¿liwych krawêdzi rosn¹co wed³ug ich wag oraz na umieszczeniu ich w kolekcji.
- \item[2] Nastêpnie z podanej kolekcji wybieramy krawêdŸ o najmniejsze wadze oraz usuwamy j¹ z naszej kolekcji.
- \item[3] Jeœli do³¹czenie wybranej aktualnie krawêdzi nie spowoduje utworzenia cyklu oraz utworzenia wierzcho³ka o trzech krawêdziach to mo¿emy do³¹czyæ ow¹ krawêdŸ do rozwi¹zania. (pomijamy warunki, jeœli jest to ostatnia iteracja)
- \item[4] Gdy liczba wszystkich wierzcho³ków równa siê liczbie do³¹czonych krawêdzi do rozwi¹zania, oznacza to, ¿e zosta³ utworzony cykl i nale¿y zakoñczyæ dzia³anie algorytmu.
- \item[5] W przeciwnym wypadku wracamy do punktu nr 2.
-\end{description}
-
-	Po zakoñczeniu dzia³ania algorytmu otrzymujemy optymalne rozwi¹zanie dla algorytmu najmniejszej krawêdzi. 
-
-\subsection{Opis dzia³ania algorytmu}
-
-	
-	Dzia³anie algorytmu przedstawione zostanie na rysunku 4.2 przedstawiaj¹cym szeœæ losowo rozmieszczonych wierzcho³ków. 
+	Kolejny podrozdzia³ algorytmów zach³annych zosta³ poœwiêcony dok³adniejszemu opisie dzia³ania algorytmu najmniejszej krawêdzi, który w swoim dzia³aniu przypomina algorytm poszukuj¹cy minimalnego drzewa rozpinaj¹cego, poprzez do³¹czenie do aktualnego rozwi¹zania najkrótszych wœród dopuszczalnych krawêdzi.	Aby otrzymaæ zach³anne rozwi¹zanie przy wykorzystaniu algorytmu najmniejszej krawêdzi nale¿y wykonaæ nastêpuj¹ce kroki przedstawione schemacie blokowym na rysunku 4.3.
 	
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.55]{grafika/ank_initial_finish.png}
+	\includegraphics[scale=0.4]{grafika/ank_graph.png}
+	\caption{Schemat algorytmu najmniejszej krawêdzi}
+	\label{ank}
+\end{figure}
+
+Algorytm rozpoczyna swoje dzia³anie od posortowania wag krawêdzi miêdzy wszystkimi wierzcho³kami oraz umieszcza podane odleg³oœci w kolekcji. Nastêpnie wybierana jest zawsze krawêdŸ o najmniejsze wartoœci oraz od razu usuwana jest z podanej kolekcji. Aby wybrane po³¹czenie miêdzy wierzcho³kami zosta³o dodane do rozwi¹zania musi spe³niaæ warunek nie utworzenia cyklu oraz wierzcho³ka o trzech krawêdziach, w przeciwnym wypadku po³¹czenie jest pomijane oraz algorytm wybiera kolejn¹ krawêdŸ. Iteracje s¹ powtarzane do momentu, a¿ liczba dodanych po³¹czeñ jest równa liczbie wszystkich wierzcho³ków. W przypadku ostatniej iteracji wyznaczona krawêdŸ nie musi ju¿ spe³niaæ warunku z utworzeniem cyklu. Po zakoñczeniu dzia³ania algorytmu otrzymano optymalne rozwi¹zanie dla algorytmu najmniejszej krawêdzi.
+	
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.5]{grafika/ank_initial_finish.png}
 	\caption{Pocz¹tkowe rozmieszczenie wierzcho³ków}
 	\label{ank}
 \end{figure}
-	
-	Natomiast wizualizacja kolejnych kroków algorytmu zosta³a przedstawiona na rysunku 5.3. Po posortowaniu wszystkich dostêpnych krawêdzi dla ka¿dego wierzcho³ka rozpoczynamy dzia³anie algorytmu.
+
+Dzia³anie algorytmu przedstawione zosta³o na rysunku 4.4 przedstawiaj¹cym przyk³ad ze szeœcioma losowo rozmieszczonymi wierzcho³kami. Natomiast wizualizacja kolejnych kroków algorytmu zosta³a przedstawiona na rysunku 4.5. Po posortowaniu wszystkich dostêpnych krawêdzi dla ka¿dego wierzcho³ka mo¿na rozpocz¹æ dzia³anie algorytmu.
 	
 \begin{figure}[h]
 	\centering
@@ -68,19 +50,17 @@
 	\label{ank_new2}
 \end{figure}
 
-	Podczas pierwszej iteracji okazuje siê, ¿e mamy aktualnie dwie krawêdzie z najmniejsz¹ wag¹ o wartoœci 3 (1 - 2 oraz 4 - 5), nie ma wiêc znaczenia, która krawêdŸ dodamy w pierwszej kolejnoœci, poniewa¿ ¿adna z wybranych nie utworzy nam w tym momencie cyklu. W przypadku drugiej iteracji wybieramy krawêdŸ o najmniejszej wadze, do³¹czaj¹c j¹ do aktualnego rozwi¹zania. Analogiczna sytuacja do pierwszej iteracji wystêpuje w trzeciej iteracji, gdzie nie ma ró¿nicy, która krawêdŸ do³¹czymy do rozwi¹zania. Czwarta iteracja pokazuje sytuacje, w której nie mo¿emy po³¹czyæ krawêdzi 3 - 4, poniewa¿ utworzy³oby to niedozwolony w trakcie algorytmu cykl, dlatego tym razem wybieramy inne po³¹czenie o najmniejszej wadze (4 - 6). Kolejny krok przedstawia przedstawia przypadek, gdzie nie jest mo¿liwe po³¹czenie krawêdzi 2 - 4 (najmniejsza wartoœæ - 7), poniewa¿ spowodowa³oby dla wierzcho³ka nr 4 utworzenie trzech wychodz¹cych z niego krawêdzi, wiêc do rozwi¹zania dochodzi kolejna najmniejsza krawêdŸ 1 - 6. W ostatnim kroku, pomimo dostêpnych krawêdzi z mniejsz¹ wag¹ wybieramy krawêdŸ 2 - 3, poniewa¿ tylko ona spowoduje utworzenie kompletnego cyklu. W takim wypadku koñcz¹c dzia³anie algorytmu otrzymujemy rozwi¹zanie 1 - 6 - 4 - 5 - 3 - 2 - 1.
+	Podczas pierwszej iteracji okazuje siê, ¿e s¹ aktualnie dwie krawêdzie z najmniejsz¹ wag¹ o wartoœci 3 (1 - 2 oraz 4 - 5), nie ma wiêc znaczenia, która krawêdŸ algorytm doda w pierwszej kolejnoœci, poniewa¿ ¿adna z wybranych nie utworzy w tym momencie cyklu. W przypadku drugiej iteracji algorytm wybiera krawêdŸ o najmniejszej wadze, do³¹czaj¹c j¹ do aktualnego rozwi¹zania. Analogiczna sytuacja do pierwszej iteracji wystêpuje w trzeciej iteracji, gdzie nie ma ró¿nicy, która krawêdŸ zostanie do³¹czona do rozwi¹zania. Czwarta iteracja pokazuje sytuacje, w której nie mo¿na po³¹czyæ krawêdzi 3 - 4, poniewa¿ utworzy³oby to niedozwolony w trakcie algorytmu cykl, dlatego tym razem wybierane jest inne po³¹czenie o najmniejszej wadze (4 - 6). Kolejny krok przedstawia przedstawia przypadek, gdzie nie jest mo¿liwe po³¹czenie krawêdzi 2 - 4 (najmniejsza wartoœæ - 7), poniewa¿ spowodowa³oby dla wierzcho³ka nr 4 utworzenie trzech wychodz¹cych z niego krawêdzi, wiêc do rozwi¹zania dochodzi kolejna najmniejsza krawêdŸ 1 - 6. W ostatnim kroku, pomimo dostêpnych krawêdzi z mniejsz¹ wag¹ wybierana zosta³a krawêdŸ 2 - 3, poniewa¿ tylko ona nie spowoduje utworzenia wierzcho³ka o trzech krawêdziach. W takim wypadku koñcz¹c dzia³anie algorytmu otrzymano rozwi¹zanie 1 - 6 - 4 - 5 - 3 - 2 - 1.
 	
 \section{Algorytm A*}
-	Ostatnim omówionym rozwi¹zaniem do znajdowania najkrótszej œcie¿ki w grafie jest algorytm a*, w którym zawsze zostanie znalezione najlepsze zach³anne rozwi¹zanie. Metoda jest przyk³adem wybierania rozwi¹zañ w danym momencie najlepszych, ale gwarantuje, ¿e ka¿dy wierzcho³ek zostanie odwiedzony. Najlepsze wyniki mo¿emy otrzymaæ, wtedy kiedy obszar przeszukiwañ jest struktur¹ drzewiast¹.
-\subsection{Wprowadzenie do algorytmu}
-	 G³ówn¹ zasad¹ algorytmu a* jest minimalizacja funkcji kosztu oraz funkcji heurystycznej, gdzie ta ostatnia musi spe³niaæ dwa wymagane warunki tj. warunek dopuszczalnoœci i warunek monotonicznoœci. Warunek dopuszczalnoœci polega na tym, aby funkcja heurystyczna nie oszacowywa³a, gdy minimalizujemy koszt, a przeszacowywa³a, gdy chcemy zmaksymalizowaæ zysk. Natomiast warunek monotonicznoœci mówi o tym, ¿e im bli¿ej jesteœmy rozwi¹zania, tym oszacowywanie wyniku musi byæ coraz mniej optymistyczne.
-	
-\subsection{Opis dzia³ania algorytmu}
-	Jeœli przestrzeñ przeszukiwañ zawieraæ bêdzie œcie¿ki to mo¿emy wówczas sprowadziæ problem do problemu poszukiwania najkrótszej œcie¿ki w grafie. Wiemy, ¿e musimy stworzyæ œcie¿kê zawieraj¹c¹ krawêdzi, oznaczmy wiêc jako liczbê krawêdzi, które ju¿ wykorzystaliœmy. Wtedy funkcj¹ heurystyczn¹ mo¿e byæ na przyk³ad iloczyn liczby krawêdzi pozosta³ych do wykorzystania i wagi najtañszej krawêdzi – wtedy taka funkcja na pewno bêdzie nadmiernie optymistyczna. Dok³adniejsze oszacowanie daje nam funkcja heurystyczna zdefiniowana jako suma najmniejszych wag niewykorzystanych jeszcze krawêdzi. <tu jeszcze pojawi¹ siê rysunki i opis>
+	Ostatnim omówionym rozwi¹zaniem do znajdowania najkrótszej œcie¿ki w grafie jest algorytm a*, w którym zawsze zostanie znalezione najkorzystniejsze zach³anne rozwi¹zanie. Strategia gwarantuje, ¿e ka¿dy wierzcho³ek zostanie odwiedzony, przy czym dokonuje w danym momencie najlepszych wyborów. Dla struktur drzewiastych algorytm tworzy najlepsze rozwi¹zania. G³ówn¹ zasad¹ algorytmu a* jest minimalizacja funkcji kosztu oraz funkcji heurystycznej, gdzie ta ostatnia musi spe³niaæ dwa wymagane warunki tj. warunek dopuszczalnoœci i warunek monotonicznoœci. Warunek dopuszczalnoœci polega na tym, aby funkcja heurystyczna za bardzo minimalizowa³a koszt, a przesadza³a przy maksymalizacji zysku. Natomiast warunek monotonicznoœci mówi, ¿e oszacowywanie wyniku musi byæ coraz mniej optymistyczne w momencie zbli¿ania siê do rozwi¹zania. Jeœli przestrzeñ przeszukiwañ zawieraæ bêdzie œcie¿ki to mo¿na wówczas sprowadziæ problem do problemu poszukiwania najkrótszej œcie¿ki w grafie. W danym przypadku funkcj¹ heurystyczn¹ bêdzie wówczas iloczyn liczby krawêdzi do wybrania i najmniejsza wartoœæ krawêdzi. Zapewnia to w ten sposób, ¿e taka funkcja jest nadmiernie optymistyczna.
+		
+<po badaniach powstanie tutaj schemat blokowy oraz przyk³ad, tak jak w poprzednich algorytmach, poniewa¿ algorytm jest jeszcze dopracowywany>
+
 \section{Optymalizacja otrzymanych rozwi¹zañ}
 	W ostatnim podrozdziale skupimy siê na sposobach optymalizacji otrzymanych przez algorytmy zach³anne rozwi¹zañ. Dok³adniej omówiona zostanie metoda 2-opt oraz metoda 3-opt.
 \subsection{Metoda 2-opt}
-	Metoda optymalizacyjna 2-opt polega na pozbyciu siê z cyklu dwóch krawêdzi w celu zast¹pienia ich innymi krawêdziami w taki sposób, aby otworzyæ zupe³nie inny cykl. Iteracje mo¿emy powtarzaæ dla ka¿dej pary krawêdzi, oprócz tych s¹siaduj¹cych ze sob¹, poniewa¿ ich zamienienie nie przyniesie ¿adnej modyfikacji. Metoda nie ma na celu zmiany po³o¿enia wierzcho³ków, jedynie kolejnoœci ich odwiedzania. Po wykonaniu ca³ej optymalizacji, nale¿y sprawdziæ która modyfikacja przynios³a najlepszy efekt skrócenia d³ugoœci cyklu. W przypadku je¿eli ¿adna modyfikacja nie da³a lepszego rozwi¹zania, nie modyfikujemy rozwi¹zania. Algorytm mo¿na wykonywaæ wielokrotnie, w ten sposób zostanie zrealizowane minimum lokalne. Dla lepszego przedstawienia dzia³ania metody 2-opt, nale¿y spojrzeæ na rysunek 5.4:
+	Metoda optymalizacyjna 2-opt polega na pozbyciu siê z cyklu dwóch krawêdzi w celu zast¹pienia ich innymi krawêdziami w taki sposób, aby otworzyæ zupe³nie inny cykl. Iteracje mo¿na powtarzaæ dla ka¿dej pary krawêdzi, oprócz tych s¹siaduj¹cych ze sob¹, poniewa¿ ich zamienienie nie przynios³oby ¿adnej modyfikacji. Metoda nie ma na celu zmiany po³o¿enia wierzcho³ków, jedynie kolejnoœci ich odwiedzania. Po wykonaniu ca³ej optymalizacji, nale¿y sprawdziæ która modyfikacja przynios³a najlepszy efekt skrócenia d³ugoœci cyklu. W przypadku je¿eli ¿adna modyfikacja nie da³a lepszego rozwi¹zania, nie nale¿y modyfikowaæ rozwi¹zania. Algorytm mo¿na wykonywaæ wielokrotnie, w ten sposób zostanie zrealizowane minimum lokalne. Dla lepszego przedstawienia dzia³ania metody 2-opt, nale¿y spojrzeæ na rysunek 5.4.
 
 \begin{figure}[h]
 	\centering
@@ -91,7 +71,7 @@
 
 \subsection{Metoda 3-opt}
 
-	W odró¿nieniu do algorytmu 2-opt, w metodzie 3-opt rozwa¿ane s¹ wszystkie cykle, które mo¿emy uzyskaæ wymieniaj¹c trzy krawêdzie z cyklu aktualnego, przy czym mo¿emy to wykonaæ na wiele sposobów tak jak zosta³o to przedstawione na rysunku 5.5.
+	W odró¿nieniu do algorytmu 2-opt, w metodzie 3-opt rozwa¿ane s¹ wszystkie cykle, które mo¿na uzyskaæ wymieniaj¹c trzy krawêdzie z cyklu aktualnego, przy czym jest mo¿liwe wykonanie tego na wiele sposobów tak jak zosta³o to przedstawione na rysunku 5.5.
 
 \begin{figure}[h]
 	\centering
