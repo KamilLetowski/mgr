@@ -1,19 +1,21 @@
 \chapter{Badania}
+	W tym rozdziale zostan¹ przedstawione wyniki optymalizacji dla tras przedstawionych w poprzednim rozdziale. Ka¿da trasa zosta³a przedstawiona w oddzielnych podrozdzia³ach.
 
+	Algorytm genetyczny zosta³ zbadany dla trzech ró¿nych wartoœci populacji N: 100,1000 oraz 2000; czterech ró¿nych wartoœci iteracji (pokoleñ): 100, 1000, 2000 oraz 4000. Dla ka¿dej wariacji tych parametrów zosta³o zbadane krzy¿owania PMX, OX oraz CX, z ró¿nymi kombinacjami mutacji: wstawiaj¹ca - insert, zamieniaj¹ca - swap oraz odwracaj¹ca - revert. Wspó³czynnik mutacji dla wszystkich uruchomieñ wynosi 0.1. Dla ka¿dej wariacji parametrów wejœciowych algorytm zosta³ uruchomiony dziesiêæ razy. W tabelach dotycz¹cych wyników algorytmu genetycznego, zosta³y przedstawione agregowane dane. 
 \section{Trasa I}
-
+Pierwsza trasa sk³ada siê ze 111 punktów, odwiedzonych przez pojazd. D³ugoœæ oryginalna tej trasy wynosi 48897 metrów.
 \subsection{Wyniki algorytmu genetycznego}
-
+W tabeli \ref{tab:AG1AVG} zosta³y przedstawione œrednie wyniki dla ka¿dej kombinacji parametrów. Kolorem ¿ó³tym zosta³y oznaczone wyniki lepsze od d³ugoœci oryginalnej. Kolorem pomarañczowym najlepszy wynik dla danego N i k, a kolorem zielony najlepszy globalny wynik. Na pierwszy rzut oka widaæ, ¿e wraz ze wzrostem parametru N osi¹gane by³y lepsze wyniki. Dla populacji wynosz¹cej 100 osobników, tylko dla krzy¿owania CX i mutacji Insert przy 4000 iteracjach osi¹gniêto œredni wynik lepszy od orygina³u. Przy mniejszej wartoœci k, najlepszy wynik osi¹gnê³o krzy¿owanie PMX. Dla N = 1000 lepszych wyników by³o ju¿ wiêcej. Zarówno dla krzy¿owania PMX, OX oraz CX. Gdzie zawsze najlepszy wynik osi¹gany by³ dla krzy¿owania CX i mutacji Insert. Dla tej kombinacji uda³o siê zoptymalizowaæ trasê do oko³o 34 kilometrów. Najs³abiej wypada³a mutacja revert, tylko w jednym przypadku uda³o siê dla niej poprawiæ wynik. Dla N=2000, k=2000 oraz krzy¿owaniu CX i mutacji insert zosta³ osi¹gniêty najlepszy wynik globalny 32326 metrów. Widaæ równie¿, ¿e od k = 1000 dla wszystkich parametrów z wyj¹tkiem krzy¿owania OX oraz mutacji Revert uda³o siê osi¹gn¹c wynik lepszy od orygina³u.  Przy wszystkich krzy¿owaniach najs³abiej sobie poradzi³a mutacja Revert. 
 \begin{table}[]
-\caption[Trasa I - Œrednie wyniki dla algorytmu genetycznego]
-{Trasa I - Œrednie wyniki algorytmu genetycznego dla danych parametrów wejœciowych}
+\caption[Trasa I - œrednie wyniki dla algorytmu genetycznego]
+{Trasa I - œrednie wyniki algorytmu genetycznego dla danych parametrów wejœciowych}
 \scalebox{0.8}{
 \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
 \hline
 \rowcolor[HTML]{C0C0C0} 
 \multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}}                    & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}}                    & PMX                           & PMX                           & PMX                           & OX                            & OX                            & OX                            & CX                            & CX                            & CX                            \\ \cline{3-11} 
 \rowcolor[HTML]{C0C0C0} 
-\multicolumn{1}{|c|}{\multirow{-2}{*}{\cellcolor[HTML]{C0C0C0}N}} & \multicolumn{1}{c|}{\multirow{-2}{*}{\cellcolor[HTML]{C0C0C0}k}} & Insert                        & Replace                       & Revert                        & Insert                        & Replace                       & Revert                        & Insert                        & Replace                       & Revert                        \\ \hline
+\multicolumn{1}{|c|}{\multirow{-2}{*}{\cellcolor[HTML]{C0C0C0}N}} & \multicolumn{1}{c|}{\multirow{-2}{*}{\cellcolor[HTML]{C0C0C0}k}} & Insert                        & Swap                       & Revert                        & Insert                        & Swap                       & Revert                        & Insert                        & Swap                       & Revert                        \\ \hline
 \rowcolor[HTML]{FFFFFF} 
 \cellcolor[HTML]{C0C0C0}100                                       & \cellcolor[HTML]{C0C0C0}100                                      & {\color[HTML]{333333} 91502}  & 96029                         & 105868                        & 102746                        & 109380                        & 115816                        & 97015                         & 112795                        & 116291                        \\ \hline
 \rowcolor[HTML]{FFFFFF} 
@@ -34,12 +36,49 @@
 \rowcolor[HTML]{FFFC9E} 
 \cellcolor[HTML]{C0C0C0}2000                                      & \cellcolor[HTML]{C0C0C0}1000                                     & 36492                         & 39233                         & 43081                         & 38086                         & 45761                         & \cellcolor[HTML]{FFFFFF}53166 & \cellcolor[HTML]{FFCB2F}32571 & 35453                         & 39076                         \\ \hline
 \rowcolor[HTML]{FFFC9E} 
-\cellcolor[HTML]{C0C0C0}2000                                      & \cellcolor[HTML]{C0C0C0}2000                                     & 36410                         & 40379                         & 40711                         & 39554                         & 41320                         & \cellcolor[HTML]{FFFFFF}52030 & \cellcolor[HTML]{34FF34}32326 & 35353                         & 40382                         \\ \hline
+\cellcolor[HTML]{C0C0C0}2000                                      & \cellcolor[HTML]{C0C0C0}2000                                     & 36410                         & 40379                         & 40711                         & 39554                         & 41320                         & \cellcolor[HTML]{FFFFFF}52030 & \cellcolor[HTML]{C6EFCE}32326 & 35353                         & 40382                         \\ \hline
 \rowcolor[HTML]{FFFC9E} 
 \cellcolor[HTML]{C0C0C0}2000                                      & \cellcolor[HTML]{C0C0C0}4000                                     & 35406                         & 38159                         & 42454                         & 39145                         & 44137                         & \cellcolor[HTML]{FFFFFF}51350 & \cellcolor[HTML]{FFCB2F}32667 & 34999                         & 48295                         \\ \hline
 \end{tabular}}
+\label{tab:AG1AVG}
 \end{table}
 
+W tabeli \ref{tab:AG1Ilosc} zosta³a przedstawiona procentowa iloœæ wyników lepszych od d³ugoœci trasy oryginalnej. Widaæ, ¿e od N = 1000 oraz k = 1000 dopiero uda³o siê osi¹gn¹æ 100 procent skutecznoœci, dla niektórych krzy¿owañ i mutacji. Najs³abiej sobie radz¹ca mutacja Revert, jest jedyn¹ mutacj¹, jaka osi¹gnê³a wszystkie wyniki lepsze od orygina³u dla N = 2000, k =100 oraz dla krzy¿owania CX.
+\begin{table}[]
+\caption[Trasa I - tbd dla algorytmu genetycznego]
+{Trasa I - tbd algorytmu genetycznego dla danych parametrów wejœciowych}
+\scalebox{0.8}{
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+\multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}}                    & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}}                    & PMX                           & PMX                           & PMX                          & OX                            & OX                           & OX                           & CX                            & CX                            & CX                            \\ \cline{3-11} 
+\rowcolor[HTML]{C0C0C0} 
+\multicolumn{1}{|c|}{\multirow{-2}{*}{\cellcolor[HTML]{C0C0C0}N}} & \multicolumn{1}{c|}{\multirow{-2}{*}{\cellcolor[HTML]{C0C0C0}k}} & Insert                        & Swap                          & Revert                       & Insert                        & Swap                         & Revert                       & Insert                        & Swap                          & Revert                        \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\cellcolor[HTML]{C0C0C0}100                                       & \cellcolor[HTML]{C0C0C0}100                                      & 0\%                           & 0\%                           & 0\%                          & 0\%                           & 0\%                          & 0\%                          & 0\%                           & 0\%                           & 0\%                           \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\cellcolor[HTML]{C0C0C0}100                                       & \cellcolor[HTML]{C0C0C0}1000                                     & 30\%                          & 0\%                           & 0\%                          & 0\%                           & 0\%                          & 0\%                          & 10\%                          & 0\%                           & 0\%                           \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\cellcolor[HTML]{C0C0C0}100                                       & \cellcolor[HTML]{C0C0C0}2000                                     & 50\%                          & 0\%                           & 0\%                          & 30\%                          & 0\%                          & 0\%                          & 30\%                          & 0\%                           & 0\%                           \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\cellcolor[HTML]{C0C0C0}100                                       & \cellcolor[HTML]{C0C0C0}4000                                     & 40\%                          & 0\%                           & 0\%                          & 40\%                          & 0\%                          & 0\%                          & 50\%                          & 10\%                          & 0\%                           \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\cellcolor[HTML]{C0C0C0}1000                                      & \cellcolor[HTML]{C0C0C0}100                                      & 10\%                          & 0\%                           & 0\%                          & 0\%                           & 0\%                          & 0\%                          & {\color[HTML]{333333} 80\%}   & 20\%                          & 10\%                          \\ \hline
+\cellcolor[HTML]{C0C0C0}1000                                      & \cellcolor[HTML]{C0C0C0}1000                                     & \cellcolor[HTML]{C6EFCE}100\% & \cellcolor[HTML]{C6EFCE}100\% & \cellcolor[HTML]{FFFFFF}50\% & \cellcolor[HTML]{C6EFCE}100\% & \cellcolor[HTML]{FFFFFF}90\% & \cellcolor[HTML]{FFFFFF}0\%  & \cellcolor[HTML]{C6EFCE}100\% & \cellcolor[HTML]{C6EFCE}100\% & \cellcolor[HTML]{FFFFFF}30\%  \\ \hline
+\cellcolor[HTML]{C0C0C0}1000                                      & \cellcolor[HTML]{C0C0C0}2000                                     & \cellcolor[HTML]{C6EFCE}100\% & \cellcolor[HTML]{C6EFCE}100\% & \cellcolor[HTML]{FFFFFF}30\% & \cellcolor[HTML]{C6EFCE}100\% & \cellcolor[HTML]{FFFFFF}90\% & \cellcolor[HTML]{FFFFFF}0\%  & \cellcolor[HTML]{C6EFCE}100\% & \cellcolor[HTML]{C6EFCE}100\% & \cellcolor[HTML]{FFFFFF}60\%  \\ \hline
+\cellcolor[HTML]{C0C0C0}1000                                      & \cellcolor[HTML]{C0C0C0}4000                                     & \cellcolor[HTML]{C6EFCE}100\% & \cellcolor[HTML]{C6EFCE}100\% & \cellcolor[HTML]{FFFFFF}40\% & \cellcolor[HTML]{C6EFCE}100\% & \cellcolor[HTML]{FFFFFF}60\% & \cellcolor[HTML]{FFFFFF}0\%  & \cellcolor[HTML]{C6EFCE}100\% & \cellcolor[HTML]{C6EFCE}100\% & \cellcolor[HTML]{FFFFFF}50\%  \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\cellcolor[HTML]{C0C0C0}2000                                      & \cellcolor[HTML]{C0C0C0}100                                      & 30\%                          & 40\%                          & 50\%                         & 0\%                           & 0\%                          & 0\%                          & 90\%                          & 80\%                          & \cellcolor[HTML]{C6EFCE}100\% \\ \hline
+\cellcolor[HTML]{C0C0C0}2000                                      & \cellcolor[HTML]{C0C0C0}1000                                     & \cellcolor[HTML]{C6EFCE}100\% & \cellcolor[HTML]{C6EFCE}100\% & \cellcolor[HTML]{FFFFFF}90\% & \cellcolor[HTML]{C6EFCE}100\% & \cellcolor[HTML]{FFFFFF}70\% & \cellcolor[HTML]{FFFFFF}20\% & \cellcolor[HTML]{C6EFCE}100\% & \cellcolor[HTML]{C6EFCE}100\% & \cellcolor[HTML]{FFFFFF}90\%  \\ \hline
+\rowcolor[HTML]{C6EFCE} 
+\cellcolor[HTML]{C0C0C0}2000                                      & \cellcolor[HTML]{C0C0C0}2000                                     & 100\%                         & 100\%                         & 100\%                        & 100\%                         & 100\%                        & \cellcolor[HTML]{FFFFFF}40\% & 100\%                         & 100\%                         & 100\%                         \\ \hline
+\rowcolor[HTML]{C6EFCE} 
+\cellcolor[HTML]{C0C0C0}2000                                      & \cellcolor[HTML]{C0C0C0}4000                                     & 100\%                         & 100\%                         & 100\%                        & 100\%                         & 100\%                        & \cellcolor[HTML]{FFFFFF}40\% & 100\%                         & 100\%                         & 100\%                         \\ \hline
+\end{tabular}}
+\label{tab:AG1Ilosc}
+\end{table}
+
+	W tabeli \ref{tab:AG1BEST} zosta³y pokazane najlepsze wyniki, czyli wartoœæ minimalna dla ka¿dego z 10 wywo³añ algorytmu dla danych parametrów. Dla N=100 w przypadku dwóch krzy¿owañ PMX, CX oraz mutacji Insert zosta³y osi¹gniête najlesze wyniki lepsze od orygina³u, nie uda³o siê tego osi¹gn¹æ jedynie dla k = 100. Gdy liczba osobników wynosi³a 1000, przy wiêkszoœci parametrów uda³o siê osi¹gn¹æ wynik lepszy ni¿ orygina³. Dla N = 2000 tylko krzy¿owanie OX przy 100 iteracjach, ani razu nie osi¹gnê³o wyniku lepszego od orygina³u. Dla wszystkich innych kombinacji parametrów uda³o siê poprawiæ rozwi¹zanie. Nalepszy globalny wynik zosta³ znaleziony dla N = 200, k = 100, krzy¿owaniu CX oraz mutacji Insert i wynió³s 30939 metrów. Od N = 100 i k = 4000 zawsze najlepszy wynik wyst¹pi³ dla krzy¿owania CX i mutacji Insert.
 \begin{table}[]
 \caption[Trasa I - najlepsze wyniki dla algorytmu genetycznego]
 {Trasa I - najlepsze wyniki algorytmu genetycznego dla danych parametrów wejœciowych}
@@ -47,9 +86,9 @@
 \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
 \hline
 \rowcolor[HTML]{C0C0C0} 
-\multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}}                    & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}}                    & PMX                           & PMX                           & PMX                           & OX                            & OX                            & OX                            & CX                                                   & CX                            & CX                            \\ \cline{3-11} 
+\multicolumn{1}{|c|}{\cellcolor[HTML]{FFFFFF}}                    & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}}                    & PMX                           & PMX                           & PMX                           & OX                            & OX                            & OX                            & CX                                                   & CX                            & CX                            \\ \cline{3-11} 
 \rowcolor[HTML]{C0C0C0} 
-\multicolumn{1}{|c|}{\multirow{-2}{*}{\cellcolor[HTML]{C0C0C0}N}} & \multicolumn{1}{c|}{\multirow{-2}{*}{\cellcolor[HTML]{C0C0C0}k}} & Insert                        & Swap                          & Revert                        & Insert                        & Swap                          & Revert                        & Insert                                               & Swap                          & Revert                        \\ \hline
+\multicolumn{1}{|c|}{\multirow{-2}{*}{\cellcolor[HTML]{FFFFFF}N}} & \multicolumn{1}{c|}{\multirow{-2}{*}{\cellcolor[HTML]{C0C0C0}k}} & Insert                        & Swap                          & Revert                        & Insert                        & Swap                          & Revert                        & Insert                                               & Swap                          & Revert                        \\ \hline
 \rowcolor[HTML]{FFFFFF} 
 \cellcolor[HTML]{C0C0C0}100                                       & \cellcolor[HTML]{C0C0C0}100                                      & 80385                         & 87226                         & 81154                         & 90764                         & 99185                         & 101137                        & 72268                                                & 103408                        & 92859                         \\ \hline
 \rowcolor[HTML]{FFFFFF} 
@@ -65,22 +104,71 @@
 \cellcolor[HTML]{C0C0C0}1000                                      & \cellcolor[HTML]{C0C0C0}2000                                     & 35051                         & 36704                         & 45852                         & 35709                         & 41317                         & \cellcolor[HTML]{FFFFFF}57478 & \cellcolor[HTML]{FFCB2F}32334                        & 35576                         & 39953                         \\ \hline
 \rowcolor[HTML]{FFFC9E} 
 \cellcolor[HTML]{C0C0C0}1000                                      & \cellcolor[HTML]{C0C0C0}4000                                     & 33268                         & 37649                         & 44333                         & 35718                         & 41883                         & 49322                         & \cellcolor[HTML]{FFCB2F}33089                        & 34642                         & 40220                         \\ \hline
+\cellcolor[HTML]{C0C0C0}2000                                      & \cellcolor[HTML]{C0C0C0}100                                      & \cellcolor[HTML]{FFFC9E}44493 & \cellcolor[HTML]{FFFC9E}42497 & \cellcolor[HTML]{FFFC9E}42138 & \cellcolor[HTML]{FFFFFF}56466 & \cellcolor[HTML]{FFFFFF}56884 & \cellcolor[HTML]{FFFFFF}52010 & \cellcolor[HTML]{FFCB2F}36349                        & \cellcolor[HTML]{FFFC9E}38830 & \cellcolor[HTML]{FFFC9E}38461 \\ \hline
 \rowcolor[HTML]{FFFC9E} 
-\cellcolor[HTML]{C0C0C0}2000                                      & \cellcolor[HTML]{C0C0C0}100                                      & 44493                         & 42497                         & 42138                         & 56466                         & 56884                         & \cellcolor[HTML]{FFFFFF}52010 & \cellcolor[HTML]{FFCB2F}36349                        & 38830                         & 38461                         \\ \hline
-\rowcolor[HTML]{FFFC9E} 
-\cellcolor[HTML]{C0C0C0}2000                                      & \cellcolor[HTML]{C0C0C0}1000                                     & 33609                         & 36100                         & 37047                         & 34801                         & 38625                         & 40817                         & \cellcolor[HTML]{34FF34}30939                        & 33284                         & 36203                         \\ \hline
+\cellcolor[HTML]{C0C0C0}2000                                      & \cellcolor[HTML]{C0C0C0}1000                                     & 33609                         & 36100                         & 37047                         & 34801                         & 38625                         & 40817                         & \cellcolor[HTML]{C6EFCE}30939                        & 33284                         & 36203                         \\ \hline
 \rowcolor[HTML]{FFFC9E} 
 \cellcolor[HTML]{C0C0C0}2000                                      & \cellcolor[HTML]{C0C0C0}2000                                     & 33257                         & 36216                         & 37967                         & 34591                         & 36458                         & 47022                         & \cellcolor[HTML]{FFCB2F}31118                        & 32798                         & 36203                         \\ \hline
 \rowcolor[HTML]{FFFC9E} 
 \cellcolor[HTML]{C0C0C0}2000                                      & \cellcolor[HTML]{C0C0C0}4000                                     & 31347                         & 36834                         & 40193                         & 34269                         & 37693                         & 43242                         & \cellcolor[HTML]{FFCB2F}31118                        & 33245                         & 35271                         \\ \hline
 \end{tabular}}
+\label{tab:AG1BEST}
+\end{table}
+	
+	W tabeli \ref{tab:AG1TIME} zosta³y przedstawione œrednie czasy wywo³añ.  Kolorem pomarañczowym zosta³y zaznaczone najlepsze œredni czasy dla danego N i k. Tylko w dwóch przypadkach najszybsze nie by³o kzy¿owanie CX oraz mutacja Revert. Gdzie dla N = 2000 oraz k = 4000, algorytm œrednio dla tych parametrów wykonywa³ siê dwa razy szybciej od innych. Najlepsze œredni wynik d³ugoœci trasy dla N = 1000 wyniós³ 33843 metrów by³o to przy 1000 iteracjach, a dla N = 2000 osi¹gniêto najlepszy globalny wynik 32326 przy 200 iteracjach (Tab. \ref{tab:AG1AVG}). Œredni wynik poprawi³ siê o ponad kilometr, lecz czas wykonania wzrós³ z 3.42 sekundy do 8.79 sekund. Dla k = 4000 œredni wynik d³ugoœci by³ gorszy, a czas wykonania algorytmu wzrós³ ju¿ do 16.06 sekundy. Krzy¿owanie CX dla N = 1000 oraz k = 1000 wykonuje siê dla trasy pierwszej poni¿ej 2 sekund. W tym czasie znajdywane jest rozwi¹zanie œrednio lepsze o 8 kilometrów od trasy oryginalnej przy mutacji Insert. Dla krzy¿owania CX, N = 1000 iraz k = 100 znaleziono œrednie rozwi¹zanie lepsze, ni¿ trasa oryginalna w czasie poni¿ej 1 sekundy.
+\begin{table}[]
+\caption[Trasa I - œrednie czasy wykonywania algorytmu genetycznego]
+{Trasa I - œrednie czasy wykonywania algorytmu dla danych parametrów wejœciowych}
+\scalebox{0.8}{
+\begin{tabular}{|
+>{\columncolor[HTML]{C0C0C0}}l |
+>{\columncolor[HTML]{C0C0C0}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFCB2F}}l |}
+\hline
+\cellcolor[HTML]{C0C0C0}                    & \cellcolor[HTML]{C0C0C0}                    & \cellcolor[HTML]{C0C0C0}PMX    & \cellcolor[HTML]{C0C0C0}PMX                         & \cellcolor[HTML]{C0C0C0}PMX    & \cellcolor[HTML]{C0C0C0}OX     & \cellcolor[HTML]{C0C0C0}OX      & \cellcolor[HTML]{C0C0C0}OX     & \cellcolor[HTML]{C0C0C0}CX     & \cellcolor[HTML]{C0C0C0}CX      & \cellcolor[HTML]{C0C0C0}CX     \\ \cline{3-11} 
+\multirow{-2}{*}{\cellcolor[HTML]{C0C0C0}N} & \multirow{-2}{*}{\cellcolor[HTML]{C0C0C0}k} & \cellcolor[HTML]{C0C0C0}Insert & \cellcolor[HTML]{C0C0C0}Swap                     & \cellcolor[HTML]{C0C0C0}Revert & \cellcolor[HTML]{C0C0C0}Insert & \cellcolor[HTML]{C0C0C0}Swap & \cellcolor[HTML]{C0C0C0}Revert & \cellcolor[HTML]{C0C0C0}Insert & \cellcolor[HTML]{C0C0C0}Swap & \cellcolor[HTML]{C0C0C0}Revert \\ \hline
+\cellcolor[HTML]{C0C0C0}100                 & \cellcolor[HTML]{C0C0C0}100                 & {\color[HTML]{333333} 0,03}    & \cellcolor[HTML]{FFFFFF}{\color[HTML]{333333} 0,03} & 0,02                           & 0,02                           & 0,02                            & 0,02                           & 0,02                           & \cellcolor[HTML]{FFCB2F}0,01    & 0,01                           \\ \hline
+100                                         & 1000                                        & 0,19                           & 0,19                                                & 0,18                           & 0,15                           & 0,15                            & 0,14                           & 0,15                           & \cellcolor[HTML]{FFCB2F}0,12    & 0,12                           \\ \hline
+100                                         & 2000                                        & 0,37                           & 0,36                                                & 0,34                           & 0,29                           & 0,28                            & 0,27                           & 0,28                           & 0,24                            & 0,23                           \\ \hline
+100                                         & 4000                                        & 0,70                           & 0,70,                                               & 0,71                           & 0,60                           & 0,58                            & 0,55                           & 0,53                           & 0,49                            & 0,47                           \\ \hline
+1000                                        & 100                                         & 0,35                           & 0,53                                                & 0,34                           & 0,24                           & 0,23                            & 0,26                           & {\color[HTML]{333333} 0,22}    & \cellcolor[HTML]{FFCB2F}0,21    & \cellcolor[HTML]{FFFFFF}0,23   \\ \hline
+1000                                        & 1000                                        & 2,31                           & 2,34                                                & 2,34                           & 1,99                           & 1,92                            & 1,84                           & 1,76                           & \cellcolor[HTML]{FFCB2F}1,70    & \cellcolor[HTML]{FFFFFF}1,71   \\ \hline
+1000                                        & 2000                                        & 4,51                           & 4,57                                                & 4,62                           & 3,77                           & 3,86                            & 3,60                           & 3,42                           & 3,38                            & 3,21                           \\ \hline
+1000                                        & 4000                                        & 8,88                           & 9,10                                                & 8,81                           & 7,38                           & 7,46                            & 7,36                           & 6,72                           & 6,65                            & 6,23                           \\ \hline
+2000                                        & 100                                         & 0,80                           & 0,80                                                & 0,79                           & 0,59                           & 0,58                            & 0,57                           & 0,61                           & 0,55                            & 0,54                           \\ \hline
+2000                                        & 1000                                        & 5,64                           & 5,58                                                & 5,37                           & 4,48                           & 4,44                            & 4,32                           & 4,12                           & 3,96                            & 3,88                           \\ \hline
+2000                                        & 2000                                        & 10,22                          & 10,28                                               & 10,23                          & 9,02                           & 8,96                            & 8,79                           & 8,33                           & 8,02                            & 7,86                           \\ \hline
+2000                                        & 4000                                        & 20,77                          & 20,85                                               & 20,83                          & 17,74                          & 17,98                           & 17,99                          & 16,06                          & 15,74                           & 7,26                           \\ \hline
+\end{tabular}}
+\label{tab:AG1TIME}
 \end{table}
 
-\begin{figure}[h]
+Rysunki \ref{Trasa1GAN100}, \ref{Trasa1GAN1000} oraz \ref{Trasa1GAN2000} przedstawiaj¹ wykresy, które porównuj¹ o ile ró¿ni siê rozwi¹zanie od d³ugoœci trasy oryginalnej, kolejna dla N=100, N=1000 oraz N = 2000. Widaæ, ¿e wraz ze wzrostem N, nastêpuje poprawa wyników. Dla N =1000 uda³o siê zoptymalizowaæ trasê powy¿ej 25 procent, w dwóch przypadkach by³o to nawet powy¿ej 30. Natomiast dla N = 2000 oraz k > 100, ka¿da wariacja parametrów optymalizowa³a rozwi¹zanie o kilkanaœcie procent, z wyj¹tkiem krzy¿owania OX i mutacji Reverse. 
+\begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.4]{grafika/Trasa1GA.png}
-	\caption{Trasa I - Zale¿noœæ œredniej odleg³oœci od czasu}
-	\label{mutacja}
+	\includegraphics[scale=0.35]{grafika/Trasa1GAN100.png}
+	\caption{Trasa I - porównanie œrednich wyników z d³ugoœci¹ oryginalnej trasy dla N=100}
+	\label{Trasa1GAN100}
+\end{figure}	
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.35]{grafika/Trasa1GAN1000.png}
+	\caption{Trasa I - porównanie œrednich wyników z d³ugoœci¹ oryginalnej trasy dla N=1000}
+	\label{Trasa1GAN1000}
+\end{figure}	
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.35]{grafika/Trasa1GAN2000.png}
+	\caption{Trasa I - porównanie œrednich wyników z d³ugoœci¹ oryginalnej trasy dla N=2000}
+	\label{Trasa1GAN2000}
 \end{figure}	
 
 \subsection{Wyniki algorytmu mrówkowego}
@@ -205,17 +293,21 @@ czas     & 12.945 & 21.732 & 31.547 \\ \hline
 \subsection{Porównanie algorytmów}
 
 \section{Trasa II}
+
+Druga trasa sk³ada siê ze 150 punktów, odwiedzonych przez pojazd. D³ugoœæ oryginalna tej trasy wynosi 40402 metrów.
+
 \subsection{Wyniki algorytmu genetycznego}
+W tabeli \ref{tab:AG2AVG} zosta³y pokazane œrednie wyniki dla danych parametrów. Na pierwszy rzut oka widaæ, ¿e w przeciwieñstwie do poprzedniej trasy, nie zawsze krzy¿owanie CX oraz mutacja Insert da³a najlepsze wyniki. Dla N = 2000 oraz k = 100 najlepszy œredni wynik osi¹gnê³o krzy¿owanie CX z mutacj¹ Revert, a dla N = 2000 i k = 2000 lub k = 4000 najlepszy wyniki by³y dla krzy¿owania CX oraz mutacji Swap. Widaæ równie¿, ¿e poprawa wzglêdem oryginalnej trasy nast¹pi³a dla niektórych parametrów krzy¿owañ i mutacji dopiero od N = 1000 oraz k = 1000. Dla mniejszych wartoœci nie uda³o siê zoptymalizowaæ rozwi¹zañ. Przy N = 1000, trasê uda³o siê poprawiæ œredni o oko³o 10 kilometrów. Natomiast najlepszy wynik globalny osi¹gniêto dla N = 2000 oraz k = 1000, krzy¿owanie CX z mutacj¹ Insert i by³o to 28196 metrów. Czyli poprawa prawie o 12 kilometrów. Mutacja Revert ani razu nie zoptymalizowa³a wyniku dla krzy¿owania PMX oraz OX.
 \begin{table}[htb]
-\caption[Trasa II -Œrednie wyniki dla algorytmu genetycznego]
-{Trasa II - Œrednie wyniki algorytmu genetycznego dla danych parametrów wejœciowych}
+\caption[Trasa II - œrednie wyniki dla algorytmu genetycznego]
+{Trasa II - œrednie wyniki algorytmu genetycznego dla danych parametrów wejœciowych}
 \scalebox{0.8}{
 \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
 \hline
 \rowcolor[HTML]{C0C0C0} 
 \multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}}                    & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}}                    & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}PMX}    & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}PMX}     & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}PMX}    & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}OX}     & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}OX}      & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}OX}     & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}CX}     & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}CX}      & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}CX}     \\ \cline{3-11} 
 \rowcolor[HTML]{C0C0C0} 
-\multicolumn{1}{|c|}{\multirow{-2}{*}{\cellcolor[HTML]{C0C0C0}N}} & \multicolumn{1}{c|}{\multirow{-2}{*}{\cellcolor[HTML]{C0C0C0}k}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Insert} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Replace} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Revert} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Insert} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Replace} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Revert} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Insert} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Replace} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Revert} \\ \hline
+\multicolumn{1}{|c|}{\multirow{-2}{*}{\cellcolor[HTML]{C0C0C0}N}} & \multicolumn{1}{c|}{\multirow{-2}{*}{\cellcolor[HTML]{C0C0C0}k}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Insert} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Swap} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Revert} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Insert} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Swap} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Revert} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Insert} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Swap} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Revert} \\ \hline
 \rowcolor[HTML]{FFFFFF} 
 \cellcolor[HTML]{C0C0C0}100                                       & \cellcolor[HTML]{C0C0C0}100                                      & {\color[HTML]{333333} 99575}                        & 107771                                               & 111797                                              & 113364                                              & 119707                                               & 120570                                              & 110318                                              & 116843                                               & 116749                                              \\ \hline
 \rowcolor[HTML]{FFFFFF} 
@@ -232,14 +324,50 @@ czas     & 12.945 & 21.732 & 31.547 \\ \hline
 \cellcolor[HTML]{C0C0C0}1000                                      & \cellcolor[HTML]{C0C0C0}4000                                     & \cellcolor[HTML]{FFFC9E}36160                       & \cellcolor[HTML]{FFFC9E}39848                        & \cellcolor[HTML]{FFFFFF}55774                       & \cellcolor[HTML]{FFFC9E}36414                       & \cellcolor[HTML]{FFFFFF}44856                        & \cellcolor[HTML]{FFFFFF}68215                       & \cellcolor[HTML]{FFCB2F}30443                       & \cellcolor[HTML]{FFFC9E}30720                        & \cellcolor[HTML]{FFFFFF}48295                       \\ \hline
 \rowcolor[HTML]{FFFFFF} 
 \cellcolor[HTML]{C0C0C0}2000                                      & \cellcolor[HTML]{C0C0C0}100                                      & 58533                                               & 59876                                                & 60898                                               & 70291                                               & 71693                                                & 72095                                               & \cellcolor[HTML]{FFFC9E}38655                       & \cellcolor[HTML]{FFFC9E}39129                        & \cellcolor[HTML]{FFCB2F}37204                       \\ \hline
-\cellcolor[HTML]{C0C0C0}2000                                      & \cellcolor[HTML]{C0C0C0}1000                                     & \cellcolor[HTML]{FFFC9E}34939                       & \cellcolor[HTML]{FFFC9E}38272                        & \cellcolor[HTML]{FFFFFF}49381                       & \cellcolor[HTML]{FFFC9E}35951                       & \cellcolor[HTML]{FFFC9E}39779                        & \cellcolor[HTML]{FFFFFF}62656                       & \cellcolor[HTML]{34FF34}28196                       & \cellcolor[HTML]{FFFFFF}29415                        & \cellcolor[HTML]{FFFFFF}33519                       \\ \hline
+\cellcolor[HTML]{C0C0C0}2000                                      & \cellcolor[HTML]{C0C0C0}1000                                     & \cellcolor[HTML]{FFFC9E}34939                       & \cellcolor[HTML]{FFFC9E}38272                        & \cellcolor[HTML]{FFFFFF}49381                       & \cellcolor[HTML]{FFFC9E}35951                       & \cellcolor[HTML]{FFFC9E}39779                        & \cellcolor[HTML]{FFFFFF}62656                       & \cellcolor[HTML]{C6EFCE}28196                       & \cellcolor[HTML]{FFFFFF}29415                        & \cellcolor[HTML]{FFFFFF}33519                       \\ \hline
 \cellcolor[HTML]{C0C0C0}2000                                      & \cellcolor[HTML]{C0C0C0}2000                                     & \cellcolor[HTML]{FFFC9E}32900                       & \cellcolor[HTML]{FFFC9E}39068                        & \cellcolor[HTML]{FFFFFF}48607                       & \cellcolor[HTML]{FFFC9E}34474                       & \cellcolor[HTML]{FFFFFF}41349                        & \cellcolor[HTML]{FFFFFF}56907                       & \cellcolor[HTML]{FFFC9E}28802                       & \cellcolor[HTML]{FFCB2F}28506                        & \cellcolor[HTML]{FFFC9E}34458                       \\ \hline
 \rowcolor[HTML]{FFFC9E} 
 \cellcolor[HTML]{C0C0C0}2000                                      & \cellcolor[HTML]{C0C0C0}4000                                     & 32626                                               & 36244                                                & \cellcolor[HTML]{FFFFFF}49132                       & 36333                                               & 39164                                                & \cellcolor[HTML]{FFFFFF}57952                       & 28808                                               & \cellcolor[HTML]{FFCB2F}28453                        & 32683                                               \\ \hline
 \end{tabular}}
+\label{tab:AG2AVG}
 \end{table}
 
+W tabeli \ref{tab:AG2Ilosc} zosta³a przedstawiona procentowa iloœæ wyników lepszych od d³ugoœci trasy oryginalnej.  Dla N = 2000 i k = 1000 lub k = 4000, wszystkie wyniki niezale¿nie od mutacji by³y zoptymalizowane dla krzy¿owania CX. Dla N = 100 praktycznie w ogóle nie uda³o siê zoptymalizowaæ rozwi¹zania, poza pojedynczymi przypadkami dla k = 4000. Krzy¿owanie OX mia³o 100 procent skutecznoœæi od N = 2000 oraz k = 2000. Krzy¿owanie OX z mutacj¹ Revert, ani razu nie znalaz³o lepszego rozwi¹zania od trasy oryginalnej.
 
+\begin{table}[]
+\caption[Trasa II - tbd dla algorytmu genetycznego]
+{Trasa II - tbd algorytmu genetycznego dla danych parametrów wejœciowych}
+\scalebox{0.8}{
+\begin{tabular}{|
+>{\columncolor[HTML]{C0C0C0}}l |
+>{\columncolor[HTML]{C0C0C0}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |l|l|
+>{\columncolor[HTML]{FFFFFF}}l |}
+\hline
+\multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}}                    & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}}                    & \cellcolor[HTML]{C0C0C0}PMX    & \cellcolor[HTML]{C0C0C0}PMX  & \cellcolor[HTML]{C0C0C0}PMX    & \cellcolor[HTML]{C0C0C0}OX     & \cellcolor[HTML]{C0C0C0}OX   & \cellcolor[HTML]{C0C0C0}OX     & \cellcolor[HTML]{C0C0C0}CX                          & \cellcolor[HTML]{C0C0C0}CX    & \cellcolor[HTML]{C0C0C0}CX     \\ \cline{3-11} 
+\multicolumn{1}{|c|}{\multirow{-2}{*}{\cellcolor[HTML]{C0C0C0}N}} & \multicolumn{1}{c|}{\multirow{-2}{*}{\cellcolor[HTML]{C0C0C0}k}} & \cellcolor[HTML]{C0C0C0}Insert & \cellcolor[HTML]{C0C0C0}Swap & \cellcolor[HTML]{C0C0C0}Revert & \cellcolor[HTML]{C0C0C0}Insert & \cellcolor[HTML]{C0C0C0}Swap & \cellcolor[HTML]{C0C0C0}Revert & \cellcolor[HTML]{C0C0C0}Insert                      & \cellcolor[HTML]{C0C0C0}Swap  & \cellcolor[HTML]{C0C0C0}Revert \\ \hline
+\cellcolor[HTML]{C0C0C0}100                                       & \cellcolor[HTML]{C0C0C0}100                                      & 0\%                            & 0\%                          & 0\%                            & 0\%                            & 0\%                          & 0\%                            & \cellcolor[HTML]{FFFFFF}0\%                         & \cellcolor[HTML]{FFFFFF}0\%   & 0\%                            \\ \hline
+100                                                               & 1000                                                             & 0\%                            & 0\%                          & 0\%                            & 0\%                            & 0\%                          & 0\%                            & \cellcolor[HTML]{FFFFFF}0\%                         & \cellcolor[HTML]{FFFFFF}0\%   & 0\%                            \\ \hline
+100                                                               & 2000                                                             & 0\%                            & 0\%                          & 0\%                            & 0\%                            & 0\%                          & 0\%                            & \cellcolor[HTML]{FFFFFF}0\%                         & \cellcolor[HTML]{FFFFFF}0\%   & 0\%                            \\ \hline
+100                                                               & 4000                                                             & 10\%                           & 0\%                          & 10\%                           & 0\%                            & 0\%                          & 0\%                            & \cellcolor[HTML]{FFFFFF}30\%                        & \cellcolor[HTML]{FFFFFF}0\%   & 0\%                            \\ \hline
+1000                                                              & 100                                                              & 0\%                            & 0\%                          & 0\%                            & 0\%                            & 0\%                          & 0\%                            & \cellcolor[HTML]{FFFFFF}{\color[HTML]{333333} 10\%} & \cellcolor[HTML]{FFFFFF}10\%  & 10\%                           \\ \hline
+1000                                                              & 1000                                                             & 60\%                           & 10\%                         & 0\%                            & 40\%                           & 0\%                          & 0\%                            & \cellcolor[HTML]{C6EFCE}100\%                       & \cellcolor[HTML]{C6EFCE}100\% & 30\%                           \\ \hline
+1000                                                              & 2000                                                             & \cellcolor[HTML]{C6EFCE}100\%  & 40\%                         & 0\%                            & 60\%                           & 0\%                          & 0\%                            & \cellcolor[HTML]{C6EFCE}100\%                       & \cellcolor[HTML]{C6EFCE}100\% & 10\%                           \\ \hline
+1000                                                              & 4000                                                             & \cellcolor[HTML]{C6EFCE}100\%  & 50\%                         & 0\%                            & 90\%                           & 20\%                         & 0\%                            & \cellcolor[HTML]{C6EFCE}100\%                       & \cellcolor[HTML]{C6EFCE}100\% & 30\%                           \\ \hline
+2000                                                              & 100                                                              & 0\%                            & 0\%                          & 0\%                            & 0\%                            & 0\%                          & 0\%                            & \cellcolor[HTML]{FFFFFF}90\%                        & \cellcolor[HTML]{FFFFFF}70\%  & 70\%                           \\ \hline
+2000                                                              & 1000                                                             & 90\%                           & 60\%                         & 0\%                            & \cellcolor[HTML]{C6EFCE}100\%  & 50\%                         & 0\%                            & \cellcolor[HTML]{C6EFCE}100\%                       & \cellcolor[HTML]{C6EFCE}100\% & \cellcolor[HTML]{C6EFCE}100\%  \\ \hline
+2000                                                              & 2000                                                             & \cellcolor[HTML]{C6EFCE}100\%  & 70\%                         & 10\%                           & \cellcolor[HTML]{C6EFCE}100\%  & 40\%                         & 0\%                            & \cellcolor[HTML]{C6EFCE}100\%                       & \cellcolor[HTML]{C6EFCE}100\% & 80\%                           \\ \hline
+2000                                                              & 4000                                                             & \cellcolor[HTML]{C6EFCE}100\%  & 90\%                         & 20\%                           & \cellcolor[HTML]{C6EFCE}100\%  & 70\%                         & 0\%                            & \cellcolor[HTML]{C6EFCE}100\%                       & \cellcolor[HTML]{C6EFCE}100\% & \cellcolor[HTML]{C6EFCE}100\%  \\ \hline
+\end{tabular}}
+\label{tab:AG2Ilosc}
+\end{table}
+
+W tabeli \ref{tab:AG2Best} s¹ pokazane najlepsze wyniki algorytmu genetycznego dla trasy II. Dla N = 1000 i N = 2000, najlepsze wyniki dla poszczególnych wartoœci k osi¹ga³y te same kombinacje krzy¿owania i mutacji. Tak dla k = 100 najlepszy wynik osi¹gnê³o krzy¿owanie CX z mutacj¹ Revert, dla k = 100 by³o to krzy¿owanie CX z mutacj¹ insert a pozosta³ych krzy¿owanie CX z mutacj¹ Swap. Globalnie najlepszy wynik zosta³ znaleziony dla N = 2000, k =2000 i jest to 27381 metrów, lecz poprawa wzglêdem N = 1000 wynios³a tylko 500 metrów. Krzy¿owanie PMX  podobnie sobie poradzi³o jak krzy¿owanie OX. Dla N = 100 w najlepszym przypadku uda³o siê zoptymalizowaæ trasê do 37172 metrów. 
 \begin{table}[]
 \caption[Trasa II - najlepsze wyniki dla algorytmu genetycznego]
 {Trasa II - najlepsze wyniki algorytmu genetycznego dla danych parametrów wejœciowych}
@@ -249,7 +377,7 @@ czas     & 12.945 & 21.732 & 31.547 \\ \hline
 \rowcolor[HTML]{C0C0C0} 
 \multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}}                    & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}}                    & PMX                           & PMX                           & PMX                           & OX                            & OX                            & OX                            & CX                                                   & CX                            & CX                            \\ \cline{3-11} 
 \rowcolor[HTML]{C0C0C0} 
-\multicolumn{1}{|c|}{\multirow{-2}{*}{\cellcolor[HTML]{C0C0C0}N}} & \multicolumn{1}{c|}{\multirow{-2}{*}{\cellcolor[HTML]{C0C0C0}k}} & Insert                        & Replace                       & Revert                        & Insert                        & Replace                       & Revert                        & Insert                                               & Replace                       & Revert                        \\ \hline
+\multicolumn{1}{|c|}{\multirow{-2}{*}{\cellcolor[HTML]{C0C0C0}N}} & \multicolumn{1}{c|}{\multirow{-2}{*}{\cellcolor[HTML]{C0C0C0}k}} & Insert                        & Swap                       & Revert                        & Insert                        & Swap                       & Revert                        & Insert                                               & Swap                       & Revert                        \\ \hline
 \rowcolor[HTML]{FFFFFF} 
 \cellcolor[HTML]{C0C0C0}100                                       & \cellcolor[HTML]{C0C0C0}100                                      & {\color[HTML]{333333} 89707}  & 95824                         & 100856                        & 102788                        & 110057                        & 114491                        & 104749                                               & 104765                        & 101883                        \\ \hline
 \rowcolor[HTML]{FFFFFF} 
@@ -267,20 +395,73 @@ czas     & 12.945 & 21.732 & 31.547 \\ \hline
 \rowcolor[HTML]{FFFFFF} 
 \cellcolor[HTML]{C0C0C0}2000                                      & \cellcolor[HTML]{C0C0C0}100                                      & 50007                         & 53464                         & 51193                         & 61228                         & 67171                         & 59619                         & \cellcolor[HTML]{FFFC9E}33775                        & \cellcolor[HTML]{FFFC9E}35063 & \cellcolor[HTML]{FFCB2F}31852 \\ \hline
 \rowcolor[HTML]{FFFC9E} 
-\cellcolor[HTML]{C0C0C0}2000                                      & \cellcolor[HTML]{C0C0C0}1000                                     & 29758                         & 33420                         & \cellcolor[HTML]{FFFFFF}43562 & 32178                         & 33255                         & \cellcolor[HTML]{FFFFFF}56070 & \cellcolor[HTML]{34FF34}27655                        & 27910                         & 29839                         \\ \hline
+\cellcolor[HTML]{C0C0C0}2000                                      & \cellcolor[HTML]{C0C0C0}1000                                     & 29758                         & 33420                         & \cellcolor[HTML]{FFFFFF}43562 & 32178                         & 33255                         & \cellcolor[HTML]{FFFFFF}56070 & \cellcolor[HTML]{FFCB2F}27655                        & 27910                         & 29839                         \\ \hline
 \rowcolor[HTML]{FFFC9E} 
-\cellcolor[HTML]{C0C0C0}2000                                      & \cellcolor[HTML]{C0C0C0}2000                                     & 31390                         & 35329                         & 38151                         & 30047                         & 31229                         & \cellcolor[HTML]{FFFFFF}48944 & 28178                                                & \cellcolor[HTML]{FFCB2F}27381 & 29839                         \\ \hline
+\cellcolor[HTML]{C0C0C0}2000                                      & \cellcolor[HTML]{C0C0C0}2000                                     & 31390                         & 35329                         & 38151                         & 30047                         & 31229                         & \cellcolor[HTML]{FFFFFF}48944 & 28178                                                & \cellcolor[HTML]{C6EFCE}27381 & 29839                         \\ \hline
 \rowcolor[HTML]{FFFC9E} 
 \cellcolor[HTML]{C0C0C0}2000                                      & \cellcolor[HTML]{C0C0C0}4000                                     & 30080                         & 31724                         & 38944                         & 32360                         & 35025                         & \cellcolor[HTML]{FFFFFF}49517 & 28177                                                & \cellcolor[HTML]{FFCB2F}27925 & 29840                         \\ \hline
 \end{tabular}}
+\label{tab:AG2Best}
 \end{table}
 
-\begin{figure}[h]
+W tabeli \ref{tab:AG2Time} zosta³y pokazane œrednie czasy trwania algorytmu genetycznego. Rozk³ad najlepszych œrednich czasów jest bardzo podobny do trasy pierwszej. Najszybsze dla ka¿dego N i k by³o krzy¿owanie CX oraz mutacja Revert. Pomiêdzy N = 1000 a N = 2000 œrednia najlepsza optymalizacja trasy poprawi³a siê oko³o 500 metrów, czas na znalezienie takiej trasy wzrós³ ponad dwukrotnie z 4.17 sekund do 9.96 sekund. Najwolniej sobie poradzi³o krzy¿owanie PMX. Od k = 1000 wraz ze wzrsotem k czas wykonania rós³ dwukrotnie.
+\begin{table}[]
+\caption[Trasa II - œrednie czasy wykonywania algorytmu genetycznego]
+{Trasa II - œrednie czasy wykonywania algorytmu dla danych parametrów wejœciowych}
+\scalebox{0.8}{
+\begin{tabular}{|
+>{\columncolor[HTML]{C0C0C0}}l |
+>{\columncolor[HTML]{C0C0C0}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFCB2F}}l |}
+\hline
+\cellcolor[HTML]{C0C0C0}                    & \cellcolor[HTML]{C0C0C0}                    & \cellcolor[HTML]{C0C0C0}PMX    & \cellcolor[HTML]{C0C0C0}PMX     & \cellcolor[HTML]{C0C0C0}PMX    & \cellcolor[HTML]{C0C0C0}OX     & \cellcolor[HTML]{C0C0C0}OX      & \cellcolor[HTML]{C0C0C0}OX     & \cellcolor[HTML]{C0C0C0}CX     & \cellcolor[HTML]{C0C0C0}CX      & \cellcolor[HTML]{C0C0C0}CX     \\ \cline{3-11} 
+\multirow{-2}{*}{\cellcolor[HTML]{C0C0C0}N} & \multirow{-2}{*}{\cellcolor[HTML]{C0C0C0}k} & \cellcolor[HTML]{C0C0C0}Insert & \cellcolor[HTML]{C0C0C0}Replace & \cellcolor[HTML]{C0C0C0}Revert & \cellcolor[HTML]{C0C0C0}Insert & \cellcolor[HTML]{C0C0C0}Replace & \cellcolor[HTML]{C0C0C0}Revert & \cellcolor[HTML]{C0C0C0}Insert & \cellcolor[HTML]{C0C0C0}Replace & \cellcolor[HTML]{C0C0C0}Revert \\ \hline
+\cellcolor[HTML]{C0C0C0}100                 & \cellcolor[HTML]{C0C0C0}100                 & {\color[HTML]{333333} 0,04}    & {\color[HTML]{333333} 0,04}     & 0,03                           & 0,02                           & 0,02                            & 0,02                           & 0,03                           & \cellcolor[HTML]{FFCB2F}0,02    & 0,02                           \\ \hline
+100                                         & 1000                                        & 0,27                           & 0,26                            & 0,24                           & 0,20                           & 0,19                            & 0,18                           & 0,24                           & 0,16                            & 0,15                           \\ \hline
+100                                         & 2000                                        & 0,50                           & 0,49                            & 0,46                           & 0,38                           & 0,37                            & 0,35                           & 0,41                           & 0,31                            & 0,29                           \\ \hline
+100                                         & 4000                                        & 0,95                           & 0,95                            & 0,95                           & 0,75                           & 0,72                            & 0,69                           & 0,74                           & 0,60                            & 0,59                           \\ \hline
+1000                                        & 100                                         & 0,54                           & 0,53                            & 0,53                           & 0,34                           & 0,33                            & 0,32                           & {\color[HTML]{333333} 0,39}    & 0,29                            & 0,28                           \\ \hline
+1000                                        & 1000                                        & 3,24                           & 3,13                            & 2,99                           & 2,49                           & 2,40                            & 2,28                           & 2,26                           & 1,95                            & 1,91                           \\ \hline
+1000                                        & 2000                                        & 5,95                           & 5,89                            & 5,79                           & 4,57                           & 4,33                            & 4,33                           & 4,17                           & 3,90                            & 3,65                           \\ \hline
+1000                                        & 4000                                        & 11,81                          & 11,91                           & 11,30                          & 8,96                           & 9,23                            & 8,64                           & 8,10                           & 7,34                            & 7,26                           \\ \hline
+2000                                        & 100                                         & 1,17                           & 1,19                            & 1,12                           & 0,76                           & 0,75                            & 0,74                           & 0,84                           & 0,66                            & 0,64                           \\ \hline
+2000                                        & 1000                                        & 7,17                           & 7,55                            & 6,98                           & 5,56                           & 5,51                            & 5,23                           & 5,11                           & 4,56                            & 4,45                           \\ \hline
+2000                                        & 2000                                        & 13,61                          & 13,61                           & 13,48                          & 10,71                          & 11,13                           & 10,64                          & 9,96                           & 9,03                            & 8,93                           \\ \hline
+2000                                        & 4000                                        & 27,25                          & 27,60                           & 27,11                          & 21,06                          & 21,97                           & 21,21                          & 18,63                          & 17,79                           & 17,43                          \\ \hline
+\end{tabular}}
+\label{tab:AG2Time}
+\end{table}
+
+Rysunki \ref{Trasa2GAN100}, \ref{Trasa2GAN1000} oraz \ref{Trasa2GAN2000} przedstawiaj¹ wykresy, które porównuj¹ o ile ró¿ni siê rozwi¹zanie od d³ugoœci trasy oryginalnej, kolejna dla N=100, N=1000 oraz N = 2000. Dla N =2000 i k = 1000 dla krzy¿owania CX oaz mutacji Insert algorytm zoptymalizowa³ œrednio trasê o 30.21 procent, przy wzroœcie liczby iteracji nie nast¹pi³a ju¿ poprawa. Algorytm ca³y czas optymalizowa³ trasê oko³o 30 procent. Dla N = 1000 trasa zosta³a zoptymalizowana maksymalnie oko³o 25 procent zawsze dla krzy¿owania CX oraz mutacji Swap lub Insert. Krzy¿owanie PMX i OX zoptymalizowa³o trasê œredni od oko³o 15 do 20 procent. Przy N = 100 wyniki by³y gorsze ni¿ oryginalna trasa o kilkadziesi¹t procent, a przy k = 100 nawet osi¹gnê³y -190 procent.
+\begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.4]{grafika/Trasa2GA.png}
-	\caption{Trasa II - Zale¿noœæ œredniej odleg³oœci od czasu}
-	\label{mutacja}
+	\includegraphics[scale=0.35]{grafika/Trasa2GAN100.png}
+	\caption{Trasa II - porównanie œrednich wyników z d³ugoœci¹ oryginalnej trasy dla N=100}
+	\label{Trasa2GAN100}
 \end{figure}	
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.35]{grafika/Trasa2GAN1000.png}
+	\caption{Trasa II - porównanie œrednich wyników z d³ugoœci¹ oryginalnej trasy dla N=1000}
+	\label{Trasa2GAN1000}
+\end{figure}	
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.35]{grafika/Trasa2GAN2000.png}
+	\caption{Trasa II - porównanie œrednich wyników z d³ugoœci¹ oryginalnej trasy dla N=2000}
+	\label{Trasa2GAN2000}
+\end{figure}	
+
 
 \subsection{Wyniki algorytmu mrówkowego}
 
@@ -349,15 +530,12 @@ czas     & 28.325 & 42.689 & 60.281 \\ \hline
 \subsection{Porównanie algorytmów}
 
 \section{Trasa III}
+Trasa trzecia sk³ada siê z 248 punktów i ma d³ugoœæ 53478 metrów.
 
 \subsection{Wyniki algorytmu genetycznego}
-
-% Please add the following required packages to your document preamble:
-% \usepackage{multirow}
-% \usepackage[table,xcdraw]{xcolor}
-% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
-\begin{table}[]
-\caption[Trasa III -Œrednie wyniki dla algorytmu genetycznego]
+W tabeli \ref{tab:AG3AVG} zosta³y pokazane œrednie wyniki algorytmu genetycznego dla trasy III. Krzy¿owanie OX ani razu nie osi¹gnê³o œredniego wyniku lepszego od d³ugoœci trasy oryginalnej. Dla N = 100, wiêkszoœæ otrzymanych wyników ma wartoœæ powy¿ej 100 kilometrów. Dopiero dla N = 1000, k = 1000, krzy¿owania CX oraz mutacji Insert uda³o siê osi¹gn¹æ œredni lepszy wynik od wartoœci oryginalnej  423728 metrów, jest to poprawa d³ugoœci oko³o 10 kilometrów. Najlepszy wynik dla N = 1000 wyst¹pi³ dla k = 4000, krzy¿owania CX oraz mutacji Insert, wyniós³ 40121 metrów. Dla tej populacji krzy¿owanie PMX w jednym miejscu osi¹gnê³o œredni wynik lepszy ni¿ d³ugoœæ trasy oryginalnej, dla k = 4000 oraz mutacji Insert. Dla populacji N = 2000 wyniki roz³o¿y³y siê podobnie do poprzedniej. Najlepszy globalny wynik 34168 metrów zosta³ osi¹gniêty dla krzy¿owania CX, mutacji Insert o k = 4000.
+\begin{table}[!h]
+\caption[Trasa III -œrednie wyniki dla algorytmu genetycznego]
 {Trasa III - Œrednie wyniki algorytmu genetycznego dla danych parametrów wejœciowych}
 \scalebox{0.8}{
 \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
@@ -387,12 +565,53 @@ czas     & 28.325 & 42.689 & 60.281 \\ \hline
 \rowcolor[HTML]{FFFFFF} 
 \cellcolor[HTML]{C0C0C0}2000                                      & \cellcolor[HTML]{C0C0C0}1000                                     & 54123                         & 64199  & 82598  & 57743  & 68314  & 103521 & \cellcolor[HTML]{FFCB2F}34365 & \cellcolor[HTML]{FFFC9E}39530 & 50624  \\ \hline
 \rowcolor[HTML]{FFFFFF} 
-\cellcolor[HTML]{C0C0C0}2000                                      & \cellcolor[HTML]{C0C0C0}2000                                     & \cellcolor[HTML]{FFFC9E}45893 & 55922  & 82523  & 51700  & 63697  & 96266  & \cellcolor[HTML]{FFCB2F}36518 & \cellcolor[HTML]{FFFC9E}39200 & 59014  \\ \hline
+\cellcolor[HTML]{C0C0C0}2000                                      & \cellcolor[HTML]{C0C0C0}2000                                     & \cellcolor[HTML]{FFFC9E}45893 & 55922  & 82523  & 54700  & 63697  & 96266  & \cellcolor[HTML]{FFCB2F}36518 & \cellcolor[HTML]{FFFC9E}39200 & 59014  \\ \hline
 \rowcolor[HTML]{FFFFFF} 
-\cellcolor[HTML]{C0C0C0}2000                                      & \cellcolor[HTML]{C0C0C0}4000                                     & \cellcolor[HTML]{FFFC9E}47206 & 57436  & 81653  & 53149  & 66321  & 96440  & \cellcolor[HTML]{34FF34}34168 & \cellcolor[HTML]{FFFC9E}37951 & 56645  \\ \hline
+\cellcolor[HTML]{C0C0C0}2000                                      & \cellcolor[HTML]{C0C0C0}4000                                     & \cellcolor[HTML]{FFFC9E}47206 & 57436  & 81653  & 54149  & 66321  & 96440  & \cellcolor[HTML]{34FF34}34168 & \cellcolor[HTML]{FFFC9E}37951 & 56645  \\ \hline
 \end{tabular}}
+\label{tab:AG3AVG}
 \end{table}
 
+W tabeli \ref{tab:AG3Ilosc} zosta³a przedstawiona procentowa iloœæ wyników lepszych od d³ugoœci trasy oryginalnej. Dla N= 100, N = 1000 i k = 100 oraz N = 2000 i k = 100 nie wyst¹pi³ ani jeden wynik, który optymalizowa³by trasê. Krzy¿owanie PMX osi¹gnê³o tylko raz skutecznoœæ 100 procent dla N = 2000, k = 2000 oraz mutacji Insert. Mutacja Revert ani razu dla krzy¿owania PMX oraz OX nie zoptymalizowa³a wyniku. Dopiero dla krzy¿owania CX i N = 2000 algorytm genetyczny mia³ skutecznoœæ na poziomie 40 - 60 procent. Krzy¿owanie CX z mutacj¹ Insert uzyska³o dla piêciu ró¿nych kombinacji wartoœci N i k 100 procent skutecznoœci.
+\begin{table}[]
+\caption[Trasa III - tbd dla algorytmu genetycznego]
+{Trasa III - tbd algorytmu genetycznego dla danych parametrów wejœciowych}
+\scalebox{0.8}{
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+\cellcolor[HTML]{C0C0C0}                    & \cellcolor[HTML]{C0C0C0}                    & PMX                           & PMX                        & PMX    & OX     & OX      & OX     & CX                            & CX                            & CX     \\ \cline{3-11} 
+\rowcolor[HTML]{C0C0C0} 
+\multirow{-2}{*}{\cellcolor[HTML]{C0C0C0}N} & \multirow{-2}{*}{\cellcolor[HTML]{C0C0C0}k} & Insert                        & Replace                    & Revert & Insert & Replace & Revert & Insert                        & Replace                       & Revert \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\cellcolor[HTML]{C0C0C0}100                 & \cellcolor[HTML]{C0C0C0}100                 & {\color[HTML]{333333} 0\%}    & {\color[HTML]{333333} 0\%} & 0\%    & 0\%    & 0\%     & 0\%    & 0\%                           & 0\%                           & 0\%    \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\cellcolor[HTML]{C0C0C0}100                 & \cellcolor[HTML]{C0C0C0}1000                & {\color[HTML]{333333} 0\%}    & {\color[HTML]{333333} 0\%} & 0\%    & 0\%    & 0\%     & 0\%    & 0\%                           & 0\%                           & 0\%    \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\cellcolor[HTML]{C0C0C0}100                 & \cellcolor[HTML]{C0C0C0}2000                & {\color[HTML]{333333} 0\%}    & {\color[HTML]{333333} 0\%} & 0\%    & 0\%    & 0\%     & 0\%    & 0\%                           & 0\%                           & 0\%    \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\cellcolor[HTML]{C0C0C0}100                 & \cellcolor[HTML]{C0C0C0}4000                & {\color[HTML]{333333} 0\%}    & {\color[HTML]{333333} 0\%} & 0\%    & 0\%    & 0\%     & 0\%    & 0\%                           & 0\%                           & 0\%    \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\cellcolor[HTML]{C0C0C0}1000                & \cellcolor[HTML]{C0C0C0}100                 & {\color[HTML]{333333} 0\%}    & {\color[HTML]{333333} 0\%} & 0\%    & 0\%    & 0\%     & 0\%    & {\color[HTML]{333333} 0\%}    & 0\%                           & 0\%    \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\cellcolor[HTML]{C0C0C0}1000                & \cellcolor[HTML]{C0C0C0}1000                & {\color[HTML]{333333} 0\%}    & {\color[HTML]{333333} 0\%} & 0\%    & 0\%    & 0\%     & 0\%    & \cellcolor[HTML]{C6EFCE}100\% & 40\%                          & 0\%    \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\cellcolor[HTML]{C0C0C0}1000                & \cellcolor[HTML]{C0C0C0}2000                & 50\%                          & 0\%                        & 0\%    & 10\%   & 0\%     & 0\%    & 90\%                          & 70\%                          & 0\%    \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\cellcolor[HTML]{C0C0C0}1000                & \cellcolor[HTML]{C0C0C0}4000                & 90\%                          & 0\%                        & 0\%    & 30\%   & 0\%     & 0\%    & \cellcolor[HTML]{C6EFCE}100\% & 70\%                          & 0\%    \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\cellcolor[HTML]{C0C0C0}2000                & \cellcolor[HTML]{C0C0C0}100                 & {\color[HTML]{333333} 0\%}    & {\color[HTML]{333333} 0\%} & 0\%    & 0\%    & 0\%     & 0\%    & {\color[HTML]{333333} 0\%}    & 0\%                           & 0\%    \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\cellcolor[HTML]{C0C0C0}2000                & \cellcolor[HTML]{C0C0C0}1000                & 40\%                          & 10\%                       & 0\%    & 10\%   & 0\%     & 0\%    & \cellcolor[HTML]{C6EFCE}100\% & \cellcolor[HTML]{C6EFCE}100\% & 60\%   \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\cellcolor[HTML]{C0C0C0}2000                & \cellcolor[HTML]{C0C0C0}2000                & \cellcolor[HTML]{C6EFCE}100\% & 30\%                       & 0\%    & 80\%   & 10\%    & 0\%    & \cellcolor[HTML]{C6EFCE}100\% & \cellcolor[HTML]{C6EFCE}100\% & 40\%   \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\cellcolor[HTML]{C0C0C0}2000                & \cellcolor[HTML]{C0C0C0}4000                & 90\%                          & 30\%                       & 0\%    & 50\%   & 0\%     & 0\%    & \cellcolor[HTML]{C6EFCE}100\% & \cellcolor[HTML]{C6EFCE}100\% & 30\%   \\ \hline
+\end{tabular}}
+\label{tab:AG3Ilosc}
+\end{table}
+
+W tabeli \ref{tab:AG3Best} przedstawiono najlepsze wyniki algorytmu genetycznego dla poszczególnych parametrów wejœciowych. Algorytm genetyczny znalaz³ wyniki lepsze od d³ugoœci trasy oryginalnej od N = 1000 i k = 1000. Najlepszy osi¹gniêty wynik dla N = 1000 to 34365 metrów, czyli optymalizacja o prawie 20 kilometrów. Algorytm genetyczny z  krzy¿owanie PMX dla tej populacji osi¹gnê³o najlepszy wynik 43708 metrów. Najlepszy globalny wynik zosta³ osi¹gniety dla N = 2000, k = 1000, krzy¿owania CX oraz mutacji Insert wyniós³ 32372 metrów. Krzy¿owanie PMX poprawi³o siê nieznacznie. 
 \begin{table}[]
 \caption[Trasa III - najlepsze wyniki dla algorytmu genetycznego]
 {Trasa III - najlepsze wyniki algorytmu genetycznego dla danych parametrów wejœciowych}
@@ -419,18 +638,67 @@ czas     & 28.325 & 42.689 & 60.281 \\ \hline
 1000                                                              & 2000                                                             & \cellcolor[HTML]{FFFC9E}43708  & 57296                         & 67415                          & \cellcolor[HTML]{FFFC9E}51213  & 57795                         & 97761                          & \cellcolor[HTML]{FFCB2F}36381                        & \cellcolor[HTML]{FFFFC7}39559  & 64270                          \\ \hline
 1000                                                              & 4000                                                             & \cellcolor[HTML]{FFFC9E}43938  & 57678                         & 81284                          & \cellcolor[HTML]{FFFC9E}47695  & 60624                         & 102346                         & \cellcolor[HTML]{FFCB2F}34365                        & \cellcolor[HTML]{FFFFC7}38618  & 69499                          \\ \hline
 2000                                                              & 100                                                              & 117579                         & 114351                        & 112117                         & 133323                         & 133203                        & 140060                         & \cellcolor[HTML]{FFFFFF}58239                        & \cellcolor[HTML]{FFFFFF}66450  & 64827                          \\ \hline
-2000                                                              & 1000                                                             & \cellcolor[HTML]{FFFC9E}46490  & \cellcolor[HTML]{FFFC9E}47507 & 72252                          & \cellcolor[HTML]{FFFC9E}50359  & 60606                         & 91474                          & \cellcolor[HTML]{34FF34}32374                        & \cellcolor[HTML]{FFFC9E}33408  & \cellcolor[HTML]{FFFC9E}41138  \\ \hline
+2000                                                              & 1000                                                             & \cellcolor[HTML]{FFFC9E}46490  & \cellcolor[HTML]{FFFC9E}47507 & 72252                          & \cellcolor[HTML]{FFFC9E}50359  & 60606                         & 91474                          & \cellcolor[HTML]{C6EFCE}32374                        & \cellcolor[HTML]{FFFC9E}33408  & \cellcolor[HTML]{FFFC9E}41138  \\ \hline
 2000                                                              & 2000                                                             & \cellcolor[HTML]{FFFC9E}42326  & \cellcolor[HTML]{FFFC9E}44568 & 70413                          & \cellcolor[HTML]{FFFC9E}45282  & \cellcolor[HTML]{FFFC9E}53114 & 81577                          & \cellcolor[HTML]{FFCB2F}33070                        & \cellcolor[HTML]{FFFC9E}36492  & \cellcolor[HTML]{FFFC9E}41724  \\ \hline
 2000                                                              & 4000                                                             & \cellcolor[HTML]{FFFC9E}43332  & \cellcolor[HTML]{FFFC9E}49969 & 69794                          & \cellcolor[HTML]{FFFC9E}46970  & 56971                         & 83286                          & \cellcolor[HTML]{FFCB2F}32478                        & \cellcolor[HTML]{FFFC9E}33962  & \cellcolor[HTML]{FFFC9E}41975  \\ \hline
 \end{tabular}}
+\label{tab:AG3Best}
 \end{table}
 
-\begin{figure}[h]
+
+\begin{table}[]
+\caption[Trasa III - œrednie czasy wykonywania algorytmu genetycznego]
+{Trasa III - œrednie czasy wykonywania algorytmu dla danych parametrów wejœciowych}
+\scalebox{0.8}{
+\begin{tabular}{|
+>{\columncolor[HTML]{C0C0C0}}l |
+>{\columncolor[HTML]{C0C0C0}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFCB2F}}l |}
+\hline
+\cellcolor[HTML]{C0C0C0}                    & \cellcolor[HTML]{C0C0C0}                    & \cellcolor[HTML]{C0C0C0}PMX    & \cellcolor[HTML]{C0C0C0}PMX     & \cellcolor[HTML]{C0C0C0}PMX    & \cellcolor[HTML]{C0C0C0}OX     & \cellcolor[HTML]{C0C0C0}OX      & \cellcolor[HTML]{C0C0C0}OX     & \cellcolor[HTML]{C0C0C0}CX     & \cellcolor[HTML]{C0C0C0}CX      & \cellcolor[HTML]{C0C0C0}CX     \\ \cline{3-11} 
+\multirow{-2}{*}{\cellcolor[HTML]{C0C0C0}N} & \multirow{-2}{*}{\cellcolor[HTML]{C0C0C0}k} & \cellcolor[HTML]{C0C0C0}Insert & \cellcolor[HTML]{C0C0C0}Swap & \cellcolor[HTML]{C0C0C0}Revert & \cellcolor[HTML]{C0C0C0}Insert & \cellcolor[HTML]{C0C0C0}Swap & \cellcolor[HTML]{C0C0C0}Revert & \cellcolor[HTML]{C0C0C0}Insert & \cellcolor[HTML]{C0C0C0}Swap & \cellcolor[HTML]{C0C0C0}Revert \\ \hline
+\cellcolor[HTML]{C0C0C0}100                 & \cellcolor[HTML]{C0C0C0}100                 & {\color[HTML]{333333} 0,09}    & {\color[HTML]{333333} 0,07}     & 0,06                           & 0,04                           & 0,04                            & \cellcolor[HTML]{FFCB2F}0,03   & 0,07                           & \cellcolor[HTML]{FFCB2F}0,03    & 0,03                           \\ \hline
+100                                         & 1000                                        & 0,44                           & 0,43                            & 0,35                           & 0,32                           & 0,31                            & 0,26                           & 0,48                           & 0,25                            & 0,22                           \\ \hline
+100                                         & 2000                                        & 0,83                           & 0,79                            & 0,69                           & 0,60                           & 0,58                            & 0,52                           & 0,78                           & 0,46                            & 0,44                           \\ \hline
+100                                         & 4000                                        & 1,51                           & 1,48                            & 1,35                           & 1,12                           & 1,11                            & 1,03                           & 1,28                           & 0,89                            & 0,84                           \\ \hline
+1000                                        & 100                                         & 1,06                           & 1,06                            & 1,06                           & 0,61                           & 0,60                            & 0,57                           & {\color[HTML]{333333} 0,76}    & \cellcolor[HTML]{FFCB2F}0,52    & 0,52                           \\ \hline
+1000                                        & 1000                                        & 5,47                           & 5,40                            & 4,64                           & 3,85                           & 3,81                            & 3,30                           & 3,85                           & 2,87                            & 2,79                           \\ \hline
+1000                                        & 2000                                        & 9,48                           & 9,29                            & 8,36                           & 6,98                           & 6,95                            & 6,23                           & 7,12                           & 5,52                            & 5,49                           \\ \hline
+1000                                        & 4000                                        & 17,64                          & 17,06                           & 15,82                          & 13,01                          & 13,03                           & 12,11                          & 12,22                          & 10,65                           & 10,56                          \\ \hline
+2000                                        & 100                                         & 2,61                           & 2,53                            & 2,46                           & 1,49                           & 1,52                            & 1,44                           & 1,89                           & \cellcolor[HTML]{FFCB2F}1,30    & \cellcolor[HTML]{FFFFFF}1,32   \\ \hline
+2000                                        & 1000                                        & 13,40                          & 13,30                           & 11,46                          & 9,34                           & 9,24                            & 7,90                           & 8,25                           & 7,07                            & 6,93                           \\ \hline
+2000                                        & 2000                                        & 21,82                          & 21,51                           & 20,35                          & 16,03                          & 16,04                           & 14,76                          & 14,59                          & 13,04                           & 12,60                          \\ \hline
+2000                                        & 4000                                        & 38,35                          & 38,67                           & 37,01                          & 30,41                          & 30,20                           & 28,53                          & 26,81                          & 25,30                           & 24,47                          \\ \hline
+\end{tabular}}
+\end{table}
+
+\begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.4]{grafika/Trasa3GA.png}
-	\caption{Trasa III - Zale¿noœæ œredniej odleg³oœci od czasu}
-	\label{mutacja}
+	\includegraphics[scale=0.35]{grafika/Trasa3GAN100.png}
+	\caption{Trasa III - porównanie œrednich wyników z d³ugoœci¹ oryginalnej trasy dla N=100}
+	\label{Trasa3GAN100}
 \end{figure}	
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.35]{grafika/Trasa3GAN1000.png}
+	\caption{Trasa III - porównanie œrednich wyników z d³ugoœci¹ oryginalnej trasy dla N=1000}
+	\label{Trasa3GAN1000}
+\end{figure}	
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.35]{grafika/Trasa3GAN2000.png}
+	\caption{Trasa III - porównanie œrednich wyników z d³ugoœci¹ oryginalnej trasy dla N=2000}
+	\label{Trasa3GAN2000}
+\end{figure}
+
 
 \subsection{Wyniki algorytmu mrówkowego}
 
