@@ -1,7 +1,10 @@
 \chapter{Badania}
 	W tym rozdziale zostan¹ przedstawione wyniki optymalizacji dla tras przedstawionych w poprzednim rozdziale. Ka¿da trasa zosta³a przedstawiona w oddzielnych podrozdzia³ach.
 
-	Algorytm genetyczny zosta³ zbadany dla trzech ró¿nych wartoœci populacji N: 100,1000 oraz 2000; czterech ró¿nych wartoœci iteracji (pokoleñ): 100, 1000, 2000 oraz 4000. Dla ka¿dej wariacji tych parametrów zosta³o zbadane krzy¿owania PMX, OX oraz CX, z ró¿nymi kombinacjami mutacji: wstawiaj¹ca - insert, zamieniaj¹ca - swap oraz odwracaj¹ca - revert. Wspó³czynnik mutacji dla wszystkich uruchomieñ wynosi 0.1. Dla ka¿dej wariacji parametrów wejœciowych algorytm zosta³ uruchomiony dziesiêæ razy. W tabelach dotycz¹cych wyników algorytmu genetycznego, zosta³y przedstawione agregowane dane. 
+	Algorytm genetyczny zosta³ zbadany dla trzech ró¿nych wartoœci populacji N: 100,1000 oraz 2000; czterech ró¿nych wartoœci iteracji (pokoleñ): 100, 1000, 2000 oraz 4000. Dla ka¿dej wariacji tych parametrów zosta³o zbadane krzy¿owania PMX, OX oraz CX, z ró¿nymi kombinacjami mutacji: wstawiaj¹ca - insert, zamieniaj¹ca - swap oraz odwracaj¹ca - revert. Wspó³czynnik mutacji dla wszystkich uruchomieñ wynosi 0.1. Dla ka¿dej wariacji parametrów wejœciowych algorytm zosta³ uruchomiony dziesiêæ razy. W tabelach dotycz¹cych wyników algorytmu genetycznego, zosta³y przedstawione agregowane dane.
+	
+	Jednym za parametrów wejœciowych algorytmu mrówkowego jest wspó³czynnik parowania feromonów. To dziêki temu parametrowi wybierane s¹ optymalne trasy, a te gorsze odrzucane. 
+Ich wartoœci s¹ wyra¿ane procentowo w zakresie od 1\% do 99\%. Dla ka¿dej trasy zosta³a wybrane takie same wartoœci. Pomiar wyników zosta³ rozpoczêty od wartoœci 10\%. W ka¿dym korku wartoœæ ta by³a zwiêkszana o kolejne 10\% a¿ do 90\%. Kolejnym istotnym parametrem jest iloœæ iteracji. Parametr ten oznacza ile razy mrówki mrówki maj¹ wykonywaæ ulepszenie trasy. Do badañ zosta³y dobrane trzy wartoœci: 50, 75, 100. Parametr ten ma bezpoœredni wp³yw na optymalizacjê ale równie¿ na czas jaki algorytm potrzebuje na wykonanie wszystkich operacji.  
 \section{Trasa I}
 Pierwsza trasa sk³ada siê ze 111 punktów, odwiedzonych przez pojazd. D³ugoœæ oryginalna tej trasy wynosi 48897 metrów.
 \subsection{Wyniki algorytmu genetycznego}
@@ -173,11 +176,6 @@ Rysunki \ref{Trasa1GAN100}, \ref{Trasa1GAN1000} oraz \ref{Trasa1GAN2000} przedst
 
 \subsection{Wyniki algorytmu mrówkowego}
 
-Jednym za parametrów wejœciowych algorytmu mrówkowego jest wspó³czynnik parowania feromonów. To dziêki temu parametrowi wybierane s¹ optymalne trasy, a te gorsze odrzucane. 
-Ich wartoœci s¹ wyra¿ane procentowo w zakresie od 1\% do 99\%. Dla ka¿dej trasy zosta³a wybrane takie same wartoœci. Pomiar wyników zosta³ rozpoczêty od wartoœci 10\%. W ka¿dym korku wartoœæ ta by³a zwiêkszana o kolejne 10\% a¿ do 90\%.
-
-Kolejnym istotnym parametrem jest iloœæ iteracji. Parametr ten oznacza ile razy mrówki mrówki maj¹ wykonywaæ ulepszenie trasy. Do badañ zosta³y dobrane trzy wartoœci: 50, 75, 100. Parametr ten ma bezpoœredni wp³yw na optymalizacjê ale równie¿ na czas jaki algorytm potrzebuje na wykonanie wszystkich operacji. 
-	
 Algorytm zosta³ uruchomiony dziesiêciokrotne dla ka¿dej mo¿liwej wariacji parametrów wejœciowych. W odpowiedzi program przedstawi³ w odpowiedniej kolejnoœci punkty jakie zosta³y zawarte w rozwi¹zaniu, przebyty dystans oraz czas wykonania algorytmu. Z zebranych danych zosta³a wyliczona œrednia oraz zosta³ wyznaczony najlepszy wynik. Przy wykorzystaniu tych miar mo¿na wykonaæ porównanie z oryginaln¹ tras¹ przebyt¹ w rzeczywistoœci przez ciê¿arówkê. 
 	
 Ka¿da z tabel przedstawiaj¹ca wynik algorytmu mrówkowego sk³ada siê z takiej samej iloœci kolumn oraz wierszy. W kolumnie z oznaczeniem \textit{k} zosta³a zaprezentowana iloœæ przeprowadzonych iteracji. Wartoœci te zaczynaj¹ siê od 50 i s¹ zwiêkszane co 25 do 100. Ka¿da kolumna przedstawia wspó³czynnik parowania feromonów. Wartoœci te zaczynaj¹ siê od 0.1 i s¹ zwiêkszane co 0.1 do 0.9. T³o komórek z wartoœciami przebytego dystansu zosta³y zmienione w zale¿noœci od spe³nianego warunku. Kolorem jasno-¿ó³tym s¹ oznaczone wartoœci które s¹ wiêksze od oryginalnej trasy. Kolorem ¿ó³tym zosta³y oznaczone pole które s¹ najlepsze dla danego wspó³czynnika \textit{k}. Najlepszy wynik zosta³ oznaczony kolorem zielonym. W tabeli sumuj¹cej 
