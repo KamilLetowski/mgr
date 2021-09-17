@@ -22,25 +22,25 @@ Mrówka w celu znalezienia pokarmu w sposób losowy wyrusza z mrowiska. Losowo prz
 
 Mimo posiadania informacje o znalezionym pokarmie, ka¿da mrówka sama musi zlokalizowaæ Ÿród³o. Czy mrówki poruszaj¹ siê t¹ sam¹ tras¹ przy ka¿dym wyjœciu z mrowiska? Aby trafiæ do miejsca w którym znajduje siê pokarm, wspomniane owady wykorzystuj¹ œlady pozostawione przez osobników które ju¿ natrafi³y na po¿ywienie. W ten sposób mrówka która wyrusza w sposób losowy, natrafia na œlad poprzednika który jest wskazówk¹ do znalezienia poszukiwanego pokarmu. Wspomniany œlad nazywa siê feromonem. To dziêki tej w³aœciwoœci mrówki s¹ w stanie lokalizowaæ trasy prowadz¹ce do pokarmu.
 
-\begin{figure}[h]
+Na rysunku \ref{fig:kl_przyklad1} zosta³ przedstawiony graf z wierzcho³kami A-B-C-D-E-F. Nad krawêdziami kolorem czerwonym zosta³y oznaczone wagi. Na pocz¹tku za³ó¿my, ¿e mamy do dyspozycji 80 agentów. Przez N pierwszych iteracji mrówki porusza³y siê losowo i powsta³ nastêpuj¹cy podzia³:
+
+\begin{figure}[h!]
 	\centering
 	\includegraphics[scale=0.75]{grafika/kl_przyklad1}
 	\caption{Po³o¿enie œcie¿ek na przyk³adowym grafie}
 	\label{fig:kl_przyklad1}
 \end{figure}
 
-Na rysunku \ref{kl_przyklad1} zosta³ przedstawiony graf z wierzcho³kami A-B-C-D-E-F. Nad krawêdziami kolorem czerwonym zosta³y oznaczone wagi. Na pocz¹tku za³ó¿my, ¿e mamy do dyspozycji 80 agentów. Przez N pierwszych iteracji mrówki porusza³y siê losowo i powsta³ nastêpuj¹cy podzia³:
+Tak jak mo¿na to zauwa¿yæ na grafice \ref{fig:kl_przyklad2}, po pierwszych iteracjach, przez obie œcie¿ki przechodzi taka sama liczba agentów. Dzieje siê tak poniewa¿ mrówki rozpoczynaj¹ pracê w sposób losowy. W dalszych krokach nastêpuj¹ modyfikacje i agenci d¹¿¹ do wyznaczenia najoptymalniejszej œcie¿ki.
 
-\begin{figure}[h]
+\begin{figure}[h!]
 	\centering
 	\includegraphics[scale=0.75]{grafika/kl_przyklad2}
 	\caption{Rozk³ad agentów na grafie po N pocz¹tkowych iteracjach}
 	\label{fig:kl_przyklad2}
 \end{figure}
 
-Tak jak mo¿na to zauwa¿yæ na grafice \ref{kl_przyklad2}, po pierwszych iteracjach, przez obie œcie¿ki przechodzi taka sama liczba agentów. Dzieje siê tak poniewa¿ mrówki rozpoczynaj¹ pracê w sposób losowy. W dalszych krokach nastêpuj¹ modyfikacje i agenci d¹¿¹ do wyznaczenia najoptymalniejszej œcie¿ki.
-
-\begin{figure}[h]
+\begin{figure}[h!]
 	\centering
 	\includegraphics[scale=0.75]{grafika/kl_przyklad3}
 	\caption{Rozk³ad agentów w grafie po optymalizacji}

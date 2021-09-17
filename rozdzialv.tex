@@ -1,1 +1,14 @@
 \chapter{Zbiór danych}
+
+	W latach 2017-2018, miasto Bia³ystok by³o podzielone na sektory w których odpowiednia firma by³a odpowiedzialna za wywóz œmieci. Model ten by³ praktykowany przez wiele lat. Ka¿da z firm we w³asnym zakresie decydowa³a o trasach jakie maj¹ pokonywaæ ciê¿arówki w celu zebrania odpadów komunalnych. Ca³y proces sk³ada³ siê z wielu kroków i budzi³ wiele zastrze¿eñ. W zwi¹zku z tym w 19 paŸdziernika 2018 roku zosta³ zorganizowany hackathon podczas którego zespo³y zmierzy³y siê z przedstawionymi problemami.
+	
+	Dru¿yny do dyspozycji mia³y zestaw danych z 2017 roku. Dane te by³y gromadzone przez podwykonawców. Zbiory z kluczowymi informacjami znajdowa³y siê w arkuszach programu Microsoft Excel. Ka¿dy z dokumentów odpowiada³ danemu miesi¹cowi. Niestety nie ka¿dy arkusz sk³ada³ siê z tych samych kolumn. Jednym z najwiêkszych problemów by³a odpowiednia agregacja danych. W wielu arkuszach brakowa³o kluczowych kolumn.
+	
+	Przyk³adowy miesiêczny raport zawiera³ informacjê z dat¹ zdarzenia, krótkim opisem oraz identyfikatorem pojemnika na odpady. Wa¿n¹ informacj¹ by³ równie¿ nr rejestracyjny pojazdu oraz wspó³rzêdne pojazdu. Raporty zawiera³y wiele innych informacji takich jak frakcja lub rodzaj MGO. W miesiêcznym raporcie znajdowa³o siê kilkadziesi¹t tysiêcy rekordów z takimi informacjami.
+	
+	Dziêki informacjom takim jak data za³adunku kontenera, numerze rejestracyjnym pojazdu oraz wspó³rzêdnych pojazdu istnieje mo¿liwoœæ odtworzenia trasy przejazdu przyk³adowej ciê¿arówki. Kluczowe jest znalezienie punktu pocz¹tkowego oraz punktu roz³adunku. Nastêpnie chronologiczne po³¹czenie dat za³adunku dla danej ciê¿arówki pozwoli na odtworzenie trasy jaka zosta³a przebyta.
+	
+	Analizuj¹c zbiory danych mo¿na zauwa¿yæ, ¿e niektóre trasy zawieraj¹ wiêcej zdarzeñ, inne mniej. Aby sprawdziæ jak efektywny jest dany algorytm zosta³y wybrane trzy trasy. Pierwsza trasa sk³ada siê z 111 punktów, druga z 150, a trzecia z 248. Dla ka¿dej z wariacji zosta³a zmierzona droga jak¹ przeby³a ciê¿arówka.
+	
+	Do obliczeñ odleg³oœci pomiêdzy kontenerami zosta³o wykorzystane API udostêpnione przez amerykañsk¹ spó³kê Google LLC. Aby odpowiednio skorzystaæ z udostêpnionej funkcjonalnoœci nale¿y przygotowaæ zapytanie. Jako parametry wejœciowe konieczne jest przekazanie wspó³rzêdnych dwóch punktów. W odpowiedzi API znajduje siê informacja o odleg³oœci pomiêdzy punktami. Wykorzystuj¹c udostêpnione rozwi¹zanie mo¿na wyznaczyæ odleg³oœci pomiêdzy wszystkimi lokalizacjami zbiórki odpadów.
+	

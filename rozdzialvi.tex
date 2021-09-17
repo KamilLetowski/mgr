@@ -85,6 +85,121 @@
 
 \subsection{Wyniki algorytmu mrówkowego}
 
+Jednym za parametrów wejœciowych algorytmu mrówkowego jest wspó³czynnik parowania feromonów. To dziêki temu parametrowi wybierane s¹ optymalne trasy, a te gorsze odrzucane. 
+Ich wartoœci s¹ wyra¿ane procentowo w zakresie od 1\% do 99\%. Dla ka¿dej trasy zosta³a wybrane takie same wartoœci. Pomiar wyników zosta³ rozpoczêty od wartoœci 10\%. W ka¿dym korku wartoœæ ta by³a zwiêkszana o kolejne 10\% a¿ do 90\%.
+
+Kolejnym istotnym parametrem jest iloœæ iteracji. Parametr ten oznacza ile razy mrówki mrówki maj¹ wykonywaæ ulepszenie trasy. Do badañ zosta³y dobrane trzy wartoœci: 50, 75, 100. Parametr ten ma bezpoœredni wp³yw na optymalizacjê ale równie¿ na czas jaki algorytm potrzebuje na wykonanie wszystkich operacji. 
+	
+Algorytm zosta³ uruchomiony dziesiêciokrotne dla ka¿dej mo¿liwej wariacji parametrów wejœciowych. W odpowiedzi program przedstawi³ w odpowiedniej kolejnoœci punkty jakie zosta³y zawarte w rozwi¹zaniu, przebyty dystans oraz czas wykonania algorytmu. Z zebranych danych zosta³a wyliczona œrednia oraz zosta³ wyznaczony najlepszy wynik. Przy wykorzystaniu tych miar mo¿na wykonaæ porównanie z oryginaln¹ tras¹ przebyt¹ w rzeczywistoœci przez ciê¿arówkê. 
+	
+Ka¿da z tabel przedstawiaj¹ca wynik algorytmu mrówkowego sk³ada siê z takiej samej iloœci kolumn oraz wierszy. W kolumnie z oznaczeniem \textit{k} zosta³a zaprezentowana iloœæ przeprowadzonych iteracji. Wartoœci te zaczynaj¹ siê od 50 i s¹ zwiêkszane co 25 do 100. Ka¿da kolumna przedstawia wspó³czynnik parowania feromonów. Wartoœci te zaczynaj¹ siê od 0.1 i s¹ zwiêkszane co 0.1 do 0.9. T³o komórek z wartoœciami przebytego dystansu zosta³y zmienione w zale¿noœci od spe³nianego warunku. Kolorem jasno-¿ó³tym s¹ oznaczone wartoœci które s¹ wiêksze od oryginalnej trasy. Kolorem ¿ó³tym zosta³y oznaczone pole które s¹ najlepsze dla danego wspó³czynnika \textit{k}. Najlepszy wynik zosta³ oznaczony kolorem zielonym. W tabeli sumuj¹cej 
+		
+Najlepsze wyniki algorytmu mrówkowego dla trasy numer 1 zosta³y przedstawione w \ref{tab:best_1_mrowkowy}. Spoœród wszystkich wariacji jedynie dwa wyniki zosta³y sklasyfikowane jako gorsze od oryginalnej odleg³oœci. Te najgorsze wyniki wyst¹pi³y dla najni¿szej wartoœci iteracji. Najlepsza wartoœæ jak¹ uda³o siê osi¹gn¹æ to 38111. Jest to wartoœæ jaka zosta³a osi¹gniêta dla 75 iloœci iteracji oraz dla wspó³czynnika parowania wynosz¹cego 0.2. Wartoœci lepsze od oryginalnych wyst¹pi³y dla oko³o 93\% mo¿liwych kombinacji parametrów wejœciowych.
+
+\begin{table}[h!]
+\label{tab:best_1_mrowkowy}
+\caption[Trasa I - najlepsze wyniki dla algorytmu mrówkowego]
+{Trasa I - najlepsze wyniki algorytmu mrówkowego dla danych parametrów wejœciowych}
+\begin{tabular}{|c|l|l|l|l|l|l|l|l|l|}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+k                           & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.1}     & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.2} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.3} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.4} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.5} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.6} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.7} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.8} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.9} \\ \hline
+\rowcolor[HTML]{FFFC9E} 
+\cellcolor[HTML]{C0C0C0}50  & \cellcolor[HTML]{FFFFFF}{\color[HTML]{333333} 57946} & 40150                                            & 39964                                            & \cellcolor[HTML]{FFCB2F}38773                    & 47140                                            & 45598                                            & \cellcolor[HTML]{FFFFFF}57402                    & 45451                                            & \cellcolor[HTML]{FFCB2F}39443                    \\ \hline
+\rowcolor[HTML]{FFFC9E} 
+\cellcolor[HTML]{C0C0C0}75  & 44971                                                & \cellcolor[HTML]{34FF34}38111                    & \cellcolor[HTML]{FFCB2F}38650                    & 39966                                            & 41654                                            & \cellcolor[HTML]{FFCB2F}41462                    & 43910                                            & 44911                                            & 43740                                            \\ \hline
+\rowcolor[HTML]{FFFC9E} 
+\cellcolor[HTML]{C0C0C0}100 & \cellcolor[HTML]{FFCB2F}39659                        & 40036                                            & 40583                                            & 39383                                            & \cellcolor[HTML]{FFCB2F}41258                    & 43156                                            & \cellcolor[HTML]{FFCB2F}43066                    & \cellcolor[HTML]{FFCB2F}41932                    & 41156                                            \\ \hline
+\end{tabular}
+\end{table}
+	
+Œrednia wartoœæ najlepszych wyników dla wspó³czynnika k równego 50 wynosi 45 763. Œrednia dla iloœci iteracji równej 75 jest wy¿sza i jest równa 41 931. Ostatnia próba daje œredni¹ na poziomie 41 167. Ró¿nica pomiêdzy 50 iteracjami a 75 wynosi 3 832, a ró¿nica miêdzy 75 iteracjami a 100 jest ju¿ znacznie mniejsza i wynosi 764. Wyliczaj¹c œredni¹ wartoœæ dla wszystkich wspó³czynników parowania mo¿na zauwa¿yæ, ¿e najlepsze wyniki przypadaj¹ dla wartoœci od 0.2 do 0.4. Œrednia wyników jest wtedy mniejsza od 40 000.
+	
+W tabeli numer \ref{tab:avg_1_mrowkowy} znajduj¹ siê œrednie wyniki z dziesiêciu pomiarów dla takich samych parametrów. Najlepsze wyniki wystêpuj¹ dla wspó³czynnika parowania znajduj¹cego siê w zakresie od 0.1 do 0.4. Wartoœci wspó³czynnika równe i wy¿sze od 0.5 dla ka¿dej iloœci iteracji s¹ gorsze od wartoœci oryginalnej. Najlepsza œrednia pomiarów wynosi 41 440. Wyst¹pi³a ona dla k równego 75 oraz wspó³czynnika parowania równego 0.2.
+
+	
+\begin{table}[h!]
+\label{tab:avg_1_mrowkowy}
+\caption[Trasa I - œrednie wyniki dla algorytmu mrówkowego]
+{Trasa I - œrednie wyniki algorytmu mrówkowego dla danych parametrów wejœciowych}
+\begin{tabular}{|
+>{\columncolor[HTML]{C0C0C0}}c |l|
+>{\columncolor[HTML]{FFFC9E}}l |
+>{\columncolor[HTML]{FFFC9E}}l |
+>{\columncolor[HTML]{FFFC9E}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |}
+\hline
+k   & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.1}     & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.2} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.3} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.4} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.5} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.6} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.7} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.8} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.9} \\ \hline
+50  & \cellcolor[HTML]{FFFFFF}{\color[HTML]{333333} 63984} & 43885                                            & \cellcolor[HTML]{FFCB2F}43058                    & 42144                                            & 56972                                            & 58786                                            & 60393                                            & 55217                                            & \cellcolor[HTML]{FFCB2F}53567                    \\ \hline
+75  & \cellcolor[HTML]{FFFC9E}48456                        & \cellcolor[HTML]{34FF34}41440                    & 46490                                            & 47186                                            & \cellcolor[HTML]{FFCB2F}52814                    & 59712                                            & \cellcolor[HTML]{FFCB2F}55389                    & 57640                                            & 56455                                            \\ \hline
+100 & \cellcolor[HTML]{FFCB2F}43634                        & 42900                                            & 47014                                            & \cellcolor[HTML]{FFCB2F}41756                    & 54957                                            & \cellcolor[HTML]{FFCB2F}55704                    & 59148                                            & \cellcolor[HTML]{FFCB2F}53122                    & 54116                                            \\ \hline
+\end{tabular}
+\end{table}
+
+Istotnym parametrem jaki nale¿y wzi¹æ pod uwagê jest to, jak czêsto algorytm jest w stanie poprawiæ oryginaln¹ trasê. W tym celu zosta³a stworzona tabela numer \ref{tab:sum_1_mrowkowy}. Mo¿emy zauwa¿yæ z jak¹ skutecznoœci¹ program jest w stanie poprawiæ trasê. Wyniki potwierdzaj¹ wczeœniejsze wnioski. Najlepsze wyniki mo¿na zestawiæ ze wspó³czynnikiem parowania feromonów z zakresu od 0.1 do 0.4. Co wiêcej w zale¿noœci od iloœci iteracji dla ka¿dego ze wspó³czynników trasa zosta³a polepszona.
+
+\begin{table}[h!]
+\label{tab:sum_1_mrowkowy}
+\caption[Trasa I - suma lepszych tras w porównaniu do oryginalnej]
+{Trasa I - suma lepszych tras w porównaniu do oryginalnej}
+\begin{tabular}{|c|l|l|l|l|l|l|l|l|l|}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+k                           & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.1} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.2} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.3} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.4} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.5} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.6} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.7} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.8} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.9} \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\cellcolor[HTML]{C0C0C0}50  & {\color[HTML]{333333} 0\%}                       & \cellcolor[HTML]{C6EFCE}100\%                    & \cellcolor[HTML]{C6EFCE}100\%                    & \cellcolor[HTML]{C6EFCE}100\%                    & 20\%                                             & 10\%                                             & 0\%                                              & 40\%                                             & 30\%                                             \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\cellcolor[HTML]{C0C0C0}75  & 60\%                                             & \cellcolor[HTML]{C6EFCE}100\%                    & 80\%                                             & 80\%                                             & 50\%                                             & 40\%                                             & 20\%                                             & 10\%                                             & 30\%                                             \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\cellcolor[HTML]{C0C0C0}100 & \cellcolor[HTML]{C6EFCE}100\%                    & \cellcolor[HTML]{C6EFCE}100\%                    & 70\%                                             & \cellcolor[HTML]{C6EFCE}100\%                    & 30\%                                             & 30\%                                             & 10\%                                             & 50\%                                             & 40\%                                             \\ \hline
+\end{tabular}
+\end{table}
+	
+Na wykresie \ref{fig:kl_1} przedstawione zosta³o procentowe porównanie œredniej wartoœci dla ka¿dego wspó³czynnika parowania i wartoœci \textit{k} równej 50. Z wykresu mo¿na odczytaæ, ¿e algorytm mrówkowy w najgorszym przypadku zadzia³a³ ze œredni¹ o 30\% wiêksz¹ od wartoœci oryginalnej. Optymalizacje natomiast siêgaj¹ wartoœci od 10.25\% do 13.81\%. 
+	
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.75]{grafika/kl_1}
+	\caption{Wykres 1}
+	\label{fig:kl_1}
+\end{figure}
+
+Na wykresie \ref{fig:kl_2} zwiêkszona zosta³a iloœæ iteracji do 75 wyniki uleg³y poprawie. Najgorsza wartoœæ zosta³a zredukowana o ok 9\%, a najlepszy wynik doszed³ do 15.25\% co jest te¿ najwy¿sz¹ œredni¹ poœród wszystkich mo¿liwoœci. 
+	
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.75]{grafika/kl_2}
+	\caption{Wykres 1}
+	\label{fig:kl_1}
+\end{figure}
+	
+Dla ostatniej mo¿liwej wartoœci iteracji wartoœæ najgorsza ponownie uleg³a poprawie i wynosi³a 20.96\%. Niestety najwy¿sza wartoœæ nie zwiêkszy³a siê wzglêdem mniejszej liczbie iteracji. Sytuacja ta zosta³a przedstawiona na wykresie \ref{fig:kl_3}
+	
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.75]{grafika/kl_3}
+	\caption{Wykres 1}
+	\label{fig:kl_1}
+\end{figure}
+
+Oprócz samych prac nad optymalizacjami nale¿y zwróciæ uwagê z jak¹ szybkoœci¹ algorytm jest w stanie przedstawiæ rozwi¹zanie. W tabeli \ref{tab:time_1_mrowkowy} przedstawiony jest œredni czas wykonania algorytmy. Oczywistym wydaje siê, ¿e wraz ze wzrostem iloœci wykonanych iteracji wzrasta czas wykonania programu. Œrednio dla programu z iloœci¹ iteracji równ¹ 50 czas oczekiwania wynosi³ blisko 13 sekund. Dla 75 iteracji by³o to 21.732 sekundy, a dla 100 31.547. Zestawiaj¹c wyniki czasowe z procentowymi wartoœciami tras jakie zosta³y wyprodukowane przez program, mo¿na zauwa¿yæ, ¿e iloœæ wiêksza iloœæ iteracji nie musi oznaczaæ optymalizacji trasy.
+
+\begin{table}[h!]
+\label{tab:time_1_mrowkowy}
+\caption[Trasa I - œrednie wyniki czasu wykonania dla algorytmu mrówkowego dla parametru iloœci iteracji]
+{Trasa I - œrednie wyniki czasu wykonania algorytmu mrówkowego dla parametru iloœci iteracji}
+\begin{tabular}{|
+>{\columncolor[HTML]{C0C0C0}}l |l|l|l|}
+\hline
+iteracje & 50     & 75     & 100    \\ \hline
+czas     & 12.945 & 21.732 & 31.547 \\ \hline
+\end{tabular}
+\end{table}
+
 \subsection{Wyniki algorytmów zach³annych}
 
 \subsection{Porównanie algorytmów}
@@ -168,6 +283,66 @@
 \end{figure}	
 
 \subsection{Wyniki algorytmu mrówkowego}
+
+AVG
+
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[]
+\caption[Trasa II - œrednie wyniki dla algorytmu mrówkowego]
+{Trasa II - œrednie wyniki algorytmu mrówkowego dla danych parametrów wejœciowych}
+\begin{tabular}{|c|l|l|l|l|l|l|l|l|l|}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+k                           & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.1} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.2} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.3} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.4} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.5} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.6} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.7} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.8} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.9} \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\cellcolor[HTML]{C0C0C0}50  & {\color[HTML]{333333} 105951}                    & 90688                                            & \cellcolor[HTML]{34FF34}77772                    & 82462                                            & 80346                                            & \cellcolor[HTML]{FFCB2F}81396                    & 81451                                            & 80728                                            & \cellcolor[HTML]{FFCB2F}80210                    \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\cellcolor[HTML]{C0C0C0}75  & 94734                                            & 83801                                            & 78304                                            & 82241                                            & \cellcolor[HTML]{FFCB2F}78774                    & 81767                                            & 80815                                            & 80590                                            & 80721                                            \\ \hline
+\rowcolor[HTML]{FFCB2F} 
+\cellcolor[HTML]{C0C0C0}100 & 90821                                            & 83212                                            & \cellcolor[HTML]{FFFFFF}78372                    & 80373                                            & \cellcolor[HTML]{FFFFFF}79902                    & \cellcolor[HTML]{FFFFFF}81995                    & 79855                                            & 80240                                            & \cellcolor[HTML]{FFFFFF}80458                    \\ \hline
+\end{tabular}
+\end{table}
+
+
+BEST
+
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[]
+\caption[Trasa II - najlepsze wyniki dla algorytmu mrówkowego]
+{Trasa II - najlepsze wyniki algorytmu mrówkowego dla danych parametrów wejœciowych}
+\begin{tabular}{|c|l|l|l|l|l|l|l|l|l|}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+k                           & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.1}      & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.2} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.3} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.4} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.5} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.6} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.7} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.8} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.9} \\ \hline
+\cellcolor[HTML]{C0C0C0}50  & \cellcolor[HTML]{FFFFFF}{\color[HTML]{333333} 101010} & \cellcolor[HTML]{FFFFFF}86933                    & \cellcolor[HTML]{FFCB2F}75226                    & \cellcolor[HTML]{FFFFFF}78697                    & \cellcolor[HTML]{34FF34}75069                    & \cellcolor[HTML]{FFCB2F}77189                    & \cellcolor[HTML]{FFFFFF}77539                    & \cellcolor[HTML]{FFCB2F}76637                    & \cellcolor[HTML]{FFCB2F}76199                    \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\cellcolor[HTML]{C0C0C0}75  & 91453                                                 & \cellcolor[HTML]{FFCB2F}81128                    & 75485                                            & 78774                                            & 76617                                            & 78815                                            & 76810                                            & 77423                                            & 76446                                            \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\cellcolor[HTML]{C0C0C0}100 & \cellcolor[HTML]{FFCB2F}85587                         & 81400                                            & 76782                                            & \cellcolor[HTML]{FFCB2F}76559                    & 75351                                            & 77897                                            & \cellcolor[HTML]{FFCB2F}75233                    & 76713                                            & 77081                                            \\ \hline
+\end{tabular}
+\end{table}
+
+czas
+
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[]
+\caption[Trasa II - œrednie wyniki czasu wykonania dla algorytmu mrówkowego dla parametru iloœci iteracji]
+{Trasa II - œrednie wyniki czasu wykonania algorytmu mrówkowego dla parametru iloœci iteracji}
+\begin{tabular}{|
+>{\columncolor[HTML]{C0C0C0}}l |l|l|l|}
+\hline
+iteracje & 50     & 75     & 100    \\ \hline
+czas     & 28.325 & 42.689 & 60.281 \\ \hline
+\end{tabular}
+\end{table}
+
+
 
 \subsection{Wyniki algorytmów zach³annych}
 
@@ -258,6 +433,70 @@
 \end{figure}	
 
 \subsection{Wyniki algorytmu mrówkowego}
+
+AVG
+
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[]
+\caption[Trasa III - œrednie wyniki dla algorytmu mrówkowego]
+{Trasa III - œrednie wyniki algorytmu mrówkowego dla danych parametrów wejœciowych}
+\begin{tabular}{|c|l|l|l|l|l|l|l|l|l|}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+k                           & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.1}     & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.2} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.3} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.4} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.5} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.6} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.7} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.8} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.9} \\ \hline
+\rowcolor[HTML]{FFFC9E} 
+\cellcolor[HTML]{C0C0C0}50  & \cellcolor[HTML]{FFFFFF}{\color[HTML]{333333} 61628} & 45302                                            & \cellcolor[HTML]{FFCB2F}43699                    & \cellcolor[HTML]{34FF34}42668                    & 48201                                            & \cellcolor[HTML]{FFCB2F}47483                    & 50840                                            & 47157                                            & 48293                                            \\ \hline
+\rowcolor[HTML]{FFFC9E} 
+\cellcolor[HTML]{C0C0C0}75  & 49664                                                & \cellcolor[HTML]{FFCB2F}43667                    & 44621                                            & 44292                                            & 46181                                            & 48248                                            & 48021                                            & 48112                                            & 48609                                            \\ \hline
+\rowcolor[HTML]{FFCB2F} 
+\cellcolor[HTML]{C0C0C0}100 & 45504                                                & \cellcolor[HTML]{FFFC9E}45802                    & \cellcolor[HTML]{FFFC9E}46286                    & \cellcolor[HTML]{FFFC9E}45465                    & 45721                                            & \cellcolor[HTML]{FFFC9E}49379                    & 47921                                            & 46410                                            & 47433                                            \\ \hline
+\end{tabular}
+\end{table}
+
+BEST
+
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[]
+\caption[Trasa III - najlepsze wyniki dla algorytmu mrówkowego]
+{Trasa III - najlepsze wyniki algorytmu mrówkowego dla danych parametrów wejœciowych}
+\begin{tabular}{|
+>{\columncolor[HTML]{C0C0C0}}c |l|
+>{\columncolor[HTML]{FFFC9E}}l |
+>{\columncolor[HTML]{FFFC9E}}l |
+>{\columncolor[HTML]{FFFC9E}}l |
+>{\columncolor[HTML]{FFFC9E}}l |
+>{\columncolor[HTML]{FFFC9E}}l |
+>{\columncolor[HTML]{FFFC9E}}l |
+>{\columncolor[HTML]{FFFC9E}}l |
+>{\columncolor[HTML]{FFFC9E}}l |}
+\hline
+k   & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.1}     & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.2} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.3} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.4} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.5} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.6} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.7} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.8} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.9} \\ \hline
+50  & \cellcolor[HTML]{FFFFFF}{\color[HTML]{333333} 59369} & 43287                                            & \cellcolor[HTML]{FFCB2F}40214                    & \cellcolor[HTML]{FFCB2F}41158                    & 44252                                            & 43387                                            & 48045                                            & \cellcolor[HTML]{FFCB2F}41331                    & \cellcolor[HTML]{FFCB2F}41858                    \\ \hline
+75  & \cellcolor[HTML]{FFFC9E}46953                        & 42126                                            & 41568                                            & 41313                                            & 43466                                            & 43728                                            & 45216                                            & 45947                                            & 46255                                            \\ \hline
+100 & \cellcolor[HTML]{34FF34}40410                        & \cellcolor[HTML]{FFCB2F}41250                    & 40509                                            & 41796                                            & \cellcolor[HTML]{FFCB2F}40815                    & \cellcolor[HTML]{FFCB2F}42413                    & \cellcolor[HTML]{FFCB2F}44712                    & 42284                                            & 43308                                            \\ \hline
+\end{tabular}
+\end{table}
+
+czas
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[]
+\caption[Trasa III - œrednie wyniki czasu wykonania dla algorytmu mrówkowego dla parametru iloœci iteracji]
+{Trasa III - œrednie wyniki czasu wykonania algorytmu mrówkowego dla parametru iloœci iteracji}
+\begin{tabular}{|
+>{\columncolor[HTML]{C0C0C0}}l |l|l|l|}
+\hline
+iteracje & 50     & 75     & 100    \\ \hline
+czas     & 84.451 & 131.146 & 176.874 \\ \hline
+\end{tabular}
+\end{table}
+
+
 
 \subsection{Wyniki algorytmów zach³annych}
 
