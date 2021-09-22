@@ -572,7 +572,7 @@ czas     & 28.325 & 42.689 & 60.281 \\ \hline
 
 \subsection{Porównanie algorytmów}
 
-Podobnie jak w przypadku trasy numer 1, najlepszy wyniki algorytmów nie s¹ takie same. Ponownie przeprowadzone optymalizacje przynios³y spodziewany efekt. Najlepszym wynikiem algorytmu genetycznego jest 27 381. W stosunku do oryginalnej trasy jest to poprawa o 40\%. Czas z jakim pracowa³ program aby wygenerowaæ taki wynik to 9.03 sekund. Ponownie najlepszy wynik zosta³ osi¹gniêty przez algorytm mrówkowy. £¹czy przebyty dystans dla tego rozwi¹zania to 24 347. Jest to o 46\% wynik lepszy od pierwotnej trasy. Czas oczekiwania na ten rezultat wynosi³ 28.32 sekund. Natomiast algorytmy zach³anne, a dok³adnie algorytm A*, znalaz³y trasê o d³ugoœci 32 855 metrów, a przy zastosowaniu metody 2-opt wynik ten uleg³ poprawie do 28 757 metrów. Do wykonania wszystkich operacji potrzebne by³o 20.59 sekundy.
+Podobnie jak w przypadku trasy numer 1, najlepsze wyniki algorytmów nie s¹ takie same. Ponownie przeprowadzone optymalizacje przynios³y spodziewany efekt. Najlepszym wynikiem algorytmu genetycznego jest 27 381. W stosunku do oryginalnej trasy jest to poprawa o 40\%. Czas z jakim pracowa³ program aby wygenerowaæ taki wynik to 9.03 sekund. Ponownie najlepszy wynik zosta³ osi¹gniêty przez algorytm mrówkowy. £¹czy przebyty dystans dla tego rozwi¹zania to 24 347. Jest to o 46\% wynik lepszy od pierwotnej trasy. Czas oczekiwania na ten rezultat wynosi³ 28.32 sekund. Natomiast algorytmy zach³anne, a dok³adnie algorytm A*, znalaz³y trasê o d³ugoœci 32 855 metrów, a przy zastosowaniu metody 2-opt wynik ten uleg³ poprawie do 28 757 metrów. Do wykonania wszystkich operacji potrzebne by³o 20.59 sekundy.
 
 Najgorszy wynik zosta³ wygenerowany przez algorytm A*. Czas dzia³ania tego algorytmu równie¿ nie wyró¿nia siê spoœród pozosta³y rozwi¹zañ. Lepszym wynik zosta³ wygenerowany przy u¿yciu algorytmu genetycznego. Wynik ten zosta³ osi¹gniêty w najkrótszym czasie spoœród wszystkich trzech rozwi¹zañ. Najlepszy wynik ponownie zosta³ wygenerowany przez algorytm mrówkowy. Czas wykonania programu równie¿ i w tym przypadku by³ najd³u¿szy. 
 
@@ -772,6 +772,8 @@ W tabeli \ref{tab:AG3Best} przedstawiono najlepsze wyniki algorytmu genetycznego
 
 \subsection{Wyniki algorytmu mrówkowego}
 
+Na ostatniej badanej trasie, wyniki algorytmu mrówkowego równie¿ wygl¹daj¹ dobrze. Analizuj¹c tabelê \ref{tab:avg_3_mrowkowy} ³atwo zauwa¿yæ, ¿e wszystkie œrednie wyniki by³y lepsze od pierwotnej d³ugoœci. W najgorszym przypadku œredni wynik ma wartoœæ 39 797 metrów. Jest to wynik o 26\% lepszy od oryginalnej trasy. Taki wynik zosta³ wygenerowany przy najni¿szej liczbie iteracji oraz dla wspó³czynnika parowania wynosz¹cego 0.1. Dla tego samego wspó³czynnika wraz ze wzrostem iteracji wynik ulega polepszeniu. Najlepszy wynik dla tego wspó³czynnika wynosi 31 935 metrów. Ró¿nica miêdzy t¹ wartoœci¹ a najlepsz¹ wartoœci¹ dla ca³ej trasy jest niedu¿a i wynosi 359 metrów. Wartoœæ 31 576 metrów jest o 41\% lepszym wynikiem od trasy oryginalnej.
+
 
 \begin{table}[h!]
 \label{tab:avg_3_mrowkowy}
@@ -790,6 +792,7 @@ k                           & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.1} &
 \end{tabular}
 \end{table}
 
+Do wygenerowania najkrótszej trasy potrzeba by³o 75 iteracji. Wspó³czynnik parowania dla tej trasy wynosi 0.1. Mo¿na zauwa¿yæ, jak iloœæ iteracji potrafi wp³yn¹æ na wynik. Dla najni¿szej iloœci iteracji wygenerowana trasa jest du¿o d³u¿sza od pozosta³ych dwóch wariantów. Dla wiêkszoœci wspó³czynników parowania sytuacja jest podobna. Wraz ze wzrostem liczy iteracji wyniki s¹ lepsze. Dla wartoœci z zakresu od 0.6 do 0.9 trend ten jest zmieniony. Przyk³adowo dla wspó³czynnika parowania równego 0.8, program utworzy³ najlepsz¹ trasê przy 75 iteracjach. Najd³u¿sza trasa zosta³a natomiast odnotowana dla najwiêkszej liczby iteracji.
 
 \begin{table}[h!]
 \label{tab:best_3_mrowkowy}
@@ -802,24 +805,13 @@ k                           & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.1} &
 \rowcolor[HTML]{FFFC9E} 
 \cellcolor[HTML]{C0C0C0}50  & {\color[HTML]{333333} 38271}                     & {\color[HTML]{333333} 29339}                     & \cellcolor[HTML]{FFCC67}30505                    & 31383                                            & 31255                                            & 31141                                            & 30948                                            & 31304                                            & 32184                                            \\ \hline
 \rowcolor[HTML]{FFFC9E} 
-\cellcolor[HTML]{C0C0C0}75  & \cellcolor[HTML]{FFCC67}28172                    & \cellcolor[HTML]{FFCC67}28860                    & 31254                                            & 30693                                            & 30415                                            & {\color[HTML]{333333} 32098}                     & 31372                                            & \cellcolor[HTML]{FFCC67}29923                    & 31230                                            \\ \hline
+\cellcolor[HTML]{C0C0C0}75  & \cellcolor[HTML]{34FF34}28172                    & \cellcolor[HTML]{FFCC67}28860                    & 31254                                            & 30693                                            & 30415                                            & {\color[HTML]{333333} 32098}                     & 31372                                            & \cellcolor[HTML]{FFCC67}29923                    & 31230                                            \\ \hline
 \rowcolor[HTML]{FFCC67} 
 \cellcolor[HTML]{C0C0C0}100 & \cellcolor[HTML]{FFFC9E}28311                    & \cellcolor[HTML]{FFFC9E}29084                    & \cellcolor[HTML]{FFFC9E}31542                    & 30573                                            & 30254                                            & 30428                                            & 29279                                            & \cellcolor[HTML]{FFFC9E}33067                    & 30334                                            \\ \hline
 \end{tabular}
 \end{table}
 
-
-\begin{table}[]
-\caption[Trasa III - œrednie wyniki czasu wykonania dla algorytmu mrówkowego dla parametru iloœci iteracji]
-{Trasa III - œrednie wyniki czasu wykonania algorytmu mrówkowego dla parametru iloœci iteracji}
-\begin{tabular}{|
->{\columncolor[HTML]{C0C0C0}}l |l|l|l|}
-\hline
-iteracje & 50     & 75     & 100    \\ \hline
-czas     & 84.451 & 131.146 & 176.874 \\ \hline
-\end{tabular}
-\end{table}
-
+Skutecznoœæ z jak¹ algorytm mrówkowy z optymalizowa³ trasê jest najwy¿sza z mo¿liwych. W tabeli \ref{tab:sum_3_mrowkowy} zosta³a przedstawiona procentowa wartoœæ tras zoptymalizowanych w stosunku do oryginalnej odleg³oœci. Wszystkie z prób okaza³y siê lepsze. Dziêki temu mo¿na zauwa¿yæ, ¿e niezale¿nie od iloœci iteracji wygenerowany wynik da satysfakcjonuj¹cy wynik. Ma to znaczenie w kontekœcie czasu jaki potrzebuje program na ulepszenie trasy. Tak jak w przypadku poprzednich tras, algorytm mrówkowy potrzebuje wykonaæ wiele operacji. Do wykonania 50 prób polepszenia trasy potrzeba œrednio 84.451 sekundy. Jeœli iloœæ prób zosta³a zwiêkszona do 75, to œredni czas wzrós³ do 131.146 sekund. Najd³u¿ej trwa³o obliczanie trasy dla 100 iteracji. Czas ten wyniós³ 176.874 sekund.
 
 \begin{table}[h!]
 \label{tab:sum_3_mrowkowy}
@@ -839,6 +831,45 @@ k                           & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.1} &
 \end{table}
 
 
+\begin{table}[h!]
+\caption[Trasa III - œrednie wyniki czasu wykonania dla algorytmu mrówkowego dla parametru iloœci iteracji]
+{Trasa III - œrednie wyniki czasu wykonania algorytmu mrówkowego dla parametru iloœci iteracji}
+\begin{tabular}{|
+>{\columncolor[HTML]{C0C0C0}}l |l|l|l|}
+\hline
+iteracje & 50     & 75     & 100    \\ \hline
+czas     & 84.451 & 131.146 & 176.874 \\ \hline
+\end{tabular}
+\end{table}
+
+
 \subsection{Wyniki algorytmów zach³annych}
 
 \subsection{Porównanie algorytmów}
+
+Ostatnia z tras sk³ada³a siê z najwiêkszej liczby punktów. Wszystkie algorytmy wykonywa³y siê d³u¿ej ni¿ na poprzednich trasach. Ka¿dy z algorytmów poprawi³ pierwotn¹ trasê. Algorytm genetyczny wygenerowa³ trasê o d³ugoœci 32 374. W porównaniu do orygina³u jest to poprawa o 40\%. Program potrzebowa³ œrednio 8.25 sekundy na optymalizacjê trasy. Najlepszy rezultat zosta³ otrzymany przy pomocy algorytmu mrówkowego. Trasa o d³ugoœci 28 172 jest krótsza o 47\% od pocz¹tkowej œcie¿ki. Œredni czas z jakim pracowa³ algorytm nad wygenerowaniem takiej trasy to 131.146 sekundy. Najkrótsza œcie¿ka dla algorytmów zach³annych zosta³a znaleziona przez algorytm A* o d³ugoœci 32 855 metrów z czasem dzia³ania algorytmu 7.66 sekund. Po zoptymalizowaniu otrzymanych tras metod¹ 2-opt otrzymano algorytmem najbli¿szego s¹siada lepszy wynik o wartoœci 31 781 w czasie 65.1 sekundy. Jest to wartoœæ o 41\% lepsza od oryginalnej. 
+
+Najd³u¿sza trasa zosta³a wygenerowana przy u¿yciu algorytmu genetycznego. Jednak czas jaki by³ potrzebny na t¹ optymalizacjê by³ o wiele krótszy od pozosta³ych dwóch algorytmów. Algorytm najbli¿szego s¹siada jest niewiele lepszy od algorytmu genetycznego. Czas potrzebny na wszystkie operacje by³ ponad siedmiokrotnie d³u¿szy. Najkrótsza trasa zosta³a wygenerowana przez algorytm mrówkowy. Niestety czas potrzebny do wygenerowania trasy by³ najd³u¿szy.
+
+Na zdjêciach \ref{fig:sum_gen_2}, \ref{fig:sum_mro_2}, \ref{fig:sum_prz_2} zosta³y pokazane przyk³adowe ró¿nice w znalezionych trasach na tym samym odcinku przez algorytmy. Ka¿dy z algorytmów w innej kolejnoœci odwiedzi³ te punkty. Algorytm mrówkowy ju¿ na samym pocz¹tku wyselekcjonowa³ widoczne punkty. Natomiast algorytm genetyczny na samym koñcu przeanalizowa³ przedstawiony obszar. Jeszcze inaczej zachowa³ siê algorytm najbli¿szego s¹siada, który w œrodku trasy odwiedzi³ punkty.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.5]{grafika/summary_genetyczny_2}
+	\caption{Fragment trasy algorytmu genetycznego}
+	\label{fig:sum_gen_3}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.5]{grafika/summary_mrowkowy_2}
+	\caption{Fragment trasy algorytmu mrówkowego}
+	\label{fig:sum_mro_3}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.5]{grafika/summary_przemka_2}
+	\caption{Fragment trasy algorytmu najbli¿szego s¹siada}
+	\label{fig:sum_prz_3}
+\end{figure}
