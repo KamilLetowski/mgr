@@ -252,7 +252,7 @@ Na wykresie \ref{fig:kl_1} przedstawione zosta³o procentowe porównanie œredniej 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=0.75]{grafika/kl_1}
-	\caption{Wykres 1}
+	\caption{Procentowy rozk³ad œrednich wartoœci dla 50 iteracji}
 	\label{fig:kl_1}
 \end{figure}
 
@@ -261,7 +261,7 @@ Na wykresie \ref{fig:kl_2} zwiêkszona zosta³a iloœæ iteracji do 75. Dziêki tej a
 \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=0.75]{grafika/kl_2}
-	\caption{Wykres 1}
+	\caption{Procentowy rozk³ad œrednich wartoœci dla 75 iteracji}
 	\label{fig:kl_1}
 \end{figure}
 	
@@ -270,7 +270,7 @@ Najwy¿sza œrednia optymalizacja zosta³a odnotowana dla 100 iteracji oraz wspó³cz
 \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=0.75]{grafika/kl_3}
-	\caption{Wykres 1}
+	\caption{Procentowy rozk³ad œrednich wartoœci dla 100 iteracji}
 	\label{fig:kl_1}
 \end{figure}
 
@@ -533,6 +533,36 @@ k                           & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.1} &
 \end{tabular}
 \end{table}
 
+Dla najmniejszej iloœci iteracji, zostaj¹ wygenerowane trasy krótsze od pierwotnej. Na wykresie \ref{fig:kl_4} zosta³y przedstawione œrednie wyniki dla 50 iteracji. Mo¿na na tym wykresie zauwa¿yæ, ¿e najd³u¿sze trasy by³y generowane dla najni¿szego wspó³czynnika parowania. Najkrótsze trasy by³y generowane w przedziale od 0.2 do 0.4. Dla pozosta³ych wspó³czynników wartoœci s¹ wiêksze od 24\%.
+
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.75]{grafika/kl_4}
+	\caption{Procentowy rozk³ad œrednich wartoœci dla 50 iteracji}
+	\label{fig:kl_4}
+\end{figure}
+
+
+Po zwiêkszeniu liczby iteracji do 75, na wykresie \ref{fig:kl_5} mo¿na zauwa¿yæ zmiany w œrednich dystansach œcie¿ek. Na szczególn¹ uwagê zas³ugujê wspó³czynnik o wartoœci 0.1. Jeœli liczba iteracji by³a zmniejszona o 25, to œrednie wyniki by³y najgorsze. Po zwiêkszeniu iteracji o 25, sytuacja odwróci³a siê o 180 stopni. Œrednia z tras dla wspó³czynnika parowania feromonów równego 0.1 by³a jedn¹ z najlepszych w ca³ym zestawieniu. Pozosta³e wyniki s¹ co najmniej 25\% lepsze od oryginalnego przebytego dystansu.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.75]{grafika/kl_5}
+	\caption{Procentowy rozk³ad œrednich wartoœci dla 75 iteracji}
+	\label{fig:kl_5}
+\end{figure}
+
+
+Maksymalna liczba iteracji w niewielkim stopniu polepszy³a wczeœniejsze wyniki. Ponownie najkrótsze trasy  zosta³y wygenerowane dla wspó³czynników parowania z dolnego zakresu. Nie zmienia to faktu, i¿ wszystkie wyniki w dalszym ci¹gu by³y lepsze od badanej oryginalnej trasy. 
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.75]{grafika/kl_6}
+	\caption{Procentowy rozk³ad œrednich wartoœci dla 100 iteracji}
+	\label{fig:kl_5}
+\end{figure}
+
 Dziêki tabeli \ref{tab:sum_2_mrowkowy} mo¿na zauwa¿yæ jakie optymalizacje wykona³ algorytm mrówkowy. Wartoœci¹ ka¿dej komórki tabeli jest 100\%. Œwiadczy to o tym, ¿e ka¿da z tras jaka zosta³a wygenerowana przez algorytm mrówkowy jest lepsza od oryginalnej. W tej sytuacji bez znaczenia jest liczba iteracji czy te¿ wspó³czynnik parowania.
 
 \begin{table}[h!]
@@ -565,8 +595,6 @@ iteracje & 50     & 75     & 100    \\ \hline
 czas     & 28.325 & 42.689 & 60.281 \\ \hline
 \end{tabular}
 \end{table}
-
-
 
 \subsection{Wyniki algorytmów zach³annych}
 
@@ -810,6 +838,35 @@ k                           & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.1} &
 \cellcolor[HTML]{C0C0C0}100 & \cellcolor[HTML]{FFFC9E}28311                    & \cellcolor[HTML]{FFFC9E}29084                    & \cellcolor[HTML]{FFFC9E}31542                    & 30573                                            & 30254                                            & 30428                                            & 29279                                            & \cellcolor[HTML]{FFFC9E}33067                    & 30334                                            \\ \hline
 \end{tabular}
 \end{table}
+
+Poza analiz¹ najlepszych tras, na uwagê zas³uguje porównanie oryginalnej trase ze œrednic¹ wyniki dla ka¿dego ze wspó³czynników. Na wykresie \ref{fig:kl_7} mo¿na zauwa¿yæ, ¿e dla najni¿szej badanej liczby iteracji œrednia wszystkich wyników by³a wiêksza o minimum 25\%. Najwiêksz¹ œredni¹ uzyskan¹ podczas badañ odnotowana dla wspó³czynnika parowania równego 0.2. Œrednia ta by³a wiêksza o 40.96\%.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.75]{grafika/kl_7}
+	\caption{Wykres 1}
+	\label{fig:kl_7}
+\end{figure}
+
+Na wykresie \ref{fig:kl_8} zosta³y przedstawione œrednie wyniki dla 75 iteracji. Wszystkie wartoœci s¹ lepsze od pocz¹tkowych. Najlepsza wartoœæ zosta³a odnotowana dla wspó³czynnika parowana wynosz¹cego 0.1. Jest to najwiêkszy progres wzglêdem mniejszej liczby iteracji.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.75]{grafika/kl_8}
+	\caption{Wykres 1}
+	\label{fig:kl_8}
+\end{figure}
+
+Po zwiêkszeniu liczby iteracji wartoœci nadal utrzymywa³y siê na wysokim poziomie. Wszystkie œrednie by³y wiêksze od pierwotnej trasy. ¯adna œrednia nie by³a mniejsza od 30\%. Tak jak dla 75 iteracji, tak i dla 100, najlepsze œrednie wyniki zosta³y odnotowane dla wspó³czynnika wartoœci równego 0.1.
+
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.75]{grafika/kl_9}
+	\caption{Wykres 1}
+	\label{fig:kl_9}
+\end{figure}
+
 
 Skutecznoœæ z jak¹ algorytm mrówkowy z optymalizowa³ trasê jest najwy¿sza z mo¿liwych. W tabeli \ref{tab:sum_3_mrowkowy} zosta³a przedstawiona procentowa wartoœæ tras zoptymalizowanych w stosunku do oryginalnej odleg³oœci. Wszystkie z prób okaza³y siê lepsze. Dziêki temu mo¿na zauwa¿yæ, ¿e niezale¿nie od iloœci iteracji wygenerowany wynik da satysfakcjonuj¹cy wynik. Ma to znaczenie w kontekœcie czasu jaki potrzebuje program na ulepszenie trasy. Tak jak w przypadku poprzednich tras, algorytm mrówkowy potrzebuje wykonaæ wiele operacji. Do wykonania 50 prób polepszenia trasy potrzeba œrednio 84.451 sekundy. Jeœli iloœæ prób zosta³a zwiêkszona do 75, to œredni czas wzrós³ do 131.146 sekund. Najd³u¿ej trwa³o obliczanie trasy dla 100 iteracji. Czas ten wyniós³ 176.874 sekund.
 
