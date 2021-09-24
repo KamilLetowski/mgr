@@ -58,7 +58,8 @@ Dzia³anie algorytmu przedstawione zosta³o na rysunku 4.4 przedstawiaj¹cym przyk³
 <po badaniach powstanie tutaj schemat blokowy oraz przyk³ad, tak jak w poprzednich algorytmach, poniewa¿ algorytm jest jeszcze dopracowywany>
 
 \section{Optymalizacja otrzymanych rozwi¹zañ}
-	W ostatnim podrozdziale skupimy siê na sposobach optymalizacji otrzymanych przez algorytmy zach³anne rozwi¹zañ. Dok³adniej omówiona zostanie metoda 2-opt oraz metoda 3-opt.
+	W ostatnim podrozdziale skupimy siê na sposobach optymalizacji otrzymanych przez algorytmy zach³anne rozwi¹zañ. Dok³adniej omówiona zostanie metoda 2-opt oraz optymalizacje zaproponowane przez studenta.
+	
 \subsection{Metoda 2-opt}
 	Metoda optymalizacyjna 2-opt polega na pozbyciu siê z cyklu dwóch krawêdzi w celu zast¹pienia ich innymi krawêdziami w taki sposób, aby otworzyæ zupe³nie inny cykl. Iteracje mo¿na powtarzaæ dla ka¿dej pary krawêdzi, oprócz tych s¹siaduj¹cych ze sob¹, poniewa¿ ich zamienienie nie przynios³oby ¿adnej modyfikacji. Metoda nie ma na celu zmiany po³o¿enia wierzcho³ków, jedynie kolejnoœci ich odwiedzania. Po wykonaniu ca³ej optymalizacji, nale¿y sprawdziæ która modyfikacja przynios³a najlepszy efekt skrócenia d³ugoœci cyklu. W przypadku je¿eli ¿adna modyfikacja nie da³a lepszego rozwi¹zania, nie nale¿y modyfikowaæ rozwi¹zania. Algorytm mo¿na wykonywaæ wielokrotnie, w ten sposób zostanie zrealizowane minimum lokalne. Dla lepszego przedstawienia dzia³ania metody 2-opt, nale¿y spojrzeæ na rysunek 5.4.
 
@@ -69,13 +70,6 @@ Dzia³anie algorytmu przedstawione zosta³o na rysunku 4.4 przedstawiaj¹cym przyk³
 	\label{2opt}
 \end{figure}	
 
-\subsection{Metoda 3-opt}
+\subsection{Propozycje optymalizacji}
 
-	W odró¿nieniu do algorytmu 2-opt, w metodzie 3-opt rozwa¿ane s¹ wszystkie cykle, które mo¿na uzyskaæ wymieniaj¹c trzy krawêdzie z cyklu aktualnego, przy czym jest mo¿liwe wykonanie tego na wiele sposobów tak jak zosta³o to przedstawione na rysunku 5.5.
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=0.4]{grafika/3opt.png}
-	\caption{Metoda 3-opt}
-	\label{3opt}
-\end{figure}	
+	----

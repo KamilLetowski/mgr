@@ -4,7 +4,11 @@
 	Algorytm genetyczny zosta³ zbadany dla trzech ró¿nych wartoœci populacji N: 100,1000 oraz 2000; czterech ró¿nych wartoœci iteracji (pokoleñ): 100, 1000, 2000 oraz 4000. Dla ka¿dej wariacji tych parametrów zosta³o zbadane krzy¿owania PMX, OX oraz CX, z ró¿nymi kombinacjami mutacji: wstawiaj¹ca - insert, zamieniaj¹ca - swap oraz odwracaj¹ca - revert. Wspó³czynnik mutacji dla wszystkich uruchomieñ wynosi 0.1. Dla ka¿dej wariacji parametrów wejœciowych algorytm zosta³ uruchomiony dziesiêæ razy. W tabelach dotycz¹cych wyników algorytmu genetycznego, zosta³y przedstawione agregowane dane.
 	
 	Jednym z parametrów wejœciowych algorytmu mrówkowego jest wspó³czynnik parowania feromonów. To dziêki temu parametrowi wybierane s¹ optymalne trasy, a te gorsze odrzucane. 
-Ich wartoœci s¹ wyra¿ane procentowo w zakresie od 1\% do 99\%. Dla ka¿dej trasy zosta³a wybrane takie same wartoœci. Pomiar wyników zosta³ rozpoczêty od wartoœci 10\%. W ka¿dym korku wartoœæ ta by³a zwiêkszana o kolejne 10\% a¿ do 90\%. Kolejnym istotnym parametrem jest iloœæ iteracji. Parametr ten oznacza ile razy mrówki mrówki maj¹ wykonywaæ ulepszenie trasy. Do badañ zosta³y dobrane trzy wartoœci: 50, 75, 100. Parametr ten ma bezpoœredni wp³yw na optymalizacjê ale równie¿ na czas jaki algorytm potrzebuje na wykonanie wszystkich operacji.  
+Ich wartoœci s¹ wyra¿ane procentowo w zakresie od 1\% do 99\%. Dla ka¿dej trasy zosta³a wybrane takie same wartoœci. Pomiar wyników zosta³ rozpoczêty od wartoœci 10\%. W ka¿dym korku wartoœæ ta by³a zwiêkszana o kolejne 10\% a¿ do 90\%. Kolejnym istotnym parametrem jest iloœæ iteracji. Parametr ten oznacza ile razy mrówki mrówki maj¹ wykonywaæ ulepszenie trasy. Do badañ zosta³y dobrane trzy wartoœci: 50, 75, 100. Parametr ten ma bezpoœredni wp³yw na optymalizacjê ale równie¿ na czas jaki algorytm potrzebuje na wykonanie wszystkich operacji.
+
+	Przedstawicielami algorytmów zach³annych do wyznaczania tras by³ algorytm najbli¿szego s¹siada (ANS), algorytm najmniejszej krawêdzi (ANK) oraz algorytm A*. Do wyznaczenia wiêkszej iloœci tras w algorytmach zach³annych u¿yto wspó³czynnika b³êdu w jednostce metrów: 0, 5, 10, 20, 30, 40, 50, 75 oraz 100. Wspó³czynnik zosta³ zbadany na trzech ró¿nych etapach algorytmu, aby zbadaæ wiêksz¹ iloœæ otrzymanych tras, wy³¹czany by³ po utworzeniu 100 000 tras do badañ.
+Pierwsze badany etap obejmowa³ uruchomienie wspó³czynnika od pocz¹tku dzia³ania danego algorytmu. Drugie badanie aktywowa³o wspó³czynnik dopiero po utworzeniu 1/3 ca³kowitej trasy.
+Ostatni eksperyment polega³ na rozpoczêciu rozwa¿ania wiêkszej iloœci tras po stworzeniu 2/3 z ca³kowitej trasy. Nastêpnie wszystkie otrzymane trasy zosta³y zoptymalizowane metod¹ 2-opt w celu znalezienia lepszego wyniku. Jeœli rezultat optymalizacji nie by³ lepszy, zostawa³ poprzedni wynik.
 \section{Trasa I}
 Pierwsza trasa sk³ada siê ze 111 punktów, odwiedzonych przez pojazd. D³ugoœæ oryginalna tej trasy wynosi 48897 metrów.
 \subsection{Wyniki algorytmu genetycznego}
@@ -289,6 +293,168 @@ czas     & 12.945 & 21.732 & 31.547 \\ \hline
 \end{table}
 
 \subsection{Wyniki algorytmów zach³annych}
+
+W tabeli \ref{tab:AZ1BESTS} zosta³y przedstawione najlepsze wyniki algorytmów zach³annych dla ka¿dej kombinacji wspó³czynnika b³êdu uruchamianego na trzech etapach budowania ca³kowitej trasy.
+Algorytm A* wyznaczy³ najlepsz¹ trasê o d³ugoœci 30 205 metrów oraz jako jedyny wyznaczy³ bardzo du¿¹ iloœæ tras poni¿ej 31 000 metrów. 
+Najlepsza trasa otrzymana przez algorytm najbli¿szego s¹siada wynios³a 31 895 metrów, natomiast algorytm najmniejszej krawêdzi zwróci³ trasê o d³ugoœci 32 015 metrów. 
+Od razu mo¿na zauwa¿yæ, ¿e po zastosowaniu wspó³czynnika na pierwszym etapie trasy najgorzej wypad³ algorytm najmniejszej krawêdzi daj¹c wyniki a¿ powy¿ej 40 000 metrów. 
+Natomiast algorytm najbli¿szego s¹siada oraz algorytm A* najs³abiej poradzili sobie tworz¹c dodatkowe trasy do badañ na trzecim etapie dzia³ania.
+
+Tabela \ref{tab:AZ1OPTM} przedstawia procentow¹ poprawê oryginalnej trasy nr 1. Wszystkie otrzymane trasy przez ka¿dy z trzech algorytmów da³y lepszy wynik od oryginalnej. Najlepszy wynik otrzymany przez algorytm A* poprawi³ trasê a¿ o 38.23\%.
+Na pierwszy rzut oka mo¿na zauwa¿yæ, ¿e najwy¿sze optymalizacje zosta³y wygenerowane przez algorytm A*. Najgorsze optymalizacje otrzymano przy zastosowaniu algorytmu najmniejszej krawêdzi w pierwszej fazie budowania tras, wszystkie wyniki by³y poni¿ej 20\%.
+Nieco lepiej od poprzednika wypad³ algorytm najbli¿szego s¹siada, jednak najbardziej optymalny wynik jest w obu zbli¿ony równy oko³o 34\%.
+
+\begin{table}[!h]
+\caption[Trasa I - wyniki algorytmów zach³annych]
+{Trasa I - wyniki algorytmów zach³annych}
+\scalebox{0.85}{
+\begin{tabular}{|
+>{\columncolor[HTML]{C0C0C0}}c |c|c|c|c|c|c|c|
+>{\columncolor[HTML]{FFFC9E}}c |c|}
+\hline
+B³¹d (m) & \cellcolor[HTML]{C0C0C0}ANS-1 & \cellcolor[HTML]{C0C0C0}ANS-2 & \cellcolor[HTML]{C0C0C0}ANS-3 & \cellcolor[HTML]{C0C0C0}ANK-1 & \cellcolor[HTML]{C0C0C0}ANK-2 & \cellcolor[HTML]{C0C0C0}ANK-3 & \cellcolor[HTML]{C0C0C0}A*-1  & \cellcolor[HTML]{C0C0C0}A*-2  & \cellcolor[HTML]{C0C0C0}A*-3  \\ \hline
+0        & 37224                         & \cellcolor[HTML]{34FF34}31895 & \cellcolor[HTML]{FFFFFF}38707 & \cellcolor[HTML]{FFFFFF}42343 & 32480                         & 38497                         & 31235                         & 30906                         & 36361                         \\ \hline
+5        & 37224                         & 32552                         & 37925                         & \cellcolor[HTML]{FFFFFF}42343 & 32479                         & 39651                         & \cellcolor[HTML]{FFFC9E}30906 & 30855                         & \cellcolor[HTML]{FFFFFF}37143 \\ \hline
+10       & 37224                         & 32552                         & 38270                         & \cellcolor[HTML]{FFFFFF}42335 & 32479                         & 38496                         & \cellcolor[HTML]{FFFC9E}30577 & 30855                         & 36752                         \\ \hline
+20       & 36840                         & 32223                         & 37879                         & 40319                         & 32479                         & 38496                         & \cellcolor[HTML]{FFFC9E}30577 & 30855                         & \cellcolor[HTML]{FFFFFF}37143 \\ \hline
+30       & 36840                         & \cellcolor[HTML]{34FF34}31895 & 38270                         & \cellcolor[HTML]{FFFFFF}42335 & 33453                         & 40421                         & 31235                         & \cellcolor[HTML]{C6EFCE}30205 & 36361                         \\ \hline
+40       & 36840                         & 32552                         & 38270                         & \cellcolor[HTML]{FFFFFF}42335 & 32479                         & 38496                         & \cellcolor[HTML]{FFFC9E}30577 & 30529                         & 36317                         \\ \hline
+50       & 37218                         & 32552                         & 37879                         & \cellcolor[HTML]{FFFFFF}42335 & 32479                         & 39651                         & \cellcolor[HTML]{FFFC9E}30577 & 30854                         & 36708                         \\ \hline
+75       & 36842                         & 32552                         & 38660                         & 40319                         & 34103                         & 38496                         & \cellcolor[HTML]{FFFC9E}30899 & \cellcolor[HTML]{C6EFCE}30205 & 37098                         \\ \hline
+100      & 36466                         & \cellcolor[HTML]{34FF34}31895 & 38124                         & 40319                         & \cellcolor[HTML]{34FF34}32015 & 40421                         & 31228                         & \cellcolor[HTML]{C6EFCE}30205 & 37098                         \\ \hline
+\end{tabular}}
+\label{tab:AZ1BESTS}
+\end{table}
+
+
+\begin{table}[!h]
+\caption[Trasa I - optymalizacja wyników wzglêdem oryginalnej trasy]
+{Trasa I - optymalizacja wyników wzglêdem oryginalnej trasy}
+\scalebox{0.8}{
+\begin{tabular}{|
+>{\columncolor[HTML]{C0C0C0}}c |l|l|l|l|l|l|l|
+>{\columncolor[HTML]{FFFC9E}}l |l|}
+\hline
+B³¹d (m) & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANS-1} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANS-2} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANS-3} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANK-1} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANK-2} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANK-3} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}A*-1} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}A*-2} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}A*-3} \\ \hline
+0        & 23,87\%                                            & \cellcolor[HTML]{34FF34}34,77\%                    & \cellcolor[HTML]{FFFFFF}20,84\%                    & \cellcolor[HTML]{FFFFFF}13,40\%                    & 33,57\%                                            & 21,27\%                                            & 36,12\%                                           & 36,79\%                                           & 25,64\%                                           \\ \hline
+5        & 23,87\%                                            & 33,43\%                                            & 22,44\%                                            & \cellcolor[HTML]{FFFFFF}13,40\%                    & 33,58\%                                            & 18,91\%                                            & \cellcolor[HTML]{FFFC9E}36,79\%                   & 36,90\%                                           & \cellcolor[HTML]{FFFFFF}24,04\%                   \\ \hline
+10       & 23,87\%                                            & 33,43\%                                            & 21,73\%                                            & \cellcolor[HTML]{FFFFFF}13,42\%                    & 33,58\%                                            & 21,27\%                                            & \cellcolor[HTML]{FFFC9E}37,47\%                   & 36,90\%                                           & 24,84\%                                           \\ \hline
+20       & 24,66\%                                            & 34,10\%                                            & 22,53\%                                            & 17,54\%                                            & 33,58\%                                            & 21,27\%                                            & \cellcolor[HTML]{FFFC9E}37,47\%                   & 36,90\%                                           & \cellcolor[HTML]{FFFFFF}24,04\%                   \\ \hline
+30       & 24,66\%                                            & \cellcolor[HTML]{34FF34}34,77\%                    & 21,73\%                                            & \cellcolor[HTML]{FFFFFF}13,42\%                    & 31,58\%                                            & 17,33\%                                            & 36,12\%                                           & \cellcolor[HTML]{C6EFCE}38,23\%                   & 25,64\%                                           \\ \hline
+40       & 24,66\%                                            & 33,43\%                                            & 21,73\%                                            & \cellcolor[HTML]{FFFFFF}13,42\%                    & 33,58\%                                            & 21,27\%                                            & \cellcolor[HTML]{FFFC9E}37,47\%                   & 37,56\%                                           & 25,73\%                                           \\ \hline
+50       & 23,88\%                                            & 33,43\%                                            & 22,53\%                                            & 13,42\%                                            & 33,58\%                                            & 18,91\%                                            & \cellcolor[HTML]{FFFC9E}37,47\%                   & 36,90\%                                           & 24,93\%                                           \\ \hline
+75       & 24,65\%                                            & 33,43\%                                            & 20,94\%                                            & 17,54\%                                            & 30,26\%                                            & 21,27\%                                            & \cellcolor[HTML]{FFFC9E}36,81\%                   & \cellcolor[HTML]{C6EFCE}38,23\%                   & 24,13\%                                           \\ \hline
+100      & 25,42\%                                            & \cellcolor[HTML]{34FF34}34,77\%                    & 22,03\%                                            & 17,54\%                                            & \cellcolor[HTML]{34FF34}34,53\%                    & 17,33\%                                            & 36,14\%                                           & \cellcolor[HTML]{C6EFCE}38,23\%                   & 24,13\%                                           \\ \hline
+\end{tabular}}
+\label{tab:AZ1OPTM}
+\end{table}
+
+
+Zastosowanie metody 2-opt na utworzonych trasach znalaz³o nowy najlepszy wynik dla algorytmu A* testowanego w pierwszej fazie budowania tras. Jak mo¿na zauwa¿yæ w tabeli \ref{tab:AZ12OPT} po zastosowaniu optymalizacji nowa najlepsza trasa uzyska³a wynik 29 965 metrów. Dziêki optymalizacji trasa wygenerowana przez algorytm najmniejszej krawêdzi zmniejszy³a siê do 30 855 metrów. Dla algorytmu najbli¿szego s¹siada optymalizacja nie przynios³a trasy o mniejszej d³ugoœci od poprzednich. Nowa najlepsza optymalizacja wynosi 38.72\% wzglêdem oryginalnej trasy, a najgorszy wynik to zaledwie 13.40\% poprawy d³ugoœci. Tabela \ref{tab:AZ12OPTOPTM} przedstawia wyniki optymalizacji wzglêdem trasy oryginalnej po zastosowaniu metody 2-opt.
+
+\begin{table}[!h]
+\caption[Trasa I - zastosowanie metody 2-opt na powsta³ych trasach]
+{Trasa I - zastosowanie metody 2-opt na powsta³ych trasach}
+\scalebox{0.85}{
+\begin{tabular}{|
+>{\columncolor[HTML]{C0C0C0}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFC9E}}c |
+>{\columncolor[HTML]{FFFFFF}}c |c|
+>{\columncolor[HTML]{FFFC9E}}c |
+>{\columncolor[HTML]{FFFFFF}}c |}
+\hline
+B³¹d (m) & \cellcolor[HTML]{C0C0C0}ANS-1 & \cellcolor[HTML]{C0C0C0}ANS-2 & \cellcolor[HTML]{C0C0C0}ANS-3 & \cellcolor[HTML]{C0C0C0}ANK-1 & \cellcolor[HTML]{C0C0C0}ANK-2 & \cellcolor[HTML]{C0C0C0}ANK-3 & \cellcolor[HTML]{C0C0C0}A*-1  & \cellcolor[HTML]{C0C0C0}A*-2 & \cellcolor[HTML]{C0C0C0}A*-3 \\ \hline
+0        & 32751                         & \cellcolor[HTML]{34FF34}31895 & 35997                         & 42343                         & \cellcolor[HTML]{FFFFFF}32480 & 38497                         & \cellcolor[HTML]{FFFFFF}31235 & 30906                        & 36361                        \\ \hline
+5        & 32751                         & 32552                         & 37925                         & 42343                         & 30855                         & 39651                         & \cellcolor[HTML]{FFFC9E}30906 & 30205                        & 36708                        \\ \hline
+10       & 32751                         & 32552                         & 35997                         & 40319                         & 30855                         & 38496                         & \cellcolor[HTML]{C6EFCE}29965 & 30205                        & 36708                        \\ \hline
+20       & 32751                         & \cellcolor[HTML]{34FF34}31895 & 37879                         & 40319                         & 30855                         & 38496                         & \cellcolor[HTML]{C6EFCE}29965 & 30205                        & 36708                        \\ \hline
+30       & 32751                         & \cellcolor[HTML]{34FF34}31895 & 35997                         & 40319                         & \cellcolor[HTML]{FFFFFF}33453 & 38496                         & \cellcolor[HTML]{FFFFFF}31235 & 30205                        & 36361                        \\ \hline
+40       & 32751                         & 32552                         & 35997                         & 40319                         & 30855                         & 38496                         & \cellcolor[HTML]{C6EFCE}29965 & 30529                        & 36317                        \\ \hline
+50       & 32751                         & 32552                         & 37879                         & 40319                         & 30855                         & 39651                         & \cellcolor[HTML]{C6EFCE}29965 & 30205                        & 36708                        \\ \hline
+75       & 32751                         & 32552                         & 35997                         & 40319                         & \cellcolor[HTML]{FFFFFF}34103 & 38496                         & \cellcolor[HTML]{FFFC9E}30899 & 30205                        & 36708                        \\ \hline
+100      & 32751                         & \cellcolor[HTML]{34FF34}31895 & 35997                         & 40319                         & \cellcolor[HTML]{FFFFFF}32015 & 38496                         & \cellcolor[HTML]{FFFFFF}31228 & 30205                        & 36708                        \\ \hline
+\end{tabular}}
+\label{tab:AZ12OPT}
+\end{table}
+
+
+
+\begin{table}[!h]
+\caption[Trasa I - optymalizacja powsta³ych tras przez metodê 2-opt]
+{Trasa I - optymalizacja powsta³ych tras przez metodê 2-opt}
+\scalebox{0.8}{
+\begin{tabular}{|
+>{\columncolor[HTML]{C0C0C0}}c |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFC9E}}l |
+>{\columncolor[HTML]{FFFFFF}}l |l|
+>{\columncolor[HTML]{FFFC9E}}l |
+>{\columncolor[HTML]{FFFFFF}}l |}
+\hline
+B³¹d (m) & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANS-1} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANS-2} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANS-3} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANK-1} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANK-2} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANK-3} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}A*-1} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}A*-2} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}A*-3} \\ \hline
+0        & 33,02\%                                            & \cellcolor[HTML]{34FF34}34,77\%                    & 26,38\%                                            & 13,40\%                                            & \cellcolor[HTML]{FFFFFF}33,57\%                    & 21,27\%                                            & \cellcolor[HTML]{FFFFFF}36,12\%                   & 36,79\%                                           & 25,64\%                                           \\ \hline
+5        & 33,02\%                                            & 33,43\%                                            & 22,44\%                                            & 13,40\%                                            & 36,90\%                                            & 18,91\%                                            & \cellcolor[HTML]{FFFC9E}36,79\%                   & 38,23\%                                           & 24,93\%                                           \\ \hline
+10       & 33,02\%                                            & 33,43\%                                            & 26,38\%                                            & 17,54\%                                            & 36,90\%                                            & 21,27\%                                            & \cellcolor[HTML]{C6EFCE}38,72\%                   & 38,23\%                                           & 24,93\%                                           \\ \hline
+20       & 33,02\%                                            & \cellcolor[HTML]{34FF34}34,77\%                    & 22,53\%                                            & 17,54\%                                            & 36,90\%                                            & 21,27\%                                            & \cellcolor[HTML]{C6EFCE}38,72\%                   & 38,23\%                                           & 24,93\%                                           \\ \hline
+30       & 33,02\%                                            & \cellcolor[HTML]{34FF34}34,77\%                    & 26,38\%                                            & 17,54\%                                            & \cellcolor[HTML]{FFFFFF}31,58\%                    & 21,27\%                                            & \cellcolor[HTML]{FFFFFF}36,12\%                   & 38,23\%                                           & 25,64\%                                           \\ \hline
+40       & 33,02\%                                            & 33,43\%                                            & 26,38\%                                            & 17,54\%                                            & 36,90\%                                            & 21,27\%                                            & \cellcolor[HTML]{C6EFCE}38,72\%                   & 37,56\%                                           & 25,73\%                                           \\ \hline
+50       & 33,02\%                                            & 33,43\%                                            & 22,53\%                                            & 17,54\%                                            & 36,90\%                                            & 18,91\%                                            & \cellcolor[HTML]{C6EFCE}38,72\%                   & 38,23\%                                           & 24,93\%                                           \\ \hline
+75       & 33,02\%                                            & 33,43\%                                            & 26,38\%                                            & 17,54\%                                            & \cellcolor[HTML]{FFFFFF}30,26\%                    & 21,27\%                                            & \cellcolor[HTML]{FFFC9E}36,81\%                   & 38,23\%                                           & 24,93\%                                           \\ \hline
+100      & 33,02\%                                            & \cellcolor[HTML]{34FF34}34,77\%                    & 26,38\%                                            & 17,54\%                                            & \cellcolor[HTML]{FFFFFF}34,53\%                    & 21,27\%                                            & \cellcolor[HTML]{FFFFFF}36,14\%                   & 38,23\%                                           & 24,93\%                                           \\ \hline
+\end{tabular}}
+\label{tab:AZ12OPTOPTM}
+\end{table}
+
+Optymalizacja metod¹ 2-opt poprawi³a wyniki we wszystkich zastosowanych algorytmach, co dobrze widaæ na rysunku \ref{Trasa1AZCOMPARE}. Algorytm najbli¿szego s¹siada poprawi³ dolny najlepszy wynik z 22.53\% na 26.38\%. Algorytm najmniejszej krawêdzi natomiast zoptymalizowa³ górny najlepszy wynik z 33.58\% na 36.90\%. Delikatnie lepiej wypad³ tak¿e po optymalizacji algorytm A*, który swój górny wynik ulepszy³ z 38.23\% na 38.72\%.
+
+W tabeli \ref{tab:AZ1TIME} znajduj¹ siê czasy dzia³ania algorytmów. D³u¿szy czas wykonywania nie oznacza lepszego wyniku dla algorytmów zach³annych. Najlepsz¹ trasê uda³o siê uzyskaæ w czasie 7.91 sekundy.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{grafika/results111_final.png}
+	\caption{Trasa I - porównanie optymalizacji algorytmów z zastosowanie metody 2-opt}
+	\label{Trasa1AZCOMPARE}
+\end{figure}
+
+
+
+\begin{table}[!h]
+\caption[Trasa I - czasy wykonywania algorytmów]
+{Trasa I - czasy wykonywania algorytmów}
+\scalebox{0.85}{
+\begin{tabular}{|
+>{\columncolor[HTML]{C0C0C0}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFC9E}}c |
+>{\columncolor[HTML]{FFFC9E}}c |
+>{\columncolor[HTML]{FFFFFF}}c |}
+\hline
+B³¹d (m) & \cellcolor[HTML]{C0C0C0}ANS-1 & \cellcolor[HTML]{C0C0C0}ANS-2 & \cellcolor[HTML]{C0C0C0}ANS-3 & \cellcolor[HTML]{C0C0C0}ANK-1 & \cellcolor[HTML]{C0C0C0}ANK-2 & \cellcolor[HTML]{C0C0C0}ANK-3 & \cellcolor[HTML]{C0C0C0}A*-1 & \cellcolor[HTML]{C0C0C0}A*-2 & \cellcolor[HTML]{C0C0C0}A*-3 \\ \hline
+0        & 3,18                          & \cellcolor[HTML]{34FF34}0,33  & 0,31                          & 0,27                          & 0,35                          & 0,3                           & \cellcolor[HTML]{FFFFFF}2,04 & 0,33                         & 0,3                          \\ \hline
+5        & 2,92                          & 0,31                          & 0,34                          & 0,31                          & 1,83                          & 4,42                          & 4,25                         & 3,59                         & 0,3                          \\ \hline
+10       & 1,56                          & 0,31                          & 12,14                         & 1,39                          & 2,07                          & 11,75                         & 7,91                         & 3,9                          & 0,32                         \\ \hline
+20       & 16,27                         & 0,32                          & 14,1                          & 2,61                          & 2,13                          & 13,85                         & 8,03                         & 7,84                         & 0,33                         \\ \hline
+30       & 26,95                         & \cellcolor[HTML]{34FF34}0,32  & 22,51                         & 6,42                          & 2,09                          & 19,54                         & \cellcolor[HTML]{FFFFFF}8,2  & \cellcolor[HTML]{C6EFCE}8,22 & 0,36                         \\ \hline
+40       & 43,77                         & 0,31                          & 23,73                         & 13,27                         & 2,2                           & 19,56                         & 8,29                         & 17,18                        & 2,27                         \\ \hline
+50       & 15,74                         & 0,33                          & 23,29                         & 14,32                         & 2                             & 20,05                         & 8,29                         & 23,84                        & 9,16                         \\ \hline
+75       & 25,51                         & 0,33                          & 24,11                         & 14,75                         & 2,2                           & 20,81                         & 34,28                        & \cellcolor[HTML]{C6EFCE}5,22 & 11,01                        \\ \hline
+100      & 35,77                         & \cellcolor[HTML]{34FF34}0,31  & 24,76                         & 21,13                         & \cellcolor[HTML]{34FF34}11,57 & 21,32                         & \cellcolor[HTML]{FFFFFF}13   & \cellcolor[HTML]{C6EFCE}6,1  & 11,39                        \\ \hline
+\end{tabular}}
+\label{tab:AZ1TIME}
+\end{table}
+
 
 \subsection{Porównanie algorytmów}
 
@@ -598,6 +764,162 @@ czas     & 28.325 & 42.689 & 60.281 \\ \hline
 
 \subsection{Wyniki algorytmów zach³annych}
 
+W tabeli \ref{tab:AZ2BESTS} zosta³y umieszczone najlepsze wartoœci wygenerowanych tras przez algorytmy zach³anne dla trasy nr 2 przy zastosowaniu wspó³czynnika b³êdu uruchamianego na poszczególnych etapach budowania ca³kowitej trasy.
+Tak jak w poprzedniej trasie algorytm A* uzyska³ najlepszy wynik równy 28 757 metrów. Algorytm najbli¿szego s¹siada równie¿ doszed³ do wyniku poni¿ej 30 000 metrów, podczas etapu drugiego znalaz³ trasê o d³ugoœci 29 800 metrów. Znów najgorszy okaza³ siê algorytm najmniejszej krawêdzi, który tym razem wyznaczy³ trasê 31 745 metrow¹. Najwiêcej najgorszych wyników zwróci³ równie¿ algorytm najmniejszej krawêdzi, gdzie inne algorytmy odda³y wyniki bardzo przybli¿one.
+
+
+Tabela \ref{tab:AZ2OPTM} przedstawia procentow¹ poprawê oryginalnej trasy nr 2. Wszystkie wyznaczone trasy przez poszczególny z  trzech algorytmów uzyska³y lepszy wynik od trasy oryginalnej. Najlepszy wynik otrzymany przez algorytm A* poprawi³ trasê a¿ o 28.82\%.
+Na pierwszy rzut oka mo¿na zauwa¿yæ, ¿e najwy¿sze optymalizacje zosta³y wygenerowane znów przez algorytm A*. Najgorsze optymalizacje otrzymano przy zastosowaniu algorytmu najmniejszej krawêdzi w trzeciej fazie budowania tras, gdzie wszystkie wyniki by³y poni¿ej 20\%, a dolny wynik to tylko 15.98\%. Algorytm najbli¿szego s¹siada wypad³ tym razem umiarkowanie, daj¹c najlepszy wynik równy 26.24\%, który jest lepszy od niektórych tras wyznaczanych przez algorytm A*.
+
+
+\begin{table}[!h]
+\caption[Trasa II - wyniki algorytmów zach³annych]
+{Trasa II - wyniki algorytmów zach³annych}
+\scalebox{0.85}{
+\begin{tabular}{|
+>{\columncolor[HTML]{C0C0C0}}c |c|c|c|c|c|c|c|c|
+>{\columncolor[HTML]{FFFC9E}}c |}
+\hline
+B³¹d (m) & \cellcolor[HTML]{C0C0C0}ANS-1 & \cellcolor[HTML]{C0C0C0}ANS-2 & \cellcolor[HTML]{C0C0C0}ANS-3 & \cellcolor[HTML]{C0C0C0}ANK-1 & \cellcolor[HTML]{C0C0C0}ANK-2 & \cellcolor[HTML]{C0C0C0}ANK-3 & \cellcolor[HTML]{C0C0C0}A*-1  & \cellcolor[HTML]{C0C0C0}A*-2  & \cellcolor[HTML]{C0C0C0}A*-3  \\ \hline
+0        & 30845                         & 31765                         & 31663                         & \cellcolor[HTML]{FFFFFF}33416 & 32298                         & \cellcolor[HTML]{FFFFFF}33944 & 30006                         & \cellcolor[HTML]{FFFFFF}30483 & 28773                         \\ \hline
+5        & 30222                         & 31765                         & \cellcolor[HTML]{FFFFFF}31986 & 32780                         & \cellcolor[HTML]{FFFFFF}33267 & 32328                         & 30066                         & \cellcolor[HTML]{FFFC9E}29840 & 29083                         \\ \hline
+10       & 30845                         & 31123                         & \cellcolor[HTML]{FFFFFF}31986 & \cellcolor[HTML]{FFFFFF}33416 & \cellcolor[HTML]{FFFFFF}33899 & \cellcolor[HTML]{FFFFFF}33944 & 30325                         & \cellcolor[HTML]{FFFC9E}29813 & \cellcolor[HTML]{C6EFCE}28757 \\ \hline
+20       & 30845                         & 31105                         & 31340                         & \cellcolor[HTML]{FFFFFF}33332 & \cellcolor[HTML]{FFFFFF}33892 & 32328                         & \cellcolor[HTML]{FFFC9E}29687 & 30454                         & \cellcolor[HTML]{C6EFCE}28757 \\ \hline
+30       & 30845                         & 30798                         & 31340                         & \cellcolor[HTML]{34FF34}31745 & \cellcolor[HTML]{FFFFFF}33246 & \cellcolor[HTML]{FFFFFF}33944 & 30325                         & \cellcolor[HTML]{FFFC9E}29813 & 29375                         \\ \hline
+40       & 30845                         & 30798                         & 31663                         & 32535                         & \cellcolor[HTML]{FFFFFF}33246 & \cellcolor[HTML]{FFFFFF}33944 & 30006                         & 30134                         & 29066                         \\ \hline
+50       & 30222                         & \cellcolor[HTML]{FFFC9E}29800 & 31479                         & \cellcolor[HTML]{FFFFFF}33053 & \cellcolor[HTML]{FFFFFF}33246 & 32328                         & 30325                         & 30454                         & 29066                         \\ \hline
+75       & 30845                         & 30104                         & 31800                         & 32423                         & \cellcolor[HTML]{FFFFFF}33246 & \cellcolor[HTML]{FFFFFF}33298 & \cellcolor[HTML]{FFFC9E}29687 & \cellcolor[HTML]{FFFC9E}29519 & \cellcolor[HTML]{C6EFCE}28757 \\ \hline
+100      & 30845                         & 30104                         & 31800                         & 32423                         & 32278                         & \cellcolor[HTML]{FFFFFF}33298 & 30250                         & \cellcolor[HTML]{FFFC9E}29519 & 29066                         \\ \hline
+\end{tabular}}
+\label{tab:AZ2BESTS}
+\end{table}
+
+
+\begin{table}[!h]
+\caption[Trasa II - optymalizacja wyników wzglêdem oryginalnej trasy]
+{Trasa II - optymalizacja wyników wzglêdem oryginalnej trasy}
+\scalebox{0.8}{
+\begin{tabular}{|
+>{\columncolor[HTML]{C0C0C0}}c |l|l|l|l|l|l|l|l|l|}
+\hline
+B³¹d (m) & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANS-1} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANS-2} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANS-3} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANK-1} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANK-2} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANK-3} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}A*-1} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}A*-2} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}A*-3} \\ \hline
+0        & 23,65\%                                            & 21,38\%                                            & 21,63\%                                            & 17,29\%                                            & 20,06\%                                            & \cellcolor[HTML]{FFFFFF}15,98\%                    & 25,73\%                                           & \cellcolor[HTML]{FFFFFF}24,55\%                   & \cellcolor[HTML]{FFFC9E}28,78\%                   \\ \hline
+5        & 25,20\%                                            & 21,38\%                                            & \cellcolor[HTML]{FFFFFF}20,83\%                    & 18,87\%                                            & 17,66\%                                            & 19,98\%                                            & 25,58\%                                           & 26,14\%                                           & \cellcolor[HTML]{FFFC9E}28,02\%                   \\ \hline
+10       & 23,65\%                                            & 22,97\%                                            & \cellcolor[HTML]{FFFFFF}20,83\%                    & 17,29\%                                            & 16,10\%                                            & 15,98\%                                            & 24,94\%                                           & 26,21\%                                           & \cellcolor[HTML]{C6EFCE}28,82\%                   \\ \hline
+20       & 23,65\%                                            & 23,01\%                                            & 22,43\%                                            & 17,50\%                                            & 16,11\%                                            & 19,98\%                                            & 26,52\%                                           & 24,62\%                                           & \cellcolor[HTML]{C6EFCE}28,82\%                   \\ \hline
+30       & 23,65\%                                            & 23,77\%                                            & 22,43\%                                            & \cellcolor[HTML]{34FF34}21,43\%                    & 17,71\%                                            & \cellcolor[HTML]{FFFFFF}15,98\%                    & 24,94\%                                           & 26,21\%                                           & 27,29\%                                           \\ \hline
+40       & 23,65\%                                            & 23,77\%                                            & 21,63\%                                            & 19,47\%                                            & 17,71\%                                            & \cellcolor[HTML]{FFFFFF}15,98\%                    & 25,73\%                                           & 25,41\%                                           & \cellcolor[HTML]{FFFC9E}28,06\%                   \\ \hline
+50       & 25,20\%                                            & \cellcolor[HTML]{34FF34}26,24\%                    & 22,09\%                                            & 18,19\%                                            & 17,71\%                                            & 19,98\%                                            & 24,94\%                                           & 24,62\%                                           & \cellcolor[HTML]{FFFC9E}28,06\%                   \\ \hline
+75       & 23,65\%                                            & 25,49\%                                            & 21,29\%                                            & 19,75\%                                            & 17,71\%                                            & 17,58\%                                            & 26,52\%                                           & 26,94\%                                           & \cellcolor[HTML]{C6EFCE}28,82\%                   \\ \hline
+100      & 23,65\%                                            & 25,49\%                                            & 21,29\%                                            & 19,75\%                                            & 20,11\%                                            & 17,58\%                                            & 25,13\%                                           & 26,94\%                                           & \cellcolor[HTML]{FFFC9E}28,06\%                   \\ \hline
+\end{tabular}}
+\label{tab:AZ2OPTM}
+\end{table}
+
+Tabela \ref{tab:AZ22OPT} przedstawia zoptymalizowane trasy metod¹ 2-opt. Optymalizacje nie przynios³y nowego najlepszego wyniku jednak poprawi³y wiêkszoœæ wczeœniej budowanych tras. Tabela \ref{tab:AZ22OPTOPTM} przedstawia procentowe wyniki optymalizacji wzglêdem oryginalnej trasy, na podstawie której powsta³ rysunek \ref{Trasa2AZCOMPARE}.  Dziêki optymalizacji 2-opt dla algorytmu najbli¿szego s¹siada otrzymano now¹ najlepsz¹ trasê o 28.37\% lepsz¹ od trasy oryginalnej. Dla algorytmu najmniejszej krawêdzi górny wynik zosta³ poprawiony z 21.43\% na 26.97\%. Optymalizacja 2-opt dla algorytmu A* nie znalaz³a lepszego wyniku.
+
+\begin{table}[!h]
+\caption[Trasa II - zastosowanie metody 2-opt na powsta³ych trasach]
+{Trasa II - zastosowanie metody 2-opt na powsta³ych trasach}
+\scalebox{0.85}{
+\begin{tabular}{|
+>{\columncolor[HTML]{C0C0C0}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFC9E}}c |
+>{\columncolor[HTML]{FFFC9E}}c |
+>{\columncolor[HTML]{FFFC9E}}c |}
+\hline
+B³¹d (m) & \cellcolor[HTML]{C0C0C0}ANS-1 & \cellcolor[HTML]{C0C0C0}ANS-2 & \cellcolor[HTML]{C0C0C0}ANS-3 & \cellcolor[HTML]{C0C0C0}ANK-1 & \cellcolor[HTML]{C0C0C0}ANK-2 & \cellcolor[HTML]{C0C0C0}ANK-3 & \cellcolor[HTML]{C0C0C0}A*-1  & \cellcolor[HTML]{C0C0C0}A*-2  & \cellcolor[HTML]{C0C0C0}A*-3  \\ \hline
+0        & 30222                         & 30798                         & \cellcolor[HTML]{FFFC9E}28938 & 32535                         & 32298                         & 33298                         & 29687                         & \cellcolor[HTML]{FFFFFF}30483 & 28773                         \\ \hline
+5        & 30222                         & 30798                         & 31479                         & 32780                         & 33267                         & 32328                         & \cellcolor[HTML]{FFFFFF}30066 & 29840                         & 29083                         \\ \hline
+10       & 30222                         & 30798                         & 31479                         & 32535                         & 33899                         & 33298                         & \cellcolor[HTML]{FFFFFF}30325 & 29519                         & \cellcolor[HTML]{C6EFCE}28757 \\ \hline
+20       & 30222                         & 30798                         & \cellcolor[HTML]{FFFC9E}28938 & 33332                         & 33892                         & 32328                         & 29687                         & \cellcolor[HTML]{FFFFFF}30454 & \cellcolor[HTML]{C6EFCE}28757 \\ \hline
+30       & 30222                         & 30798                         & \cellcolor[HTML]{FFFC9E}28938 & \cellcolor[HTML]{FFFC9E}29504 & 32298                         & 33298                         & 29687                         & 29519                         & 29066                         \\ \hline
+40       & 30222                         & 30798                         & \cellcolor[HTML]{FFFC9E}28938 & 32535                         & 32298                         & 33298                         & 29687                         & \cellcolor[HTML]{FFFFFF}30134 & 29066                         \\ \hline
+50       & 30222                         & \cellcolor[HTML]{FFFC9E}29800 & 31479                         & 33053                         & 32298                         & 32328                         & \cellcolor[HTML]{FFFFFF}30325 & \cellcolor[HTML]{FFFFFF}30454 & 29066                         \\ \hline
+75       & 30222                         & \cellcolor[HTML]{FFFC9E}29800 & 31479                         & \cellcolor[HTML]{FFFC9E}29504 & 32298                         & 33298                         & 29687                         & 29519                         & \cellcolor[HTML]{C6EFCE}28757 \\ \hline
+100      & 30222                         & \cellcolor[HTML]{FFFC9E}29800 & 31479                         & \cellcolor[HTML]{FFFC9E}29504 & 32278                         & 33298                         & \cellcolor[HTML]{FFFFFF}30250 & 29519                         & 29066                         \\ \hline
+\end{tabular}}
+\label{tab:AZ22OPT}
+\end{table}
+
+
+\begin{table}[!h]
+\caption[Trasa II - optymalizacja powsta³ych tras przez metodê 2-opt]
+{Trasa II - optymalizacja powsta³ych tras przez metodê 2-opt}
+\scalebox{0.8}{
+\begin{tabular}{|
+>{\columncolor[HTML]{C0C0C0}}c |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFC9E}}l |
+>{\columncolor[HTML]{FFFC9E}}l |
+>{\columncolor[HTML]{FFFC9E}}l |}
+\hline
+B³¹d (m) & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANS-1} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANS-2} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANS-3} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANK-1} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANK-2} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANK-3} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}A*-1} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}A*-2} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}A*-3} \\ \hline
+0        & 25,20\%                                            & 23,77\%                                            & \cellcolor[HTML]{FFFC9E}28,37\%                    & 19,47\%                                            & 20,06\%                                            & 17,58\%                                            & 26,52\%                                           & \cellcolor[HTML]{FFFFFF}24,55\%                   & 28,78\%                                           \\ \hline
+5        & 25,20\%                                            & 23,77\%                                            & 22,09\%                                            & 18,87\%                                            & 17,66\%                                            & 19,98\%                                            & \cellcolor[HTML]{FFFFFF}25,58\%                   & 26,14\%                                           & 28,02\%                                           \\ \hline
+10       & 25,20\%                                            & 23,77\%                                            & 22,09\%                                            & \cellcolor[HTML]{FFFFFF}19,47\%                    & 16,10\%                                            & 17,58\%                                            & \cellcolor[HTML]{FFFFFF}24,94\%                   & 26,94\%                                           & \cellcolor[HTML]{C6EFCE}28,82\%                   \\ \hline
+20       & 25,20\%                                            & 23,77\%                                            & \cellcolor[HTML]{FFFC9E}28,37\%                    & 17,50\%                                            & 16,11\%                                            & 19,98\%                                            & 26,52\%                                           & \cellcolor[HTML]{FFFFFF}24,62\%                   & \cellcolor[HTML]{C6EFCE}28,82\%                   \\ \hline
+30       & 25,20\%                                            & 23,77\%                                            & \cellcolor[HTML]{FFFC9E}28,37\%                    & \cellcolor[HTML]{FFFC9E}26,97\%                    & 20,06\%                                            & 17,58\%                                            & 26,52\%                                           & 26,94\%                                           & 28,06\%                                           \\ \hline
+40       & 25,20\%                                            & 23,77\%                                            & \cellcolor[HTML]{FFFC9E}28,37\%                    & 19,47\%                                            & 20,06\%                                            & 17,58\%                                            & 26,52\%                                           & \cellcolor[HTML]{FFFFFF}25,41\%                   & 28,06\%                                           \\ \hline
+50       & 25,20\%                                            & \cellcolor[HTML]{FFFC9E}26,24\%                    & 22,09\%                                            & 18,19\%                                            & 20,06\%                                            & \cellcolor[HTML]{FFFFFF}19,98\%                    & \cellcolor[HTML]{FFFFFF}24,94\%                   & \cellcolor[HTML]{FFFFFF}24,62\%                   & 28,06\%                                           \\ \hline
+75       & 25,20\%                                            & \cellcolor[HTML]{FFFC9E}26,24\%                    & 22,09\%                                            & \cellcolor[HTML]{FFFC9E}26,97\%                    & 20,06\%                                            & 17,58\%                                            & 26,52\%                                           & 26,94\%                                           & \cellcolor[HTML]{C6EFCE}28,82\%                   \\ \hline
+100      & 25,20\%                                            & \cellcolor[HTML]{FFFC9E}26,24\%                    & 22,09\%                                            & \cellcolor[HTML]{FFFC9E}26,97\%                    & 20,11\%                                            & 17,58\%                                            & \cellcolor[HTML]{FFFFFF}25,13\%                   & 26,94\%                                           & 28,06\%                                           \\ \hline
+\end{tabular}}
+\label{tab:AZ22OPTOPTM}
+\end{table}
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{grafika/results148_final.png}
+	\caption{Trasa II - porównanie optymalizacji algorytmów z zastosowanie metody 2-opt}
+	\label{Trasa2AZCOMPARE}
+\end{figure}
+
+
+W tabeli \ref{tab:AZ2TIME} znajduj¹ siê czasy dzia³ania algorytmów. Najlepsz¹ trasê uda³o siê uzyskaæ w czasie 8.05 sekundy.
+
+\begin{table}[!h]
+\caption[Trasa II - czasy wykonywania algorytmów]
+{Trasa II - czasy wykonywania algorytmów}
+\scalebox{0.85}{
+\begin{tabular}{|
+>{\columncolor[HTML]{C0C0C0}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFC9E}}c |
+>{\columncolor[HTML]{FFFC9E}}c |}
+\hline
+B³¹d (m) & \cellcolor[HTML]{C0C0C0}ANS-1 & \cellcolor[HTML]{C0C0C0}ANS-2 & \cellcolor[HTML]{C0C0C0}ANS-3 & \cellcolor[HTML]{C0C0C0}ANK-1 & \cellcolor[HTML]{C0C0C0}ANK-2 & \cellcolor[HTML]{C0C0C0}ANK-3 & \cellcolor[HTML]{C0C0C0}A*-1 & \cellcolor[HTML]{C0C0C0}A*-2 & \cellcolor[HTML]{C0C0C0}A*-3  \\ \hline
+0        & 8,62                          & 1,18                          & 70,32                         & 0,36                          & 0,69                          & 1,43                          & 1,36                         & \cellcolor[HTML]{FFFFFF}0,42 & 1,33                          \\ \hline
+5        & 8,45                          & 1,2                           & 70,23                         & 0,14                          & 0,34                          & 1,17                          & 0,87                         & 0,86                         & 1,02                          \\ \hline
+10       & 16,79                         & 1,17                          & 70,83                         & 0,17                          & 14,66                         & 1,19                          & 0,88                         & 0,9                          & \cellcolor[HTML]{C6EFCE}8,05  \\ \hline
+20       & 18,21                         & 56,24                         & 71                            & 14,26                         & 20,29                         & 1,18                          & \cellcolor[HTML]{FFFC9E}0,17 & \cellcolor[HTML]{FFFFFF}0,94 & \cellcolor[HTML]{C6EFCE}8,1   \\ \hline
+30       & 18,59                         & 19,32                         & 70,64                         & \cellcolor[HTML]{34FF34}15,13 & 20,94                         & 1,18                          & 0,97                         & 0,92                         & 12,01                         \\ \hline
+40       & 20,18                         & 18,93                         & 70,52                         & 29,12                         & 27,52                         & 1,19                          & 1,64                         & \cellcolor[HTML]{FFFFFF}0,92 & 11,91                         \\ \hline
+50       & 27,71                         & \cellcolor[HTML]{FFFC9E}19,6  & 32,93                         & 38,78                         & 2,3                           & 1,18                          & 1,67                         & \cellcolor[HTML]{FFFFFF}0,99 & 12,1                          \\ \hline
+75       & 28,7                          & 30,26                         & 33,98                         & 38,49                         & 2,42                          & 1,19                          & \cellcolor[HTML]{FFFC9E}0,33 & 14,6                         & \cellcolor[HTML]{C6EFCE}11,87 \\ \hline
+100      & 29,23                         & 30,53                         & 33,48                         & 38,93                         & 2,64                          & 1,22                          & 20,59                        & 22,06                        & 12,09                         \\ \hline
+\end{tabular}}
+\label{tab:AZ2TIME}
+\end{table}
+
+
 \subsection{Porównanie algorytmów}
 
 Podobnie jak w przypadku trasy numer 1, najlepsze wyniki algorytmów nie s¹ takie same. Ponownie przeprowadzone optymalizacje przynios³y spodziewany efekt. Najlepszym wynikiem algorytmu genetycznego jest 27 381. W stosunku do oryginalnej trasy jest to poprawa o 40\%. Czas z jakim pracowa³ program aby wygenerowaæ taki wynik to 9.03 sekund. Ponownie najlepszy wynik zosta³ osi¹gniêty przez algorytm mrówkowy. £¹czy przebyty dystans dla tego rozwi¹zania to 24 347. Jest to o 46\% wynik lepszy od pierwotnej trasy. Czas oczekiwania na ten rezultat wynosi³ 28.32 sekund. Natomiast algorytmy zach³anne, a dok³adnie algorytm A*, znalaz³y trasê o d³ugoœci 32 855 metrów, a przy zastosowaniu metody 2-opt wynik ten uleg³ poprawie do 28 757 metrów. Do wykonania wszystkich operacji potrzebne by³o 20.59 sekundy.
@@ -901,6 +1223,160 @@ czas     & 84.451 & 131.146 & 176.874 \\ \hline
 
 
 \subsection{Wyniki algorytmów zach³annych}
+
+Tabela \ref{tab:AZ3BESTS} przedstawia najlepsze wyniki uzyskane przez algorytmy zach³anne dla ostatniej badanej trasy. Jak w poprzednich badaniach tutaj równie¿ zosta³ zastosowany wspó³czynnik b³êdu przy dokonywaniu wyborów na ka¿dej z poszczególnych trzech faz tworzenia tras. Bez zmian najlepiej dalej zachowuje siê algorytm A*, który dalej znajdujê œcie¿kê o najmniejszej wartoœci równ¹ 32 855 metrów. Tak jak w poprzednich badaniach najgorzej wypad³ algorytm najmniejszej krawêdzi, dla którego najlepsza trasa uzyska³a wynik 34 130 metrów co oznacza, ¿e prawie wszystkie wyznaczone trasy przez algorytm A* zdoby³y lepszy wynik.
+Algorytm najbli¿szego s¹siada tym razem poradzi³ sobie tak samo dobrze jak algorytm A*, gdzie dobrze widaæ na tabeli \ref{tab:AZ3OPTM} najlepsze wyniki s¹ niemal równe wynosz¹ce oko³o 38.55\% optymalizacji wzglêdem oryginalnej œcie¿ki.
+
+
+\begin{table}[!h]
+\caption[Trasa III - wyniki algorytmów zach³annych]
+{Trasa III - wyniki algorytmów zach³annych}
+\scalebox{0.85}{
+\begin{tabular}{|
+>{\columncolor[HTML]{C0C0C0}}c |c|c|c|c|c|c|c|c|c|}
+\hline
+B³¹d (m) & \cellcolor[HTML]{C0C0C0}ANS-1 & \cellcolor[HTML]{C0C0C0}ANS-2 & \cellcolor[HTML]{C0C0C0}ANS-3 & \cellcolor[HTML]{C0C0C0}ANK-1 & \cellcolor[HTML]{C0C0C0}ANK-2 & \cellcolor[HTML]{C0C0C0}ANK-3 & \cellcolor[HTML]{C0C0C0}A*-1  & \cellcolor[HTML]{C0C0C0}A*-2 & \cellcolor[HTML]{C0C0C0}A*-3 \\ \hline
+0        & 33789                         & 35566                         & 35207                         & \cellcolor[HTML]{34FF34}34130 & \cellcolor[HTML]{FFFFFF}37006 & \cellcolor[HTML]{FFFFFF}37719 & 33412                         & 33410                        & 33411                        \\ \hline
+5        & 33447                         & 35206                         & \cellcolor[HTML]{FFFFFF}35567 & 35836                         & \cellcolor[HTML]{FFFFFF}37724 & 35922                         & 33771                         & 33410                        & 33770                        \\ \hline
+10       & 33447                         & 34839                         & 34717                         & \cellcolor[HTML]{34FF34}34130 & \cellcolor[HTML]{FFFFFF}37000 & \cellcolor[HTML]{FFFFFF}37717 & \cellcolor[HTML]{FFFFFF}34131 & 34129                        & 33770                        \\ \hline
+20       & \cellcolor[HTML]{FFFC9E}33106 & 35198                         & 35183                         & \cellcolor[HTML]{34FF34}34130 & \cellcolor[HTML]{FFFFFF}37000 & 35920                         & \cellcolor[HTML]{C6EFCE}32856 & 33410                        & 33770                        \\ \hline
+30       & 33789                         & 34839                         & 34472                         & \cellcolor[HTML]{34FF34}34130 & \cellcolor[HTML]{FFFFFF}37000 & 35920                         & \cellcolor[HTML]{C6EFCE}32856 & 34129                        & 33770                        \\ \hline
+40       & \cellcolor[HTML]{FFFC9E}33106 & 34836                         & 34472                         & 35836                         & 35922                         & \cellcolor[HTML]{FFFFFF}36998 & \cellcolor[HTML]{C6EFCE}32856 & 33770                        & 33770                        \\ \hline
+50       & 33789                         & 35555                         & \cellcolor[HTML]{FFFC9E}32861 & 35836                         & \cellcolor[HTML]{FFFFFF}37000 & \cellcolor[HTML]{FFFFFF}36998 & 33563                         & 33402                        & 33528                        \\ \hline
+75       & \cellcolor[HTML]{FFFC9E}33106 & 35196                         & \cellcolor[HTML]{FFFC9E}32861 & 35154                         & \cellcolor[HTML]{FFFFFF}37718 & 35921                         & 33208                         & 33757                        & 33406                        \\ \hline
+100      & \cellcolor[HTML]{FFFC9E}33106 & 35555                         & \cellcolor[HTML]{FFFC9E}32861 & 35836                         & \cellcolor[HTML]{FFFFFF}37000 & 35921                         & \cellcolor[HTML]{C6EFCE}32855 & 34122                        & 33406                        \\ \hline
+\end{tabular}}
+\label{tab:AZ3BESTS}
+\end{table}
+
+
+\begin{table}[!h]
+\caption[Trasa III - optymalizacja wyników wzglêdem oryginalnej trasy]
+{Trasa III - optymalizacja wyników wzglêdem oryginalnej trasy}
+\scalebox{0.8}{
+\begin{tabular}{|
+>{\columncolor[HTML]{C0C0C0}}c |l|l|l|l|l|l|l|l|l|}
+\hline
+B³¹d (m) & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANS-1} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANS-2} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANS-3} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANK-1} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANK-2} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANK-3} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}A*-1} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}A*-2} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}A*-3} \\ \hline
+0        & 36,82\%                                            & \cellcolor[HTML]{FFFFFF}33,49\%                    & 34,17\%                                            & \cellcolor[HTML]{34FF34}36,18\%                    & 30,80\%                                            & 29,47\%                                            & 37,52\%                                           & 37,53\%                                           & 37,52\%                                           \\ \hline
+5        & 37,46\%                                            & 34,17\%                                            & \cellcolor[HTML]{FFFFFF}33,49\%                    & 32,99\%                                            & \cellcolor[HTML]{FFFFFF}29,46\%                    & 32,83\%                                            & 36,85\%                                           & 37,53\%                                           & 36,85\%                                           \\ \hline
+10       & 37,46\%                                            & 34,85\%                                            & 35,08\%                                            & \cellcolor[HTML]{34FF34}36,18\%                    & 30,81\%                                            & 29,47\%                                            & \cellcolor[HTML]{FFFFFF}36,18\%                   & \cellcolor[HTML]{FFFFFF}36,18\%                   & 36,85\%                                           \\ \hline
+20       & 38,09\%                                            & 34,18\%                                            & 34,21\%                                            & \cellcolor[HTML]{34FF34}36,18\%                    & 30,81\%                                            & 32,83\%                                            & \cellcolor[HTML]{C6EFCE}38,56\%                   & 37,53\%                                           & 36,85\%                                           \\ \hline
+30       & 36,82\%                                            & 34,85\%                                            & 35,54\%                                            & \cellcolor[HTML]{34FF34}36,18\%                    & 30,81\%                                            & 32,83\%                                            & \cellcolor[HTML]{C6EFCE}38,56\%                   & \cellcolor[HTML]{FFFFFF}36,18\%                   & 36,85\%                                           \\ \hline
+40       & 38,09\%                                            & 34,86\%                                            & 35,54\%                                            & 32,99\%                                            & 32,83\%                                            & 30,82\%                                            & \cellcolor[HTML]{C6EFCE}38,56\%                   & 36,85\%                                           & 36,85\%                                           \\ \hline
+50       & 36,82\%                                            & 33,51\%                                            & \cellcolor[HTML]{FFFC9E}38,55\%                    & 32,99\%                                            & 30,81\%                                            & 30,82\%                                            & 37,24\%                                           & 37,54\%                                           & 37,31\%                                           \\ \hline
+75       & 38,09\%                                            & 34,19\%                                            & \cellcolor[HTML]{FFFC9E}38,55\%                    & 34,26\%                                            & 29,47\%                                            & 32,83\%                                            & 37,90\%                                           & 36,88\%                                           & 37,53\%                                           \\ \hline
+100      & 24,81\%                                            & 33,51\%                                            & \cellcolor[HTML]{FFFC9E}38,55\%                    & 32,99\%                                            & 30,81\%                                            & 32,83\%                                            & \cellcolor[HTML]{C6EFCE}38,56\%                   & 36,19\%                                           & 37,53\%                                           \\ \hline
+\end{tabular}}
+\label{tab:AZ3OPTM}
+\end{table}
+
+
+Tabela \ref{tab:AZ32OPT} oraz \ref{tab:AZ32OPTOPTM} przedstawiaj¹ wyniki u¿ycia metody 2-opt na powsta³ych trasach.
+Po zastosowaniu rozwi¹zania 2-opt na zbudowanych wczeœniej trasach okazuje siê, ¿e nowy zwyciêzc¹ spoœród badanych algorytmów sta³ siê algorytm najbli¿szego s¹siada z nowym najlepszym wynikiem równym 31 781 metrów co daje a¿ 40.57\% poprawy œcie¿ki wzglêdem uzyskanej pocz¹tkowo.
+
+Rysunek \ref{Trasa3AZCOMPARE} przedstawia porównanie optymalizacji tras z d³ugoœcia oryginalnej trasy. Wszystkie wyniki s¹ znakomite, jednak¿e zastosowanie metody 2-opt pozwoli³o zwiêkszy górny wynik algorytmu najbli¿szego s¹siada do 40.57\%, a algorytmu A* do 38.75\%. Algorytm najmniejszej krawêdzi po zastosowaniu metody 2-opt nie otrzyma³ nowych lepszych wyników.
+
+\begin{table}[!h]
+\caption[Trasa III - zastosowanie metody 2-opt na powsta³ych trasach]
+{Trasa III - zastosowanie metody 2-opt na powsta³ych trasach}
+\scalebox{0.85}{
+\begin{tabular}{|
+>{\columncolor[HTML]{C0C0C0}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFC9E}}c |
+>{\columncolor[HTML]{34FF34}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFC9E}}c |}
+\hline
+B³¹d (m) & \cellcolor[HTML]{C0C0C0}ANS-1 & \cellcolor[HTML]{C0C0C0}ANS-2 & \cellcolor[HTML]{C0C0C0}ANS-3 & \cellcolor[HTML]{C0C0C0}ANK-1 & \cellcolor[HTML]{C0C0C0}ANK-2 & \cellcolor[HTML]{C0C0C0}ANK-3 & \cellcolor[HTML]{C0C0C0}A*-1  & \cellcolor[HTML]{C0C0C0}A*-2 & \cellcolor[HTML]{C0C0C0}A*-3  \\ \hline
+0        & 33447                         & 35566                         & \cellcolor[HTML]{FFFFFF}35207 & 34130                         & 37006                         & 37719                         & 33208                         & 33410                        & \cellcolor[HTML]{FFFFFF}33411 \\ \hline
+5        & 33447                         & 35206                         & \cellcolor[HTML]{FFFFFF}35567 & 34130                         & 37724                         & 35922                         & 33208                         & 33410                        & 32756                         \\ \hline
+10       & 33447                         & 34839                         & \cellcolor[HTML]{FFFFFF}34717 & 34130                         & 35922                         & 37717                         & 33208                         & 33410                        & 32756                         \\ \hline
+20       & \cellcolor[HTML]{C6EFCE}31781 & 35198                         & \cellcolor[HTML]{FFFFFF}35183 & 34130                         & 35922                         & 35920                         & \cellcolor[HTML]{FFFC9E}32856 & 33410                        & 32756                         \\ \hline
+30       & 33447                         & 34839                         & 32861                         & 34130                         & 35922                         & 35920                         & \cellcolor[HTML]{FFFC9E}32856 & 33410                        & 32756                         \\ \hline
+40       & \cellcolor[HTML]{C6EFCE}31781 & 34836                         & 32861                         & 34130                         & 35922                         & 35920                         & \cellcolor[HTML]{FFFC9E}32856 & 33770                        & 32756                         \\ \hline
+50       & 33447                         & 34839                         & 32861                         & 34130                         & 35922                         & 35920                         & 33208                         & 33402                        & \cellcolor[HTML]{FFFFFF}33528 \\ \hline
+75       & \cellcolor[HTML]{C6EFCE}31781 & 35196                         & 32861                         & \cellcolor[HTML]{FFFFFF}35154 & 35454                         & 35921                         & 33208                         & 33757                        & \cellcolor[HTML]{FFFFFF}33406 \\ \hline
+100      & \cellcolor[HTML]{C6EFCE}31781 & 34839                         & 32861                         & 34130                         & 35922                         & 35921                         & \cellcolor[HTML]{FFFC9E}32855 & 33410                        & \cellcolor[HTML]{FFFFFF}33406 \\ \hline
+\end{tabular}}
+\label{tab:AZ32OPT}
+\end{table}
+
+
+\begin{table}[!h]
+\caption[Trasa III - optymalizacja powsta³ych tras przez metodê 2-opt]
+{Trasa III - optymalizacja powsta³ych tras przez metodê 2-opt}
+\scalebox{0.8}{
+\begin{tabular}{|
+>{\columncolor[HTML]{C0C0C0}}c |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFC9E}}l |
+>{\columncolor[HTML]{34FF34}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFFFF}}l |
+>{\columncolor[HTML]{FFFC9E}}l |}
+\hline
+B³¹d (m) & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANS-1} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANS-2} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANS-3} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANK-1} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANK-2} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANK-3} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}A*-1} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}A*-2} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}A*-3} \\ \hline
+0        & 37,46\%                                            & 33,49\%                                            & \cellcolor[HTML]{FFFFFF}34,17\%                    & 36,18\%                                            & 30,80\%                                            & 29,47\%                                            & 37,90\%                                           & 37,53\%                                           & \cellcolor[HTML]{FFFFFF}37,52\%                   \\ \hline
+5        & 37,46\%                                            & 34,17\%                                            & \cellcolor[HTML]{FFFFFF}33,49\%                    & 36,18\%                                            & 29,46\%                                            & 32,83\%                                            & 37,90\%                                           & 37,53\%                                           & 38,75\%                                           \\ \hline
+10       & 37,46\%                                            & 34,85\%                                            & \cellcolor[HTML]{FFFFFF}35,08\%                    & 36,18\%                                            & 32,83\%                                            & 29,47\%                                            & 37,90\%                                           & 37,53\%                                           & 38,75\%                                           \\ \hline
+20       & \cellcolor[HTML]{C6EFCE}40,57\%                    & 34,18\%                                            & \cellcolor[HTML]{FFFFFF}34,21\%                    & 36,18\%                                            & 32,83\%                                            & 32,83\%                                            & \cellcolor[HTML]{FFFC9E}38,56\%                   & 37,53\%                                           & 38,75\%                                           \\ \hline
+30       & 37,46\%                                            & 34,85\%                                            & 38,55\%                                            & 36,18\%                                            & 32,83\%                                            & 32,83\%                                            & \cellcolor[HTML]{FFFC9E}38,56\%                   & 37,53\%                                           & 38,75\%                                           \\ \hline
+40       & \cellcolor[HTML]{C6EFCE}40,57\%                    & 34,86\%                                            & 38,55\%                                            & 36,18\%                                            & 32,83\%                                            & 32,83\%                                            & \cellcolor[HTML]{FFFC9E}38,56\%                   & 36,85\%                                           & 38,75\%                                           \\ \hline
+50       & 37,46\%                                            & 34,85\%                                            & 38,55\%                                            & 36,18\%                                            & 32,83\%                                            & 32,83\%                                            & 37,90\%                                           & 37,54\%                                           & \cellcolor[HTML]{FFFFFF}37,31\%                   \\ \hline
+75       & \cellcolor[HTML]{C6EFCE}40,57\%                    & 34,19\%                                            & 38,55\%                                            & \cellcolor[HTML]{FFFFFF}34,26\%                    & 33,70\%                                            & 32,83\%                                            & 37,90\%                                           & 36,85\%                                           & \cellcolor[HTML]{FFFFFF}37,53\%                   \\ \hline
+100      & \cellcolor[HTML]{C6EFCE}40,57\%                    & 34,85\%                                            & 38,55\%                                            & 36,18\%                                            & 32,83\%                                            & 32,83\%                                            & \cellcolor[HTML]{FFFC9E}38,56\%                   & 37,53\%                                           & \cellcolor[HTML]{FFFFFF}37,53\%                   \\ \hline
+\end{tabular}}
+\label{tab:AZ32OPTOPTM}
+\end{table}
+
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{grafika/results250_final.png}
+	\caption{Trasa III - porównanie optymalizacji algorytmów z zastosowanie metody 2-opt}
+	\label{Trasa3AZCOMPARE}
+\end{figure}
+
+Tabela \ref{tab:AZ3TIME} przedstawia czasy wykonywania algorytmów zach³annych dla trasy nr 3. Najlepszy wynik otrzymaliœmy w 65.1 sekundy.
+
+\begin{table}[!h]
+\caption[Trasa III - czasy wykonywania algorytmów]
+{Trasa III - czasy wykonywania algorytmów}
+\scalebox{0.85}{
+\begin{tabular}{|
+>{\columncolor[HTML]{C0C0C0}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |}
+\hline
+B³¹d (m) & \cellcolor[HTML]{C0C0C0}ANS-1 & \cellcolor[HTML]{C0C0C0}ANS-2 & \cellcolor[HTML]{C0C0C0}ANS-3  & \cellcolor[HTML]{C0C0C0}ANK-1 & \cellcolor[HTML]{C0C0C0}ANK-2 & \cellcolor[HTML]{C0C0C0}ANK-3 & \cellcolor[HTML]{C0C0C0}A*-1 & \cellcolor[HTML]{C0C0C0}A*-2 & \cellcolor[HTML]{C0C0C0}A*-3 \\ \hline
+0        & 39,19                         & 2,26                          & 41,38                          & \cellcolor[HTML]{34FF34}17,08 & 0,66                          & 0,98                          & 14,68                        & 2,98                         & 22,87                        \\ \hline
+5        & 49,02                         & 1,63                          & 39,12                          & 24,32                         & 0,38                          & 26,84                         & 30,63                        & 2,91                         & 22,38                        \\ \hline
+10       & 51,45                         & 38,71                         & 39,76                          & \cellcolor[HTML]{34FF34}25,9  & 0,46                          & 40,75                         & 43,69                        & 2,98                         & 32,58                        \\ \hline
+20       & \cellcolor[HTML]{FFFC9E}65,1  & 38,18                         & 41,37                          & \cellcolor[HTML]{34FF34}27,3  & 0,59                          & 42,28                         & \cellcolor[HTML]{FFFC9E}0,57 & 8,31                         & 32,35                        \\ \hline
+30       & 85,67                         & 39,24                         & 58,65                          & \cellcolor[HTML]{34FF34}26,81 & 0,71                          & 95,72                         & \cellcolor[HTML]{FFFC9E}0,71 & 8,69                         & 32,62                        \\ \hline
+40       & \cellcolor[HTML]{FFFC9E}87,95 & 99,26                         & 83,85                          & 26,98                         & 0,77                          & 137,77                        & \cellcolor[HTML]{FFFC9E}0,9  & 0,71                         & 32,72                        \\ \hline
+50       & 88,71                         & 19,47                         & \cellcolor[HTML]{FFFC9E}125,16 & 34,24                         & 0,8                           & 184,5                         & 1,23                         & 83,84                        & 34,2                         \\ \hline
+75       & \cellcolor[HTML]{FFFC9E}91,05 & 20,8                          & \cellcolor[HTML]{FFFC9E}127,13 & 33,87                         & 4,53                          & 186,57                        & 6,52                         & 119,22                       & 18,12                        \\ \hline
+100      & \cellcolor[HTML]{FFFC9E}92,9  & 21,06                         & \cellcolor[HTML]{FFFC9E}178,76 & 34,52                         & 4,89                          & 100,17                        & \cellcolor[HTML]{C6EFCE}7,66 & 11,8                         & 26,5                         \\ \hline
+\end{tabular}}
+\label{tab:AZ3TIME}
+\end{table}
 
 \subsection{Porównanie algorytmów}
 
