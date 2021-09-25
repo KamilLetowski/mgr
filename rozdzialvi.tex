@@ -1,17 +1,22 @@
 \chapter{Badania}
 	W tym rozdziale zostan¹ przedstawione wyniki optymalizacji dla tras przedstawionych w poprzednim rozdziale. Ka¿da trasa zosta³a przedstawiona w oddzielnych podrozdzia³ach. W tabelach t³a komórek z wartoœciami przebytego dystansu zosta³y zmienione w zale¿noœci od spe³nianego warunku.
 
-	Algorytm genetyczny zosta³ zbadany dla trzech ró¿nych wartoœci populacji $N$: 100, 1000 oraz 2000; czterech ró¿nych wartoœci iteracji (pokoleñ): 100, 1000, 2000 oraz 4000. Dla ka¿dej wariacji tych parametrów zosta³o zbadane krzy¿owania $PMX$, $OX$ oraz $CX$, z ró¿nymi  mutacjami: wstawiaj¹ca - $Insert$, zamieniaj¹ca - $Swap$ oraz odwracaj¹ca - $Revert$. Wspó³czynnik mutacji dla wszystkich uruchomieñ wynosi 0.1. Algorytm wyznaczy³ trasê dla ka¿dej mo¿liwej kombinacji 10 razy. W tabelach dotycz¹cych wyników algorytmu genetycznego, zosta³y przedstawione takie wyniki jak: œrednia d³ugoœæ wyznaczonej trasy, najlepsza trasa z dziesiêciu, œredni czas wykonania oraz skutecznoœæ algorytmu. W tabelach  Kolorem jasno-¿ó³tym s¹ oznaczone wartoœci, które s¹ mniejsze  od oryginalnej trasy. Kolorem ¿ó³tym zosta³y oznaczone komórki, które przedstawiaj¹ najlepszy wynik dla danej populacji i iteracji, pod warunkiem ¿e by³ lepszy od trasy oryginalnej. Kolorem zielonym zosta³y oznaczone w tabelach najlepsze globalne wyniki. Wszystkie krzy¿owania i mutacje zosta³y zaimplementowane w .NET Core 3.1, a do samej obs³ugi algorytmu genetycznego, zosta³a wykorzystana biblioteka Accord.Genetic. Posiada ona interfejsy, pod które mo¿na pod³¹czyæ w³asne metody mutacji, krzy¿owania oraz funkcje celu.
+	Algorytm genetyczny zosta³ zbadany dla trzech ró¿nych wartoœci populacji $N$: 100, 1000 oraz 2000; czterech ró¿nych wartoœci iteracji $k$: 100, 1000, 2000 oraz 4000. Dla ka¿dej wariacji tych parametrów zosta³o zbadane krzy¿owania $PMX$, $OX$ oraz $CX$, z ró¿nymi  mutacjami: wstawiaj¹ca - $Insert$, zamieniaj¹ca - $Swap$ oraz odwracaj¹ca - $Revert$. Wspó³czynnik mutacji dla wszystkich uruchomieñ wynosi 0.1. Zosta³ zmierzony równie¿ czas dla ka¿dego uruchomienia algorytmu. W tabelach  kolorem jasno-¿ó³tym s¹ oznaczone wartoœci, które optymalizuj¹ trasê oryginaln¹, czyli s¹ mniejsze. Kolorem ¿ó³tym zosta³y oznaczone komórki, które przedstawiaj¹ najlepszy wynik dla danej populacji i iteracji, pod warunkiem ¿e by³ on lepszy od trasy oryginalnej. Kolorem zielonym zosta³ oznaczony w tabeli najlepszy globalne wyniki. Wszystkie krzy¿owania i mutacje zosta³y zaimplementowane w .NET Core 3.1, a do samej obs³ugi algorytmu genetycznego, zosta³a wykorzystana biblioteka Accord.Genetic. Posiada ona interfejsy, pod które mo¿na pod³¹czyæ w³asne metody mutacji, krzy¿owania oraz funkcje celu.
 	
-	Jednym z parametrów wejœciowych algorytmu mrówkowego jest wspó³czynnik parowania feromonów. To dziêki temu parametrowi wybierane s¹ optymalne trasy, a te gorsze odrzucane. 
-Ich wartoœci s¹ wyra¿ane procentowo w zakresie od 1\% do 99\%. Dla ka¿dej trasy zosta³a wybrane takie same wartoœci. Pomiar wyników zosta³ rozpoczêty od wartoœci 10\%. W ka¿dym korku wartoœæ ta by³a zwiêkszana o kolejne 10\% a¿ do 90\%. Kolejnym istotnym parametrem jest iloœæ iteracji. Parametr ten oznacza ile razy mrówki mrówki maj¹ wykonywaæ ulepszenie trasy. Do badañ zosta³y dobrane trzy wartoœci: 50, 75, 100. Parametr ten ma bezpoœredni wp³yw na optymalizacjê ale równie¿ na czas jaki algorytm potrzebuje na wykonanie wszystkich operacji.
+	Jednym z parametrów wejœciowych algorytmu mrówkowego jest wspó³czynnik parowania feromonów. To dziêki temu parametrowi wybierane s¹ optymalne trasy, a te gorsze odrzucane. Ich wartoœci s¹ wyra¿ane procentowo w zakresie od 1\% do 99\%. Dla ka¿dej trasy zosta³a wybrane takie same wartoœci. Pomiar wyników zosta³ rozpoczêty od wartoœci 10\%. W ka¿dym korku wartoœæ ta by³a zwiêkszana o kolejne 10\% a¿ do 90\%. Kolejnym istotnym parametrem jest iloœæ iteracji. Parametr ten oznacza ile razy mrówki mrówki maj¹ wykonywaæ ulepszenie trasy. Do badañ zosta³y dobrane trzy wartoœci: 50, 75, 100. Parametr ten ma bezpoœredni wp³yw na optymalizacjê ale równie¿ na czas jaki algorytm potrzebuje na wykonanie wszystkich operacji. W tabelach podobnie jak dla algorytmu genetycznego, kolorem jasno-¿ó³tym oznaczono wyniki, które s¹ lepsze od oryginalnej trasy. Kolorem ¿ó³tym najlepszy wynik dla danego wspó³czynnika parowania feromonów, a kolorem zielonym najlepszy globalny wynik.
 
-	Przedstawicielami algorytmów zach³annych do wyznaczania tras by³ algorytm najbli¿szego s¹siada (ANS), algorytm najmniejszej krawêdzi (ANK) oraz algorytm A*. Do wyznaczenia wiêkszej iloœci tras w algorytmach zach³annych u¿yto wspó³czynnika b³êdu w jednostce metrów: 0, 5, 10, 20, 30, 40, 50, 75 oraz 100. Wspó³czynnik zosta³ zbadany na trzech ró¿nych etapach algorytmu, aby zbadaæ wiêksz¹ iloœæ otrzymanych tras, wy³¹czany by³ po utworzeniu 100 000 tras do badañ.
-Pierwsze badany etap obejmowa³ uruchomienie wspó³czynnika od pocz¹tku dzia³ania danego algorytmu. Drugie badanie aktywowa³o wspó³czynnik dopiero po utworzeniu 1/3 ca³kowitej trasy.
-Ostatni eksperyment polega³ na rozpoczêciu rozwa¿ania wiêkszej iloœci tras po stworzeniu 2/3 z ca³kowitej trasy. Nastêpnie wszystkie otrzymane trasy zosta³y zoptymalizowane metod¹ 2-opt w celu znalezienia lepszego wyniku. Jeœli rezultat optymalizacji nie by³ lepszy, zostawa³ poprzedni wynik.
+	Przedstawicielami algorytmów zach³annych do wyznaczania tras by³ algorytm najbli¿szego s¹siada (ANS), algorytm najmniejszej krawêdzi (ANK) oraz algorytm A*. Do wyznaczenia wiêkszej iloœci tras w algorytmach zach³annych u¿yto wspó³czynnika b³êdu w jednostce metrów: 0, 5, 10, 20, 30, 40, 50, 75 oraz 100. Wspó³czynnik zosta³ zbadany na trzech ró¿nych etapach algorytmu, aby zbadaæ wiêksz¹ iloœæ otrzymanych tras, wy³¹czany by³ po utworzeniu 100 000 tras do badañ. Pierwsze badany etap obejmowa³ uruchomienie wspó³czynnika od pocz¹tku dzia³ania danego algorytmu. Drugie badanie aktywowa³o wspó³czynnik dopiero po utworzeniu 1/3 ca³kowitej trasy. Ostatni eksperyment polega³ na rozpoczêciu rozwa¿ania wiêkszej iloœci tras po stworzeniu 2/3 z ca³kowitej trasy. Nastêpnie wszystkie otrzymane trasy zosta³y zoptymalizowane metod¹ 2-opt w celu znalezienia lepszego wyniku. Jeœli rezultat optymalizacji nie by³ lepszy, zostawa³ poprzedni wynik. W tabelach dotycz¹cych wyników algorytmów zach³annych, kolorem ¿ó³tym zaznaczono najlepsze wyniki dla danego algorytmu, a kolorem zielonym najlepszy globalny wynik. Wszystkie algorytmy zosta³y zaimplementowane w³asnorêcznie w .NET Core.
 \section{Trasa I}
-Pierwsza trasa sk³ada siê ze 111 punktów, odwiedzanych przez pojazd. D³ugoœæ oryginalna tej trasy wynosi 48897 metrów.
-\subsection{Wyniki algorytmu genetycznego}
+	Na rysunku \ref{Trasa1} zosta³a przedstawiona oryginalna trasa ciê¿arówki na trasie pierwszej. Pokona³a ona odleg³oœæ  48 897 metrów. Kierowca wyjecha³ z osiedla bia³ostoczek i zacz¹³ zbieraæ kontenery na osiedlach mickiewicza i centrum, na koniec odwiedzi³ okolice stadionu miejskiego i pojecha³ na roz³adunek do Hryniewicz.
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.4]{grafika/1.png}
+	\caption{Trasa I}
+	\label{Trasa1}
+\end{figure}	
+	
+\subsection{Wyniki algorytmu genetycznego - Pawe³}
+Algorytm wyznaczy³ trasê dla ka¿dej mo¿liwej kombinacji 10 razy. W tabelach dotycz¹cych wyników algorytmu genetycznego, zosta³y przedstawione takie wyniki jak: œrednia d³ugoœæ wyznaczonej trasy, najlepsza trasa z dziesiêciu, œredni czas wykonania oraz skutecznoœæ algorytmu. 
 W tabeli \ref{tab:AG1AVG} zosta³y przedstawione œrednie wyniki algorytmu genetycznego dla ka¿dej kombinacji parametrów. Na pierwszy rzut oka widaæ, ¿e wraz ze wzrostem parametru $N$ osi¹gane by³y lepsze wyniki. Dla populacji 100 osobników, tylko dla krzy¿owania $CX$ i mutacji $Insert$ przy 4000 iteracjach œredni wynik zoptymalizowa³ trasê. Dla $N$ = 1000 zoptymalizowanych wyników jest ju¿ wiêcej. Od tej populacji zawsze najlepszy wynik dla poszczególnych wartoœci iteracji, zosta³ osi¹gniêty przez krzy¿owanie $CX$ i mutacjê $Insert$. W tej populacji uda³o siê zoptymalizowaæ trasê do 33843 metrów przy 2000 iteracjach. 
 \begin{table}[!h]
 \caption[Trasa I - œrednie wyniki dla algorytmu genetycznego]
@@ -49,9 +54,9 @@ W tabeli \ref{tab:AG1AVG} zosta³y przedstawione œrednie wyniki algorytmu genetyc
 \end{tabular}}
 \label{tab:AG1AVG}
 \end{table}
-W populacji 2000 osobników dla $k$ = 2000 oraz krzy¿owania $CX$ i mutacji $Insert$, zosta³ znaleziony najlepszy wynik globalny 32 326 metrów. Równie¿ mo¿na zauwa¿yæ, ¿e od $k$ = 1000 dla wszystkich parametrów z wyj¹tkiem krzy¿owania $OX$ oraz mutacji $Revert$ uda³o siê zoptymalizowaæ trasê. Porównuj¹c krzy¿owania to $PMX$ najlepiej sobie radzi³o do $N$ = 100 oraz $k$ = 2000, dla kolejnych populacji i iteracji, najlepsze wyniki osi¹gnê³o krzy¿owanie $CX$. Z mutacji najlepiej poradzi³a sobie $Insert$, a najgorzej $Revert$.
+W populacji 2000 osobników dla $k$ = 2000 oraz krzy¿owania $CX$ i mutacji $Insert$, zosta³ znaleziony najlepszy wynik globalny 32326 metrów. Równie¿ mo¿na zauwa¿yæ, ¿e od $k$ = 1000 dla wszystkich parametrów z wyj¹tkiem krzy¿owania $OX$ oraz mutacji $Revert$ uda³o siê zoptymalizowaæ trasê. Porównuj¹c krzy¿owania to $PMX$ najlepiej sobie radzi³o do $N$ = 100 oraz $k$ = 2000, dla kolejnych populacji i iteracji, najlepsze wyniki osi¹gnê³o krzy¿owanie $CX$. Z mutacji najlepiej poradzi³a sobie $Insert$, a najgorzej $Revert$.
 
-W tabeli \ref{tab:AG1Ilosc} zosta³a przedstawiona procentowa iloœæ wyników lepszych od d³ugoœci trasy oryginalnej, czyli skutecznoœæ algorytmu genetycznego. Przy populacji 100 osobników, ani razu algorytm nie osi¹gn¹³ 100\% skutecznoœci. Pierwszy raz uda³o siê to osi¹gn¹æ dla populacji 1000 osobników przy 1000 iteracjach.  Krzy¿owanie $PMX$ oraz $CX$ osi¹gnê³o 100\% skutecznoœci w po³¹czeniu z ka¿d¹ mutacji dla populacji 2000 osobników oraz $k$ = 2000 i $k$ = 4000. Krzy¿owanie $OX$ z mutacj¹ $Revert$ ani razu nie osi¹gnê³a 100\% skutecznoœci. Porównuj¹c mutacje, najs³absza skutecznoœæ osi¹gnê³a $Revert$
+W tabeli \ref{tab:AG1Ilosc} zosta³a przedstawiona procentowa iloœæ wyników lepszych od d³ugoœci trasy oryginalnej, czyli skutecznoœæ algorytmu genetycznego. Przy populacji 100 osobników, ani razu algorytm nie osi¹gn¹³ 100\% skutecznoœci. Pierwszy raz uda³o siê to osi¹gn¹æ dla populacji 1000 osobników przy 1000 iteracjach.  Krzy¿owanie $PMX$ oraz $CX$ osi¹gnê³o 100\% skutecznoœci w po³¹czeniu z ka¿d¹ mutacji dla populacji 2000 osobników oraz $k$ = 2000 i $k$ = 4000. Krzy¿owanie $OX$ z mutacj¹ $Revert$ ani razu nie osi¹gnê³o 100\% skutecznoœci. Porównuj¹c mutacje, najs³absza skutecznoœæ osi¹gnê³a $Revert$.
 \begin{table}[!h]
 \caption[Trasa I - skutecznoœæ algorytmu genetycznego]
 {Trasa I - skutecznoœæ algorytmu genetycznego dla poszczególnych parametrów wejœciowych}
@@ -160,19 +165,23 @@ W tabeli \ref{tab:AG1Ilosc} zosta³a przedstawiona procentowa iloœæ wyników lepsz
 \label{tab:AG1TIME}
 \end{table}
 
-Rysunki \ref{Trasa1GAN100}, \ref{Trasa1GAN1000} oraz \ref{Trasa1GAN2000} przedstawiaj¹ wykresy, które porównuj¹ o ile ró¿ni siê rozwi¹zanie od d³ugoœci trasy oryginalnej, kolejno dla $N$ = 100, $N$ = 1000 oraz $N$ = 2000. W populacji 1000 osobników (Rys. \ref{Trasa1GAN100}), tylko w jednym przypadku uda³o siê zoptymalizowaæ trasê o 0.67\%, co jest znikom¹ wartoœci¹. W pozosta³ych przypadkach wyniki s¹ gorsze o kilkanaœcie, a nawet kilkadziesi¹t procent. W populacji $N$ = 2000 (Rys. \ref{Trasa1GAN1000}) dla 100 iteracji algorytm znajdowa³ trasy o kilkanaœcie procent gorsze. Dla 1000 iteracji uda³o siê zoptymalizowaæ trasê œrednio ju¿ o 30.94\% dla krzy¿owanie $CX$. To krzy¿owanie dla mutacji $Insert$ oraz $Swap$ optymalizowa³o trasê œrednio o ponad 20\%. Krzy¿owanie $PMX$ oraz $OX$ poradzi³o sobie podobnie w tej populacji. Dla populacji $N$ = 2000 (Rys. \ref{Trasa1GAN2000}) krzy¿owanie $CX$ dla ka¿dej mutacji zoptymalizowa³o trasê od 8.7\% do 33.89\%. Mo¿na zauwa¿yæ, ¿e wynik œredni najlepszy wynik pozosta³ w tej samej okolicy od k = 1000. Krzy¿owanie $PMX$oraz $OX$ poprawi³o siê o kilka procent porównuj¹c do poprzedniej populacji.
+Rysunki \ref{Trasa1GAN100}, \ref{Trasa1GAN1000} oraz \ref{Trasa1GAN2000} przedstawiaj¹ wykresy, które porównuj¹ o ile ró¿ni siê rozwi¹zanie od d³ugoœci trasy oryginalnej, kolejno dla $N$ = 100, $N$ = 1000 oraz $N$ = 2000. W populacji 100 osobników (Rys. \ref{Trasa1GAN100}), tylko w jednym przypadku uda³o siê zoptymalizowaæ trasê o 0.67\%, co jest znikom¹ wartoœci¹. W pozosta³ych przypadkach wyniki s¹ gorsze o kilkanaœcie, a nawet kilkadziesi¹t procent. 
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.35]{grafika/Trasa1GAN100.png}
 	\caption{Trasa I - porównanie œrednich wyników z d³ugoœci¹ oryginalnej trasy dla N=100}
 	\label{Trasa1GAN100}
 \end{figure}	
+
+W populacji $N$ = 1000 (Rys. \ref{Trasa1GAN1000}) dla 100 iteracji algorytm znajdowa³ trasy o kilkanaœcie procent gorsze. Dla 1000 iteracji uda³o siê zoptymalizowaæ trasê œrednio ju¿ o 30.94\% dla krzy¿owania $CX$. To krzy¿owanie dla mutacji $Insert$ oraz $Swap$ optymalizowa³o trasê œrednio o ponad 20\%. Krzy¿owanie $PMX$ oraz $OX$ poradzi³o sobie bardzo podobnie w tej populacji. Pierwsze maksymalnie œrednio zoptymalizowa³o trasê o 23.62\%, a drugie o 18.12\%.
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.35]{grafika/Trasa1GAN1000.png}
 	\caption{Trasa I - porównanie œrednich wyników z d³ugoœci¹ oryginalnej trasy dla N=1000}
 	\label{Trasa1GAN1000}
 \end{figure}	
+
+ W populacji $N$ = 2000 (Rys. \ref{Trasa1GAN2000}) krzy¿owanie $CX$ dla ka¿dej mutacji zoptymalizowa³o trasê od 8.7\% do 33.89\%. Mo¿na zauwa¿yæ, ¿e  œredni najlepszy wynik nie poprawia³ siê od $k$ = 1000. Krzy¿owanie $PMX$ oraz $OX$ poprawi³o siê o kilka procent porównuj¹c do poprzedniej populacji. Pierwsze maksymalne œrednio optymalizuje trasê o 27.59\%, a drugie o 22.11\%.
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.35]{grafika/Trasa1GAN2000.png}
@@ -180,7 +189,17 @@ Rysunki \ref{Trasa1GAN100}, \ref{Trasa1GAN1000} oraz \ref{Trasa1GAN2000} przedst
 	\label{Trasa1GAN2000}
 \end{figure}	
 
-\subsection{Wyniki algorytmu mrówkowego}
+Na rysunku \ref{Trasa1PS} przedstawiono najlepsz¹ trasê jak¹ znalaz³ algorytm genetyczny. Od razu mo¿na zauwa¿yæ, ¿e inny jest pierwszy odwiedzony kontener w stosunku do trasy oryginalnej. Ostatnie kontenery odwiedzane s¹ w tej samej kolejnoœci.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.4]{grafika/1_ps.png}
+	\caption{Trasa I - algorytm genetyczny.}
+	\label{Trasa1PS}
+\end{figure}	
+
+
+\subsection{Wyniki algorytmu mrówkowego - Kamil}
 
 Algorytm zosta³ uruchomiony dziesiêciokrotne dla ka¿dej mo¿liwej kombinacji parametrów wejœciowych. W odpowiedzi program przedstawi³ w odpowiedniej kolejnoœci punkty jakie zosta³y zawarte w rozwi¹zaniu, przebyty dystans oraz czas wykonania algorytmu. Z zebranych danych zosta³a wyliczona œrednia, zosta³ wyznaczony najlepszy wynik oraz wyliczono sumê punktów których ³¹czny przebyty dystans jest krótszy od orygina³u. Przy wykorzystaniu tych miar mo¿na wykonaæ porównanie z oryginaln¹ tras¹ przebyt¹ w rzeczywistoœci przez ciê¿arówkê. 
 	
@@ -188,9 +207,7 @@ Ka¿da z tabel przedstawiaj¹ca wynik algorytmu mrówkowego sk³ada siê z takiej sam
 		
 Najlepsze wyniki algorytmu mrówkowego dla trasy numer 1 zosta³y przedstawione w tabeli \ref{tab:best_1_mrowkowy}. Spoœród najlepszych wyników dla danej wariacji, ¿adna próba nie zosta³a sklasyfikowana jako gorsza od oryginalnej odleg³oœci. Najgorszy wynik wyst¹pi³y dla najni¿szej wartoœci iteracji oraz najni¿szego wspó³czynnika parowania. Ta trasa nadal jest lepsza od oryginalnej o 7 439 metrów. Najlepsza wartoœæ jak¹ uda³o siê osi¹gn¹æ to 27131. Jest to wartoœæ jaka zosta³a osi¹gniêta dla 75 iloœci iteracji oraz dla wspó³czynnika parowania wynosz¹cego 0.4. W najlepszym wypadku trasa zosta³a ulepszona o oko³o 55\%.
 
-
 \begin{table}[!h]
-\label{tab:best_1_mrowkowy}
 \caption[Trasa I - najlepsze wyniki dla algorytmu mrówkowego]
 {Trasa I - najlepsze wyniki algorytmu mrówkowego dla poszczególnych parametrów wejœciowych}
 \begin{tabular}{|c|l|l|l|l|l|l|l|l|l|}
@@ -200,10 +217,11 @@ k                           & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.1} &
 \rowcolor[HTML]{FFFC9E} 
 \cellcolor[HTML]{C0C0C0}50  & {\color[HTML]{333333} 41458}                     & \cellcolor[HTML]{FFCC67}27288                    & \cellcolor[HTML]{FFCC67}27554                    & 27257                                            & 32569                                            & \cellcolor[HTML]{FFCC67}27297                    & 30815                                            & \cellcolor[HTML]{FFCB2F}29160                    & 32499                                            \\ \hline
 \rowcolor[HTML]{FFFC9E} 
-\cellcolor[HTML]{C0C0C0}75  & 28137                                            & 27998                                            & 27583                                            & \cellcolor[HTML]{34FF34}27131                    & 29459                                            & 29298                                            & \cellcolor[HTML]{FFCC67}27332                    & 36046                                            & 32471                                            \\ \hline
+\cellcolor[HTML]{C0C0C0}75  & 28137                                            & 27998                                            & 27583                                            & \cellcolor[HTML]{C6EFCE}27131                    & 29459                                            & 29298                                            & \cellcolor[HTML]{FFCC67}27332                    & 36046                                            & 32471                                            \\ \hline
 \rowcolor[HTML]{FFFC9E} 
 \cellcolor[HTML]{C0C0C0}100 & \cellcolor[HTML]{FFCC67}27259                    & 28194                                            & 27606                                            & 27490                                            & \cellcolor[HTML]{FFCC67}27193                    & 34429                                            & 37313                                            & 35244                                            & \cellcolor[HTML]{FFCC67}31738                    \\ \hline
 \end{tabular}
+\label{tab:best_1_mrowkowy}
 \end{table}
 
 	
@@ -211,7 +229,6 @@ W tabeli numer \ref{tab:avg_1_mrowkowy} znajduj¹ siê œrednie wyniki z dziesiêciu
 
 
 \begin{table}[!h]
-\label{tab:avg_1_mrowkowy}
 \caption[Trasa I - œrednie wyniki dla algorytmu mrówkowego]
 {Trasa I - œrednie wyniki algorytmu mrówkowego dla poszczególnych parametrów wejœciowych}
 \begin{tabular}{|c|l|l|l|l|l|l|l|l|l|}
@@ -222,15 +239,15 @@ k                           & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.1}  
 \rowcolor[HTML]{FFFC9E} 
 \cellcolor[HTML]{C0C0C0}75  & 32810                                                & 30993                                                & 33539                                            & \cellcolor[HTML]{FFCC67}31485                    & 44500                                            & {\color[HTML]{333333} 44022}                     & \cellcolor[HTML]{FFCC67}45114                    & 48684                                            & 46820                                            \\ \hline
 \rowcolor[HTML]{FFFC9E} 
-\cellcolor[HTML]{C0C0C0}100 & \cellcolor[HTML]{34FF34}29479                        & 34264                                                & \cellcolor[HTML]{FFCC67}31697                    & 39139                                            & \cellcolor[HTML]{FFCC67}41934                    & 47499                                            & \cellcolor[HTML]{FFFFFF}49393                    & 47152                                            & 46382                                            \\ \hline
+\cellcolor[HTML]{C0C0C0}100 & \cellcolor[HTML]{C6EFCE}29479                        & 34264                                                & \cellcolor[HTML]{FFCC67}31697                    & 39139                                            & \cellcolor[HTML]{FFCC67}41934                    & 47499                                            & \cellcolor[HTML]{FFFFFF}49393                    & 47152                                            & 46382                                            \\ \hline
 \end{tabular}
+\label{tab:avg_1_mrowkowy}
 \end{table}
 
 Istotnym parametrem jaki nale¿y wzi¹æ pod uwagê jest to, jak czêsto algorytm jest w stanie poprawiæ oryginaln¹ trasê. W tym celu zosta³a stworzona tabela numer \ref{tab:sum_1_mrowkowy}. Mo¿emy zauwa¿yæ z jak¹ skutecznoœci¹ program jest w stanie poprawiæ trasê. Wyniki potwierdzaj¹ wczeœniejsze wnioski. Najlepsze wyniki mo¿na zestawiæ ze wspó³czynnikiem parowania feromonów z zakresu od 0.1 do 0.4. Co wiêcej dla iloœci iteracji równej 75 dla ka¿dego ze wspó³czynników trasa zosta³a polepszona. 
 
 
 \begin{table}[!h]
-\label{tab:sum_1_mrowkowy}
 \caption[Trasa I - skutecznoœæ algorytmu mrówkowego]
 {Trasa I - skutecznoœæ algorytmu mrówkowego}
 \begin{tabular}{|
@@ -250,12 +267,12 @@ k   & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.1}    & \multicolumn{1}{c|}{
 75  & 100\%                                               & 100\%                                            & 100\%                                            & 100\%                                            & 60\%                                             & 40\%                                             & 60\%                                             & 40\%                                             & 60\%                                             \\ \hline
 100 & 100\%                                               & 100\%                                            & 100\%                                            & \cellcolor[HTML]{FFFFFF}80\%                     & 70\%                                             & 60\%                                             & 20\%                                             & 40\%                                             & 70\%                                             \\ \hline
 \end{tabular}
+\label{tab:sum_1_mrowkowy}
 \end{table}
 
 Oprócz samych prac nad optymalizacjami nale¿y zwróciæ uwagê z jak¹ szybkoœci¹ algorytm jest w stanie przedstawiæ rozwi¹zanie. W tabeli \ref{tab:time_1_mrowkowy} przedstawiony jest œredni czas wykonania algorytmy. Oczywistym wydaje siê, ¿e wraz ze wzrostem iloœci wykonanych iteracji wzrasta czas wykonania programu. Œrednio dla programu z iloœci¹ iteracji równ¹ 50 czas oczekiwania wynosi³ blisko 13 sekund. Dla 75 iteracji by³o to 21.732 sekundy, a dla 100 31.547. Zestawiaj¹c wyniki czasowe z procentowymi wartoœciami tras jakie zosta³y wyprodukowane przez program, mo¿na zauwa¿yæ, ¿e iloœæ wiêksza iloœæ iteracji nie musi oznaczaæ optymalizacji trasy.
 
 \begin{table}[!h]
-\label{tab:time_1_mrowkowy}
 \caption[Trasa I - œrednie wyniki czasu wykonania dla algorytmu mrówkowego dla parametru iloœci iteracji]
 {Trasa I - œrednie wyniki czasu wykonania algorytmu mrówkowego dla parametru iloœci iteracji}
 \begin{tabular}{|
@@ -264,14 +281,14 @@ Oprócz samych prac nad optymalizacjami nale¿y zwróciæ uwagê z jak¹ szybkoœci¹ al
 iteracje & 50     & 75     & 100    \\ \hline
 czas     & 12.945 & 21.732 & 31.547 \\ \hline
 \end{tabular}
+\label{tab:time_1_mrowkowy}
 \end{table}
 
-	
 Na wykresie \ref{fig:kl_1} przedstawione zosta³o procentowe porównanie œredniej wartoœci dla ka¿dego wspó³czynnika parowania i wartoœci \textit{k} równej 50. Z wykresu mo¿na odczytaæ, ¿e algorytm mrówkowy w najgorszym wygenerowa³ trasê o 3.37\% gorsz¹ od oryginalnej. Pozosta³e przypadki pokazuj¹ jednak, ¿e profit optymalizacji jest wy¿szy od tego spadku. Trasa zosta³a poprawiona o 37.77\%.
 	
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.55]{grafika/kl_1}
+	\includegraphics[scale=0.4]{grafika/kl_1}
 	\caption{Procentowy rozk³ad œrednich wartoœci dla 50 iteracji}
 	\label{fig:kl_1}
 \end{figure}
@@ -280,22 +297,30 @@ Na wykresie \ref{fig:kl_2} zwiêkszona zosta³a iloœæ iteracji do 75. Dziêki tej a
 	
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.55]{grafika/kl_2}
+	\includegraphics[scale=0.4]{grafika/kl_2}
 	\caption{Procentowy rozk³ad œrednich wartoœci dla 75 iteracji}
-	\label{fig:kl_1}
+	\label{fig:kl_2}
 \end{figure}
 	
-Najwy¿sza œrednia optymalizacja zosta³a odnotowana dla 100 iteracji oraz wspó³czynniku parowania wynosz¹cego 0.1. Na uwagê zas³uguje fakt i¿ œrednia d³ugoœæ trasy dla tego wspó³czynnik przy 50 iteracjach by³ najgorsz¹ œredni¹. Na wykresie \ref{fig:kl_3} mo¿na zauwa¿yæ rozk³ad wszystkich wspó³czynników.
+Najwy¿sza œrednia optymalizacja zosta³a odnotowana dla 100 iteracji oraz wspó³czynniku parowania wynosz¹cego 0.1. Na uwagê zas³uguje fakt, i¿ œrednia d³ugoœæ trasy dlatego wspó³czynnik przy 50 iteracjach by³ najgorsz¹ œredni¹. Na wykresie \ref{fig:kl_3} mo¿na zauwa¿yæ rozk³ad wszystkich wspó³czynników.
 	
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.55]{grafika/kl_3}
+	\includegraphics[scale=0.4]{grafika/kl_3}
 	\caption{Procentowy rozk³ad œrednich wartoœci dla 100 iteracji}
-	\label{fig:kl_1}
+	\label{fig:kl_3}
 \end{figure}
 
+Na rysunku \ref{Trasa1KL} przedstawiono najlepsz¹ trasê jak¹ znalaz³ algorytm mrówkowy. Ciê¿arówka na tej trasie zaczyna odwiedzanie kontenerów od centrum, w przeciwieñstwie do oryginalnej trasy. 
 
-\subsection{Wyniki algorytmów zach³annych}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.4]{grafika/1_kl.png}
+	\caption{Trasa I - algorytm mrówkowy}
+	\label{Trasa1KL}
+\end{figure}	
+
+\subsection{Wyniki algorytmów zach³annych - Przemek}
 
 W tabeli \ref{tab:AZ1BESTS} zosta³y przedstawione najlepsze wyniki algorytmów zach³annych dla ka¿dej kombinacji wspó³czynnika b³êdu uruchamianego na trzech etapach budowania ca³kowitej trasy.
 Algorytm A* wyznaczy³ najlepsz¹ trasê o d³ugoœci 30 205 metrów oraz jako jedyny wyznaczy³ bardzo du¿¹ iloœæ tras poni¿ej 31 000 metrów. 
@@ -328,7 +353,6 @@ B³¹d (m) & \cellcolor[HTML]{C0C0C0}ANS-1 & \cellcolor[HTML]{C0C0C0}ANS-2 & \cell
 \end{tabular}}
 \label{tab:AZ1BESTS}
 \end{table}
-
 
 \begin{table}[!h]
 \caption[Trasa I - optymalizacja wyników wzglêdem oryginalnej trasy]
@@ -384,8 +408,6 @@ B³¹d (m) & \cellcolor[HTML]{C0C0C0}ANS-1 & \cellcolor[HTML]{C0C0C0}ANS-2 & \cell
 \label{tab:AZ12OPT}
 \end{table}
 
-
-
 \begin{table}[!h]
 \caption[Trasa I - optymalizacja powsta³ych tras przez metodê 2-opt]
 {Trasa I - optymalizacja powsta³ych tras przez metodê 2-opt}
@@ -415,19 +437,7 @@ B³¹d (m) & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANS-1} & \multicolumn{1}{
 \label{tab:AZ12OPTOPTM}
 \end{table}
 
-Optymalizacja metod¹ 2-opt poprawi³a wyniki we wszystkich zastosowanych algorytmach, co dobrze widaæ na rysunku \ref{Trasa1AZCOMPARE}. Algorytm najbli¿szego s¹siada poprawi³ dolny najlepszy wynik z 22.53\% na 26.38\%. Algorytm najmniejszej krawêdzi natomiast zoptymalizowa³ górny najlepszy wynik z 33.58\% na 36.90\%. Delikatnie lepiej wypad³ tak¿e po optymalizacji algorytm A*, który swój górny wynik ulepszy³ z 38.23\% na 38.72\%.
-
 W tabeli \ref{tab:AZ1TIME} znajduj¹ siê czasy dzia³ania algorytmów. D³u¿szy czas wykonywania nie oznacza lepszego wyniku dla algorytmów zach³annych. Najlepsz¹ trasê uda³o siê uzyskaæ w czasie 7.91 sekundy.
-
-\begin{figure}[!h]
-	\centering
-	\includegraphics[scale=0.5]{grafika/results111_final.png}
-	\caption{Trasa I - porównanie optymalizacji algorytmów z zastosowanie metody 2-opt}
-	\label{Trasa1AZCOMPARE}
-\end{figure}
-
-
-
 \begin{table}[!h]
 \caption[Trasa I - czasy wykonywania algorytmów]
 {Trasa I - czasy wykonywania algorytmów}
@@ -458,43 +468,69 @@ B³¹d (m) & \cellcolor[HTML]{C0C0C0}ANS-1 & \cellcolor[HTML]{C0C0C0}ANS-2 & \cell
 \label{tab:AZ1TIME}
 \end{table}
 
+Optymalizacja metod¹ 2-opt poprawi³a wyniki we wszystkich zastosowanych algorytmach, co dobrze widaæ na rysunku \ref{Trasa1AZCOMPARE}. Algorytm najbli¿szego s¹siada poprawi³ dolny najlepszy wynik z 22.53\% na 26.38\%. Algorytm najmniejszej krawêdzi natomiast zoptymalizowa³ górny najlepszy wynik z 33.58\% na 36.90\%. Delikatnie lepiej wypad³ tak¿e po optymalizacji algorytm A*, który swój górny wynik ulepszy³ z 38.23\% na 38.72\%.
 
-\subsection{Porównanie algorytmów}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{grafika/results111_final.png}
+	\caption{Trasa I - porównanie optymalizacji algorytmów z zastosowanie metody 2-opt}
+	\label{Trasa1AZCOMPARE}
+\end{figure}
+
+Na rysunku \ref{Trasa1PN} przedstawiono najlepsz¹ trasê jak¹ znalaz³ algorytm zach³anny. Ciê¿arówka na tej trasie zaczyna odwiedzanie kontenerów od centrum, w przeciwieñstwie do oryginalnej trasy.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.4]{grafika/1_pn.png}
+	\caption{Trasa I - algorytm zach³anny}
+	\label{Trasa1PN}
+\end{figure}	
+
+
+\subsection{Porównanie algorytmów - wspólnie}
 
 Najlepszy wyniki algorytmów nie s¹ takie same. Wszystkie z wyników s¹ lepsze od oryginalnej trasy. Algorytm genetyczny znalaz³ najlepszy wynik równy 30939. Jest to wynik o 37\% lepszy od pierwotnej trasy. Taki wynik uda³o siê otrzymaæ w 4.12 sekundy. Algorytm mrówkowy wygenerowa³ trasê o ³¹cznej d³ugoœci 27131 metrów co jest lepszym wynikiem od poprzedniego algorytmu. Oryginalna trasa zosta³a poprawiona o 45\%. Czas jaki by³ potrzebny na polepszenie œcie¿ki to 21.73 sekundy. Czas oczekiwania jest wiêc d³u¿szy od czasu jaki potrzebuje algorytm genetyczny. Najlepsza trasa, która uzyska³y algorytmy zach³anne wynosi³a 30205 metrów, a po optymalizacji metod¹ 2-opt trasa zmniejszy³a siê do 29 965 metrów. Wynik ten jest o 39\% lepszy od trasy pocz¹tkowej. Wynik taki uda³o siê otrzymaæ w 5.22 sekund.
 
 Porównuj¹c dystans to najs³abiej sobie poradzi³  algorytm genetyczny. Trasa ta zosta³a jednak wyznaczona w czasie piêæ razy krótszym ni¿ algorytm mrówkowy, a wynik by³ gorszy o tylko 8\%. Algorytm A* poradzi³ sobie podobnie jak algorytm genetyczny w czasie o sekundê d³u¿szym znalaz³ o 2\% lepsz¹ trasê.
 
+Na zdjêciach \ref{fig:sum_gen_1}, \ref{fig:sum_mro_1}, \ref{fig:sum_prz_1} zosta³y pokazane przyk³adowe ró¿nice w znalezionych trasach przez algorytmy.
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.5]{grafika/summary_mrowkowy}
+	\includegraphics[scale=0.4]{grafika/summary_mrowkowy}
 	\caption{Fragment trasy algorytmu mrówkowego}
 	\label{fig:sum_mro_1}
 \end{figure}
-
-Na zdjêciach \ref{fig:sum_gen_1}, \ref{fig:sum_mro_1}, \ref{fig:sum_prz_1} zosta³y pokazane przyk³adowe ró¿nice w wygenerowanych trasach przez algorytmy. Ró¿nice te dotycz¹ kolejnoœci odwiedzania punktów dla takiego samego odcinka trasy. Liczba znajduj¹ca siê w treœci markera oznacza kolejnoœæ odwiedzania tych punktów przez algorytmy. Na rysunku \ref{fig:sum_mro_1} zosta³ pokazany fragment trasy wygenerowanej przez algorytm mrówkowy. Widaæ na pierwszy rzut oka, ¿e jest to on  pocz¹tkiem trasy tego algorytmu, poniewa¿ s¹ to pocz¹tkowe numery. Porównuj¹c algorytm genetyczny \ref{fig:sum_gen_1} w tym samym miejscu, mo¿na zauwa¿yæ, ¿e wierzcho³ki te s¹ odwiedzane dopiero w po³owie trasy. Trasa dla algorytmu mrówkowego i algorytmu A* jest bardzo podobna. Jedyn¹ ró¿nic¹ na tym odcinku jest kolejnoœæ wybrania 3 punktu przez algorytm mrówkowy. W algorytmie A* punkt ten zosta³ odwiedzony jako 11.
+Ró¿nice te dotycz¹ kolejnoœci odwiedzania punktów dla takiego samego wycinka trasy. Liczba znajduj¹ca siê w treœci markera oznacza kolejnoœæ odwiedzania tych punktów przez algorytmy. Na rysunku \ref{fig:sum_mro_1} zosta³ pokazany fragment trasy wygenerowanej przez algorytm mrówkowy. Widaæ na pierwszy rzut oka, ¿e jest to on  pocz¹tkiem trasy tego algorytmu, poniewa¿ s¹ to pocz¹tkowe numery. Porównuj¹c algorytm genetyczny \ref{fig:sum_gen_1} w tym samym miejscu, mo¿na zauwa¿yæ, ¿e wierzcho³ki te s¹ odwiedzane dopiero w po³owie trasy. Trasa dla algorytmu mrówkowego i algorytmu A* jest bardzo podobna. Jedyn¹ ró¿nic¹ na tym odcinku jest kolejnoœæ wybrania 3 punktu przez algorytm mrówkowy. W algorytmie A* punkt ten zosta³ odwiedzony jako 11.
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.5]{grafika/summary_genetyczny}
+	\includegraphics[scale=0.4]{grafika/summary_genetyczny}
 	\caption{Fragment trasy algorytmu genetycznego}
 	\label{fig:sum_gen_1}
 \end{figure}
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.5]{grafika/summary_przemka}
+	\includegraphics[scale=0.4]{grafika/summary_przemka}
 	\caption{Fragment trasy algorytmu A*}
 	\label{fig:sum_prz_1}
 \end{figure}
 
 \section{Trasa II}
 
-Druga trasa sk³ada siê ze 150 punktów, odwiedzonych przez pojazd. D³ugoœæ oryginalna tej trasy wynosi 40402 metrów.
+	Na rysunku \ref{Trasa2} zosta³a przedstawiona oryginalna druga trasa ciê¿arówki, na której znajduje siê 10 kontenerów. Trasa ta mimo wiêkszej iloœci kontenerów, jest krótsza od poprzedniej. Jej d³ugoœæ wynosi 40402 metrów. Wszystkie punkty znajduj¹ siê na osiedlach w okolicy centrum. Ciê¿arówka czêsto pokonywa³a kilka razy te same drogi jednokierunkowe. Po zebraniu wszystkich kontenerów, pojazd roz³adowa³ siê na osiedlu wygoda.
 
-\subsection{Wyniki algorytmu genetycznego}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{grafika/2.png}
+	\caption{Trasa II}
+	\label{Trasa2}
+\end{figure}	
+
+
+\subsection{Wyniki algorytmu genetycznego - Pawe³}
 W tabeli \ref{tab:AG2AVG} zosta³y przedstawione œrednie wyniki 
- algorytmu genetycznego dla ka¿dej kombinacji parametrów. W przeciwieñstwie do poprzedniej trasy, nie zawsze krzy¿owanie $CX$ w po³¹czeniu z mutacj¹ $Insert$ optymalizowa³a trasê. Dla $N$ = 2000 oraz $k$ = 100 najlepszy œredni wynik osi¹gnê³o krzy¿owanie $CX$ z mutacj¹ $Revert$, a dla $N$ = 2000 i $k$ = 2000 lub $k$ = 4000 najlepszy wyniki by³y dla krzy¿owania $CX$ oraz mutacji $Swap$. Dla populacji $N$ = 100, ani jedna kombinacji parametrów wejœciowych, nie osi¹gnê³a œredniego wyniku, który by optymalizowa³ trasê. Dla populacji $N$ = 1000 trasê uda³o siê zoptymalizowaæ do œredni 30385 metrów, poprawa oko³o 10 kilometrów. Podobnie jak na poprzedniej trasie wynik ten osi¹gnê³o krzy¿owanie $CX$ z mutacj¹ $Insert$ dla $k$ = 1000. Natomiast najlepszy wynik globalny osi¹gniêto dla $N$ = 2000 oraz $k$ = 1000, krzy¿owanie $CX$ z mutacj¹ $Insert$ i jest to 28196 metrów. Porównuj¹c krzy¿owania, znowu najlepsze okaza³o siê krzy¿owanie $CX$ przed krzy¿owaniem $PMX$. Natomiast w mutacjach zazwyczaj lepszy wynik by³ osi¹gany przez mutacjê $Insert$ z kilkoma wyj¹tkami.
+ algorytmu genetycznego dla ka¿dej kombinacji parametrów. W przeciwieñstwie do poprzedniej trasy, nie zawsze krzy¿owanie $CX$ z mutacj¹ $Insert$ optymalizowa³a najlepiej trasê. W populacji 2000 osobników oraz $k$ = 100 najlepszy œredni wynik osi¹gnê³o krzy¿owanie $CX$ z mutacj¹ $Revert$, a dla $k$ = 2000 lub $k$ = 4000 najlepszy wyniki by³y dla krzy¿owania $CX$ oraz mutacji $Swap$. W populacji $N$ = 100, ani jedna kombinacji parametrów wejœciowych, nie osi¹gnê³a œredniego wyniku, który by optymalizowa³ trasê. Dla populacji $N$ = 1000 trasê uda³o siê zoptymalizowaæ do œrednio 30385 metrów, jest to poprawa o 10017 metrów. Wynik ten osi¹gnê³o krzy¿owanie $CX$ z mutacj¹ $Insert$ w 1000 iteracji. Natomiast najlepszy wynik globalny 28196 metrów, osi¹gniêto dla populacji 2000 osobników oraz $k$ = 1000, krzy¿owanie $CX$ z mutacj¹ $Insert$. Porównuj¹c krzy¿owania, znowu najlepsze okaza³o siê krzy¿owanie $CX$ przed krzy¿owaniem $PMX$. Natomiast w mutacjach zazwyczaj lepszy wynik by³ osi¹gany przez mutacjê $Insert$ z kilkoma wyj¹tkami.
 \begin{table}[!htb]
 \caption[Trasa II - œrednie wyniki dla algorytmu genetycznego]
 {Trasa II - œrednie wyniki algorytmu genetycznego dla poszczególnych parametrów wejœciowych}
@@ -529,7 +565,7 @@ W tabeli \ref{tab:AG2AVG} zosta³y przedstawione œrednie wyniki
 \label{tab:AG2AVG}
 \end{table}
 
-W tabeli \ref{tab:AG2Ilosc} zosta³a przedstawiona procentowa iloœæ wyników lepszych od d³ugoœci trasy oryginalnej. Krzy¿owanie $PMX$ w czterech kombinacjach osi¹gnê³o 100\% skutecznoœci, dla $N$ = 1000 lub 2000 z $k$ = 2000 lub 4000 z mutacj¹ $Insert$.  Krzy¿owanie $OX$ z mutacj¹ $Insert$ by³o bezb³êdne dla $N$ = 2000 z $k$ >= 1000. Krzy¿owanie $CX$ okaza³o siê jedynym, które mia³o 100\% skutecznoœci w po³¹czeniu z innymi mutacjami. Dla $N$ = 1000 by³y to mutacje $Insert$ oraz $Swap$, a dla $N$ = 2000 równie¿ z mutacj¹ $Revert$. Mutacja $Revert$ nie poradzi³a sobie z krzy¿owaniem $OX$, nie osi¹gniêto, ani jednego wyniku lepszego ni¿ d³ugoœæ trasy oryginalnej.
+W tabeli \ref{tab:AG2Ilosc} zosta³a przedstawiona procentowa iloœæ wyników lepszych od d³ugoœci trasy oryginalnej. Krzy¿owanie $PMX$ z mutacja $Insert$, osi¹gnê³o czterokrotnie 100\% skutecznoœci dla populacji 1000 oraz 2000 osobników, w obu dla $k$ = 2000 lub $k$ = 4000. Krzy¿owanie $OX$ z mutacj¹ $Insert$ by³o bezb³êdne dla $N$ = 2000 oraz $k$ >= 1000. Krzy¿owanie $CX$ okaza³o siê jedynym, które mia³o 100\% skutecznoœci w po³¹czeniu z innymi mutacjami ni¿ $INsert$. Krzy¿owanie $OX$ jedynie w populacji 2000 osobników potrafi³o osi¹gn¹æ 100\% skutecznoœci. Mutacja $Revert$ nie poradzi³a sobie z krzy¿owaniem $OX$, nie osi¹gniêto, ani jednego wyniku lepszego ni¿ d³ugoœæ trasy oryginalnej. Natomiast krzy¿owanie $CX$, a¿ w 14 ró¿nych kombinacjach parametrów  optymalizowa³o trasê za ka¿dym razem.
 \begin{table}[!h]
 \caption[Trasa II - skutecznoœæ algorytmu genetycznego]
 {Trasa II - skutecznoœæ algorytmu genetycznego dla poszczególnych parametrów wejœciowych}
@@ -563,7 +599,7 @@ W tabeli \ref{tab:AG2Ilosc} zosta³a przedstawiona procentowa iloœæ wyników lepsz
 \label{tab:AG2Ilosc}
 \end{table}
 
-W tabeli \ref{tab:AG2Best} pokazane zosta³y najlepsze wyniki jakie osi¹gn¹³ algorytm genetyczny podczas 10 wykonañ dla danych parametrów wejœciowych. Dla populacji $N$ = 100 najlepszy wynik 37172 metrów, osi¹gnê³o krzy¿owanie $CX$ z mutacj¹ $Insert$. Krzy¿owanie $CX$ z ka¿d¹ mutacj¹, osi¹gnê³o najlepszy wynik lepszy od trasy oryginalnej dla $N$ >= 1000 i $k$ >=100. Dla populacji $N$ = 1000 najmniejsz¹ odleg³oœæ 27858 metrów, osi¹gn¹³ algorytm przy parametrach: $k$ = 2000, krzy¿owaniu $CX$ oraz mutacji $Swap$. Dla tego krzy¿owania mutacja $Revert$ znalaz³a najlepsze rozwi¹zanie dla $k$ = 100, zarówno dla populacji $N$ = 1000 oraz $N$ = 2000. Najlepsze globalne rozwi¹zanie zosta³o osi¹gniête dla $N$ = 2000, $k$ = 2000, krzy¿owania $CX$ oraz mutacji $Swap$ i wynosi 27381 metrów. Porównuj¹c do populacji $N$ = 1000 poprawi³o siê o oko³o 500 metrów. Krzy¿owanie $PMX$ znalaz³o najlepsze globalne rozwi¹zanie wynosz¹ce 29758 metrów, a krzy¿owanie $OX$ wynosz¹ce 29602 metrów, oba z mutacj¹ $Insert$.
+W tabeli \ref{tab:AG2Best} pokazane zosta³y najlepsze wyniki jakie osi¹gn¹³ algorytm genetyczny na trasie II dla poszczególnych parametrów wejœciowych. W populacji $N$ = 100 najlepszy wynik 37172 metrów, osi¹gnê³o krzy¿owanie $CX$ z mutacj¹ $Insert$. Krzy¿owanie $CX$ z ka¿d¹ mutacj¹, osi¹gnê³o najwiêcej razy wynik lepszy od trasy oryginalnej. W populacji 1000 osobników najmniejsz¹ odleg³oœæ 27858 metrów, osi¹gn¹³ algorytm przy parametrach: $k$ = 2000, krzy¿owaniu $CX$ oraz mutacji $Swap$. W populacji 2000 osobników zosta³o znalezione najlepsze globalne rozwi¹zanie 27381 metrów, dla mutacji $CX$ oraz krzy¿owania $Swap$. Najmniej wyników optymalizuj¹cych trasê znalaz³o krzy¿owanie $OX$. Krzy¿owanie $PMX$ potrafi³o dla ka¿dej populacji przynajmniej raz znaleŸæ lepsz¹ trasê ni¿ oryginalna. Mutacja $Revert$ dwukrotnie znalaz³a najlepszy wynik, w populacji 1000 oraz 2000 osobników dla $k$ = 100.
 \begin{table}[!h]
 \caption[Trasa II - najlepsze wyniki dla algorytmu genetycznego]
 {Trasa II - najlepsze wyniki algorytmu genetycznego dla poszczególnych parametrów wejœciowych}
@@ -600,7 +636,7 @@ W tabeli \ref{tab:AG2Best} pokazane zosta³y najlepsze wyniki jakie osi¹gn¹³ algo
 \label{tab:AG2Best}
 \end{table}
 
-W tabeli \ref{tab:AG2Time} zosta³y pokazane œrednie czasy trwania algorytmu genetycznego. Rozk³ad najlepszych œrednich czasów jest bardzo podobny do trasy pierwszej. Najszybsze dla ka¿dego $N$ i $k$ by³o krzy¿owanie $CX$ oraz mutacja $Revert$. Pomiêdzy $N$ = 1000, a N$ $= 2000 œrednia najlepsza optymalizacja trasy poprawi³a siê oko³o 500 metrów (Tab. \ref{tab:AG2Best}), czas na znalezienie takiej trasy wzrós³ ponad dwukrotnie z 4.17 sekund do 9.96 sekund. Najwolniej sobie poradzi³o krzy¿owanie $PMX$. Czasy wykonania wzros³y porównuj¹c je do trasy I (Tab. \ref{tab:AG1TIME}), spowodowane jest to tym, ¿e chromosomy sk³adaj¹ siê ze 150 punktów, wiêc potrzeba wykonaæ wiêcej operacji przy krzy¿owaniu oraz mutacji.
+W tabeli \ref{tab:AG2Time} zosta³y pokazane œrednie czasy trwania algorytmu genetycznego. Rozk³ad najlepszych œrednich czasów jest bardzo podobny do trasy pierwszej. Najszybsze dla ka¿dego $N$ i $k$ by³o krzy¿owanie $CX$ oraz mutacja $Revert$. Pomiêdzy $N$ = 1000, a N$ $= 2000 œrednia najlepsza optymalizacja trasy poprawi³a siê o 477 metrów (Tab. \ref{tab:AG2Best}), czas na znalezienie takiej trasy wzrós³ ponad dwukrotnie z 4.17 sekund do 9.96 sekund. Najwolniej sobie poradzi³o krzy¿owanie $PMX$. Czasy wykonania wzros³y porównuj¹c je do trasy I (Tab. \ref{tab:AG1TIME}), spowodowane jest to tym, ¿e chromosomy sk³adaj¹ siê ze 150 punktów, wiêc potrzeba wykonaæ wiêcej operacji przy krzy¿owaniu oraz mutacji.
 \begin{table}[!h]
 \caption[Trasa II - œrednie czasy wykonywania algorytmu genetycznego]
 {Trasa II - œrednie czasy wykonywania algorytmu dla poszczególnych parametrów wejœciowych}
@@ -636,13 +672,20 @@ W tabeli \ref{tab:AG2Time} zosta³y pokazane œrednie czasy trwania algorytmu gene
 \label{tab:AG2Time}
 \end{table}
 
-Rysunki \ref{Trasa2GAN100}, \ref{Trasa2GAN1000} oraz \ref{Trasa2GAN2000} przedstawiaj¹ wykresy, które porównuj¹ o ile ró¿ni siê rozwi¹zanie od d³ugoœci trasy oryginalnej, kolejno dla $N$ = 100, $N$ = 1000 oraz $N$ = 2000. Dla $N$ = 100 (Rys. \ref{Trasa2GAN100}) wszystkie kombinacje parametrów wejœciowych nie potrafi³y zoptymalizowaæ rozwi¹zania. Dla $k$ = 100 wygenerowane wyniki maj¹ gorsz¹ wartoœæ od -195\% do -150\%. Przy $k$ = 4000 wartoœci dla niektórych parametrów s¹ œrednio o gorsze o kilkanaœcie procent od trasy oryginalnej. Dla $N$ = 1000 (Rys. \ref{Trasa2GAN1000}), nie uda³o siê jedynie zoptymalizowaæ trasy dla $k$ = 100, wszystkie wyniki s¹ ujemne. Dla pozosta³ych wartoœci $k$, krzy¿owanie $CX$ z mutacjami $Insert$ oraz $Swap$, œrednio zoptymalizowa³o trasê od 19.27\% do 24.65\%.  Krzy¿owanie $PMX$ dla tej populacji zoptymalizowa³o trasê w zale¿noœci od wartoœci k od 2.43\% do 13.66\%, a krzy¿owanie $OX$ od 2.88\% do 9.87\%. Dla $N$ = 2000 (Rys. \ref{Trasa2GAN2000}) krzy¿owanie $CX$ zoptymalizowa³o trasê dla ka¿dego $k$. Wynik dla mutacji $Swap$ oraz $Insert$ dla $k$ = 1000 oraz $k$ = 2000, waha siê od 27.2\% do 30.21\%. Krzy¿owanie $PMX$ poprawi³o wynik dla mutacji $Insert$ do przedzia³u 13.52\% - 19.25\% w zale¿noœci od wartoœci parametru $k$. Natomiast krzy¿owanie $OX$ dla tej samej mutacji poprawi³o siê do przedzia³u 10.07\%-14.67\%. Inne mutacje dla tych krzy¿owañ wygenerowa³y s³absze wyniki.
+Rysunki \ref{Trasa2GAN100}, \ref{Trasa2GAN1000} oraz \ref{Trasa2GAN2000} przedstawiaj¹ wykresy, które porównuj¹ o ile ró¿ni siê rozwi¹zanie od d³ugoœci trasy oryginalnej, kolejno dla $N$ = 100, $N$ = 1000 oraz $N$ = 2000. 
+
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.35]{grafika/Trasa2GAN100.png}
 	\caption{Trasa II - porównanie œrednich wyników z d³ugoœci¹ oryginalnej trasy dla N=100}
 	\label{Trasa2GAN100}
 \end{figure}	
+
+Dla $N$ = 100 (Rys. \ref{Trasa2GAN100}) wszystkie kombinacje parametrów wejœciowych nie potrafi³y zoptymalizowaæ rozwi¹zania. Dla $k$ = 100 wygenerowane wyniki maj¹ gorsz¹ wartoœæ od -195\% do -150\%. Przy $k$ = 4000 wartoœci dla niektórych parametrów s¹ œrednio o gorsze o kilkanaœcie procent od trasy oryginalnej. 
+
+Dla $N$ = 1000 (Rys. \ref{Trasa2GAN1000}), nie uda³o siê jedynie zoptymalizowaæ trasy dla $k$ = 100, wszystkie wyniki s¹ ujemne. Dla pozosta³ych wartoœci $k$, krzy¿owanie $CX$ z mutacjami $Insert$ oraz $Swap$, œrednio zoptymalizowa³o trasê od 19.27\% do 24.65\%.  Krzy¿owanie $PMX$ dla tej populacji zoptymalizowa³o trasê w zale¿noœci od wartoœci k od 2.43\% do 13.66\%, a krzy¿owanie $OX$ od 2.88\% do 9.87\%. 
+
+Dla $N$ = 2000 (Rys. \ref{Trasa2GAN2000}) krzy¿owanie $CX$ zoptymalizowa³o trasê dla ka¿dego $k$. Wynik dla mutacji $Swap$ oraz $Insert$ dla $k$ = 1000 oraz $k$ = 2000, waha siê od 27.2\% do 30.21\%. Krzy¿owanie $PMX$ poprawi³o wynik dla mutacji $Insert$ do przedzia³u 13.52\% - 19.25\% w zale¿noœci od wartoœci parametru $k$. Natomiast krzy¿owanie $OX$ dla tej samej mutacji poprawi³o siê do przedzia³u 10.07\%-14.67\%. Inne mutacje dla tych krzy¿owañ wygenerowa³y s³absze wyniki.
 
 \begin{figure}[!h]
 	\centering
@@ -658,15 +701,23 @@ Rysunki \ref{Trasa2GAN100}, \ref{Trasa2GAN1000} oraz \ref{Trasa2GAN2000} przedst
 	\label{Trasa2GAN2000}
 \end{figure}	
 
+Na rysunku \ref{Trasa2PS} przedstawiono najlepsz¹ trasê jak¹ znalaz³ algorytm genetyczny. 
 
-\subsection{Wyniki algorytmu mrówkowego}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.4]{grafika/2_ps.png}
+	\caption{Trasa II - algorytm genetyczny}
+	\label{Trasa2PS}
+\end{figure}	
+
+
+\subsection{Wyniki algorytmu mrówkowego - Kamil}
 
 Podobnie tak jak w przypadku trasy numer 1 algorytm zosta³ uruchomiony dziesiêciokrotnie dla ka¿dej mo¿liwej wariacji parametrów wejœciowych. Wynikiem jaki jest generowany przez algorytm s¹ punkty w których znajduj¹ siê kontenery z odpadami, przebyty dystans, a tak¿e czas jaki trzeba by³o czekaæ na wygenerowanie wyniku. Tabele z wyliczonymi wynikami równie¿ zosta³y przedstawione wed³ug takiego samego schematu. Wiersze tabeli odpowiadaj¹ iloœciom przeprowadzonych iteracji, a w kolumnach zawarte s¹ informacje o wspó³czynniku parowania.
 
-Algorytm mrówkowy bardzo dobrze poradzi³ sobie z optymalizacj¹ trasy numer 2. W tabeli numer \ref{tab:best_2_mrowkowy} przedstawione zosta³y najlepsze wyniki algorytmu mrówkowego dla tej trasy. Ka¿dy z wyników jest lepszy od oryginalnej trasy. Prawie wszystkie wartoœci s¹ ni¿sze od 30 000 metrów. Dla drugiej trasy najkrótsza odleg³oœæ jak¹ uda³o siê uzyskaæ wynosi 24 347 metrów.
+Algorytm mrówkowy bardzo dobrze poradzi³ sobie z optymalizacj¹ trasy numer 2. W tabeli numer \ref{tab:best_2_mrowkowy} przedstawione zosta³y najlepsze wyniki algorytmu mrówkowego dla tej trasy. Ka¿dy z wyników jest lepszy od oryginalnej trasy. Prawie wszystkie wartoœci s¹ ni¿sze od 30000 metrów. Dla drugiej trasy najkrótsza odleg³oœæ jak¹ uda³o siê uzyskaæ wynosi 24347 metrów.
 
 \begin{table}[h!]
-\label{tab:best_2_mrowkowy}
 \caption[Trasa II - najlepsze wyniki dla algorytmu mrówkowego]
 {Trasa II - najlepsze wyniki algorytmu mrówkowego dla poszczególnych parametrów wejœciowych}
 \begin{tabular}{|c|l|l|l|l|l|l|l|l|l|}
@@ -676,68 +727,18 @@ k                           & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.1} &
 \rowcolor[HTML]{FFFC9E} 
 \cellcolor[HTML]{C0C0C0}50  & {\color[HTML]{333333} 31995}                     & \cellcolor[HTML]{FFCC67}{\color[HTML]{333333} 25023} & 25209                                            & 25119                                            & 26103                                            & 25560                                            & 25799                                            & 28107                                            & 26360                                            \\ \hline
 \rowcolor[HTML]{FFFC9E} 
-\cellcolor[HTML]{C0C0C0}75  & 26037                                            & 25686                                                & 25330                                            & \cellcolor[HTML]{34FF34}24347                    & 26291                                            & {\color[HTML]{333333} 25999}                     & 25912                                            & 27805                                            & \cellcolor[HTML]{FFCC67}25776                    \\ \hline
+\cellcolor[HTML]{C0C0C0}75  & 26037                                            & 25686                                                & 25330                                            & \cellcolor[HTML]{C6EFCE}24347                    & 26291                                            & {\color[HTML]{333333} 25999}                     & 25912                                            & 27805                                            & \cellcolor[HTML]{FFCC67}25776                    \\ \hline
 \rowcolor[HTML]{FFCC67} 
 \cellcolor[HTML]{C0C0C0}100 & 25820                                            & \cellcolor[HTML]{FFFC9E}25343                        & 24760                                            & \cellcolor[HTML]{FFFC9E}24404                    & 26080                                            & 25136                                            & 25695                                            & 27485                                            & \cellcolor[HTML]{FFFC9E}26650                    \\ \hline
 \end{tabular}
+\label{tab:best_2_mrowkowy}
 \end{table}
-
-
-Najlepszy œredni wynik wynosi 26 447. Jest to wynik który zosta³ uzyskany dla wspó³czynnika parowania równego 0.2 i liczbie iteracji równej 50. Wyniki dla takiego samego wspó³czynnika ale innej liczbie iteracji s¹ na zbli¿onym poziomie. Podobnie jak w przypadku poprzedniej trasy, najgorsza œrednia zosta³a obliczona dla wspó³czynnika parowania równego 0.1. Wraz ze wzrostem liczby iteracji nastêpowa³ progres. Ostatecznie dla 100 iteracji d³ugoœæ trasy jest zbli¿ona do najlepszych wyników. Œcie¿ka z najwiêksz¹ œredni¹ jest lepsza od oryginalnej i stanowi 78\% jej d³ugoœci.
-
-\begin{table}[h!]
-\label{tab:avg_2_mrowkowy}
-\caption[Trasa II - œrednie wyniki dla algorytmu mrówkowego]
-{Trasa II - œrednie wyniki algorytmu mrówkowego dla poszczególnych parametrów wejœciowych}
-\begin{tabular}{|c|l|l|l|l|l|l|l|l|l|}
-\hline
-\rowcolor[HTML]{C0C0C0} 
-k                           & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.1} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.2}     & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.3} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.4} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.5} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.6} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.7} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.8} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.9} \\ \hline
-\rowcolor[HTML]{FFFC9E} 
-\cellcolor[HTML]{C0C0C0}50  & {\color[HTML]{333333} 35518}                     & \cellcolor[HTML]{34FF34}{\color[HTML]{333333} 26447} & 27146                                            & \cellcolor[HTML]{FFCC67}26449                    & 28817                                            & \cellcolor[HTML]{FFCC67}28061                    & \cellcolor[HTML]{FFCC67}28672                    & 30477                                            & 29670                                            \\ \hline
-\rowcolor[HTML]{FFFC9E} 
-\cellcolor[HTML]{C0C0C0}75  & 26937                                            & 26812                                                & 27660                                            & 26896                                            & 28351                                            & {\color[HTML]{333333} 28242}                     & 29070                                            & 29968                                            & 28910                                            \\ \hline
-\rowcolor[HTML]{FFCC67} 
-\cellcolor[HTML]{C0C0C0}100 & 26721                                            & \cellcolor[HTML]{FFFC9E}26532                        & 26888                                            & \cellcolor[HTML]{FFFC9E}27358                    & 28191                                            & \cellcolor[HTML]{FFFC9E}28116                    & \cellcolor[HTML]{FFFC9E}29397                    & 29738                                            & 28608                                            \\ \hline
-\end{tabular}
-\end{table}
-
-Dla najmniejszej iloœci iteracji, zostaj¹ wygenerowane trasy krótsze od pierwotnej. Na wykresie \ref{fig:kl_4} zosta³y przedstawione œrednie wyniki dla 50 iteracji. Mo¿na na tym wykresie zauwa¿yæ, ¿e najd³u¿sze trasy by³y generowane dla najni¿szego wspó³czynnika parowania. Najkrótsze trasy by³y generowane w przedziale od 0.2 do 0.4. Dla pozosta³ych wspó³czynników wartoœci s¹ wiêksze od 24\%.
-
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[scale=0.75]{grafika/kl_4}
-	\caption{Procentowy rozk³ad œrednich wartoœci dla 50 iteracji}
-	\label{fig:kl_4}
-\end{figure}
-
-
-Po zwiêkszeniu liczby iteracji do 75, na wykresie \ref{fig:kl_5} mo¿na zauwa¿yæ zmiany w œrednich dystansach œcie¿ek. Na szczególn¹ uwagê zas³ugujê wspó³czynnik o wartoœci 0.1. Jeœli liczba iteracji by³a zmniejszona o 25, to œrednie wyniki by³y najgorsze. Po zwiêkszeniu iteracji o 25, sytuacja odwróci³a siê o 180 stopni. Œrednia z tras dla wspó³czynnika parowania feromonów równego 0.1 by³a jedn¹ z najlepszych w ca³ym zestawieniu. Pozosta³e wyniki s¹ co najmniej 25\% lepsze od oryginalnego przebytego dystansu.
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[scale=0.75]{grafika/kl_5}
-	\caption{Procentowy rozk³ad œrednich wartoœci dla 75 iteracji}
-	\label{fig:kl_5}
-\end{figure}
-
-
-Maksymalna liczba iteracji w niewielkim stopniu polepszy³a wczeœniejsze wyniki. Ponownie najkrótsze trasy  zosta³y wygenerowane dla wspó³czynników parowania z dolnego zakresu. Nie zmienia to faktu, i¿ wszystkie wyniki w dalszym ci¹gu by³y lepsze od badanej oryginalnej trasy. 
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[scale=0.75]{grafika/kl_6}
-	\caption{Procentowy rozk³ad œrednich wartoœci dla 100 iteracji}
-	\label{fig:kl_5}
-\end{figure}
 
 Dziêki tabeli \ref{tab:sum_2_mrowkowy} mo¿na zauwa¿yæ jakie optymalizacje wykona³ algorytm mrówkowy. Wartoœci¹ ka¿dej komórki tabeli jest 100\%. Œwiadczy to o tym, ¿e ka¿da z tras jaka zosta³a wygenerowana przez algorytm mrówkowy jest lepsza od oryginalnej. W tej sytuacji bez znaczenia jest liczba iteracji czy te¿ wspó³czynnik parowania.
 
 \begin{table}[h!]
-\label{tab:sum_2_mrowkowy}
-\caption[Trasa II - suma lepszych tras w porównaniu do oryginalnej]
-{Trasa II - suma lepszych tras w porównaniu do oryginalnej}
+\caption[Trasa II - skutecznoœæ algorytmu mrówkowego]
+{Trasa II - skutecznoœæ algorytmu mrówkowego dla poszczególnych parametrów wejœciowych}
 \begin{tabular}{|c|l|l|l|l|l|l|l|l|l|}
 \hline
 \rowcolor[HTML]{C0C0C0} 
@@ -749,12 +750,33 @@ k                           & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.1} &
 \rowcolor[HTML]{C6EFCE} 
 \cellcolor[HTML]{C0C0C0}100 & 100\%                                            & 100\%                                            & 100\%                                            & 100\%                                            & 100\%                                            & 100\%                                            & 100\%                                            & 100\%                                            & 100\%                                            \\ \hline
 \end{tabular}
+\label{tab:sum_2_mrowkowy}
 \end{table} 
+
+Najlepszy œredni wynik wynosi 26447. Jest to wynik który zosta³ uzyskany dla wspó³czynnika parowania równego 0.2 i liczbie iteracji równej 50. Wyniki dla takiego samego wspó³czynnika ale innej liczbie iteracji s¹ na zbli¿onym poziomie. Podobnie jak w przypadku poprzedniej trasy, najgorsza œrednia zosta³a obliczona dla wspó³czynnika parowania równego 0.1. Wraz ze wzrostem liczby iteracji nastêpowa³ progres. Ostatecznie dla 100 iteracji d³ugoœæ trasy jest zbli¿ona do najlepszych wyników. Œcie¿ka z najwiêksz¹ œredni¹ jest lepsza od oryginalnej i stanowi 78\% jej d³ugoœci.
+
+\begin{table}[h!]
+\caption[Trasa II - œrednie wyniki dla algorytmu mrówkowego]
+{Trasa II - œrednie wyniki algorytmu mrówkowego dla poszczególnych parametrów wejœciowych}
+\begin{tabular}{|c|l|l|l|l|l|l|l|l|l|}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+k                           & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.1} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.2}     & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.3} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.4} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.5} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.6} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.7} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.8} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.9} \\ \hline
+\rowcolor[HTML]{FFFC9E} 
+\cellcolor[HTML]{C0C0C0}50  & {\color[HTML]{333333} 35518}                     & \cellcolor[HTML]{C6EFCE}{\color[HTML]{333333} 26447} & 27146                                            & \cellcolor[HTML]{FFCC67}26449                    & 28817                                            & \cellcolor[HTML]{FFCC67}28061                    & \cellcolor[HTML]{FFCC67}28672                    & 30477                                            & 29670                                            \\ \hline
+\rowcolor[HTML]{FFFC9E} 
+\cellcolor[HTML]{C0C0C0}75  & 26937                                            & 26812                                                & 27660                                            & 26896                                            & 28351                                            & {\color[HTML]{333333} 28242}                     & 29070                                            & 29968                                            & 28910                                            \\ \hline
+\rowcolor[HTML]{FFCC67} 
+\cellcolor[HTML]{C0C0C0}100 & 26721                                            & \cellcolor[HTML]{FFFC9E}26532                        & 26888                                            & \cellcolor[HTML]{FFFC9E}27358                    & 28191                                            & \cellcolor[HTML]{FFFC9E}28116                    & \cellcolor[HTML]{FFFC9E}29397                    & 29738                                            & 28608                                            \\ \hline
+\end{tabular}
+\label{tab:avg_2_mrowkowy}
+\end{table}
+
+Dla najmniejszej iloœci iteracji, zostaj¹ wygenerowane trasy krótsze od pierwotnej. Na wykresie \ref{fig:kl_4} zosta³y przedstawione œrednie wyniki dla 50 iteracji. Mo¿na na tym wykresie zauwa¿yæ, ¿e najd³u¿sze trasy by³y generowane dla najni¿szego wspó³czynnika parowania. Najkrótsze trasy by³y generowane w przedziale od 0.2 do 0.4. Dla pozosta³ych wspó³czynników wartoœci s¹ wiêksze od 24\%.
 
 Oprócz krótszych tras uwagê nale¿y zwróciæ na czas jaki program potrzebowa³ na ich optymalizacjê. Œredni czas oczekiwania dla najmniejszej wartoœci iteracji wynosi³ 28.325 sekund. Pomiar czasu trwania algorytmu przy 75 iteracjach trwa³ 42.689. Najd³u¿ej program wykonywa³ siê dla 100 iteracji. Czas ten zosta³ oszacowany na 60.281.
 
 \begin{table}[h!]
-\label{tab:time_2_mrowkowy}
 \caption[Trasa II - œrednie wyniki czasu wykonania dla algorytmu mrówkowego dla parametru iloœci iteracji]
 {Trasa II - œrednie wyniki czasu wykonania algorytmu mrówkowego dla parametru iloœci iteracji}
 \begin{tabular}{|
@@ -763,17 +785,48 @@ Oprócz krótszych tras uwagê nale¿y zwróciæ na czas jaki program potrzebowa³ na i
 iteracje & 50     & 75     & 100    \\ \hline
 czas     & 28.325 & 42.689 & 60.281 \\ \hline
 \end{tabular}
+\label{tab:time_2_mrowkowy}
 \end{table}
 
-\subsection{Wyniki algorytmów zach³annych}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.4]{grafika/kl_4}
+	\caption{Procentowy rozk³ad œrednich wartoœci dla 50 iteracji}
+	\label{fig:kl_4}
+\end{figure}
+
+Po zwiêkszeniu liczby iteracji do 75, na wykresie \ref{fig:kl_5} mo¿na zauwa¿yæ zmiany w œrednich dystansach œcie¿ek. Na szczególn¹ uwagê zas³ugujê wspó³czynnik o wartoœci 0.1. Jeœli liczba iteracji by³a zmniejszona o 25, to œrednie wyniki by³y najgorsze. Po zwiêkszeniu iteracji o 25, sytuacja odwróci³a siê o 180 stopni. Œrednia z tras dla wspó³czynnika parowania feromonów równego 0.1 by³a jedn¹ z najlepszych w ca³ym zestawieniu. Pozosta³e wyniki s¹ co najmniej 25\% lepsze od oryginalnego przebytego dystansu.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.4]{grafika/kl_5}
+	\caption{Procentowy rozk³ad œrednich wartoœci dla 75 iteracji}
+	\label{fig:kl_5}
+\end{figure}
+
+
+Maksymalna liczba iteracji w niewielkim stopniu polepszy³a wczeœniejsze wyniki. Ponownie najkrótsze trasy  zosta³y wygenerowane dla wspó³czynników parowania z dolnego zakresu. Nie zmienia to faktu, i¿ wszystkie wyniki w dalszym ci¹gu by³y lepsze od badanej oryginalnej trasy. 
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.4]{grafika/kl_6}
+	\caption{Procentowy rozk³ad œrednich wartoœci dla 100 iteracji}
+	\label{fig:kl_6}
+\end{figure}
+
+Na rysunku \ref{Trasa2KL} przedstawiono najlepsz¹ trasê jak¹ znalaz³ algorytm mrówkowy. 
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.4]{grafika/2_kl.png}
+	\caption{Trasa II - algorytm mrówkowy}
+	\label{Trasa2KL}
+\end{figure}	
+
+\subsection{Wyniki algorytmów zach³annych - Przemek}
 
 W tabeli \ref{tab:AZ2BESTS} zosta³y umieszczone najlepsze wartoœci wygenerowanych tras przez algorytmy zach³anne dla trasy nr 2 przy zastosowaniu wspó³czynnika b³êdu uruchamianego na poszczególnych etapach budowania ca³kowitej trasy.
 Tak jak w poprzedniej trasie algorytm A* uzyska³ najlepszy wynik równy 28 757 metrów. Algorytm najbli¿szego s¹siada równie¿ doszed³ do wyniku poni¿ej 30 000 metrów, podczas etapu drugiego znalaz³ trasê o d³ugoœci 29 800 metrów. Znów najgorszy okaza³ siê algorytm najmniejszej krawêdzi, który tym razem wyznaczy³ trasê 31 745 metrow¹. Najwiêcej najgorszych wyników zwróci³ równie¿ algorytm najmniejszej krawêdzi, gdzie inne algorytmy odda³y wyniki bardzo przybli¿one.
-
-
-Tabela \ref{tab:AZ2OPTM} przedstawia procentow¹ poprawê oryginalnej trasy nr 2. Wszystkie wyznaczone trasy przez poszczególny z  trzech algorytmów uzyska³y lepszy wynik od trasy oryginalnej. Najlepszy wynik otrzymany przez algorytm A* poprawi³ trasê a¿ o 28.82\%.
-Na pierwszy rzut oka mo¿na zauwa¿yæ, ¿e najwy¿sze optymalizacje zosta³y wygenerowane znów przez algorytm A*. Najgorsze optymalizacje otrzymano przy zastosowaniu algorytmu najmniejszej krawêdzi w trzeciej fazie budowania tras, gdzie wszystkie wyniki by³y poni¿ej 20\%, a dolny wynik to tylko 15.98\%. Algorytm najbli¿szego s¹siada wypad³ tym razem umiarkowanie, daj¹c najlepszy wynik równy 26.24\%, który jest lepszy od niektórych tras wyznaczanych przez algorytm A*.
-
 
 \begin{table}[!h]
 \caption[Trasa II - wyniki algorytmów zach³annych]
@@ -797,6 +850,8 @@ B³¹d (m) & \cellcolor[HTML]{C0C0C0}ANS-1 & \cellcolor[HTML]{C0C0C0}ANS-2 & \cell
 \label{tab:AZ2BESTS}
 \end{table}
 
+Tabela \ref{tab:AZ2OPTM} przedstawia procentow¹ poprawê oryginalnej trasy nr 2. Wszystkie wyznaczone trasy przez poszczególny z  trzech algorytmów uzyska³y lepszy wynik od trasy oryginalnej. Najlepszy wynik otrzymany przez algorytm A* poprawi³ trasê a¿ o 28.82\%.
+Na pierwszy rzut oka mo¿na zauwa¿yæ, ¿e najwy¿sze optymalizacje zosta³y wygenerowane znów przez algorytm A*. Najgorsze optymalizacje otrzymano przy zastosowaniu algorytmu najmniejszej krawêdzi w trzeciej fazie budowania tras, gdzie wszystkie wyniki by³y poni¿ej 20\%, a dolny wynik to tylko 15.98\%. Algorytm najbli¿szego s¹siada wypad³ tym razem umiarkowanie, daj¹c najlepszy wynik równy 26.24\%, który jest lepszy od niektórych tras wyznaczanych przez algorytm A*.
 
 \begin{table}[!h]
 \caption[Trasa II - optymalizacja wyników wzglêdem oryginalnej trasy]
@@ -890,7 +945,7 @@ B³¹d (m) & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANS-1} & \multicolumn{1}{
 \end{figure}
 
 
-W tabeli \ref{tab:AZ2TIME} znajduj¹ siê czasy dzia³ania algorytmów. Najlepsz¹ trasê uda³o siê uzyskaæ w czasie 8.05 sekundy.
+W tabeli \ref{tab:AZ2TIME} znajduj¹ siê czasy dzia³ania algorytmów. Najlepsz¹ trasê uda³o siê uzyskaæ w czasie 8.05 sekundy. W najgorszym wypadku algorytm wykonywa³ siê ponad 70 sekund.
 
 \begin{table}[!h]
 \caption[Trasa II - czasy wykonywania algorytmów]
@@ -922,10 +977,18 @@ B³¹d (m) & \cellcolor[HTML]{C0C0C0}ANS-1 & \cellcolor[HTML]{C0C0C0}ANS-2 & \cell
 \label{tab:AZ2TIME}
 \end{table}
 
+Na rysunku \ref{Trasa3PN} przedstawiono najlepsz¹ trasê jak¹ znalaz³ algorytm zach³anny. 
 
-\subsection{Porównanie algorytmów}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.4]{grafika/2_pn.png}
+	\caption{Trasa II - algorytm zach³anny}
+	\label{Trasa3PN}
+\end{figure}	
 
-Podobnie jak w przypadku trasy numer 1, najlepsze wyniki algorytmów nie s¹ takie same. Ponownie przeprowadzone optymalizacje przynios³y spodziewany efekt. Najlepszym wynikiem algorytmu genetycznego jest 27 381. W stosunku do oryginalnej trasy jest to poprawa o 40\%. Czas z jakim pracowa³ program aby wygenerowaæ taki wynik to 9.03 sekund. Ponownie najlepszy wynik zosta³ osi¹gniêty przez algorytm mrówkowy. £¹czy przebyty dystans dla tego rozwi¹zania to 24 347. Jest to o 46\% wynik lepszy od pierwotnej trasy. Czas oczekiwania na ten rezultat wynosi³ 28.32 sekund. Natomiast algorytmy zach³anne, a dok³adnie algorytm A*, znalaz³y trasê o d³ugoœci 32 855 metrów, a przy zastosowaniu metody 2-opt wynik ten uleg³ poprawie do 28 757 metrów. Do wykonania wszystkich operacji potrzebne by³o 20.59 sekundy.
+\subsection{Porównanie algorytmów - wspólnie}
+
+Podobnie jak w przypadku trasy numer 1, najlepsze wyniki algorytmów nie s¹ takie same. Ponownie przeprowadzone optymalizacje przynios³y spodziewany efekt. Najlepszym wynikiem algorytmu genetycznego jest 27 381. W stosunku do oryginalnej trasy jest to poprawa o 40\%. Czas z jakim pracowa³ program aby wygenerowaæ taki wynik to 9.03 sekund. Ponownie najlepszy wynik zosta³ osi¹gniêty przez algorytm mrówkowy. £¹czy przebyty dystans dla tego rozwi¹zania to 24347. Jest to o 46\% wynik lepszy od pierwotnej trasy. Czas oczekiwania na ten rezultat wynosi³ 28.32 sekund. Natomiast algorytmy zach³anne, a dok³adnie algorytm A*, znalaz³y trasê o d³ugoœci 32 855 metrów, a przy zastosowaniu metody 2-opt wynik ten uleg³ poprawie do 28 757 metrów. Do wykonania wszystkich operacji potrzebne by³o 20.59 sekundy.
 
 Najgorszy wynik zosta³ wygenerowany przez algorytm A*. Czas dzia³ania tego algorytmu równie¿ nie wyró¿nia siê spoœród pozosta³y rozwi¹zañ. Lepszym wynik zosta³ wygenerowany przy u¿yciu algorytmu genetycznego. Wynik ten zosta³ osi¹gniêty w najkrótszym czasie spoœród wszystkich trzech rozwi¹zañ. Najlepszy wynik ponownie zosta³ wygenerowany przez algorytm mrówkowy. Czas wykonania programu równie¿ i w tym przypadku by³ najd³u¿szy. 
 
@@ -933,31 +996,37 @@ Na zdjêciach \ref{fig:sum_gen_2}, \ref{fig:sum_mro_2}, \ref{fig:sum_prz_2} zosta
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[scale=0.5]{grafika/summary_genetyczny_1}
+	\includegraphics[scale=0.4]{grafika/summary_genetyczny_1}
 	\caption{Fragment trasy algorytmu genetycznego}
 	\label{fig:sum_gen_2}
 \end{figure}
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[scale=0.5]{grafika/summary_mrowkowy_1}
+	\includegraphics[scale=0.4]{grafika/summary_mrowkowy_1}
 	\caption{Fragment trasy algorytmu mrówkowego}
 	\label{fig:sum_mro_2}
 \end{figure}
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[scale=0.5]{grafika/summary_przemka_1}
+	\includegraphics[scale=0.4]{grafika/summary_przemka_1}
 	\caption{Fragment trasy algorytmu A*}
 	\label{fig:sum_prz_2}
 \end{figure}
 
 \section{Trasa III}
-Trasa trzecia sk³ada siê z 248 punktów i ma d³ugoœæ 53478 metrów.
+Na rysunku \ref{Trasa3} zosta³a przedstawiona trasa III, która sk³ada siê z 248 punktów i ma d³ugoœæ 53478 metrów. Jest to zarazem najd³u¿sza jak i równie¿ posiada najwiêcej kontenerów. Odwiedzane punkty znajduj¹ siê na osiedlach bia³ostoczek oraz wygoda. Ciê¿arówka roz³adowuje siê w miejscowoœci Hryniewicze. 
 
-\subsection{Wyniki algorytmu genetycznego}
-W tabeli \ref{tab:AG3AVG} zosta³y pokazane œrednie wyniki algorytmu genetycznego dla trasy III. Krzy¿owanie OX ani razu nie osi¹gnê³o œredniego wyniku lepszego od d³ugoœci trasy oryginalnej. Dla N = 100, wiêkszoœæ otrzymanych wyników ma wartoœæ powy¿ej 100 kilometrów. Dopiero dla N = 1000, k = 1000, krzy¿owania CX oraz mutacji Insert uda³o siê osi¹gn¹æ œredni lepszy wynik od wartoœci oryginalnej  423728 metrów, jest to poprawa d³ugoœci oko³o 10 kilometrów. Najlepszy wynik dla N = 1000 wyst¹pi³ dla k = 4000, krzy¿owania CX oraz mutacji Insert, wyniós³ 40121 metrów. Dla tej populacji krzy¿owanie PMX w jednym miejscu osi¹gnê³o œredni wynik lepszy ni¿ d³ugoœæ trasy oryginalnej, dla k = 4000 oraz mutacji Insert. Dla populacji N = 2000 wyniki roz³o¿y³y siê podobnie do poprzedniej. Najlepszy globalny wynik 34168 metrów zosta³ osi¹gniêty dla krzy¿owania CX, mutacji Insert o k = 4000.
->>>>>>> 5d6df1a2393d54ac68a28e54dc8760acea369c33
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.4]{grafika/3.png}
+	\caption{Trasa III}
+	\label{Trasa3}
+\end{figure}
+
+\subsection{Wyniki algorytmu genetycznego - Pawe³}
+W tabeli \ref{tab:AG3AVG} zosta³y pokazane œrednie wyniki algorytmu genetycznego dla trasy III. Krzy¿owanie $OX$ ani razu nie osi¹gnê³o œredniego wyniku lepszego od d³ugoœci trasy oryginalnej. W populacji 100 osobników wiêkszoœæ otrzymanych wyników ma wartoœæ powy¿ej 100 kilometrów. Dopiero dla $N$ = 1000, $k$ = 1000, krzy¿owania $CX$ oraz mutacji $Insert$ uda³o siê osi¹gn¹æ œredni lepszy wynik od wartoœci oryginalnej 43728 metrów, jest to poprawa d³ugoœci o 9750 metrów. Najlepszy wynik dla $N$ = 1000 wyst¹pi³ dla $k$ = 4000, krzy¿owania $CX$ oraz mutacji $Insert$, wyniós³ 40121 metrów. Dla tej populacji krzy¿owanie $PMX$ w jednym miejscu osi¹gnê³o œredni wynik lepszy ni¿ d³ugoœæ trasy oryginalnej, dla $k$ = 4000 oraz mutacji $Insert$. W populacji 2000 osobników wyniki roz³o¿y³y siê podobnie jak do poprzedniej. Najlepszy globalny wynik 34168 metrów zosta³ osi¹gniêty dla krzy¿owania $CX$, mutacji $Insert$ z $k$ = 4000. Mutacja $Revert$ nie osi¹gnê³a ani jednego œredniego wyniku optymalizuj¹cego trasê. Mutacja $Swap$ osi¹gnê³a takie wyniki jedynie dla krzy¿owania $CX$.
 \begin{table}[!h]
 \caption[Trasa III - œrednie wyniki dla algorytmu genetycznego]
 {Trasa III - œrednie wyniki algorytmu genetycznego dla danych parametrów wejœciowych}
@@ -991,12 +1060,12 @@ W tabeli \ref{tab:AG3AVG} zosta³y pokazane œrednie wyniki algorytmu genetycznego
 \rowcolor[HTML]{FFFFFF} 
 \cellcolor[HTML]{C0C0C0}2000                                      & \cellcolor[HTML]{C0C0C0}2000                                     & \cellcolor[HTML]{FFFC9E}45893 & 55922  & 82523  & 54700  & 63697  & 96266  & \cellcolor[HTML]{FFCB2F}36518 & \cellcolor[HTML]{FFFC9E}39200 & 59014  \\ \hline
 \rowcolor[HTML]{FFFFFF} 
-\cellcolor[HTML]{C0C0C0}2000                                      & \cellcolor[HTML]{C0C0C0}4000                                     & \cellcolor[HTML]{FFFC9E}47206 & 57436  & 81653  & 54149  & 66321  & 96440  & \cellcolor[HTML]{34FF34}34168 & \cellcolor[HTML]{FFFC9E}37951 & 56645  \\ \hline
+\cellcolor[HTML]{C0C0C0}2000                                      & \cellcolor[HTML]{C0C0C0}4000                                     & \cellcolor[HTML]{FFFC9E}47206 & 57436  & 81653  & 54149  & 66321  & 96440  & \cellcolor[HTML]{C6EFCE}34168 & \cellcolor[HTML]{FFFC9E}37951 & 56645  \\ \hline
 \end{tabular}}
 \label{tab:AG3AVG}
 \end{table}
 
-W tabeli \ref{tab:AG3Ilosc} zosta³a pokazana skutecznoœæ algorytmu genetycznego. Dla populacji $N$ = 100, nie by³o ani jednego wyniku, lepszego od d³ugoœci trasy oryginalnej. Podobnie dla $N$ = 1000 i $k$ = 100. Krzy¿owanie $PMX$ osi¹gnê³o tylko raz skutecznoœæ 100 procent dla $N$ = 2000, $k$ = 2000 oraz mutacji $Insert$. Mutacja $Revert$ ani razu dla krzy¿owania $PMX$ oraz $OX$ nie zoptymalizowa³a wyniku. $Revert$ dopiero dla krzy¿owania $CX$ i $N$ = 2000 mia³ skutecznoœæ na poziomie 40\% - 60\%. Krzy¿owanie $CX$ z mutacj¹ $Insert$ uzyska³o 100\% skutecznoœci dla $N$ = 1000 oraz $k$ = 1000 i $k$ = 4000. Mutacja $Swap$ razem z $Insert$ osi¹gnê³a 100\% skutecznoœci dla krzy¿owania $CX$ dla $N$ = 2000 oraz $k$ >= 1000.
+W tabeli \ref{tab:AG3Ilosc} zosta³a pokazana skutecznoœæ algorytmu genetycznego. W populacji 100 osobników nie by³o ani jednego wyniku, lepszego od d³ugoœci trasy oryginalnej. Podobnie dla $N$ = 1000 i $k$ = 100. Krzy¿owanie $PMX$ osi¹gnê³o tylko raz skutecznoœæ 100 procent dla $N$ = 2000, $k$ = 2000 oraz mutacji $Insert$. Mutacja $Revert$ ani razu dla krzy¿owania $PMX$ oraz $OX$ nie zoptymalizowa³a wyniku. $Revert$ dopiero dla krzy¿owania $CX$ i $N$ = 2000 mia³ skutecznoœæ na poziomie 40\% - 60\%. Krzy¿owanie $CX$ z mutacj¹ $Insert$ uzyska³o 100\% skutecznoœci dla $N$ = 1000 oraz $k$ = 1000 i $k$ = 4000. Mutacja $Swap$ razem z $Insert$ osi¹gnê³a 100\% skutecznoœci dla krzy¿owania $CX$ dla $N$ = 2000 oraz $k$ >= 1000.
 \begin{table}[!h]
 \caption[Trasa III - skutecznoœæ algorytmu genetycznego]
 {Trasa III - skutecznoœæ algorytmu genetycznego dla poszczególnych parametrów wejœciowych}
@@ -1035,7 +1104,7 @@ W tabeli \ref{tab:AG3Ilosc} zosta³a pokazana skutecznoœæ algorytmu genetycznego.
 \label{tab:AG3Ilosc}
 \end{table}
 
-W tabeli \ref{tab:AG3Best} przedstawiono najlepsze wyniki jakie osi¹gn¹³ algorytm genetyczny dla poszczególnych parametrów wejœciowych. Algorytm genetyczny znalaz³ wyniki lepsze od d³ugoœci trasy oryginalnej od $N$ = 1000 i $k$ = 1000. Najlepszy osi¹gniêty wynik dla $N$ = 1000 to 34365 metrów, czyli optymalizacja o 19113 metrów. Dla tej populacji zdecydowanie krzy¿owanie $OX$ radzi sobie du¿o lepiej ni¿ inne. Algorytm genetyczny z  krzy¿owaniem $PMX$ dla tej populacji osi¹gn¹³ najlepszy wynik 43708 metrów. Najlepszy globalny wynik zosta³ osi¹gniêty dla $N$ = 2000, $k$ = 1000, krzy¿owania $CX$ oraz mutacji $Insert$ i wyniós³ 32372 metrów. Krzy¿owanie PMX poprawi³o siê nieznacznie do 32326 metrów.
+W tabeli \ref{tab:AG3Best} przedstawiono najlepsze wyniki jakie osi¹gn¹³ algorytm genetyczny dla poszczególnych parametrów wejœciowych. Algorytm genetyczny znalaz³ wyniki lepsze od d³ugoœci trasy oryginalnej od $N$ = 1000 i $k$ = 1000. Najlepszy osi¹gniêty wynik dla $N$ = 1000 to 34365 metrów, czyli optymalizacja o 19113 metrów. Dla tej populacji zdecydowanie krzy¿owanie $OX$ radzi sobie du¿o lepiej ni¿ inne. Algorytm genetyczny z  krzy¿owaniem $PMX$ dla tej populacji osi¹gn¹³ najlepszy wynik 43708 metrów. Najlepszy globalny wynik zosta³ osi¹gniêty dla $N$ = 2000, $k$ = 1000, krzy¿owania $CX$ oraz mutacji $Insert$ i wyniós³ 32372 metrów. Krzy¿owanie $PMX$ poprawi³o siê nieznacznie do 32326 metrów. Mimo, ¿e mutacja $Revert$ ani razu nie mia³a wyniku œredniego, który by optymalizowa³ trasê, to dla krzy¿owania $CX$ osi¹gnê³a pojedyncze wyniki lepsze od trasy oryginalnej.
 \begin{table}[!h]
 \caption[Trasa III - najlepsze wyniki dla algorytmu genetycznego]
 {Trasa III - najlepsze wyniki algorytmu genetycznego dla poszczególnych parametrów wejœciowych}
@@ -1069,7 +1138,7 @@ W tabeli \ref{tab:AG3Best} przedstawiono najlepsze wyniki jakie osi¹gn¹³ algoryt
 \label{tab:AG3Best}
 \end{table}
 
-W tabeli \ref{tab:AG3Time}   zosta³y pokazane œrednie czasy trwania algorytmu genetycznego. Podobnie jak w poprzednich przypadkach, najszybsze okaza³o siê krzy¿owanie $CX$, a najwolniejsze $PMX$. Pomiêdzy $N$ = 1000, a $N$ = 2000 œrednia najlepsza optymalizacja trasy poprawi³a siê oko³o 5953 metrów (Tab. \ref{tab:AG3AVG}), czas na znalezienie takiej trasy wzrós³ ponad dwukrotnie z 12.2 sekund do 26.81 sekund.
+W tabeli \ref{tab:AG3Time}   zosta³y pokazane œrednie czasy trwania algorytmu genetycznego. Podobnie jak w poprzednich przypadkach, najszybsze okaza³o siê krzy¿owanie $CX$, a najwolniejsze $PMX$. Pomiêdzy $N$ = 1000, a $N$ = 2000 œrednia najlepsza optymalizacja trasy poprawi³a siê oko³o 5953 metrów (Tab. \ref{tab:AG3AVG}), czas na znalezienie takiej trasy wzrós³ ponad dwukrotnie z 12.2 sekund do 26.81 sekund. Trasa III sk³ada siê z najwiêkszej liczby punktów, wiêc z tego powodu czas trwania algorytmu jest d³u¿szy ni¿ dla poprzednich tras.
 \begin{table}[!h]
 \caption[Trasa III - œrednie czasy wykonywania algorytmu genetycznego]
 {Trasa III - œrednie czasy wykonywania algorytmu dla poszczególnych parametrów wejœciowych}
@@ -1105,7 +1174,13 @@ W tabeli \ref{tab:AG3Time}   zosta³y pokazane œrednie czasy trwania algorytmu ge
 \label{tab:AG3Time}
 \end{table}
 
-Rysunki \ref{Trasa3GAN100}, \ref{Trasa3GAN1000} oraz \ref{Trasa3GAN12000} przedstawiaj¹ wykresy, które porównuj¹ o ile ró¿ni siê rozwi¹zanie od d³ugoœci trasy oryginalnej, kolejno dla $N$ = 100, $N$ = 1000 oraz $N$ = 2000. Dla $N$ = 100 (Rys. \ref{Trasa3GAN100}) wyniki nawet nie zbli¿y³y siê do trasy oryginalnej. Dla $N$ = 1000 (Rys. \ref{Trasa3GAN1000}) krzy¿owanie $CX$ z mutacj¹ $Insert$ œredni optymalizowa³ trasê od 18.23\% do 24.98\%. Krzy¿owanie $PMX$ optymalizuje trasê tylko dla $k$ = 4000 z mutacj¹ $Insert$ o 7.77\%. Dla $N$ = 2000 (Rys. \ref{Trasa3GAN2000}) krzy¿owanie $CX$ dla $k$ >= 1000 oraz mutacji $Insert$ i $Swap$, œrednio zoptymalizowa³o trasê od  26.08\% do 36.11\%. Krzy¿owanie $PMX$ dla $k$ >= 2000 i mutacji $Insert$ œrednio zoptymalizowa³o trasê od 11.73\% do 14.18\%. Krzy¿owanie $OX$ dla ¿adnej populacji nie potrafi³o zoptymalizowaæ trasy. Najbli¿szy wynik zosta³ osi¹gniety dla $N$ = 2000 oraz $k$ = 4000 i wyniós³ -0.62\%.
+Rysunki \ref{Trasa3GAN100}, \ref{Trasa3GAN1000} oraz \ref{Trasa3GAN2000} przedstawiaj¹ wykresy, które porównuj¹ o ile ró¿ni siê rozwi¹zanie od d³ugoœci trasy oryginalnej, kolejno dla $N$ = 100, $N$ = 1000 oraz $N$ = 2000.
+
+W populacji 100 osobników (Rys. \ref{Trasa3GAN100}) wyniki nawet nie zbli¿y³y siê do trasy oryginalnej.  Dla ma³ej iloœci iteracji, wyniki by³y gorsze o ponad 300\%. Przy k$k$ = 4000 zbli¿y³y siê do -40\%.
+
+W populacji 1000 osobników (Rys. \ref{Trasa3GAN1000}) krzy¿owanie $CX$ z mutacj¹ $Insert$ œrednio optymalizowa³ trasê od 18.23\% do 24.98\%. Krzy¿owanie $PMX$ optymalizuje trasê tylko dla $k$ = 4000 z mutacj¹ $Insert$ o 7.77\%.  Krzy¿owanie $OX$ osi¹gnê³o najlepszy wynik -6\%.
+
+W populacji 2000 osobników (Rys. \ref{Trasa3GAN2000}) krzy¿owanie $CX$ dla $k$ >= 1000 oraz mutacji $Insert$ i $Swap$, œrednio zoptymalizowa³o trasê od  26.08\% do 36.11\%. Krzy¿owanie $PMX$ dla $k$ >= 2000 i mutacji $Insert$ œrednio zoptymalizowa³o trasê od 11.73\% do 14.18\%. Krzy¿owanie $OX$ dla ¿adnej populacji nie potrafi³o zoptymalizowaæ trasy. 
 
 \begin{figure}[!h]
 	\centering
@@ -1126,14 +1201,21 @@ Rysunki \ref{Trasa3GAN100}, \ref{Trasa3GAN1000} oraz \ref{Trasa3GAN12000} przeds
 	\label{Trasa3GAN2000}
 \end{figure}
 
+Na rysunku \ref{Trasa3PS} przedstawiono najlepsz¹ trasê jak¹ znalaz³ algorytm genetyczny. 
 
-\subsection{Wyniki algorytmu mrówkowego}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.4]{grafika/3_ps.png}
+	\caption{Trasa III - algorytm genetyczny}
+	\label{Trasa3PS}
+\end{figure}	
+
+\subsection{Wyniki algorytmu mrówkowego - Kamil}
 
 Na ostatniej badanej trasie, wyniki algorytmu mrówkowego równie¿ wygl¹daj¹ dobrze. Analizuj¹c tabelê \ref{tab:avg_3_mrowkowy} ³atwo zauwa¿yæ, ¿e wszystkie œrednie wyniki by³y lepsze od pierwotnej d³ugoœci. W najgorszym przypadku œredni wynik ma wartoœæ 39 797 metrów. Jest to wynik o 26\% lepszy od oryginalnej trasy. Taki wynik zosta³ wygenerowany przy najni¿szej liczbie iteracji oraz dla wspó³czynnika parowania wynosz¹cego 0.1. Dla tego samego wspó³czynnika wraz ze wzrostem iteracji wynik ulega polepszeniu. Najlepszy wynik dla tego wspó³czynnika wynosi 31 935 metrów. Ró¿nica miêdzy t¹ wartoœci¹ a najlepsz¹ wartoœci¹ dla ca³ej trasy jest niedu¿a i wynosi 359 metrów. Wartoœæ 31 576 metrów jest o 41\% lepszym wynikiem od trasy oryginalnej.
 
 
 \begin{table}[h!]
-\label{tab:avg_3_mrowkowy}
 \caption[Trasa III - œrednie wyniki dla algorytmu mrówkowego]
 {Trasa III - œrednie wyniki algorytmu mrówkowego dla poszczególnych parametrów wejœciowych}
 \begin{tabular}{|c|l|l|l|l|l|l|l|l|l|}
@@ -1141,18 +1223,18 @@ Na ostatniej badanej trasie, wyniki algorytmu mrówkowego równie¿ wygl¹daj¹ dobrz
 \rowcolor[HTML]{C0C0C0} 
 k                           & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.1} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.2}     & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.3} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.4} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.5} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.6} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.7} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.8} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.9} \\ \hline
 \rowcolor[HTML]{FFFC9E} 
-\cellcolor[HTML]{C0C0C0}50  & {\color[HTML]{333333} 39797}                     & \cellcolor[HTML]{34FF34}{\color[HTML]{333333} 31576} & \cellcolor[HTML]{FFCC67}33115                    & 34142                                            & 35197                                            & 35392                                            & \cellcolor[HTML]{FFCC67}34947                    & 35023                                            & 35678                                            \\ \hline
+\cellcolor[HTML]{C0C0C0}50  & {\color[HTML]{333333} 39797}                     & \cellcolor[HTML]{C6EFCE}{\color[HTML]{333333} 31576} & \cellcolor[HTML]{FFCC67}33115                    & 34142                                            & 35197                                            & 35392                                            & \cellcolor[HTML]{FFCC67}34947                    & 35023                                            & 35678                                            \\ \hline
 \rowcolor[HTML]{FFFC9E} 
 \cellcolor[HTML]{C0C0C0}75  & 32302                                            & 32777                                                & 34365                                            & 33947                                            & \cellcolor[HTML]{FFCC67}34407                    & {\color[HTML]{333333} 35280}                     & 35765                                            & \cellcolor[HTML]{FFCC67}34893                    & 36052                                            \\ \hline
 \rowcolor[HTML]{FFFC9E} 
 \cellcolor[HTML]{C0C0C0}100 & \cellcolor[HTML]{FFCC67}31935                    & 32737                                                & 33768                                            & \cellcolor[HTML]{FFCC67}33181                    & 34423                                            & \cellcolor[HTML]{FFCC67}34415                    & 35571                                            & 36381                                            & \cellcolor[HTML]{FFCC67}35566                    \\ \hline
 \end{tabular}
+\label{tab:avg_3_mrowkowy}
 \end{table}
 
 Do wygenerowania najkrótszej trasy potrzeba by³o 75 iteracji. Wspó³czynnik parowania dla tej trasy wynosi 0.1. Mo¿na zauwa¿yæ, jak iloœæ iteracji potrafi wp³yn¹æ na wynik. Dla najni¿szej iloœci iteracji wygenerowana trasa jest du¿o d³u¿sza od pozosta³ych dwóch wariantów. Dla wiêkszoœci wspó³czynników parowania sytuacja jest podobna. Wraz ze wzrostem liczy iteracji wyniki s¹ lepsze. Dla wartoœci z zakresu od 0.6 do 0.9 trend ten jest zmieniony. Przyk³adowo dla wspó³czynnika parowania równego 0.8, program utworzy³ najlepsz¹ trasê przy 75 iteracjach. Najd³u¿sza trasa zosta³a natomiast odnotowana dla najwiêkszej liczby iteracji.
 
 \begin{table}[h!]
-\label{tab:best_3_mrowkowy}
 \caption[Trasa III - najlepsze wyniki dla algorytmu mrówkowego]
 {Trasa III - najlepsze wyniki algorytmu mrówkowego dla poszczególnych parametrów wejœciowych}
 \begin{tabular}{|c|l|l|l|l|l|l|l|l|l|}
@@ -1162,47 +1244,19 @@ k                           & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.1} &
 \rowcolor[HTML]{FFFC9E} 
 \cellcolor[HTML]{C0C0C0}50  & {\color[HTML]{333333} 38271}                     & {\color[HTML]{333333} 29339}                     & \cellcolor[HTML]{FFCC67}30505                    & 31383                                            & 31255                                            & 31141                                            & 30948                                            & 31304                                            & 32184                                            \\ \hline
 \rowcolor[HTML]{FFFC9E} 
-\cellcolor[HTML]{C0C0C0}75  & \cellcolor[HTML]{34FF34}28172                    & \cellcolor[HTML]{FFCC67}28860                    & 31254                                            & 30693                                            & 30415                                            & {\color[HTML]{333333} 32098}                     & 31372                                            & \cellcolor[HTML]{FFCC67}29923                    & 31230                                            \\ \hline
+\cellcolor[HTML]{C0C0C0}75  & \cellcolor[HTML]{C6EFCE}28172                    & \cellcolor[HTML]{FFCC67}28860                    & 31254                                            & 30693                                            & 30415                                            & {\color[HTML]{333333} 32098}                     & 31372                                            & \cellcolor[HTML]{FFCC67}29923                    & 31230                                            \\ \hline
 \rowcolor[HTML]{FFCC67} 
 \cellcolor[HTML]{C0C0C0}100 & \cellcolor[HTML]{FFFC9E}28311                    & \cellcolor[HTML]{FFFC9E}29084                    & \cellcolor[HTML]{FFFC9E}31542                    & 30573                                            & 30254                                            & 30428                                            & 29279                                            & \cellcolor[HTML]{FFFC9E}33067                    & 30334                                            \\ \hline
 \end{tabular}
+\label{tab:best_3_mrowkowy}
 \end{table}
-
-Poza analiz¹ najlepszych tras, na uwagê zas³uguje porównanie oryginalnej trase ze œrednic¹ wyniki dla ka¿dego ze wspó³czynników. Na wykresie \ref{fig:kl_7} mo¿na zauwa¿yæ, ¿e dla najni¿szej badanej liczby iteracji œrednia wszystkich wyników by³a wiêksza o minimum 25\%. Najwiêksz¹ œredni¹ uzyskan¹ podczas badañ odnotowana dla wspó³czynnika parowania równego 0.2. Œrednia ta by³a wiêksza o 40.96\%.
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[scale=0.75]{grafika/kl_7}
-	\caption{Wykres 1}
-	\label{fig:kl_7}
-\end{figure}
-
-Na wykresie \ref{fig:kl_8} zosta³y przedstawione œrednie wyniki dla 75 iteracji. Wszystkie wartoœci s¹ lepsze od pocz¹tkowych. Najlepsza wartoœæ zosta³a odnotowana dla wspó³czynnika parowana wynosz¹cego 0.1. Jest to najwiêkszy progres wzglêdem mniejszej liczby iteracji.
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[scale=0.75]{grafika/kl_8}
-	\caption{Wykres 1}
-	\label{fig:kl_8}
-\end{figure}
-
-Po zwiêkszeniu liczby iteracji wartoœci nadal utrzymywa³y siê na wysokim poziomie. Wszystkie œrednie by³y wiêksze od pierwotnej trasy. ¯adna œrednia nie by³a mniejsza od 30\%. Tak jak dla 75 iteracji, tak i dla 100, najlepsze œrednie wyniki zosta³y odnotowane dla wspó³czynnika wartoœci równego 0.1.
-
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[scale=0.75]{grafika/kl_9}
-	\caption{Wykres 1}
-	\label{fig:kl_9}
-\end{figure}
-
 
 Skutecznoœæ z jak¹ algorytm mrówkowy z optymalizowa³ trasê jest najwy¿sza z mo¿liwych. W tabeli \ref{tab:sum_3_mrowkowy} zosta³a przedstawiona procentowa wartoœæ tras zoptymalizowanych w stosunku do oryginalnej odleg³oœci. Wszystkie z prób okaza³y siê lepsze. Dziêki temu mo¿na zauwa¿yæ, ¿e niezale¿nie od iloœci iteracji wygenerowany wynik da satysfakcjonuj¹cy wynik. Ma to znaczenie w kontekœcie czasu jaki potrzebuje program na ulepszenie trasy. Tak jak w przypadku poprzednich tras, algorytm mrówkowy potrzebuje wykonaæ wiele operacji. Do wykonania 50 prób polepszenia trasy potrzeba œrednio 84.451 sekundy. Jeœli iloœæ prób zosta³a zwiêkszona do 75, to œredni czas wzrós³ do 131.146 sekund. Najd³u¿ej trwa³o obliczanie trasy dla 100 iteracji. Czas ten wyniós³ 176.874 sekund.
 
 \begin{table}[h!]
 \label{tab:sum_3_mrowkowy}
-\caption[Trasa III - suma lepszych tras w porównaniu do oryginalnej]
-{Trasa III - suma lepszych tras w porównaniu do oryginalnej}
+\caption[Trasa III - skutecznoœæ algorytmu mrówkowego]
+{Trasa III - skutecznoœæ algorytmu mrówkowego}
 \begin{tabular}{|c|l|l|l|l|l|l|l|l|l|}
 \hline
 \rowcolor[HTML]{C0C0C0} 
@@ -1228,8 +1282,44 @@ czas     & 84.451 & 131.146 & 176.874 \\ \hline
 \end{tabular}
 \end{table}
 
+Poza analiz¹ najlepszych tras, na uwagê zas³uguje porównanie oryginalnej trase ze œrednic¹ wyniki dla ka¿dego ze wspó³czynników. Na wykresie \ref{fig:kl_7} mo¿na zauwa¿yæ, ¿e dla najni¿szej badanej liczby iteracji œrednia wszystkich wyników by³a wiêksza o minimum 25\%. Najwiêksz¹ œredni¹ uzyskan¹ podczas badañ odnotowana dla wspó³czynnika parowania równego 0.2. Œrednia ta by³a wiêksza o 40.96\%.
 
-\subsection{Wyniki algorytmów zach³annych}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.4]{grafika/kl_7}
+	\caption{Procentowy rozk³ad œrednich wartoœci dla 50 iteracji}
+	\label{fig:kl_7}
+\end{figure}
+
+Na wykresie \ref{fig:kl_8} zosta³y przedstawione œrednie wyniki dla 75 iteracji. Wszystkie wartoœci s¹ lepsze od pocz¹tkowych. Najlepsza wartoœæ zosta³a odnotowana dla wspó³czynnika parowana wynosz¹cego 0.1. Jest to najwiêkszy progres wzglêdem mniejszej liczby iteracji.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.4]{grafika/kl_8}
+	\caption{Procentowy rozk³ad œrednich wartoœci dla 75 iteracji}
+	\label{fig:kl_8}
+\end{figure}
+
+Po zwiêkszeniu liczby iteracji wartoœci nadal utrzymywa³y siê na wysokim poziomie. Wszystkie œrednie by³y wiêksze od pierwotnej trasy. ¯adna œrednia nie by³a mniejsza od 30\%. Tak jak dla 75 iteracji, tak i dla 100, najlepsze œrednie wyniki zosta³y odnotowane dla wspó³czynnika wartoœci równego 0.1.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.4]{grafika/kl_9}
+	\caption{Procentowy rozk³ad œrednich wartoœci dla 100 iteracji}
+	\label{fig:kl_9}
+\end{figure}
+
+Na rysunku \ref{Trasa3KL} przedstawiono najlepsz¹ trasê jak¹ znalaz³ algorytm mrówkowy. 
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.4]{grafika/3_kl.png}
+	\caption{Trasa III - algorytm mrówkowy}
+	\label{Trasa3KL}
+\end{figure}	
+
+
+\subsection{Wyniki algorytmów zach³annych - Przemek}
 
 Tabela \ref{tab:AZ3BESTS} przedstawia najlepsze wyniki uzyskane przez algorytmy zach³anne dla ostatniej badanej trasy. Jak w poprzednich badaniach tutaj równie¿ zosta³ zastosowany wspó³czynnik b³êdu przy dokonywaniu wyborów na ka¿dej z poszczególnych trzech faz tworzenia tras. Bez zmian najlepiej dalej zachowuje siê algorytm A*, który dalej znajdujê œcie¿kê o najmniejszej wartoœci równ¹ 32 855 metrów. Tak jak w poprzednich badaniach najgorzej wypad³ algorytm najmniejszej krawêdzi, dla którego najlepsza trasa uzyska³a wynik 34 130 metrów co oznacza, ¿e prawie wszystkie wyznaczone trasy przez algorytm A* zdoby³y lepszy wynik.
 Algorytm najbli¿szego s¹siada tym razem poradzi³ sobie tak samo dobrze jak algorytm A*, gdzie dobrze widaæ na tabeli \ref{tab:AZ3OPTM} najlepsze wyniki s¹ niemal równe wynosz¹ce oko³o 38.55\% optymalizacji wzglêdem oryginalnej œcie¿ki.
@@ -1314,7 +1404,6 @@ B³¹d (m) & \cellcolor[HTML]{C0C0C0}ANS-1 & \cellcolor[HTML]{C0C0C0}ANS-2 & \cell
 \label{tab:AZ32OPT}
 \end{table}
 
-
 \begin{table}[!h]
 \caption[Trasa III - optymalizacja powsta³ych tras przez metodê 2-opt]
 {Trasa III - optymalizacja powsta³ych tras przez metodê 2-opt}
@@ -1385,7 +1474,16 @@ B³¹d (m) & \cellcolor[HTML]{C0C0C0}ANS-1 & \cellcolor[HTML]{C0C0C0}ANS-2 & \cell
 \label{tab:AZ3TIME}
 \end{table}
 
-\subsection{Porównanie algorytmów}
+Na rysunku \ref{Trasa3PN} przedstawiono najlepsz¹ trasê jak¹ znalaz³ algorytm mrówkowy. 
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.4]{grafika/3_pn.png}
+	\caption{Trasa III - algorytm zach³anny}
+	\label{Trasa3KL}
+\end{figure}	
+
+\subsection{Porównanie algorytmów - wspólnie}
 
 Ostatnia z tras sk³ada³a siê z najwiêkszej liczby punktów. Wszystkie algorytmy wykonywa³y siê d³u¿ej ni¿ na poprzednich trasach. Ka¿dy z algorytmów poprawi³ pierwotn¹ trasê. Algorytm genetyczny wygenerowa³ trasê o d³ugoœci 32 374. W porównaniu do orygina³u jest to poprawa o 40\%. Program potrzebowa³ œrednio 8.25 sekundy na optymalizacjê trasy. Najlepszy rezultat zosta³ otrzymany przy pomocy algorytmu mrówkowego. Trasa o d³ugoœci 28 172 jest krótsza o 47\% od pocz¹tkowej œcie¿ki. Œredni czas z jakim pracowa³ algorytm nad wygenerowaniem takiej trasy to 131.146 sekundy. Najkrótsza œcie¿ka dla algorytmów zach³annych zosta³a znaleziona przez algorytm A* o d³ugoœci 32 855 metrów z czasem dzia³ania algorytmu 7.66 sekund. Po zoptymalizowaniu otrzymanych tras metod¹ 2-opt otrzymano algorytmem najbli¿szego s¹siada lepszy wynik o wartoœci 31 781 w czasie 65.1 sekundy. Jest to wartoœæ o 41\% lepsza od oryginalnej. 
 
@@ -1395,21 +1493,21 @@ Na zdjêciach \ref{fig:sum_gen_2}, \ref{fig:sum_mro_2}, \ref{fig:sum_prz_2} zosta
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[scale=0.5]{grafika/summary_genetyczny_2}
+	\includegraphics[scale=0.4]{grafika/summary_genetyczny_2}
 	\caption{Fragment trasy algorytmu genetycznego}
 	\label{fig:sum_gen_3}
 \end{figure}
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[scale=0.5]{grafika/summary_mrowkowy_2}
+	\includegraphics[scale=0.4]{grafika/summary_mrowkowy_2}
 	\caption{Fragment trasy algorytmu mrówkowego}
 	\label{fig:sum_mro_3}
 \end{figure}
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[scale=0.5]{grafika/summary_przemka_2}
+	\includegraphics[scale=0.4]{grafika/summary_przemka_2}
 	\caption{Fragment trasy algorytmu najbli¿szego s¹siada}
 	\label{fig:sum_prz_3}
 \end{figure}
