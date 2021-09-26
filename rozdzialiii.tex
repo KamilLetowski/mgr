@@ -1,18 +1,18 @@
 \chapter{Algorytm mrówkowy - Kamil}
 
-S³owo rozwój mo¿e byæ zestawiane z wieloma rzeczownikami. Wiele dziedzin ci¹gle siê rozwija, powstaj¹ nowe udogodnienia które wp³ywaj¹ na wiele dziedzin ¿ycia. Dziêki rozwojowi techniki ludzie s¹ w stanie osi¹gaæ cele które jakiœ czas temu mog³y byæ tylko marzeniami. Rozwój techniki równie¿ potrzebuje inspiracji do tworzenia nowych, lepszych rozwi¹zañ
+S³owo rozwój mo¿e byæ zestawiane z wieloma rzeczownikami. Wiele dziedzin ci¹gle siê rozwija, powstaj¹ nowe udogodnienia które wp³ywaj¹ na wiele dziedzin ¿ycia. Dziêki rozwojowi techniki ludzie s¹ w stanie osi¹gaæ cele, które jakiœ czas temu mog³y byæ tylko marzeniami. Rozwój techniki równie¿ potrzebuje inspiracji do tworzenia nowych, lepszych rozwi¹zañ
 
 Szybkoœæ oraz dok³adnoœæ rozwoju zale¿y od wielu czynników. Dziêki pracy zespo³owej pewne problemy mog¹ byæ rozwi¹zywane szybciej i dok³adniej. Wysi³ek w³o¿ony przez grupê procentuje szybko, a same efekty mog¹ byæ równie¿ satysfakcjonuj¹ce. Istotnym czynnikiem jest wysi³ek wk³adany przez ka¿dego cz³onka grupy.
 
-Obserwuj¹c przyrodê mo¿emy zauwa¿yæ w jaki sposób zwierzêta radz¹ sobie z ró¿nymi problemami. Z³o¿one grupy mog¹ byæ spokojniejsze o zdobycie po¿ywienia czy te¿ o przetrwanie w ciê¿kich warunkach. Praca zespo³owa jest jedn¹ z cech której osobniki w grupie ucz¹ siê nie bêd¹c nawet tego do koñca œwiadomym.
+Obserwuj¹c przyrodê mo¿emy zauwa¿yæ w jaki sposób zwierzêta radz¹ sobie z ró¿nymi problemami. Z³o¿one grupy mog¹ byæ spokojniejsze o zdobycie po¿ywienia, czy te¿ o przetrwanie w ciê¿kich warunkach. Praca zespo³owa jest jedn¹ z cech której osobniki w grupie ucz¹ siê nie bêd¹c nawet tego do koñca œwiadomym.
 
 \section{Wprowadzenie do algorytmu}
 
-Na przestrzeni czasu wiele gatunków zwierz¹t ¿yj¹cych na ziemi przystosowa³o siê do panuj¹cych tu warunków. Jedn¹ z takich gatunków s¹ mrówki. Te niewielkich rozmiarów owady posiadaj¹ zdolnoœci pomagaj¹ce im przetrwaæ wœród najciê¿szych warunków. Mrówki ¿yj¹ w stadach w zwi¹zku z czym wykorzystuj¹ pracê zespo³ow¹ do rozwi¹zywania problemów jakie codziennie napotykaj¹ na swojej drodze.
+Na przestrzeni czasu wiele gatunków zwierz¹t ¿yj¹cych na ziemi przystosowa³o siê do panuj¹cych tu warunków. Jedn¹ z takich gatunków s¹ mrówki. Te niewielkich rozmiarów owady posiadaj¹ zdolnoœci pomagaj¹ce im przetrwaæ wœród najciê¿szych warunków. Mrówki ¿yj¹ w stadach, w zwi¹zku z czym wykorzystuj¹ pracê zespo³ow¹ do rozwi¹zywania problemów jakie codziennie napotykaj¹ na swojej drodze.
 
-Aby zapewniæ przetrwanie stadu mrówki potrzebuj¹ zapewniæ sobie dostêp do pokarmu. Dziesi¹tki tysiêcy mrówek maj¹ swoje schronienie w mrowiskach. To tam trafia zdobyty przez nich pokarm. Wystarczy aby jedna mrówka znalaz³a miejsce z pokarmem, to po powrocie do mrowiska inne osobniki s¹ w stanie odtworzyæ drogê do po¿ywienia. Na tym etapie nale¿a³oby siê zastanowiæ, w jaki sposób mrówki s¹ w stanie komunikowaæ siê miêdzy sob¹?
+Aby zapewniæ przetrwanie stadu, mrówki potrzebuj¹ zapewniæ sobie dostêp do pokarmu. Dziesi¹tki tysiêcy mrówek maj¹ swoje schronienie w mrowiskach. To tam trafia zdobyty przez nich pokarm. Wystarczy aby jedna mrówka znalaz³a miejsce z pokarmem, to po powrocie do mrowiska inne osobniki s¹ w stanie odtworzyæ drogê do po¿ywienia. Na tym etapie nale¿a³oby siê zastanowiæ, w jaki sposób mrówki s¹ w stanie komunikowaæ siê miêdzy sob¹?
 
-Jednym z opisywanych przez nas rozwi¹zañ do wyznaczania zoptymalizowanej trasy jest algorytm mrówkowy, inaczej nazywany ACO - Ant Colony Optimization. Pomys³ ten zosta³ zaczerpniêty z natury. Jak sama nazwa wskazuje dzia³anie algorytmy jest zwi¹zane z mrówkami, a dok³adnie z koloni¹ mrówek. Pomys³ na algorytm zosta³ zaproponowany na pocz¹tku lat 90 XX wieku przez w³oskiego badacza - Marco Dorigo.
+Jednym z opisywanych przez nas rozwi¹zañ do wyznaczania zoptymalizowanej trasy jest algorytm mrówkowy, inaczej nazywany ACO - Ant Colony Optimization. Pomys³ ten zosta³ zaczerpniêty z natury. Jak sama nazwa wskazuje dzia³anie algorytmy jest zwi¹zane z mrówkami, a dok³adnie z koloni¹ mrówek. Pomys³ na algorytm zosta³ zaproponowany na pocz¹tku lat 90 XX wieku przez w³oskiego badacza - Marco Dorigo \cite{ant_intro}.
 
 Tak jak zosta³o wspomniane wczeœniej, algorytm opiera siê na pracy mrówek. Chodzi tutaj dok³adnie o trasê jak¹ mrówki pokonuj¹ od swojego siedliska do miejsca w którym znajduje siê po¿ywienie. Wa¿ne jest znaczenie tutaj pracy zespo³owej. Trasê kszta³tuje ca³a kolonia mrówek, a nie pojedyncze przypadki. Mrówki z ka¿d¹ kolejn¹ podró¿¹ wykszta³caj¹ coraz to bardziej optymaln¹ trasê.
 
