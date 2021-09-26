@@ -1,15 +1,33 @@
 \chapter*{Podsumowanie}
 \addcontentsline{toc}{chapter}{Podsumowanie}
 
-Celem pracy jaka zosta³a wykonana by³a optymalizacja tras przejazdu ciê¿arówek z odpadami komunalnymi. Wykorzystane rozwi¹zania s¹ dedykowane do prac nad optymalizacj¹ problemu komiwoja¿era. Dla ka¿dego z algorytmów nale¿a³o znaleŸæ takie parametry wejœciowe aby optymalizacje by³y jak najlepsze.
+Celem pracy jaka zosta³a wykonana by³a optymalizacja tras przejazdu ciê¿arówek z odpadami komunalnymi. Wykorzystane rozwi¹zania s¹ dedykowane do prac nad optymalizacj¹ problemu komiwoja¿era. Dla ka¿dego z algorytmów nale¿a³o znaleŸæ takie parametry wejœciowe, aby optymalizacje d³ugoœci tras by³y jak najlepsze.
 
-Dziêki wykorzystaniu realnych danych do optymalizacji œcie¿ek przejazdów ciê¿arówek z odpadami komunalnymi mo¿na zbadaæ oraz zaproponowaæ rozwi¹zanie problemu. Wybrane œcie¿ki stanowi¹ faktyczne trasy jakie by³y przebywane. Wybrane trzy losowo trasy sk³ada³y siê odpowiednio z 110, 150 oraz 249 punktów. Dziêki udostêpnionym rozwi¹zaniu przez firmê Google, zosta³y wyliczone rzeczywiste odleg³oœci pomiêdzy wszystkimi punktami.
+Dziêki wykorzystaniu realnych danych do optymalizacji œcie¿ek przejazdów ciê¿arówek z odpadami komunalnymi mo¿na zbadaæ oraz zaproponowaæ rozwi¹zanie problemu. Wybrane œcie¿ki stanowi¹ faktyczne trasy jakie by³y przebywane. Wybrane trzy losowo trasy sk³ada³y siê odpowiednio z 111, 150 oraz 248 punktów. Dziêki udostêpnionym rozwi¹zaniu przez firmê Google, zosta³y wyliczone rzeczywiste odleg³oœci pomiêdzy wszystkimi punktami.
 
-Do optymalizacji zosta³y wybrane trzy algorytmy. Algorytm genetyczny który zosta³ opisany w rozdziale 2. W nastêpnym rozdziale zosta³ przedstawiony algorytm mrówkowy. Jako ostatnie zosta³y zaproponowanych kilka algorytmów zach³annych. Dla ka¿dego z rozwi¹zañ zosta³a przygotowana czêœæ teoretyczna oraz zosta³y przeprowadzone badania.
+Do optymalizacji zosta³y wybrane trzy algorytmy. Algorytm genetyczny, który zosta³ opisany i zbadany przez Paw³a Stypu³kowskiego. Kolejnym algorytmem wybranym by³ algorytm mrówkowy autorstwa Kamila £êtowskiego. Jako ostatnie zosta³o zaproponowanych kilka algorytmów zach³annych przez Przemys³awa Noskowicza.
 
-Schemat badañ dla ka¿dej z tras by³ taki sam niezale¿nie od algorytmu. Dla ka¿dej mo¿liwej konfiguracji parametrów wejœciowych zosta³o wykonanych dziesiêæ badañ. Algorytm genetyczny sk³ada siê z... . W algorytmie mrówkowym parametrami wejœciowymi by³a liczba iteracji oraz wspó³czynnik parowania feromonów. Wykonanych by³o 50, 75 lub 100 iteracji a wspó³czynnik zakresu by³ rozpoczyna³ siê od 0.1 i by³ zwiêkszany do 0.9 co 0.1. W ten sposób dla jednej trasy by³o wykonanych 270 badañ. Algorytm zach³anny...
+Algorytm genetyczny oraz mrówkowy dla ka¿dej mo¿liwej konfiguracji parametrów wejœciowych zosta³ uruchomiony dziesiêæ razy. Algorytm genetyczny zosta³ zbadany dla trzech populacji $N$: 100, 1000 oraz 2000; czterech ró¿nych wartoœci iteracji $k$: 100, 1000, 2000 oraz 4000; trzech ró¿nych krzy¿owañ: $PMX$, $OX$ oraz $CX$; trzech ró¿nych mutacji: $Reverse$, $Swap$ oraz $Insert$. Wykonanie wszystkich badañ dla jednej trasy trwa³o kilka godzin. W algorytmie mrówkowym parametrami wejœciowymi by³a liczba iteracji oraz wspó³czynnik parowania feromonów. Wykonanych by³o 50, 75 lub 100 iteracji a wspó³czynnik zakresu by³ rozpoczyna³ siê od 0.1 i by³ zwiêkszany do 0.9 co 0.1. W ten sposób dla jednej trasy by³o wykonanych 270 badañ. Przedstawicielami algorytmów zach³annych u¿ytych w badaniach by³y algorytm najbli¿szego s¹siada, algorytm najmniejszej krawêdzi oraz algorytm A*. W celu rozwa¿enia wiêkszej iloœci tras zastosowano podczas dokonywania wyborów wspó³czynnik b³êdu. Wspó³czynnik b³êdu by³ uruchamiany na trzech ró¿nych etapach budowania docelowej trasy. Utworzone trasy zosta³y zoptymalizowane metod¹ 2-opt.
 
-Po przeprowadzeniu badañ z pewnoœci¹ mo¿na powiedzieæ, ¿e pierwotne trasy nie by³y optymalne. Omówione rozwi¹zania by³y w stanie poprawiæ oryginaln¹ trasê nawet o 40\%. Ka¿dy z algorytmów by³ w stanie wygenerowaæ wiele krótszych tras. Najlepsze wyniki dla ka¿dej z tras by³y generowane przez algorytm mrówkowy. Niestety czas z jakim dzia³a³ ten algorytm by³ najd³u¿szy. Jeœli chodzi o czas, to najszybciej dzia³a³ algorytm genetyczny. Warto równie¿ zaznaczyæ, ¿e wyniki tego algorytmu równie¿ by³y satysfakcjonuj¹ce.
+Po przeprowadzeniu badañ z pewnoœci¹ mo¿na powiedzieæ, ¿e pierwotne trasy nie by³y optymalne. Omówione rozwi¹zania by³y w stanie poprawiæ oryginaln¹ trasê nawet o 40\%. Ka¿dy z algorytmów by³ w stanie wygenerowaæ wiele krótszych tras. Najlepsze wyniki dla trasy I o d³ugoœci 48897 metrów:
 
-Przeprowadzone badania pokazuj¹ jak mo¿na rozwi¹zaæ problem z którym nawet nieœwiadomie borykaj¹ siê firmy. Dla ka¿dego z rozwi¹zañ mo¿na siê zastanowiæ nad udoskonaleniami. Algorytm genetyczny... . Doœæ d³ugi czas dzia³ania algorytmu mrówkowego jest z pewnoœci¹ miejscem nad którym mo¿na popracowaæ. Algorytm zach³anny...
+\begin{description}[font=$\bullet$~\normalfont\scshape]
+ \item[27131] -- algorytm mrówkowy, œredni czas 21.73 sekund,
+ \item[29965] -- algorytm zach³anny - A*, czas: 7.91 sekund, wspó³czynnik b³êdu: 10 metrów, etap: 1,
+ \item[30939] -- algorytm genetyczny, czas œredni: 8.33 sekund, parametry wejœciowe: $N$ = 2000, $k$ = 1000, krzy¿owanie $PMX$ oraz mutacja $Insert$.
+\end{description} 
+Najlepsze wyniki dla trasy II o d³ugoœci 40402 metrów:
+\begin{description}[font=$\bullet$~\normalfont\scshape]
+ \item[24347] -- algorytm mrówkowy, œredni czas 28.32 sekund,
+ \item[27381] -- algorytm genetyczny, czas œredni: 9.03 sekund, parametry wejœciowe: $N$ = 2000, $k$ = 2000, krzy¿owanie $CX$ oraz mutacja $Swap$,
+ \item[28757] -- algorytm zach³anny - A*, czas: 8.05 sekund, wspó³czynnik b³êdu: 10 metrów, etap: 3.
+\end{description} 
+Najlepsze wyniki dla trasy III o d³ugoœci 53478 metrów:
+\begin{description}[font=$\bullet$~\normalfont\scshape]
+ \item[28172] -- algorytm mrówkowy, œredni czas 131.14 sekund,
+  \item[31781] -- algorytm zach³anny - ANS, czas: 65.1 sekund, wspó³czynnik b³êdu: 20 metrów, etap: 1,
+ \item[32374] -- algorytm genetyczny, czas œredni: 8,25 sekund, parametry wejœciowe: $N$ = 2000, $k$ = 1000, krzy¿owanie $CX$ oraz mutacja $Insert$.
+\end{description} 
+
+Przeprowadzone badania pokazuj¹ jak mo¿na rozwi¹zaæ problem z którym nawet nieœwiadomie borykaj¹ siê firmy. W dalszej pracy rozwi¹zania mog¹ byæ rozwijane w wielu kierunkach na przyk³ad mo¿na zastosowaæ podejœcie hybrydowe. Pocz¹tkowe trasy do algorytmu genetycznego i mrówkowego, mog³yby byæ generowane za pomoc¹ algorytmów zach³annych. Na wszystkich znalezionych trasach mo¿na zastosowaæ operatory optymalizuj¹ce na przyk³ad 2-opt lub inne.
 

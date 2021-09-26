@@ -491,9 +491,9 @@ Na rysunku \ref{Trasa1PN} przedstawiono najlepsz¹ trasê jak¹ znalaz³ algorytm za
 
 \subsection{Porównanie algorytmów - wspólnie}
 
-Najlepszy wyniki algorytmów nie s¹ takie same. Wszystkie z wyników s¹ lepsze od oryginalnej trasy. Algorytm genetyczny znalaz³ najlepszy wynik równy 30939. Jest to wynik o 37\% lepszy od pierwotnej trasy. Taki wynik uda³o siê otrzymaæ w 4.12 sekundy. Algorytm mrówkowy wygenerowa³ trasê o ³¹cznej d³ugoœci 27131 metrów co jest lepszym wynikiem od poprzedniego algorytmu. Oryginalna trasa zosta³a poprawiona o 45\%. Czas jaki by³ potrzebny na polepszenie œcie¿ki to 21.73 sekundy. Czas oczekiwania jest wiêc d³u¿szy od czasu jaki potrzebuje algorytm genetyczny. Najlepsza trasa, która uzyska³y algorytmy zach³anne wynosi³a 30205 metrów, a po optymalizacji metod¹ 2-opt trasa zmniejszy³a siê do 29 965 metrów. Wynik ten jest o 39\% lepszy od trasy pocz¹tkowej. Wynik taki uda³o siê otrzymaæ w 5.22 sekund.
+Najlepszy wyniki algorytmów nie s¹ takie same. Wszystkie z wyników s¹ lepsze od oryginalnej trasy. Algorytm genetyczny znalaz³ najlepszy wynik równy 30939. Jest to wynik o 37\% lepszy od pierwotnej trasy. Taki wynik uda³o siê otrzymaæ w 8.33 sekundy. Algorytm mrówkowy wygenerowa³ trasê o ³¹cznej d³ugoœci 27131 metrów co jest lepszym wynikiem od poprzedniego algorytmu. Oryginalna trasa zosta³a poprawiona o 45\%. Czas jaki by³ potrzebny na polepszenie œcie¿ki to 21.73 sekundy. Czas oczekiwania jest wiêc d³u¿szy od czasu jaki potrzebuje algorytm genetyczny. Najlepsza trasa, która uzyska³y algorytmy zach³anne wynosi³a 30205 metrów, a po optymalizacji metod¹ 2-opt trasa zmniejszy³a siê do 29965 metrów. Wynik ten jest o 39\% lepszy od trasy pocz¹tkowej. Wynik taki uda³o siê otrzymaæ w 7.22 sekund.
 
-Porównuj¹c dystans to najs³abiej sobie poradzi³  algorytm genetyczny. Trasa ta zosta³a jednak wyznaczona w czasie piêæ razy krótszym ni¿ algorytm mrówkowy, a wynik by³ gorszy o tylko 8\%. Algorytm A* poradzi³ sobie podobnie jak algorytm genetyczny w czasie o sekundê d³u¿szym znalaz³ o 2\% lepsz¹ trasê.
+Porównuj¹c dystans to najs³abiej sobie poradzi³  algorytm genetyczny. Trasa ta zosta³a jednak wyznaczona w czasie oko³o trzy razy krótszym ni¿ algorytm mrówkowy, a wynik by³ gorszy o tylko 8\%. Algorytm A* poradzi³ sobie podobnie jak algorytm genetyczny w czasie o sekundê krótszym znalaz³ o 2\% lepsz¹ trasê.
 
 Na zdjêciach \ref{fig:sum_gen_1}, \ref{fig:sum_mro_1}, \ref{fig:sum_prz_1} zosta³y pokazane przyk³adowe ró¿nice w znalezionych trasach przez algorytmy.
 \begin{figure}[!h]
@@ -1234,7 +1234,7 @@ k                           & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.1} &
 \label{tab:avg_3_mrowkowy}
 \end{table}
 
-Do wygenerowania najkrótszej trasy potrzeba by³o 75 iteracji. Wspó³czynnik parowania dla tej trasy wynosi 0.1. Mo¿na zauwa¿yæ, jak iloœæ iteracji potrafi wp³yn¹æ na wynik. Dla najni¿szej iloœci iteracji wygenerowana trasa jest du¿o d³u¿sza od pozosta³ych dwóch wariantów. Dla wiêkszoœci wspó³czynników parowania sytuacja jest podobna. Wraz ze wzrostem liczy iteracji wyniki s¹ lepsze. Dla wartoœci z zakresu od 0.6 do 0.9 trend ten jest zmieniony. Przyk³adowo dla wspó³czynnika parowania równego 0.8, program utworzy³ najlepsz¹ trasê przy 75 iteracjach. Najd³u¿sza trasa zosta³a natomiast odnotowana dla najwiêkszej liczby iteracji.
+W tabeli numer \ref{tab:best_3_mrowkowy} przedstawione zosta³y najlepsze wyniki algorytmu mrówkowego dla tej trasy. Do wygenerowania najkrótszej trasy potrzeba by³o 75 iteracji. Wspó³czynnik parowania dla tej trasy wynosi 0.1. Mo¿na zauwa¿yæ, jak iloœæ iteracji potrafi wp³yn¹æ na wynik. Dla najni¿szej iloœci iteracji wygenerowana trasa jest du¿o d³u¿sza od pozosta³ych dwóch wariantów. Dla wiêkszoœci wspó³czynników parowania sytuacja jest podobna. Wraz ze wzrostem liczy iteracji wyniki s¹ lepsze. Dla wartoœci z zakresu od 0.6 do 0.9 trend ten jest zmieniony. Przyk³adowo dla wspó³czynnika parowania równego 0.8, program utworzy³ najlepsz¹ trasê przy 75 iteracjach. Najd³u¿sza trasa zosta³a natomiast odnotowana dla najwiêkszej liczby iteracji.
 
 \begin{table}[h!]
 \caption[Trasa III - najlepsze wyniki dla algorytmu mrówkowego]
@@ -1256,7 +1256,6 @@ k                           & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.1} &
 Skutecznoœæ z jak¹ algorytm mrówkowy z optymalizowa³ trasê jest najwy¿sza z mo¿liwych. W tabeli \ref{tab:sum_3_mrowkowy} zosta³a przedstawiona procentowa wartoœæ tras zoptymalizowanych w stosunku do oryginalnej odleg³oœci. Wszystkie z prób okaza³y siê lepsze. Dziêki temu mo¿na zauwa¿yæ, ¿e niezale¿nie od iloœci iteracji wygenerowany wynik da satysfakcjonuj¹cy wynik. Ma to znaczenie w kontekœcie czasu jaki potrzebuje program na ulepszenie trasy. Tak jak w przypadku poprzednich tras, algorytm mrówkowy potrzebuje wykonaæ wiele operacji. Do wykonania 50 prób polepszenia trasy potrzeba œrednio 84.451 sekundy. Jeœli iloœæ prób zosta³a zwiêkszona do 75, to œredni czas wzrós³ do 131.146 sekund. Najd³u¿ej trwa³o obliczanie trasy dla 100 iteracji. Czas ten wyniós³ 176.874 sekund.
 
 \begin{table}[h!]
-\label{tab:sum_3_mrowkowy}
 \caption[Trasa III - skutecznoœæ algorytmu mrówkowego]
 {Trasa III - skutecznoœæ algorytmu mrówkowego}
 \begin{tabular}{|c|l|l|l|l|l|l|l|l|l|}
@@ -1270,6 +1269,7 @@ k                           & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.1} &
 \rowcolor[HTML]{C6EFCE} 
 \cellcolor[HTML]{C0C0C0}100 & 100\%                                            & 100\%                                            & 100\%                                            & 100\%                                            & 100\%                                            & 100\%                                            & 100\%                                            & 100\%                                            & 100\%                                            \\ \hline
 \end{tabular}
+\label{tab:sum_3_mrowkowy}
 \end{table}
 
 
@@ -1487,7 +1487,7 @@ Na rysunku \ref{Trasa3PN} przedstawiono najlepsz¹ trasê jak¹ znalaz³ algorytm mr
 
 \subsection{Porównanie algorytmów - wspólnie}
 
-Ostatnia z tras sk³ada³a siê z najwiêkszej liczby punktów. Wszystkie algorytmy wykonywa³y siê d³u¿ej ni¿ na poprzednich trasach. Ka¿dy z algorytmów poprawi³ pierwotn¹ trasê. Algorytm genetyczny wygenerowa³ trasê o d³ugoœci 32 374. W porównaniu do orygina³u jest to poprawa o 40\%. Program potrzebowa³ œrednio 8.25 sekundy na optymalizacjê trasy. Najlepszy rezultat zosta³ otrzymany przy pomocy algorytmu mrówkowego. Trasa o d³ugoœci 28 172 jest krótsza o 47\% od pocz¹tkowej œcie¿ki. Œredni czas z jakim pracowa³ algorytm nad wygenerowaniem takiej trasy to 131.146 sekundy. Najkrótsza œcie¿ka dla algorytmów zach³annych zosta³a znaleziona przez algorytm A* o d³ugoœci 32 855 metrów z czasem dzia³ania algorytmu 7.66 sekund. Po zoptymalizowaniu otrzymanych tras metod¹ 2-opt otrzymano algorytmem najbli¿szego s¹siada lepszy wynik o wartoœci 31 781 w czasie 65.1 sekundy. Jest to wartoœæ o 41\% lepsza od oryginalnej. 
+Ostatnia z tras sk³ada³a siê z najwiêkszej liczby punktów. Wszystkie algorytmy wykonywa³y siê d³u¿ej ni¿ na poprzednich trasach. Ka¿dy z algorytmów poprawi³ pierwotn¹ trasê. Algorytm genetyczny wygenerowa³ trasê o d³ugoœci 32374. W porównaniu do orygina³u jest to poprawa o 40\%. Program potrzebowa³ œrednio 8.25 sekundy na optymalizacjê trasy. Najlepszy rezultat zosta³ otrzymany przy pomocy algorytmu mrówkowego. Trasa o d³ugoœci 28172 jest krótsza o 47\% od pocz¹tkowej œcie¿ki. Œredni czas z jakim pracowa³ algorytm nad wygenerowaniem takiej trasy to 131.146 sekundy. Najkrótsza œcie¿ka dla algorytmów zach³annych zosta³a znaleziona przez algorytm A* o d³ugoœci 32 855 metrów z czasem dzia³ania algorytmu 7.66 sekund. Po zoptymalizowaniu otrzymanych tras metod¹ 2-opt otrzymano algorytmem najbli¿szego s¹siada lepszy wynik o wartoœci 31 781 w czasie 65.1 sekundy. Jest to wartoœæ o 41\% lepsza od oryginalnej. 
 
 Najd³u¿sza trasa zosta³a wygenerowana przy u¿yciu algorytmu genetycznego. Jednak czas jaki by³ potrzebny na t¹ optymalizacjê by³ o wiele krótszy od pozosta³ych dwóch algorytmów. Algorytm najbli¿szego s¹siada jest niewiele lepszy od algorytmu genetycznego. Czas potrzebny na wszystkie operacje by³ ponad siedmiokrotnie d³u¿szy. Najkrótsza trasa zosta³a wygenerowana przez algorytm mrówkowy. Niestety czas potrzebny do wygenerowania trasy by³ najd³u¿szy.
 
