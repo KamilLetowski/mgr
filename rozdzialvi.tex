@@ -7,7 +7,7 @@
 
 	Przedstawicielami algorytmów zach³annych do wyznaczania tras by³ algorytm najbli¿szego s¹siada (ANS), algorytm najmniejszej krawêdzi (ANK) oraz algorytm A*. Do wyznaczenia wiêkszej iloœci tras w algorytmach zach³annych u¿yto wspó³czynnika b³êdu w jednostce metrów: 0, 5, 10, 20, 30, 40, 50, 75 oraz 100. Wspó³czynnik zosta³ zbadany na trzech ró¿nych etapach algorytmu, aby zbadaæ wiêksz¹ iloœæ otrzymanych tras, wy³¹czany by³ po utworzeniu 100 000 tras do badañ. Pierwsze badany etap obejmowa³ uruchomienie wspó³czynnika od pocz¹tku dzia³ania danego algorytmu. Drugie badanie aktywowa³o wspó³czynnik dopiero po utworzeniu 1/3 ca³kowitej trasy. Ostatni eksperyment polega³ na rozpoczêciu rozwa¿ania wiêkszej iloœci tras po stworzeniu 2/3 z ca³kowitej trasy. Nastêpnie wszystkie otrzymane trasy zosta³y zoptymalizowane metod¹ 2-opt w celu znalezienia lepszego wyniku. Jeœli rezultat optymalizacji nie by³ lepszy, zostawa³ poprzedni wynik. W tabelach dotycz¹cych wyników algorytmów zach³annych, kolorem ¿ó³tym zaznaczono najlepsze wyniki dla danego algorytmu, a kolorem zielonym najlepszy globalny wynik. Wszystkie algorytmy zosta³y zaimplementowane w³asnorêcznie w .NET Core.
 \section{Trasa I}
-	Na rysunku \ref{Trasa1} zosta³a przedstawiona oryginalna trasa ciê¿arówki na trasie pierwszej. Pokona³a ona odleg³oœæ  48 897 metrów. Kierowca wyjecha³ z osiedla bia³ostoczek i zacz¹³ zbieraæ kontenery na osiedlach mickiewicza i centrum, na koniec odwiedzi³ okolice stadionu miejskiego i pojecha³ na roz³adunek do Hryniewicz.
+	Na rysunku \ref{Trasa1} zosta³a przedstawiona oryginalna trasa ciê¿arówki na trasie pierwszej. Pokona³a ona odleg³oœæ  48897 metrów. Kierowca wyjecha³ z osiedla bia³ostoczek i zacz¹³ zbieraæ kontenery na osiedlach mickiewicza i centrum, na koniec odwiedzi³ okolice stadionu miejskiego i pojecha³ na roz³adunek do Hryniewicz.
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.4]{grafika/1.png}
@@ -224,9 +224,7 @@ k                           & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.1} &
 \label{tab:best_1_mrowkowy}
 \end{table}
 
-	
-W tabeli numer \ref{tab:avg_1_mrowkowy} znajduj¹ siê œrednie wyniki z dziesiêciu pomiarów dla takich samych parametrów. Najlepsze wyniki wystêpuj¹ dla wspó³czynnika parowania znajduj¹cego siê w zakresie od 0.1 do 0.4 i oscyluj¹ poni¿ej progu 40 000 metrów. Wyj¹tkiem jest jedynie wspó³czynnik parowania równy 0.1 jeœli zosta³o wykonanych 50 iteracji. W tym przypadku wartoœæ jest wiêksza od oryginalnej i wynosi 50 543. Na tym przyk³adzie mo¿na œwietnie zauwa¿yæ jak istotna jest iloœæ iteracji jaka zostanie wykonana. W kolejnych krokach iloœæ iteracji by³a zwiêkszana, a œrednia odleg³oœæ ulega³a poprawie. Dla stu iteracji odnotowano najlepsz¹ œredni¹ równ¹ 29 479.
-
+W tabeli numer \ref{tab:avg_1_mrowkowy} znajduj¹ siê œrednie wyniki z dziesiêciu pomiarów dla takich samych parametrów. Najlepsze wyniki wystêpuj¹ dla wspó³czynnika parowania znajduj¹cego siê w zakresie od 0.1 do 0.4 i oscyluj¹ poni¿ej progu 40000 metrów. Wyj¹tkiem jest jedynie wspó³czynnik parowania równy 0.1 jeœli zosta³o wykonanych 50 iteracji. W tym przypadku wartoœæ jest wiêksza od oryginalnej i wynosi 50543. Na tym przyk³adzie mo¿na œwietnie zauwa¿yæ jak istotna jest iloœæ iteracji jaka zostanie wykonana. W kolejnych krokach iloœæ iteracji by³a zwiêkszana, a œrednia odleg³oœæ ulega³a poprawie. Dla stu iteracji odnotowano najlepsz¹ œredni¹ równ¹ 29479.
 
 \begin{table}[!h]
 \caption[Trasa I - œrednie wyniki dla algorytmu mrówkowego]
@@ -245,7 +243,6 @@ k                           & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.1}  
 \end{table}
 
 Istotnym parametrem jaki nale¿y wzi¹æ pod uwagê jest to, jak czêsto algorytm jest w stanie poprawiæ oryginaln¹ trasê. W tym celu zosta³a stworzona tabela numer \ref{tab:sum_1_mrowkowy}. Mo¿emy zauwa¿yæ z jak¹ skutecznoœci¹ program jest w stanie poprawiæ trasê. Wyniki potwierdzaj¹ wczeœniejsze wnioski. Najlepsze wyniki mo¿na zestawiæ ze wspó³czynnikiem parowania feromonów z zakresu od 0.1 do 0.4. Co wiêcej dla iloœci iteracji równej 75 dla ka¿dego ze wspó³czynników trasa zosta³a polepszona. 
-
 
 \begin{table}[!h]
 \caption[Trasa I - skutecznoœæ algorytmu mrówkowego]
@@ -320,12 +317,12 @@ Na rysunku \ref{Trasa1KL} przedstawiono najlepsz¹ trasê jak¹ znalaz³ algorytm mr
 	\label{Trasa1KL}
 \end{figure}	
 
-\subsection{Wyniki algorytmów zach³annych - Przemek}
+\subsection{Wyniki algorytmów zach³annych - Przemys³aw}
 
 W tabeli \ref{tab:AZ1BESTS} zosta³y przedstawione najlepsze wyniki algorytmów zach³annych dla ka¿dej kombinacji wspó³czynnika b³êdu uruchamianego na trzech etapach budowania ca³kowitej trasy.
-Algorytm A* wyznaczy³ najlepsz¹ trasê o d³ugoœci 30 205 metrów oraz jako jedyny wyznaczy³ bardzo du¿¹ iloœæ tras poni¿ej 31 000 metrów. 
-Najlepsza trasa otrzymana przez algorytm najbli¿szego s¹siada wynios³a 31 895 metrów, natomiast algorytm najmniejszej krawêdzi zwróci³ trasê o d³ugoœci 32 015 metrów. 
-Od razu mo¿na zauwa¿yæ, ¿e po zastosowaniu wspó³czynnika na pierwszym etapie trasy najgorzej wypad³ algorytm najmniejszej krawêdzi daj¹c wyniki a¿ powy¿ej 40 000 metrów. 
+Algorytm A* wyznaczy³ najlepsz¹ trasê o d³ugoœci 30205 metrów oraz jako jedyny wyznaczy³ bardzo du¿¹ iloœæ tras poni¿ej 31000 metrów. 
+Najlepsza trasa otrzymana przez algorytm najbli¿szego s¹siada wynios³a 31895 metrów, natomiast algorytm najmniejszej krawêdzi zwróci³ trasê o d³ugoœci 32015 metrów. 
+Od razu mo¿na zauwa¿yæ, ¿e po zastosowaniu wspó³czynnika na pierwszym etapie trasy najgorzej wypad³ algorytm najmniejszej krawêdzi daj¹c wyniki a¿ powy¿ej 40000 metrów. 
 Natomiast algorytm najbli¿szego s¹siada oraz algorytm A* najs³abiej poradzili sobie tworz¹c dodatkowe trasy do badañ na trzecim etapie dzia³ania.
 
 Tabela \ref{tab:AZ1OPTM} przedstawia procentow¹ poprawê oryginalnej trasy nr 1. Wszystkie otrzymane trasy przez ka¿dy z trzech algorytmów da³y lepszy wynik od oryginalnej. Najlepszy wynik otrzymany przez algorytm A* poprawi³ trasê a¿ o 38.23\%.
@@ -377,7 +374,7 @@ B³¹d (m) & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANS-1} & \multicolumn{1}{
 \end{table}
 
 
-Zastosowanie metody 2-opt na utworzonych trasach znalaz³o nowy najlepszy wynik dla algorytmu A* testowanego w pierwszej fazie budowania tras. Jak mo¿na zauwa¿yæ w tabeli \ref{tab:AZ12OPT} po zastosowaniu optymalizacji nowa najlepsza trasa uzyska³a wynik 29 965 metrów. Dziêki optymalizacji trasa wygenerowana przez algorytm najmniejszej krawêdzi zmniejszy³a siê do 30 855 metrów. Dla algorytmu najbli¿szego s¹siada optymalizacja nie przynios³a trasy o mniejszej d³ugoœci od poprzednich. Nowa najlepsza optymalizacja wynosi 38.72\% wzglêdem oryginalnej trasy, a najgorszy wynik to zaledwie 13.40\% poprawy d³ugoœci. Tabela \ref{tab:AZ12OPTOPTM} przedstawia wyniki optymalizacji wzglêdem trasy oryginalnej po zastosowaniu metody 2-opt.
+Zastosowanie metody 2-opt na utworzonych trasach znalaz³o nowy najlepszy wynik dla algorytmu A* testowanego w pierwszej fazie budowania tras. Jak mo¿na zauwa¿yæ w tabeli \ref{tab:AZ12OPT} po zastosowaniu optymalizacji nowa najlepsza trasa uzyska³a wynik 29 965 metrów. Dziêki optymalizacji trasa wygenerowana przez algorytm najmniejszej krawêdzi zmniejszy³a siê do 30855 metrów. Dla algorytmu najbli¿szego s¹siada optymalizacja nie przynios³a trasy o mniejszej d³ugoœci od poprzednich. Nowa najlepsza optymalizacja wynosi 38.72\% wzglêdem oryginalnej trasy, a najgorszy wynik to zaledwie 13.40\% poprawy d³ugoœci. Tabela \ref{tab:AZ12OPTOPTM} przedstawia wyniki optymalizacji wzglêdem trasy oryginalnej po zastosowaniu metody 2-opt.
 
 \begin{table}[!h]
 \caption[Trasa I - zastosowanie metody 2-opt na powsta³ych trasach]
@@ -825,10 +822,10 @@ Na rysunku \ref{Trasa2KL} przedstawiono najlepsz¹ trasê jak¹ znalaz³ algorytm mr
 	\label{Trasa2KL}
 \end{figure}	
 
-\subsection{Wyniki algorytmów zach³annych - Przemek}
+\subsection{Wyniki algorytmów zach³annych - Przemys³aw}
 
 W tabeli \ref{tab:AZ2BESTS} zosta³y umieszczone najlepsze wartoœci wygenerowanych tras przez algorytmy zach³anne dla trasy nr 2 przy zastosowaniu wspó³czynnika b³êdu uruchamianego na poszczególnych etapach budowania ca³kowitej trasy.
-Tak jak w poprzedniej trasie algorytm A* uzyska³ najlepszy wynik równy 28 757 metrów. Algorytm najbli¿szego s¹siada równie¿ doszed³ do wyniku poni¿ej 30 000 metrów, podczas etapu drugiego znalaz³ trasê o d³ugoœci 29 800 metrów. Znów najgorszy okaza³ siê algorytm najmniejszej krawêdzi, który tym razem wyznaczy³ trasê 31 745 metrow¹. Najwiêcej najgorszych wyników zwróci³ równie¿ algorytm najmniejszej krawêdzi, gdzie inne algorytmy odda³y wyniki bardzo przybli¿one.
+Tak jak w poprzedniej trasie algorytm A* uzyska³ najlepszy wynik równy 28757 metrów. Algorytm najbli¿szego s¹siada równie¿ doszed³ do wyniku poni¿ej 30000 metrów, podczas etapu drugiego znalaz³ trasê o d³ugoœci 29 800 metrów. Znów najgorszy okaza³ siê algorytm najmniejszej krawêdzi, który tym razem wyznaczy³ trasê 31745 metrow¹. Najwiêcej najgorszych wyników zwróci³ równie¿ algorytm najmniejszej krawêdzi, gdzie inne algorytmy odda³y wyniki bardzo przybli¿one.
 
 \begin{table}[!h]
 \caption[Trasa II - wyniki algorytmów zach³annych]
@@ -946,7 +943,6 @@ B³¹d (m) & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANS-1} & \multicolumn{1}{
 	\label{Trasa2AZCOMPARE}
 \end{figure}
 
-
 W tabeli \ref{tab:AZ2TIME} znajduj¹ siê czasy dzia³ania algorytmów. Najlepsz¹ trasê uda³o siê uzyskaæ w czasie 8.05 sekundy. W najgorszym wypadku algorytm wykonywa³ siê ponad 70 sekund.
 
 \begin{table}[!h]
@@ -990,7 +986,7 @@ Na rysunku \ref{Trasa3PN} przedstawiono najlepsz¹ trasê jak¹ znalaz³ algorytm za
 
 \subsection{Porównanie algorytmów - wspólnie}
 
-Podobnie jak w przypadku trasy numer 1, najlepsze wyniki algorytmów nie s¹ takie same. Ponownie przeprowadzone optymalizacje przynios³y spodziewany efekt. Najlepszym wynikiem algorytmu genetycznego jest 27 381. W stosunku do oryginalnej trasy jest to poprawa o 40\%. Czas z jakim pracowa³ program aby wygenerowaæ taki wynik to 9.03 sekund. Ponownie najlepszy wynik zosta³ osi¹gniêty przez algorytm mrówkowy. £¹czy przebyty dystans dla tego rozwi¹zania to 24347. Jest to o 46\% wynik lepszy od pierwotnej trasy. Czas oczekiwania na ten rezultat wynosi³ 28.32 sekund. Natomiast algorytmy zach³anne, a dok³adnie algorytm A*, znalaz³y trasê o d³ugoœci 32 855 metrów, a przy zastosowaniu metody 2-opt wynik ten uleg³ poprawie do 28 757 metrów. Do wykonania wszystkich operacji potrzebne by³o 20.59 sekundy.
+Podobnie jak w przypadku trasy numer 1, najlepsze wyniki algorytmów nie s¹ takie same. Ponownie przeprowadzone optymalizacje przynios³y spodziewany efekt. Najlepszym wynikiem algorytmu genetycznego jest 27381. W stosunku do oryginalnej trasy jest to poprawa o 40\%. Czas z jakim pracowa³ program aby wygenerowaæ taki wynik to 9.03 sekund. Ponownie najlepszy wynik zosta³ osi¹gniêty przez algorytm mrówkowy. £¹czy przebyty dystans dla tego rozwi¹zania to 24347. Jest to o 46\% wynik lepszy od pierwotnej trasy. Czas oczekiwania na ten rezultat wynosi³ 28.32 sekund. Natomiast algorytmy zach³anne, a dok³adnie algorytm A*, znalaz³y trasê o d³ugoœci 32 855 metrów, a przy zastosowaniu metody 2-opt wynik ten uleg³ poprawie do 28 757 metrów. Do wykonania wszystkich operacji potrzebne by³o 20.59 sekundy.
 
 Najgorszy wynik zosta³ wygenerowany przez algorytm A*. Czas dzia³ania tego algorytmu równie¿ nie wyró¿nia siê spoœród pozosta³y rozwi¹zañ. Lepszym wynik zosta³ wygenerowany przy u¿yciu algorytmu genetycznego. Wynik ten zosta³ osi¹gniêty w najkrótszym czasie spoœród wszystkich trzech rozwi¹zañ. Najlepszy wynik ponownie zosta³ wygenerowany przez algorytm mrówkowy. Czas wykonania programu równie¿ i w tym przypadku by³ najd³u¿szy. 
 
@@ -1214,7 +1210,7 @@ Na rysunku \ref{Trasa3PS} przedstawiono najlepsz¹ trasê jak¹ znalaz³ algorytm ge
 
 \subsection{Wyniki algorytmu mrówkowego - Kamil}
 
-Na ostatniej badanej trasie, wyniki algorytmu mrówkowego równie¿ wygl¹daj¹ dobrze. Analizuj¹c tabelê \ref{tab:avg_3_mrowkowy} ³atwo zauwa¿yæ, ¿e wszystkie œrednie wyniki by³y lepsze od pierwotnej d³ugoœci. W najgorszym przypadku œredni wynik ma wartoœæ 39 797 metrów. Jest to wynik o 26\% lepszy od oryginalnej trasy. Taki wynik zosta³ wygenerowany przy najni¿szej liczbie iteracji oraz dla wspó³czynnika parowania wynosz¹cego 0.1. Dla tego samego wspó³czynnika wraz ze wzrostem iteracji wynik ulega polepszeniu. Najlepszy wynik dla tego wspó³czynnika wynosi 31 935 metrów. Ró¿nica miêdzy t¹ wartoœci¹ a najlepsz¹ wartoœci¹ dla ca³ej trasy jest niedu¿a i wynosi 359 metrów. Wartoœæ 31 576 metrów jest o 41\% lepszym wynikiem od trasy oryginalnej.
+Na ostatniej badanej trasie, wyniki algorytmu mrówkowego równie¿ wygl¹daj¹ dobrze. Analizuj¹c tabelê \ref{tab:avg_3_mrowkowy} ³atwo zauwa¿yæ, ¿e wszystkie œrednie wyniki by³y lepsze od pierwotnej d³ugoœci. W najgorszym przypadku œredni wynik ma wartoœæ 39 797 metrów. Jest to wynik o 26\% lepszy od oryginalnej trasy. Taki wynik zosta³ wygenerowany przy najni¿szej liczbie iteracji oraz dla wspó³czynnika parowania wynosz¹cego 0.1. Dla tego samego wspó³czynnika wraz ze wzrostem iteracji wynik ulega polepszeniu. Najlepszy wynik dla tego wspó³czynnika wynosi 31935 metrów. Ró¿nica miêdzy t¹ wartoœci¹ a najlepsz¹ wartoœci¹ dla ca³ej trasy jest niedu¿a i wynosi 359 metrów. Wartoœæ 31 576 metrów jest o 41\% lepszym wynikiem od trasy oryginalnej.
 
 
 \begin{table}[h!]
@@ -1321,9 +1317,9 @@ Na rysunku \ref{Trasa3KL} przedstawiono najlepsz¹ trasê jak¹ znalaz³ algorytm mr
 \end{figure}	
 
 
-\subsection{Wyniki algorytmów zach³annych - Przemek}
+\subsection{Wyniki algorytmów zach³annych - Przemys³aw}
 
-Tabela \ref{tab:AZ3BESTS} przedstawia najlepsze wyniki uzyskane przez algorytmy zach³anne dla ostatniej badanej trasy. Jak w poprzednich badaniach tutaj równie¿ zosta³ zastosowany wspó³czynnik b³êdu przy dokonywaniu wyborów na ka¿dej z poszczególnych trzech faz tworzenia tras. Bez zmian najlepiej dalej zachowuje siê algorytm A*, który dalej znajdujê œcie¿kê o najmniejszej wartoœci równ¹ 32 855 metrów. Tak jak w poprzednich badaniach najgorzej wypad³ algorytm najmniejszej krawêdzi, dla którego najlepsza trasa uzyska³a wynik 34 130 metrów co oznacza, ¿e prawie wszystkie wyznaczone trasy przez algorytm A* zdoby³y lepszy wynik.
+Tabela \ref{tab:AZ3BESTS} przedstawia najlepsze wyniki uzyskane przez algorytmy zach³anne dla ostatniej badanej trasy. Jak w poprzednich badaniach tutaj równie¿ zosta³ zastosowany wspó³czynnik b³êdu przy dokonywaniu wyborów na ka¿dej z poszczególnych trzech faz tworzenia tras. Bez zmian najlepiej dalej zachowuje siê algorytm A*, który dalej znajdujê œcie¿kê o najmniejszej wartoœci równ¹ 32855 metrów. Tak jak w poprzednich badaniach najgorzej wypad³ algorytm najmniejszej krawêdzi, dla którego najlepsza trasa uzyska³a wynik 34130 metrów co oznacza, ¿e prawie wszystkie wyznaczone trasy przez algorytm A* zdoby³y lepszy wynik.
 Algorytm najbli¿szego s¹siada tym razem poradzi³ sobie tak samo dobrze jak algorytm A*, gdzie dobrze widaæ na tabeli \ref{tab:AZ3OPTM} najlepsze wyniki s¹ niemal równe wynosz¹ce oko³o 38.55\% optymalizacji wzglêdem oryginalnej œcie¿ki.
 
 
@@ -1348,7 +1344,6 @@ B³¹d (m) & \cellcolor[HTML]{C0C0C0}ANS-1 & \cellcolor[HTML]{C0C0C0}ANS-2 & \cell
 \label{tab:AZ3BESTS}
 \end{table}
 
-
 \begin{table}[!h]
 \caption[Trasa III - optymalizacja wyników wzglêdem oryginalnej trasy]
 {Trasa III - optymalizacja wyników wzglêdem oryginalnej trasy}
@@ -1372,7 +1367,7 @@ B³¹d (m) & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANS-1} & \multicolumn{1}{
 
 
 Tabela \ref{tab:AZ32OPT} oraz \ref{tab:AZ32OPTOPTM} przedstawiaj¹ wyniki u¿ycia metody 2-opt na powsta³ych trasach.
-Po zastosowaniu rozwi¹zania 2-opt na zbudowanych wczeœniej trasach okazuje siê, ¿e nowy zwyciêzc¹ spoœród badanych algorytmów sta³ siê algorytm najbli¿szego s¹siada z nowym najlepszym wynikiem równym 31 781 metrów co daje a¿ 40.57\% poprawy œcie¿ki wzglêdem uzyskanej pocz¹tkowo.
+Po zastosowaniu rozwi¹zania 2-opt na zbudowanych wczeœniej trasach okazuje siê, ¿e nowy zwyciêzc¹ spoœród badanych algorytmów sta³ siê algorytm najbli¿szego s¹siada z nowym najlepszym wynikiem równym 31781 metrów co daje a¿ 40.57\% poprawy œcie¿ki wzglêdem uzyskanej pocz¹tkowo.
 
 Rysunek \ref{Trasa3AZCOMPARE} przedstawia porównanie optymalizacji tras z d³ugoœcia oryginalnej trasy. Wszystkie wyniki s¹ znakomite, jednak¿e zastosowanie metody 2-opt pozwoli³o zwiêkszy górny wynik algorytmu najbli¿szego s¹siada do 40.57\%, a algorytmu A* do 38.75\%. Algorytm najmniejszej krawêdzi po zastosowaniu metody 2-opt nie otrzyma³ nowych lepszych wyników.
 
