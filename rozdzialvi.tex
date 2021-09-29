@@ -1,13 +1,13 @@
-\chapter{Badania}
-	W tym rozdziale zostan¹ przedstawione wyniki optymalizacji dla tras przedstawionych w poprzednim rozdziale. Ka¿da trasa zosta³a przedstawiona w oddzielnych podrozdzia³ach. W tabelach t³a komórek z wartoœciami przebytego dystansu zosta³y zmienione w zale¿noœci od spe³nianego warunku.
+\chapter{Badania -- KL, PN, PS}
+	W tym rozdziale zostan¹ przedstawione wyniki optymalizacji dla tras przedstawionych w poprzednim rozdziale. Ka¿da trasa zosta³a przedstawiona w oddzielnych podrozdzia³ach. W tabelach, t³a komórek z wartoœciami przebytego dystansu zosta³y zmienione w zale¿noœci od spe³nianego warunku.
 
 	Algorytm genetyczny zosta³ zbadany dla trzech ró¿nych wartoœci populacji $N$: 100, 1000 oraz 2000; czterech ró¿nych wartoœci iteracji $k$: 100, 1000, 2000 oraz 4000. Dla ka¿dej wariacji tych parametrów zosta³o zbadane krzy¿owania $PMX$, $OX$ oraz $CX$, z ró¿nymi  mutacjami: wstawiaj¹ca - $Insert$, zamieniaj¹ca - $Swap$ oraz odwracaj¹ca - $Revert$. Wspó³czynnik mutacji dla wszystkich uruchomieñ wynosi 0.1. Zosta³ zmierzony równie¿ czas dla ka¿dego uruchomienia algorytmu. W tabelach  kolorem jasno-¿ó³tym s¹ oznaczone wartoœci, które optymalizuj¹ trasê oryginaln¹, czyli s¹ mniejsze. Kolorem ¿ó³tym zosta³y oznaczone komórki, które przedstawiaj¹ najlepszy wynik dla danej populacji i iteracji, pod warunkiem ¿e by³ on lepszy od trasy oryginalnej. Kolorem zielonym zosta³ oznaczony w tabeli najlepszy globalne wyniki. Wszystkie krzy¿owania i mutacje zosta³y zaimplementowane w .NET Core 3.1, a do samej obs³ugi algorytmu genetycznego, zosta³a wykorzystana biblioteka Accord.Genetic. Posiada ona interfejsy, pod które mo¿na pod³¹czyæ w³asne metody mutacji, krzy¿owania oraz funkcje celu.
 	
-	Jednym z parametrów wejœciowych algorytmu mrówkowego jest wspó³czynnik parowania feromonów. To dziêki temu parametrowi wybierane s¹ optymalne trasy, a te gorsze odrzucane. Ich wartoœci s¹ wyra¿ane procentowo w zakresie od 1\% do 99\%. Dla ka¿dej trasy zosta³a wybrane takie same wartoœci. Pomiar wyników zosta³ rozpoczêty od wartoœci 10\%. W ka¿dym korku wartoœæ ta by³a zwiêkszana o kolejne 10\% a¿ do 90\%. Kolejnym istotnym parametrem jest iloœæ iteracji. Parametr ten oznacza ile razy mrówki mrówki maj¹ wykonywaæ ulepszenie trasy. Do badañ zosta³y dobrane trzy wartoœci: 50, 75, 100. Parametr ten ma bezpoœredni wp³yw na optymalizacjê ale równie¿ na czas jaki algorytm potrzebuje na wykonanie wszystkich operacji. W tabelach podobnie jak dla algorytmu genetycznego, kolorem jasno-¿ó³tym oznaczono wyniki, które s¹ lepsze od oryginalnej trasy. Kolorem ¿ó³tym najlepszy wynik dla danego wspó³czynnika parowania feromonów, a kolorem zielonym najlepszy globalny wynik. Program obs³uguj¹cy algorytm mrówkowy zosta³ stworzony za pomoc¹ jêzyka Python.
+	Jednym z parametrów wejœciowych algorytmu mrówkowego jest wspó³czynnik parowania feromonów. To dziêki temu parametrowi wybierane s¹ optymalne trasy, a te gorsze odrzucane. Ich wartoœci s¹ wyra¿ane procentowo w zakresie od 1\% do 99\%. Dla ka¿dej trasy zosta³a wybrane takie same wartoœci. Pomiar wyników zosta³ rozpoczêty od wartoœci 10\%. W ka¿dym korku wartoœæ ta by³a zwiêkszana o kolejne 10\% a¿ do 90\%. Kolejnym istotnym parametrem jest liczba iteracji. Parametr ten oznacza ile razy mrówki mrówki maj¹ wykonywaæ ulepszenie trasy. Do badañ zosta³y dobrane trzy wartoœci: 50, 75, 100. Parametr ten ma bezpoœredni wp³yw na optymalizacjê ale równie¿ na czas jaki algorytm potrzebuje na wykonanie wszystkich operacji. W tabelach podobnie jak dla algorytmu genetycznego, kolorem jasno-¿ó³tym oznaczono wyniki, które s¹ lepsze od oryginalnej trasy. Kolorem ¿ó³tym najlepszy wynik dla danego wspó³czynnika parowania feromonów, a kolorem zielonym najlepszy globalny wynik. Program obs³uguj¹cy algorytm mrówkowy zosta³ stworzony za pomoc¹ jêzyka Python.
 
-	Przedstawicielami algorytmów zach³annych do wyznaczania tras by³ algorytm najbli¿szego s¹siada (ANS), algorytm najmniejszej krawêdzi (ANK) oraz algorytm A*. Do wyznaczenia wiêkszej iloœci tras w algorytmach zach³annych u¿yto wspó³czynnika b³êdu w jednostce metrów: 0, 5, 10, 20, 30, 40, 50, 75 oraz 100. Wspó³czynnik zosta³ zbadany na trzech ró¿nych etapach algorytmu, aby zbadaæ wiêksz¹ iloœæ otrzymanych tras, wy³¹czany by³ po utworzeniu 100 000 tras do badañ. Pierwsze badany etap obejmowa³ uruchomienie wspó³czynnika od pocz¹tku dzia³ania danego algorytmu. Drugie badanie aktywowa³o wspó³czynnik dopiero po utworzeniu 1/3 ca³kowitej trasy. Ostatni eksperyment polega³ na rozpoczêciu rozwa¿ania wiêkszej iloœci tras po stworzeniu 2/3 z ca³kowitej trasy. Nastêpnie wszystkie otrzymane trasy zosta³y zoptymalizowane metod¹ 2-opt w celu znalezienia lepszego wyniku. Jeœli rezultat optymalizacji nie by³ lepszy, zostawa³ poprzedni wynik. W tabelach dotycz¹cych wyników algorytmów zach³annych, kolorem ¿ó³tym zaznaczono najlepsze wyniki dla danego algorytmu, a kolorem zielonym najlepszy globalny wynik. Wszystkie algorytmy zosta³y zaimplementowane w³asnorêcznie w .NET Core.
+	Przedstawicielami algorytmów zach³annych do wyznaczania tras by³ algorytm najbli¿szego s¹siada (ANS), algorytm najmniejszej krawêdzi (ANK) oraz algorytm A*. Do wyznaczenia wiêkszej liczby tras w algorytmach zach³annych u¿yto wspó³czynnika b³êdu w jednostce metrów: 0, 5, 10, 20, 30, 40, 50, 75 oraz 100. Wspó³czynnik zosta³ zbadany na trzech ró¿nych etapach algorytmu, aby zbadaæ wiêksz¹ liczbê otrzymanych tras, wy³¹czany by³ po utworzeniu 100 000 tras do badañ. Pierwsze badany etap obejmowa³ uruchomienie wspó³czynnika od pocz¹tku dzia³ania danego algorytmu. Drugie badanie aktywowa³o wspó³czynnik dopiero po utworzeniu 1/3 ca³kowitej trasy. Ostatni eksperyment polega³ na rozpoczêciu rozwa¿ania wiêkszej liczby tras po stworzeniu 2/3 z ca³kowitej trasy. Nastêpnie wszystkie otrzymane trasy zosta³y zoptymalizowane metod¹ 2-opt w celu znalezienia lepszego wyniku. Jeœli rezultat optymalizacji nie by³ lepszy, zostawa³ poprzedni wynik. W tabelach dotycz¹cych wyników algorytmów zach³annych, kolorem ¿ó³tym zaznaczono najlepsze wyniki dla danego algorytmu, a kolorem zielonym najlepszy globalny wynik. Wszystkie algorytmy zosta³y zaimplementowane w³asnorêcznie w .NET Core.
 \section{Trasa I}
-	Na rysunku \ref{Trasa1} zosta³a przedstawiona oryginalna trasa ciê¿arówki na trasie pierwszej. Pokona³a ona odleg³oœæ  48897 metrów. Kierowca wyjecha³ z osiedla bia³ostoczek i zacz¹³ zbieraæ kontenery na osiedlach mickiewicza i centrum, na koniec odwiedzi³ okolice stadionu miejskiego i pojecha³ na roz³adunek do Hryniewicz.
+	Na rysunku \ref{Trasa1} zosta³a przedstawiona oryginalna trasa ciê¿arówki na trasie pierwszej. Pokona³a ona odleg³oœæ  48897 metrów. Kierowca wyjecha³ z osiedla Bia³ostoczek i zacz¹³ zbieraæ kontenery na osiedlach Mickiewicza i Centrum, na koniec odwiedzi³ okolice Stadionu Miejskiego i pojecha³ na roz³adunek do Hryniewicz.
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.4]{grafika/1.png}
@@ -15,10 +15,17 @@
 	\label{Trasa1}
 \end{figure}	
 	
-\subsection{Wyniki algorytmu genetycznego - Pawe³}
-Algorytm wyznaczy³ trasê dla ka¿dej mo¿liwej kombinacji 10 razy. W tabelach dotycz¹cych wyników algorytmu genetycznego, zosta³y przedstawione takie wyniki jak: œrednia d³ugoœæ wyznaczonej trasy, najlepsza trasa z dziesiêciu, œredni czas wykonania oraz skutecznoœæ algorytmu. 
-W tabeli \ref{tab:AG1AVG} zosta³y przedstawione œrednie wyniki algorytmu genetycznego dla ka¿dej kombinacji parametrów. Na pierwszy rzut oka widaæ, ¿e wraz ze wzrostem parametru $N$ osi¹gane by³y lepsze wyniki. Dla populacji 100 osobników, tylko dla krzy¿owania $CX$ i mutacji $Insert$ przy 4000 iteracjach œredni wynik zoptymalizowa³ trasê. Dla $N$ = 1000 zoptymalizowanych wyników jest ju¿ wiêcej. Od tej populacji zawsze najlepszy wynik dla poszczególnych wartoœci iteracji, zosta³ osi¹gniêty przez krzy¿owanie $CX$ i mutacjê $Insert$. W tej populacji uda³o siê zoptymalizowaæ trasê do 33843 metrów przy 2000 iteracjach. 
+\subsection{Wyniki algorytmu genetycznego -- PS}
+Algorytm wyznaczy³ trasê dla ka¿dej mo¿liwej kombinacji parametrów wejœciowych 10 razy. W tabelach dotycz¹cych wyników algorytmu genetycznego, zosta³y przedstawione takie wyniki jak:
+\begin{itemize}
+  \item œrednia d³ugoœæ wyznaczonej trasy,
+  \item skutecznoœæ algorytmu,
+  \item najlepsza trasa z dziesiêciu,
+  \item œredni czas wykonania.
+\end{itemize}
+W tabeli \ref{tab:AG1AVG} zosta³y przedstawione œrednie wyniki algorytmu genetycznego dla ka¿dej kombinacji parametrów. Mo¿na zauwa¿yæ, ¿e wraz ze wzrostem parametru $N$ osi¹gane by³y lepsze wyniki. Dla populacji 100 osobników, tylko dla krzy¿owania $CX$ i mutacji $Insert$ przy 4000 iteracjach œredni wynik polepsza³ trasê. Dla $N$ = 1000 lepszych wyników od trasy oryginalnej jest ju¿ wiêcej. Od tej populacji zawsze najlepszy wynik dla poszczególnych wartoœci iteracji, zosta³ osi¹gniêty przez krzy¿owanie $CX$ i mutacjê $Insert$. W tej populacji uda³o siê znaleŸæ najlepsz¹ trasê wynosz¹c¹ 33843 metrów przy 2000 iteracjach. 
 \begin{table}[!h]
+\centering
 \caption[Trasa I - œrednie wyniki dla algorytmu genetycznego]
 {Trasa I - œrednie wyniki algorytmu genetycznego dla poszczególnych parametrów wejœciowych}
 \scalebox{0.8}{
@@ -58,6 +65,7 @@ W populacji 2000 osobników dla $k$ = 2000 oraz krzy¿owania $CX$ i mutacji $Inser
 
 W tabeli \ref{tab:AG1Ilosc} zosta³a przedstawiona procentowa iloœæ wyników lepszych od d³ugoœci trasy oryginalnej, czyli skutecznoœæ algorytmu genetycznego. Przy populacji 100 osobników, ani razu algorytm nie osi¹gn¹³ 100\% skutecznoœci. Pierwszy raz uda³o siê to osi¹gn¹æ dla populacji 1000 osobników przy 1000 iteracjach.  Krzy¿owanie $PMX$ oraz $CX$ osi¹gnê³o 100\% skutecznoœci w po³¹czeniu z ka¿d¹ mutacji dla populacji 2000 osobników oraz $k$ = 2000 i $k$ = 4000. Krzy¿owanie $OX$ z mutacj¹ $Revert$ ani razu nie osi¹gnê³o 100\% skutecznoœci. Porównuj¹c mutacje, najs³absza skutecznoœæ osi¹gnê³a $Revert$.
 \begin{table}[!h]
+\centering
 \caption[Trasa I - skutecznoœæ algorytmu genetycznego]
 {Trasa I - skutecznoœæ algorytmu genetycznego dla poszczególnych parametrów wejœciowych}
 \scalebox{0.8}{
@@ -91,8 +99,9 @@ W tabeli \ref{tab:AG1Ilosc} zosta³a przedstawiona procentowa iloœæ wyników lepsz
 \label{tab:AG1Ilosc}
 \end{table}
 
-	W tabeli \ref{tab:AG1BEST} zosta³y pokazane najlepsze wyniki, czyli wartoœæ minimalna z 10 wywo³añ algorytmu dla poszczególnych parametrów wejœciowych. W populacji 100 osobników, tylko w przypadku dwóch krzy¿owañ $PMX$, $CX$ oraz mutacji $Insert$ zosta³y osi¹gniête wyniki lepsze od orygina³u, ale nie zosta³o to osi¹gniête dla 100 iteracji. Dla tej populacji najlepszy wynik zosta³ znaleziony dla krzy¿owania $PMX$ oraz mutacji $Insert$ i wyniós³ 40964 metrów. W populacji 1000 osobników najlepiej ju¿ poradzi³o sobie krzy¿owanie $CX$ w po³¹czeniu z mutacj¹ $Insert$. Ta kombinacja dla 2000 iteracji znalaz³a najlepszy wynik w tej populacji 32344 metrów.  Dla $N$ = 2000 tylko krzy¿owanie OX przy 100 iteracjach, ani razu nie osi¹gnê³o wyniku lepszego od orygina³u. Dla wszystkich innych kombinacji parametrów najlepszy wynik z 10 uruchomieñ algorytmu zoptymalizowa³ trasê. Najlepszy globalny wynik zosta³ znaleziony dla $N$ = 2000, $k$ = 100, krzy¿owania $CX$ oraz mutacji $Insert$,  wyniós³ 30939 metrów. Od $N$ = 1000 i $k$ = 4000 zawsze najlepszy wynik wyst¹pi³ dla krzy¿owania $CX$ i mutacji $Insert$.
+	W tabeli \ref{tab:AG1BEST} zosta³y pokazane najlepsze wyniki, czyli wartoœæ minimalna z 10 wywo³añ algorytmu dla poszczególnych parametrów wejœciowych. W populacji 100 osobników, tylko w przypadku dwóch krzy¿owañ $PMX$, $CX$ oraz mutacji $Insert$ zosta³y osi¹gniête wyniki lepsze od orygina³u, ale nie zosta³o to osi¹gniête dla 100 iteracji. Dla tej populacji najlepszy wynik zosta³ znaleziony dla krzy¿owania $PMX$ oraz mutacji $Insert$ i wyniós³ 40964 metrów. W populacji 1000 osobników najlepiej ju¿ poradzi³o sobie krzy¿owanie $CX$ w po³¹czeniu z mutacj¹ $Insert$. Ta kombinacja dla 2000 iteracji znalaz³a najlepszy wynik w tej populacji 32344 metrów.  Dla $N$ = 2000 tylko krzy¿owanie OX przy 100 iteracjach, ani razu nie osi¹gnê³o wyniku lepszego od orygina³u. Dla wszystkich innych kombinacji parametrów najlepszy wynik z 10 uruchomieñ algorytmu ulepsza³ trasê oryginaln¹. Najlepszy globalny wynik zosta³ znaleziony dla $N$ = 2000, $k$ = 100, krzy¿owania $CX$ oraz mutacji $Insert$,  wyniós³ 30939 metrów. Od $N$ = 1000 i $k$ = 4000 zawsze najlepszy wynik wyst¹pi³ dla krzy¿owania $CX$ i mutacji $Insert$.
 \begin{table}[!h]
+\centering
 \caption[Trasa I - najlepsze wyniki dla algorytmu genetycznego]
 {Trasa I - najlepsze wyniki algorytmu genetycznego dla danych parametrów wejœciowych}
 \scalebox{0.8}{
@@ -130,6 +139,7 @@ W tabeli \ref{tab:AG1Ilosc} zosta³a przedstawiona procentowa iloœæ wyników lepsz
 	
 	W tabeli \ref{tab:AG1TIME} zosta³y przedstawione œrednie czasy wywo³añ algorytmów dla poszczególnych kombinacji parametrów. Tylko w dwóch przypadkach najszybsze nie by³o krzy¿owanie $CX$ oraz mutacja $Revert$. Najlepszy œredni wynik optymalizacji pomiêdzy populacjami 1000 osobników, a 2000 osobników poprawi³ siê o oko³o 1442 metrów (Tab. \ref{tab:AG1AVG}), ale czas trwania algorytmu dla tych parametrów: $N$ = 1000, $k$ = 1000, krzy¿owanie $CX$ i mutacja $Insert$ a $N$ = 2000, $k$ = 2000, krzy¿owanie $CX$ i mutacja $Insert$  wzrós³ z 1.7 sekundy do 8.33 sekundy, ponad czterokrotnie. Najwolniej z krzy¿owañ radzi sobie krzy¿owanie $PMX$, a najszybciej $CX$.
 \begin{table}[!h]
+\centering
 \caption[Trasa I - œrednie czasy wykonywania algorytmu genetycznego]
 {Trasa I - œrednie czasy wykonywania algorytmu dla danych parametrów wejœciowych}
 \scalebox{0.8}{
@@ -165,7 +175,7 @@ W tabeli \ref{tab:AG1Ilosc} zosta³a przedstawiona procentowa iloœæ wyników lepsz
 \label{tab:AG1TIME}
 \end{table}
 
-Rysunki \ref{Trasa1GAN100}, \ref{Trasa1GAN1000} oraz \ref{Trasa1GAN2000} przedstawiaj¹ wykresy, które porównuj¹ o ile ró¿ni siê rozwi¹zanie od d³ugoœci trasy oryginalnej, kolejno dla $N$ = 100, $N$ = 1000 oraz $N$ = 2000. W populacji 100 osobników (Rys. \ref{Trasa1GAN100}), tylko w jednym przypadku uda³o siê zoptymalizowaæ trasê o 0.67\%, co jest znikom¹ wartoœci¹. W pozosta³ych przypadkach wyniki s¹ gorsze o kilkanaœcie, a nawet kilkadziesi¹t procent. 
+Rysunki \ref{Trasa1GAN100}, \ref{Trasa1GAN1000} oraz \ref{Trasa1GAN2000} przedstawiaj¹ wykresy, które porównuj¹ o ile ró¿ni siê rozwi¹zanie od d³ugoœci trasy oryginalnej, kolejno dla $N$ = 100, $N$ = 1000 oraz $N$ = 2000. W populacji 100 osobników (Rys. \ref{Trasa1GAN100}), tylko w jednym przypadku uda³o siê poprawiæ trasê o 0.67\%, co jest znikom¹ wartoœci¹. W pozosta³ych przypadkach wyniki s¹ gorsze o kilkanaœcie, a nawet kilkadziesi¹t procent. 
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.35]{grafika/Trasa1GAN100.png}
@@ -173,7 +183,7 @@ Rysunki \ref{Trasa1GAN100}, \ref{Trasa1GAN1000} oraz \ref{Trasa1GAN2000} przedst
 	\label{Trasa1GAN100}
 \end{figure}	
 
-W populacji $N$ = 1000 (Rys. \ref{Trasa1GAN1000}) dla 100 iteracji algorytm znajdowa³ trasy o kilkanaœcie procent gorsze. Dla 1000 iteracji uda³o siê zoptymalizowaæ trasê œrednio ju¿ o 30.94\% dla krzy¿owania $CX$. To krzy¿owanie dla mutacji $Insert$ oraz $Swap$ optymalizowa³o trasê œrednio o ponad 20\%. Krzy¿owanie $PMX$ oraz $OX$ poradzi³o sobie bardzo podobnie w tej populacji. Pierwsze maksymalnie œrednio zoptymalizowa³o trasê o 23.62\%, a drugie o 18.12\%.
+W populacji $N$ = 1000 (Rys. \ref{Trasa1GAN1000}) dla 100 iteracji algorytm znajdowa³ trasy o kilkanaœcie procent gorsze. Dla 1000 iteracji uda³o siê poprawiæ oryginaln¹ trasê œrednio ju¿ o 30.94\% dla krzy¿owania $CX$. To krzy¿owanie dla mutacji $Insert$ oraz $Swap$ optymalizowa³o trasê œrednio o ponad 20\%. Krzy¿owanie $PMX$ oraz $OX$ poradzi³o sobie bardzo podobnie w tej populacji. Pierwsze maksymalnie œrednio poprawi³o oryginaln¹ trasê o 23.62\%, a drugie o 18.12\%.
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.35]{grafika/Trasa1GAN1000.png}
@@ -181,7 +191,7 @@ W populacji $N$ = 1000 (Rys. \ref{Trasa1GAN1000}) dla 100 iteracji algorytm znaj
 	\label{Trasa1GAN1000}
 \end{figure}	
 
- W populacji $N$ = 2000 (Rys. \ref{Trasa1GAN2000}) krzy¿owanie $CX$ dla ka¿dej mutacji zoptymalizowa³o trasê od 8.7\% do 33.89\%. Mo¿na zauwa¿yæ, ¿e  œredni najlepszy wynik nie poprawia³ siê od $k$ = 1000. Krzy¿owanie $PMX$ oraz $OX$ poprawi³o siê o kilka procent porównuj¹c do poprzedniej populacji. Pierwsze maksymalne œrednio optymalizuje trasê o 27.59\%, a drugie o 22.11\%.
+ W populacji $N$ = 2000 (Rys. \ref{Trasa1GAN2000}) krzy¿owanie $CX$ dla ka¿dej mutacji zoptymalizowa³o trasê od 8.7\% do 33.89\%. Mo¿na zauwa¿yæ, ¿e  œredni najlepszy wynik nie poprawia³ siê od $k$ = 1000. Krzy¿owanie $PMX$ oraz $OX$ poprawi³o siê o kilka procent porównuj¹c do poprzedniej populacji. Pierwsze maksymalne œrednio poprawi³o oryginaln¹ trasê o 27.59\%, a drugie o 22.11\%.
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.35]{grafika/Trasa1GAN2000.png}
@@ -199,7 +209,7 @@ Na rysunku \ref{Trasa1PS} przedstawiono najlepsz¹ trasê jak¹ znalaz³ algorytm ge
 \end{figure}	
 
 
-\subsection{Wyniki algorytmu mrówkowego - Kamil}
+\subsection{Wyniki algorytmu mrówkowego -- KL}
 
 Algorytm zosta³ uruchomiony dziesiêciokrotne dla ka¿dej mo¿liwej kombinacji parametrów wejœciowych. W odpowiedzi program przedstawi³ w odpowiedniej kolejnoœci punkty jakie zosta³y zawarte w rozwi¹zaniu, przebyt¹ odleg³oœæ oraz czas wykonania algorytmu. Z zebranych danych zosta³a wyliczona œrednia, zosta³ wyznaczony najlepszy wynik oraz wyliczono sumê punktów, których ³¹czn¹ przebyt¹ odleg³oœæ jest krótszy od orygina³u. Przy wykorzystaniu tych miar mo¿na wykonaæ porównanie z oryginaln¹ tras¹, przebyt¹ w rzeczywistoœci przez ciê¿arówkê. 
 	
@@ -325,9 +335,9 @@ Najlepsza trasa otrzymana przez algorytm najbli¿szego s¹siada wynios³a 31895 met
 Od razu mo¿na zauwa¿yæ, ¿e po zastosowaniu wspó³czynnika na pierwszym etapie trasy najgorzej wypad³ algorytm najmniejszej krawêdzi daj¹c wyniki a¿ powy¿ej 40000 metrów. 
 Natomiast algorytm najbli¿szego s¹siada oraz algorytm A* najs³abiej poradzili sobie tworz¹c dodatkowe trasy do badañ na trzecim etapie dzia³ania.
 
-Tabela \ref{tab:AZ1OPTM} przedstawia procentow¹ poprawê oryginalnej trasy nr 1. Wszystkie otrzymane trasy przez ka¿dy z trzech algorytmów da³y lepszy wynik od oryginalnej. Najlepszy wynik otrzymany przez algorytm A* poprawi³ trasê a¿ o 38.23\%.
-Na pierwszy rzut oka mo¿na zauwa¿yæ, ¿e najwy¿sze optymalizacje zosta³y wygenerowane przez algorytm A*. Najgorsze optymalizacje otrzymano przy zastosowaniu algorytmu najmniejszej krawêdzi w pierwszej fazie budowania tras, wszystkie wyniki by³y poni¿ej 20\%.
-Nieco lepiej od poprzednika wypad³ algorytm najbli¿szego s¹siada, jednak najbardziej optymalny wynik jest w obu zbli¿ony równy oko³o 34\%.
+Tabela \ref{tab:AZ1OPTM} przedstawia procentow¹ poprawê oryginalnej trasy numer 1. Wszystkie otrzymane trasy przez ka¿dy z trzech algorytmów da³y lepszy wynik od oryginalnej. Najlepszy wynik otrzymany przez algorytm A* zmniejszy³ d³ugoœæ oryginalnej trasy a¿ o 38.23\%.
+Na pierwszy rzut oka mo¿na zauwa¿yæ, ¿e najlepsze wyniki zosta³y wygenerowane przez algorytm A*. Natomiast najgorsze otrzymano przy zastosowaniu algorytmu najmniejszej krawêdzi w pierwszej fazie budowania tras, wszystkie wyniki by³y poni¿ej 20\%.
+Nieco lepiej od poprzednika wypad³ algorytm najbli¿szego s¹siada, jednak najlepszych ich lokalny wynik jest w obu zbli¿ony równy oko³o 34\%.
 
 \begin{table}[!h]
 \caption[Trasa I - wyniki algorytmów zach³annych]
@@ -352,8 +362,8 @@ B³¹d (m) & \cellcolor[HTML]{C0C0C0}ANS-1 & \cellcolor[HTML]{C0C0C0}ANS-2 & \cell
 \end{table}
 
 \begin{table}[!h]
-\caption[Trasa I - optymalizacja wyników wzglêdem oryginalnej trasy]
-{Trasa I - optymalizacja wyników wzglêdem oryginalnej trasy}
+\caption[Trasa I - poprawa wyników wzglêdem oryginalnej trasy]
+{Trasa I - poprawa wyników wzglêdem oryginalnej trasy}
 \scalebox{0.8}{
 \begin{tabular}{|
 >{\columncolor[HTML]{C0C0C0}}c |l|l|l|l|l|l|l|
@@ -374,7 +384,7 @@ B³¹d (m) & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANS-1} & \multicolumn{1}{
 \end{table}
 
 
-Zastosowanie metody 2-opt na utworzonych trasach znalaz³o nowy najlepszy wynik dla algorytmu A* testowanego w pierwszej fazie budowania tras. Jak mo¿na zauwa¿yæ w tabeli \ref{tab:AZ12OPT} po zastosowaniu optymalizacji nowa najlepsza trasa uzyska³a wynik 29 965 metrów. Dziêki optymalizacji trasa wygenerowana przez algorytm najmniejszej krawêdzi zmniejszy³a siê do 30855 metrów. Dla algorytmu najbli¿szego s¹siada optymalizacja nie przynios³a trasy o mniejszej d³ugoœci od poprzednich. Nowa najlepsza optymalizacja wynosi 38.72\% wzglêdem oryginalnej trasy, a najgorszy wynik to zaledwie 13.40\% poprawy d³ugoœci. Tabela \ref{tab:AZ12OPTOPTM} przedstawia wyniki optymalizacji wzglêdem trasy oryginalnej po zastosowaniu metody 2-opt.
+Zastosowanie metody 2-opt na utworzonych trasach znalaz³o nowy najlepszy wynik dla algorytmu A* testowanego w pierwszej fazie budowania tras. Jak mo¿na zauwa¿yæ w tabeli \ref{tab:AZ12OPT} po zastosowaniu optymalizacji nowa najlepsza trasa uzyska³a wynik 29 965 metrów. Dziêki optymalizacji trasa wygenerowana przez algorytm najmniejszej krawêdzi zmniejszy³a siê do 30855 metrów. Dla algorytmu najbli¿szego s¹siada optymalizacja nie przynios³a trasy o mniejszej d³ugoœci od poprzednich. Nowy najlepszy wynik wynosi 38.72\% wzglêdem oryginalnej trasy, a najgorszy wynik to zaledwie 13.40\% poprawy d³ugoœci. Tabela \ref{tab:AZ12OPTOPTM} przedstawia poprawê tras wzglêdem trasy oryginalnej po zastosowaniu metody 2-opt.
 
 \begin{table}[!h]
 \caption[Trasa I - zastosowanie metody 2-opt na powsta³ych trasach]
@@ -407,8 +417,8 @@ B³¹d (m) & \cellcolor[HTML]{C0C0C0}ANS-1 & \cellcolor[HTML]{C0C0C0}ANS-2 & \cell
 \end{table}
 
 \begin{table}[!h]
-\caption[Trasa I - optymalizacja powsta³ych tras przez metodê 2-opt]
-{Trasa I - optymalizacja powsta³ych tras przez metodê 2-opt}
+\caption[Trasa I - poprawa powsta³ych tras wzglêdem oryginalnej przez metodê 2-opt]
+{Trasa I - poprawa powsta³ych tras wzglêdem oryginalnej przez metodê 2-opt}
 \scalebox{0.8}{
 \begin{tabular}{|
 >{\columncolor[HTML]{C0C0C0}}c |
@@ -517,7 +527,7 @@ Ró¿nice te dotycz¹ kolejnoœci odwiedzania punktów dla takiego samego wycinka tra
 
 \section{Trasa II}
 
-	Na rysunku \ref{Trasa2} zosta³a przedstawiona oryginalna druga trasa ciê¿arówki, na której znajduje siê 10 kontenerów. Trasa ta mimo wiêkszej iloœci kontenerów, jest krótsza od poprzedniej. Jej d³ugoœæ wynosi 40402 metrów. Wszystkie punkty znajduj¹ siê na osiedlach w okolicy centrum. Ciê¿arówka czêsto pokonywa³a kilka razy te same drogi jednokierunkowe. Po zebraniu wszystkich kontenerów, pojazd roz³adowa³ siê na osiedlu wygoda.
+	Na rysunku \ref{Trasa2} zosta³a przedstawiona oryginalna druga trasa ciê¿arówki, na której znajduje siê 10 kontenerów. Trasa ta mimo wiêkszej iloœci kontenerów, jest krótsza od poprzedniej. Jej d³ugoœæ wynosi 40402 metrów. Wszystkie punkty znajduj¹ siê na osiedlach w okolicy Centrum. Ciê¿arówka czêsto pokonywa³a kilka razy te same drogi jednokierunkowe. Po zebraniu wszystkich kontenerów, pojazd roz³adowa³ siê na osiedlu Wygoda.
 
 \begin{figure}[!h]
 	\centering
@@ -527,10 +537,10 @@ Ró¿nice te dotycz¹ kolejnoœci odwiedzania punktów dla takiego samego wycinka tra
 \end{figure}	
 
 
-\subsection{Wyniki algorytmu genetycznego - Pawe³}
-W tabeli \ref{tab:AG2AVG} zosta³y przedstawione œrednie wyniki 
- algorytmu genetycznego dla ka¿dej kombinacji parametrów. W przeciwieñstwie do poprzedniej trasy, nie zawsze krzy¿owanie $CX$ z mutacj¹ $Insert$ optymalizowa³a najlepiej trasê. W populacji 2000 osobników oraz $k$ = 100 najlepszy œredni wynik osi¹gnê³o krzy¿owanie $CX$ z mutacj¹ $Revert$, a dla $k$ = 2000 lub $k$ = 4000 najlepszy wyniki by³y dla krzy¿owania $CX$ oraz mutacji $Swap$. W populacji $N$ = 100, ani jedna kombinacji parametrów wejœciowych, nie osi¹gnê³a œredniego wyniku, który by optymalizowa³ trasê. Dla populacji $N$ = 1000 trasê uda³o siê zoptymalizowaæ do œrednio 30385 metrów, jest to poprawa o 10017 metrów. Wynik ten osi¹gnê³o krzy¿owanie $CX$ z mutacj¹ $Insert$ w 1000 iteracji. Natomiast najlepszy wynik globalny 28196 metrów, osi¹gniêto dla populacji 2000 osobników oraz $k$ = 1000, krzy¿owanie $CX$ z mutacj¹ $Insert$. Porównuj¹c krzy¿owania, znowu najlepsze okaza³o siê krzy¿owanie $CX$ przed krzy¿owaniem $PMX$. Natomiast w mutacjach zazwyczaj lepszy wynik by³ osi¹gany przez mutacjê $Insert$ z kilkoma wyj¹tkami.
+\subsection{Wyniki algorytmu genetycznego -- PS}
+W tabeli \ref{tab:AG2AVG} zosta³y przedstawione œrednie wyniki algorytmu genetycznego dla~ ka¿dej kombinacji parametrów. W przeciwieñstwie do poprzedniej trasy, nie zawsze krzy¿owanie $CX$ z mutacj¹ $Insert$ poprawia³o najlepiej trasê oryginaln¹. W populacji 2000 osobników oraz $k$ = 100 najlepszy œredni wynik osi¹gnê³o krzy¿owanie $CX$ z mutacj¹ $Revert$, a dla $k$ = 2000 lub $k$ = 4000 najlepszy wyniki by³y dla krzy¿owania $CX$ oraz mutacji $Swap$. W populacji $N$ = 100, ani jedna kombinacji parametrów wejœciowych, nie~ osi¹gnê³a œredniego wyniku, który by poprawi³ oryginaln¹ trasê. Dla populacji $N$ = 1000 trasê uda³o siê poprawiæ do œrednio 30385 metrów, jest to poprawa o 10017 metrów. Wynik ten osi¹gnê³o krzy¿owanie $CX$ z mutacj¹ $Insert$ w 1000 iteracji. Natomiast najlepszy wynik globalny 28196 metrów, osi¹gniêto dla populacji 2000 osobników oraz $k$ = 1000, krzy¿owanie $CX$ z mutacj¹ $Insert$. Porównuj¹c krzy¿owania, znowu najlepsze okaza³o siê krzy¿owanie $CX$ przed krzy¿owaniem $PMX$. Natomiast w mutacjach zazwyczaj lepszy wynik by³ osi¹gany przez mutacjê $Insert$ z kilkoma wyj¹tkami.
 \begin{table}[!htb]
+\centering
 \caption[Trasa II - œrednie wyniki dla algorytmu genetycznego]
 {Trasa II - œrednie wyniki algorytmu genetycznego dla poszczególnych parametrów wejœciowych}
 \scalebox{0.8}{
@@ -564,8 +574,9 @@ W tabeli \ref{tab:AG2AVG} zosta³y przedstawione œrednie wyniki
 \label{tab:AG2AVG}
 \end{table}
 
-W tabeli \ref{tab:AG2Ilosc} zosta³a przedstawiona procentowa iloœæ wyników lepszych od d³ugoœci trasy oryginalnej. Krzy¿owanie $PMX$ z mutacja $Insert$, osi¹gnê³o czterokrotnie 100\% skutecznoœci dla populacji 1000 oraz 2000 osobników, w obu dla $k$ = 2000 lub $k$ = 4000. Krzy¿owanie $OX$ z mutacj¹ $Insert$ by³o bezb³êdne dla $N$ = 2000 oraz $k$ >= 1000. Krzy¿owanie $CX$ okaza³o siê jedynym, które mia³o 100\% skutecznoœci w po³¹czeniu z innymi mutacjami ni¿ $INsert$. Krzy¿owanie $OX$ jedynie w populacji 2000 osobników potrafi³o osi¹gn¹æ 100\% skutecznoœci. Mutacja $Revert$ nie poradzi³a sobie z krzy¿owaniem $OX$, nie osi¹gniêto, ani jednego wyniku lepszego ni¿ d³ugoœæ trasy oryginalnej. Natomiast krzy¿owanie $CX$, a¿ w 14 ró¿nych kombinacjach parametrów  optymalizowa³o trasê za ka¿dym razem.
+W tabeli \ref{tab:AG2Ilosc} zosta³a przedstawiona procentowa iloœæ wyników lepszych od d³ugoœci trasy oryginalnej. Krzy¿owanie $PMX$ z mutacja $Insert$, osi¹gnê³o czterokrotnie 100\% skutecznoœci dla populacji 1000 oraz 2000 osobników, w obu dla $k$ = 2000 lub $k$ = 4000. Krzy¿owanie $OX$ z mutacj¹ $Insert$ by³o bezb³êdne dla $N$ = 2000 oraz $k$ >= 1000. Krzy¿owanie $CX$ okaza³o siê jedynym, które mia³o 100\% skutecznoœci w po³¹czeniu z innymi mutacjami, ni¿ $INsert$. Krzy¿owanie $OX$ jedynie w populacji 2000 osobników potrafi³o osi¹gn¹æ 100\% skutecznoœci. Mutacja $Revert$ nie poradzi³a sobie z krzy¿owaniem $OX$, nie~ osi¹gniêto, ani jednego wyniku lepszego ni¿ d³ugoœæ trasy oryginalnej. Natomiast krzy¿owanie $CX$, a¿ w 14 ró¿nych kombinacjach parametrów  optymalizowa³o trasê za ka¿dym razem.
 \begin{table}[!h]
+\centering
 \caption[Trasa II - skutecznoœæ algorytmu genetycznego]
 {Trasa II - skutecznoœæ algorytmu genetycznego dla poszczególnych parametrów wejœciowych}
 \scalebox{0.8}{
@@ -598,8 +609,9 @@ W tabeli \ref{tab:AG2Ilosc} zosta³a przedstawiona procentowa iloœæ wyników lepsz
 \label{tab:AG2Ilosc}
 \end{table}
 
-W tabeli \ref{tab:AG2Best} pokazane zosta³y najlepsze wyniki jakie osi¹gn¹³ algorytm genetyczny na trasie II dla poszczególnych parametrów wejœciowych. W populacji $N$ = 100 najlepszy wynik 37172 metrów, osi¹gnê³o krzy¿owanie $CX$ z mutacj¹ $Insert$. Krzy¿owanie $CX$ z ka¿d¹ mutacj¹, osi¹gnê³o najwiêcej razy wynik lepszy od trasy oryginalnej. W populacji 1000 osobników najmniejsz¹ odleg³oœæ 27858 metrów, osi¹gn¹³ algorytm przy parametrach: $k$ = 2000, krzy¿owaniu $CX$ oraz mutacji $Swap$. W populacji 2000 osobników zosta³o znalezione najlepsze globalne rozwi¹zanie 27381 metrów, dla mutacji $CX$ oraz krzy¿owania $Swap$. Najmniej wyników optymalizuj¹cych trasê znalaz³o krzy¿owanie $OX$. Krzy¿owanie $PMX$ potrafi³o dla ka¿dej populacji przynajmniej raz znaleŸæ lepsz¹ trasê ni¿ oryginalna. Mutacja $Revert$ dwukrotnie znalaz³a najlepszy wynik, w populacji 1000 oraz 2000 osobników dla $k$ = 100.
+W tabeli \ref{tab:AG2Best} pokazane zosta³y najlepsze wyniki jakie osi¹gn¹³ algorytm genetyczny na trasie II dla poszczególnych parametrów wejœciowych. W populacji $N$ = 100 najlepszy wynik 37172 metrów, osi¹gnê³o krzy¿owanie $CX$ z mutacj¹ $Insert$. Krzy¿owanie $CX$ z~ ka¿d¹ mutacj¹, osi¹gnê³o najwiêcej razy wynik lepszy od trasy oryginalnej. W populacji 1000 osobników najmniejsz¹ odleg³oœæ 27858 metrów, osi¹gn¹³ algorytm przy parametrach: $k$ = 2000, krzy¿owaniu $CX$ oraz mutacji $Swap$. W populacji 2000 osobników zosta³o znalezione najlepsze globalne rozwi¹zanie 27381 metrów, dla mutacji $CX$ oraz krzy¿owania $Swap$. Najmniej wyników poprawiaj¹cych oryginaln¹ trasê znalaz³o krzy¿owanie $OX$. Krzy¿owanie $PMX$ potrafi³o dla ka¿dej populacji przynajmniej raz znaleŸæ lepsz¹ trasê ni¿ oryginalna. Mutacja $Revert$ dwukrotnie znalaz³a najlepszy wynik, w populacji 1000 oraz 2000 osobników dla $k$ = 100.
 \begin{table}[!h]
+\centering
 \caption[Trasa II - najlepsze wyniki dla algorytmu genetycznego]
 {Trasa II - najlepsze wyniki algorytmu genetycznego dla poszczególnych parametrów wejœciowych}
 \scalebox{0.8}{
@@ -635,7 +647,7 @@ W tabeli \ref{tab:AG2Best} pokazane zosta³y najlepsze wyniki jakie osi¹gn¹³ algo
 \label{tab:AG2Best}
 \end{table}
 
-W tabeli \ref{tab:AG2Time} zosta³y pokazane œrednie czasy trwania algorytmu genetycznego. Rozk³ad najlepszych œrednich czasów jest bardzo podobny do trasy pierwszej. Najszybsze dla ka¿dego $N$ i $k$ by³o krzy¿owanie $CX$ oraz mutacja $Revert$. Pomiêdzy $N$ = 1000, a N$ $= 2000 œrednia najlepsza optymalizacja trasy poprawi³a siê o 477 metrów (Tab. \ref{tab:AG2Best}), czas na znalezienie takiej trasy wzrós³ ponad dwukrotnie z 4.17 sekund do 9.96 sekund. Najwolniej sobie poradzi³o krzy¿owanie $PMX$. Czasy wykonania wzros³y porównuj¹c je do trasy I (Tab. \ref{tab:AG1TIME}), spowodowane jest to tym, ¿e chromosomy sk³adaj¹ siê ze 150 punktów, wiêc potrzeba wykonaæ wiêcej operacji przy krzy¿owaniu oraz mutacji.
+W tabeli \ref{tab:AG2Time} zosta³y pokazane œrednie czasy trwania algorytmu genetycznego. Rozk³ad najlepszych œrednich czasów jest bardzo podobny do trasy pierwszej. Najszybsze dla ka¿dego $N$ i $k$ by³o krzy¿owanie $CX$ oraz mutacja $Revert$. Pomiêdzy $N$ = 1000, a N$ $= 2000 œrednia najlepszy wynik trasy poprawi³ siê o 477 metrów (Tab. \ref{tab:AG2Best}), czas na znalezienie takiej trasy wzrós³ ponad dwukrotnie z 4.17 sekund do 9.96 sekund. Najwolniej sobie poradzi³o krzy¿owanie $PMX$. Czasy wykonania wzros³y porównuj¹c je do trasy I (Tab. \ref{tab:AG1TIME}), spowodowane jest to tym, ¿e chromosomy sk³adaj¹ siê ze 150 punktów, wiêc potrzeba wykonaæ wiêcej operacji przy krzy¿owaniu oraz mutacji.
 \begin{table}[!h]
 \caption[Trasa II - œrednie czasy wykonywania algorytmu genetycznego]
 {Trasa II - œrednie czasy wykonywania algorytmu dla poszczególnych parametrów wejœciowych}
@@ -680,11 +692,11 @@ Rysunki \ref{Trasa2GAN100}, \ref{Trasa2GAN1000} oraz \ref{Trasa2GAN2000} przedst
 	\label{Trasa2GAN100}
 \end{figure}	
 
-Dla $N$ = 100 (Rys. \ref{Trasa2GAN100}) wszystkie kombinacje parametrów wejœciowych nie potrafi³y zoptymalizowaæ rozwi¹zania. Dla $k$ = 100 wygenerowane wyniki maj¹ gorsz¹ wartoœæ od -195\% do -150\%. Przy $k$ = 4000 wartoœci dla niektórych parametrów s¹ œrednio o gorsze o kilkanaœcie procent od trasy oryginalnej. 
+Dla $N$ = 100 (Rys. \ref{Trasa2GAN100}) wszystkie kombinacje parametrów wejœciowych nie potrafi³y znaleŸæ lepszego rozwi¹zania od trasy oryginalnej. Dla $k$ = 100 wygenerowane wyniki maj¹ gorsz¹ wartoœæ od -195\% do -150\%. Przy $k$ = 4000 wartoœci dla niektórych parametrów s¹ œrednio o gorsze o kilkanaœcie procent od trasy oryginalnej. 
 
-Dla $N$ = 1000 (Rys. \ref{Trasa2GAN1000}), nie uda³o siê jedynie zoptymalizowaæ trasy dla $k$ = 100, wszystkie wyniki s¹ ujemne. Dla pozosta³ych wartoœci $k$, krzy¿owanie $CX$ z mutacjami $Insert$ oraz $Swap$, œrednio zoptymalizowa³o trasê od 19.27\% do 24.65\%.  Krzy¿owanie $PMX$ dla tej populacji zoptymalizowa³o trasê w zale¿noœci od wartoœci k od 2.43\% do 13.66\%, a krzy¿owanie $OX$ od 2.88\% do 9.87\%. 
+Dla $N$ = 1000 (Rys. \ref{Trasa2GAN1000}), nie uda³o siê jedynie znaleŸæ trasy lepszej od oryginalnej dla $k$ = 100, wszystkie wyniki by³y ujemne. Dla pozosta³ych wartoœci $k$, krzy¿owanie $CX$ z mutacjami $Insert$ oraz $Swap$, œrednio poprawi³o trasê oryginaln¹ od 19.27\% do 24.65\%.  Krzy¿owanie $PMX$ dla tej populacji poprawi³o trasê w zale¿noœci od wartoœci k od 2.43\% do 13.66\%, a krzy¿owanie $OX$ od 2.88\% do 9.87\%. 
 
-Dla $N$ = 2000 (Rys. \ref{Trasa2GAN2000}) krzy¿owanie $CX$ zoptymalizowa³o trasê dla ka¿dego $k$. Wynik dla mutacji $Swap$ oraz $Insert$ dla $k$ = 1000 oraz $k$ = 2000, waha siê od 27.2\% do 30.21\%. Krzy¿owanie $PMX$ poprawi³o wynik dla mutacji $Insert$ do przedzia³u 13.52\% - 19.25\% w zale¿noœci od wartoœci parametru $k$. Natomiast krzy¿owanie $OX$ dla tej samej mutacji poprawi³o siê do przedzia³u 10.07\%-14.67\%. Inne mutacje dla tych krzy¿owañ wygenerowa³y s³absze wyniki.
+Dla $N$ = 2000 (Rys. \ref{Trasa2GAN2000}) krzy¿owanie $CX$ œrednio znalaz³o trasê lepsz¹ od oryginalnej dla ka¿dego $k$. Wynik dla mutacji $Swap$ oraz $Insert$ dla $k$ = 1000 oraz $k$ = 2000, waha siê od 27.2\% do 30.21\%. Krzy¿owanie $PMX$ poprawi³o wynik dla mutacji $Insert$ do przedzia³u 13.52\% - 19.25\% w zale¿noœci od wartoœci parametru $k$. Natomiast krzy¿owanie $OX$ dla tej samej mutacji poprawi³o siê do przedzia³u 10.07\%-14.67\%. Inne mutacje dla tych krzy¿owañ wygenerowa³y s³absze wyniki.
 
 \begin{figure}[!h]
 	\centering
@@ -825,7 +837,7 @@ Na rysunku \ref{Trasa2KL} przedstawiono najlepsz¹ trasê jak¹ znalaz³ algorytm mr
 \subsection{Wyniki algorytmów zach³annych - Przemys³aw}
 
 W tabeli \ref{tab:AZ2BESTS} zosta³y umieszczone najlepsze wartoœci wygenerowanych tras przez algorytmy zach³anne dla trasy nr 2 przy zastosowaniu wspó³czynnika b³êdu uruchamianego na poszczególnych etapach budowania ca³kowitej trasy.
-Tak jak w poprzedniej trasie algorytm A* uzyska³ najlepszy wynik równy 28757 metrów. Algorytm najbli¿szego s¹siada równie¿ doszed³ do wyniku poni¿ej 30000 metrów, podczas etapu drugiego znalaz³ trasê o d³ugoœci 29 800 metrów. Znów najgorszy okaza³ siê algorytm najmniejszej krawêdzi, który tym razem wyznaczy³ trasê 31745 metrow¹. Najwiêcej najgorszych wyników zwróci³ równie¿ algorytm najmniejszej krawêdzi, gdzie inne algorytmy odda³y wyniki bardzo przybli¿one.
+Tak jak w poprzedniej trasie algorytm A* uzyska³ najlepszy wynik równy 28757 metrów. Algorytm najbli¿szego s¹siada równie¿ doszed³ do wyniku poni¿ej 30000 metrów, podczas etapu drugiego znalaz³ trasê o d³ugoœci 29800 metrów. Znów najgorszy okaza³ siê algorytm najmniejszej krawêdzi, który tym razem wyznaczy³ trasê 31745 metrow¹. Najwiêcej najgorszych wyników zwróci³ równie¿ algorytm najmniejszej krawêdzi, gdzie inne algorytmy odda³y wyniki bardzo przybli¿one.
 
 \begin{table}[!h]
 \caption[Trasa II - wyniki algorytmów zach³annych]
@@ -849,12 +861,12 @@ B³¹d (m) & \cellcolor[HTML]{C0C0C0}ANS-1 & \cellcolor[HTML]{C0C0C0}ANS-2 & \cell
 \label{tab:AZ2BESTS}
 \end{table}
 
-Tabela \ref{tab:AZ2OPTM} przedstawia procentow¹ poprawê oryginalnej trasy nr 2. Wszystkie wyznaczone trasy przez poszczególny z  trzech algorytmów uzyska³y lepszy wynik od trasy oryginalnej. Najlepszy wynik otrzymany przez algorytm A* poprawi³ trasê a¿ o 28.82\%.
-Na pierwszy rzut oka mo¿na zauwa¿yæ, ¿e najwy¿sze optymalizacje zosta³y wygenerowane znów przez algorytm A*. Najgorsze optymalizacje otrzymano przy zastosowaniu algorytmu najmniejszej krawêdzi w trzeciej fazie budowania tras, gdzie wszystkie wyniki by³y poni¿ej 20\%, a dolny wynik to tylko 15.98\%. Algorytm najbli¿szego s¹siada wypad³ tym razem umiarkowanie, daj¹c najlepszy wynik równy 26.24\%, który jest lepszy od niektórych tras wyznaczanych przez algorytm A*.
+Tabela \ref{tab:AZ2OPTM} przedstawia procentow¹ poprawê oryginalnej trasy numer 2. Wszystkie wyznaczone trasy przez poszczególny z  trzech algorytmów uzyska³y lepszy wynik od trasy oryginalnej. Najlepszy wynik otrzymany przez algorytm A* poprawi³ trasê a¿ o 28.82\%.
+Na pierwszy rzut oka mo¿na zauwa¿yæ, ¿e najwy¿sze optymalizacje zosta³y wygenerowane znów przez algorytm A*. Najgorsze wyniki otrzymano przy zastosowaniu algorytmu najmniejszej krawêdzi w trzeciej fazie budowania tras, gdzie wszystkie wyniki by³y poni¿ej 20\%, a dolny wynik to tylko 15.98\%. Algorytm najbli¿szego s¹siada wypad³ tym razem umiarkowanie, daj¹c najlepszy wynik równy 26.24\%, który jest lepszy od niektórych tras wyznaczanych przez algorytm A*.
 
 \begin{table}[!h]
-\caption[Trasa II - optymalizacja wyników wzglêdem oryginalnej trasy]
-{Trasa II - optymalizacja wyników wzglêdem oryginalnej trasy}
+\caption[Trasa II - poprawa wyników wzglêdem oryginalnej trasy]
+{Trasa II - poprawa wyników wzglêdem oryginalnej trasy}
 \scalebox{0.8}{
 \begin{tabular}{|
 >{\columncolor[HTML]{C0C0C0}}c |l|l|l|l|l|l|l|l|l|}
@@ -907,8 +919,8 @@ B³¹d (m) & \cellcolor[HTML]{C0C0C0}ANS-1 & \cellcolor[HTML]{C0C0C0}ANS-2 & \cell
 
 
 \begin{table}[!h]
-\caption[Trasa II - optymalizacja powsta³ych tras przez metodê 2-opt]
-{Trasa II - optymalizacja powsta³ych tras przez metodê 2-opt}
+\caption[Trasa II - poprawa powsta³ych tras wzglêdem oryginalnej przez metodê 2-opt]
+{Trasa II - poprawa powsta³ych tras wzglêdem oryginalnej przez metodê 2-op}
 \scalebox{0.8}{
 \begin{tabular}{|
 >{\columncolor[HTML]{C0C0C0}}c |
@@ -984,7 +996,7 @@ Na rysunku \ref{Trasa3PN} przedstawiono najlepsz¹ trasê jak¹ znalaz³ algorytm za
 	\label{Trasa3PN}
 \end{figure}	
 
-\subsection{Porównanie algorytmów - wspólnie}
+\subsection{Porównanie algorytmów -- KL, KN, PS}
 
 Podobnie jak w przypadku trasy numer 1, najlepsze wyniki algorytmów nie s¹ takie same. Ponownie przeprowadzone optymalizacje przynios³y spodziewany efekt. Najlepszym wynikiem algorytmu genetycznego jest 27381. W stosunku do oryginalnej trasy jest to poprawa o 40\%. Czas z jakim pracowa³ program aby wygenerowaæ taki wynik to 9.03 sekund. Ponownie najlepszy wynik zosta³ osi¹gniêty przez algorytm mrówkowy. £¹czy przebyty dystans dla tego rozwi¹zania to 24347. Jest to o 46\% wynik lepszy od pierwotnej trasy. Czas oczekiwania na ten rezultat wynosi³ 28.32 sekund. Natomiast algorytmy zach³anne, a dok³adnie algorytm A*, znalaz³y trasê o d³ugoœci 32 855 metrów, a przy zastosowaniu metody 2-opt wynik ten uleg³ poprawie do 28 757 metrów. Do wykonania wszystkich operacji potrzebne by³o 20.59 sekundy.
 
@@ -1014,7 +1026,7 @@ Na zdjêciach \ref{fig:sum_gen_2}, \ref{fig:sum_mro_2}, \ref{fig:sum_prz_2} zosta
 \end{figure}
 
 \section{Trasa III}
-Na rysunku \ref{Trasa3} zosta³a przedstawiona trasa III, która sk³ada siê z 248 punktów i ma d³ugoœæ 53478 metrów. Jest to zarazem najd³u¿sza jak i równie¿ posiada najwiêcej kontenerów. Odwiedzane punkty znajduj¹ siê na osiedlach bia³ostoczek oraz wygoda. Ciê¿arówka roz³adowuje siê w miejscowoœci Hryniewicze. 
+Na rysunku \ref{Trasa3} zosta³a przedstawiona trasa III, która sk³ada siê z 248 punktów i ma d³ugoœæ 53478 metrów. Jest to zarazem najd³u¿sza jak i równie¿ posiada najwiêcej kontenerów. Odwiedzane punkty znajduj¹ siê na osiedlach Bia³ostoczek oraz Wygoda. Ciê¿arówka roz³adowuje siê w miejscowoœci Hryniewicze. 
 
 \begin{figure}[!h]
 	\centering
@@ -1023,9 +1035,10 @@ Na rysunku \ref{Trasa3} zosta³a przedstawiona trasa III, która sk³ada siê z 248 
 	\label{Trasa3}
 \end{figure}
 
-\subsection{Wyniki algorytmu genetycznego - Pawe³}
-W tabeli \ref{tab:AG3AVG} zosta³y pokazane œrednie wyniki algorytmu genetycznego dla trasy III. Krzy¿owanie $OX$ ani razu nie osi¹gnê³o œredniego wyniku lepszego od d³ugoœci trasy oryginalnej. W populacji 100 osobników wiêkszoœæ otrzymanych wyników ma wartoœæ powy¿ej 100 kilometrów. Dopiero dla $N$ = 1000, $k$ = 1000, krzy¿owania $CX$ oraz mutacji $Insert$ uda³o siê osi¹gn¹æ œredni lepszy wynik od wartoœci oryginalnej 43728 metrów, jest to poprawa d³ugoœci o 9750 metrów. Najlepszy wynik dla $N$ = 1000 wyst¹pi³ dla $k$ = 4000, krzy¿owania $CX$ oraz mutacji $Insert$, wyniós³ 40121 metrów. Dla tej populacji krzy¿owanie $PMX$ w jednym miejscu osi¹gnê³o œredni wynik lepszy ni¿ d³ugoœæ trasy oryginalnej, dla $k$ = 4000 oraz mutacji $Insert$. W populacji 2000 osobników wyniki roz³o¿y³y siê podobnie jak do poprzedniej. Najlepszy globalny wynik 34168 metrów zosta³ osi¹gniêty dla krzy¿owania $CX$, mutacji $Insert$ z $k$ = 4000. Mutacja $Revert$ nie osi¹gnê³a ani jednego œredniego wyniku optymalizuj¹cego trasê. Mutacja $Swap$ osi¹gnê³a takie wyniki jedynie dla krzy¿owania $CX$.
+\subsection{Wyniki algorytmu genetycznego -- PS}
+W tabeli \ref{tab:AG3AVG} zosta³y pokazane œrednie wyniki algorytmu genetycznego dla~ trasy III. Krzy¿owanie $OX$ ani razu nie osi¹gnê³o œredniego wyniku lepszego od d³ugoœci trasy oryginalnej. W populacji 100 osobników wiêkszoœæ otrzymanych wyników ma wartoœæ powy¿ej 100 kilometrów. Dopiero dla $N$ = 1000, $k$ = 1000, krzy¿owania $CX$ oraz mutacji $Insert$ uda³o siê osi¹gn¹æ œredni lepszy wynik od wartoœci oryginalnej 43728 metrów, jest to poprawa d³ugoœci o 9750 metrów. Najlepszy wynik dla $N$ = 1000 wyst¹pi³ dla $k$ = 4000, krzy¿owania $CX$ oraz mutacji $Insert$, wyniós³ 40121 metrów. Dla tej populacji krzy¿owanie $PMX$ w jednym miejscu osi¹gnê³o œredni wynik lepszy ni¿ d³ugoœæ trasy oryginalnej, dla $k$ = 4000 oraz mutacji $Insert$. W populacji 2000 osobników wyniki roz³o¿y³y siê podobnie jak do poprzedniej. Najlepszy globalny wynik 34168 metrów zosta³ osi¹gniêty dla krzy¿owania $CX$, mutacji $Insert$ z $k$ = 4000. Mutacja $Revert$ nie osi¹gnê³a ani jednego œredniego wyniku optymalizuj¹cego trasê. Mutacja $Swap$ osi¹gnê³a takie wyniki jedynie dla krzy¿owania $CX$.
 \begin{table}[!h]
+\centering
 \caption[Trasa III - œrednie wyniki dla algorytmu genetycznego]
 {Trasa III - œrednie wyniki algorytmu genetycznego dla danych parametrów wejœciowych}
 \scalebox{0.8}{
@@ -1063,8 +1076,9 @@ W tabeli \ref{tab:AG3AVG} zosta³y pokazane œrednie wyniki algorytmu genetycznego
 \label{tab:AG3AVG}
 \end{table}
 
-W tabeli \ref{tab:AG3Ilosc} zosta³a pokazana skutecznoœæ algorytmu genetycznego. W populacji 100 osobników nie by³o ani jednego wyniku, lepszego od d³ugoœci trasy oryginalnej. Podobnie dla $N$ = 1000 i $k$ = 100. Krzy¿owanie $PMX$ osi¹gnê³o tylko raz skutecznoœæ 100 procent dla $N$ = 2000, $k$ = 2000 oraz mutacji $Insert$. Mutacja $Revert$ ani razu dla krzy¿owania $PMX$ oraz $OX$ nie zoptymalizowa³a wyniku. $Revert$ dopiero dla krzy¿owania $CX$ i $N$ = 2000 mia³ skutecznoœæ na poziomie 40\% - 60\%. Krzy¿owanie $CX$ z mutacj¹ $Insert$ uzyska³o 100\% skutecznoœci dla $N$ = 1000 oraz $k$ = 1000 i $k$ = 4000. Mutacja $Swap$ razem z $Insert$ osi¹gnê³a 100\% skutecznoœci dla krzy¿owania $CX$ dla $N$ = 2000 oraz $k$ >= 1000.
+W tabeli \ref{tab:AG3Ilosc} zosta³a pokazana skutecznoœæ algorytmu genetycznego. W~ populacji 100 osobników nie by³o ani jednego wyniku, lepszego od d³ugoœci trasy oryginalnej. Podobnie dla $N$ = 1000 i $k$ = 100. Krzy¿owanie $PMX$ osi¹gnê³o tylko raz skutecznoœæ 100 procent dla $N$ = 2000, $k$ = 2000 oraz mutacji $Insert$. Mutacja $Revert$ ani razu dla krzy¿owania $PMX$ oraz $OX$ nie znalaz³a trasy lepszej od oryginalnej. $Revert$ dopiero dla krzy¿owania $CX$ i $N$ = 2000 mia³ skutecznoœæ na poziomie 40\% - 60\%. Krzy¿owanie $CX$ z mutacj¹ $Insert$ uzyska³o 100\% skutecznoœci dla $N$ = 1000 oraz $k$ = 1000 i $k$ = 4000. Mutacja $Swap$ razem z $Insert$ osi¹gnê³a 100\% skutecznoœci dla krzy¿owania $CX$ dla $N$ = 2000 oraz $k$ >= 1000.
 \begin{table}[!h]
+\centering
 \caption[Trasa III - skutecznoœæ algorytmu genetycznego]
 {Trasa III - skutecznoœæ algorytmu genetycznego dla poszczególnych parametrów wejœciowych}
 \scalebox{0.8}{
@@ -1102,8 +1116,9 @@ W tabeli \ref{tab:AG3Ilosc} zosta³a pokazana skutecznoœæ algorytmu genetycznego.
 \label{tab:AG3Ilosc}
 \end{table}
 
-W tabeli \ref{tab:AG3Best} przedstawiono najlepsze wyniki jakie osi¹gn¹³ algorytm genetyczny dla poszczególnych parametrów wejœciowych. Algorytm genetyczny znalaz³ wyniki lepsze od d³ugoœci trasy oryginalnej od $N$ = 1000 i $k$ = 1000. Najlepszy osi¹gniêty wynik dla $N$ = 1000 to 34365 metrów, czyli optymalizacja o 19113 metrów. Dla tej populacji zdecydowanie krzy¿owanie $OX$ radzi sobie du¿o lepiej ni¿ inne. Algorytm genetyczny z  krzy¿owaniem $PMX$ dla tej populacji osi¹gn¹³ najlepszy wynik 43708 metrów. Najlepszy globalny wynik zosta³ osi¹gniêty dla $N$ = 2000, $k$ = 1000, krzy¿owania $CX$ oraz mutacji $Insert$ i wyniós³ 32372 metrów. Krzy¿owanie $PMX$ poprawi³o siê nieznacznie do 32326 metrów. Mimo, ¿e mutacja $Revert$ ani razu nie mia³a wyniku œredniego, który by optymalizowa³ trasê, to dla krzy¿owania $CX$ osi¹gnê³a pojedyncze wyniki lepsze od trasy oryginalnej.
+W tabeli \ref{tab:AG3Best} przedstawiono najlepsze wyniki jakie osi¹gn¹³ algorytm genetyczny dla poszczególnych parametrów wejœciowych. Algorytm genetyczny znalaz³ wyniki lepsze od d³ugoœci trasy oryginalnej od $N$ = 1000 i $k$ = 1000. Najlepszy osi¹gniêty wynik dla $N$ = 1000 to 34365 metrów, czyli poprawa o 19113 metrów. Dla tej populacji zdecydowanie krzy¿owanie $OX$ radzi sobie du¿o lepiej ni¿ inne. Algorytm genetyczny z krzy¿owaniem $PMX$ dla~ tej populacji osi¹gn¹³ najlepszy wynik 43708 metrów. Najlepszy globalny wynik zosta³ osi¹gniêty dla $N$ = 2000, $k$ = 1000, krzy¿owania $CX$ oraz mutacji $Insert$ i wyniós³ 32372 metrów. Krzy¿owanie $PMX$ poprawi³o siê nieznacznie do 32326 metrów. Mimo, ¿e mutacja $Revert$ ani razu nie mia³a wyniku œredniego, który by poprawi³ trasê, to dla krzy¿owania $CX$ osi¹gnê³a pojedyncze wyniki lepsze od trasy oryginalnej.
 \begin{table}[!h]
+\centering
 \caption[Trasa III - najlepsze wyniki dla algorytmu genetycznego]
 {Trasa III - najlepsze wyniki algorytmu genetycznego dla poszczególnych parametrów wejœciowych}
 \scalebox{0.8}{
@@ -1136,8 +1151,9 @@ W tabeli \ref{tab:AG3Best} przedstawiono najlepsze wyniki jakie osi¹gn¹³ algoryt
 \label{tab:AG3Best}
 \end{table}
 
-W tabeli \ref{tab:AG3Time}   zosta³y pokazane œrednie czasy trwania algorytmu genetycznego. Podobnie jak w poprzednich przypadkach, najszybsze okaza³o siê krzy¿owanie $CX$, a najwolniejsze $PMX$. Pomiêdzy $N$ = 1000, a $N$ = 2000 œrednia najlepsza optymalizacja trasy poprawi³a siê oko³o 5953 metrów (Tab. \ref{tab:AG3AVG}), czas na znalezienie takiej trasy wzrós³ ponad dwukrotnie z 12.2 sekund do 26.81 sekund. Trasa III sk³ada siê z najwiêkszej liczby punktów, wiêc z tego powodu czas trwania algorytmu jest d³u¿szy ni¿ dla poprzednich tras.
+W tabeli \ref{tab:AG3Time}  zosta³y pokazane œrednie czasy trwania algorytmu genetycznego. Podobnie jak w poprzednich przypadkach, najszybsze okaza³o siê krzy¿owanie $CX$, a najwolniejsze $PMX$. Pomiêdzy $N$ = 1000, a $N$ = 2000 œrednia  poprawa trasy wynosi³a 5953 metrów (Tab. \ref{tab:AG3AVG}), czas na znalezienie takiej trasy wzrós³ ponad dwukrotnie z 12.2 sekund do 26.81 sekund. Trasa III sk³ada siê z najwiêkszej liczby punktów, wiêc z tego powodu czas trwania algorytmu jest d³u¿szy ni¿ dla poprzednich tras.
 \begin{table}[!h]
+\centering
 \caption[Trasa III - œrednie czasy wykonywania algorytmu genetycznego]
 {Trasa III - œrednie czasy wykonywania algorytmu dla poszczególnych parametrów wejœciowych}
 \scalebox{0.8}{
@@ -1176,9 +1192,9 @@ Rysunki \ref{Trasa3GAN100}, \ref{Trasa3GAN1000} oraz \ref{Trasa3GAN2000} przedst
 
 W populacji 100 osobników (Rys. \ref{Trasa3GAN100}) wyniki nawet nie zbli¿y³y siê do trasy oryginalnej.  Dla ma³ej iloœci iteracji, wyniki by³y gorsze o ponad 300\%. Przy k$k$ = 4000 zbli¿y³y siê do -40\%.
 
-W populacji 1000 osobników (Rys. \ref{Trasa3GAN1000}) krzy¿owanie $CX$ z mutacj¹ $Insert$ œrednio optymalizowa³ trasê od 18.23\% do 24.98\%. Krzy¿owanie $PMX$ optymalizuje trasê tylko dla $k$ = 4000 z mutacj¹ $Insert$ o 7.77\%.  Krzy¿owanie $OX$ osi¹gnê³o najlepszy wynik -6\%.
+W populacji 1000 osobników (Rys. \ref{Trasa3GAN1000}) krzy¿owanie $CX$ z mutacj¹ $Insert$ œrednio poprawi³o oryginaln¹ trasê od 18.23\% do 24.98\%. Krzy¿owanie $PMX$ poprawi³o trasê tylko dla $k$ = 4000 z mutacj¹ $Insert$ o 7.77\%.  Krzy¿owanie $OX$ osi¹gnê³o najlepszy wynik -6\%.
 
-W populacji 2000 osobników (Rys. \ref{Trasa3GAN2000}) krzy¿owanie $CX$ dla $k$ >= 1000 oraz mutacji $Insert$ i $Swap$, œrednio zoptymalizowa³o trasê od  26.08\% do 36.11\%. Krzy¿owanie $PMX$ dla $k$ >= 2000 i mutacji $Insert$ œrednio zoptymalizowa³o trasê od 11.73\% do 14.18\%. Krzy¿owanie $OX$ dla ¿adnej populacji nie potrafi³o zoptymalizowaæ trasy. 
+W populacji 2000 osobników (Rys. \ref{Trasa3GAN2000}) krzy¿owanie $CX$ dla $k$ >= 1000 oraz mutacji $Insert$ i $Swap$, œrednio poprawi³o trasê oryginaln¹ od  26.08\% do 36.11\%. Krzy¿owanie $PMX$ dla $k$ >= 2000 i mutacji $Insert$ œrednio poprawi³o trasê oryginaln¹ od 11.73\% do 14.18\%. Krzy¿owanie $OX$ dla ¿adnej populacji nie potrafi³o znaleŸæ lepszej trasy od oryginalnej. 
 
 \begin{figure}[!h]
 	\centering
@@ -1319,7 +1335,7 @@ Na rysunku \ref{Trasa3KL} przedstawiono najlepsz¹ trasê jak¹ znalaz³ algorytm mr
 \subsection{Wyniki algorytmów zach³annych - Przemys³aw}
 
 Tabela \ref{tab:AZ3BESTS} przedstawia najlepsze wyniki uzyskane przez algorytmy zach³anne dla ostatniej badanej trasy. Jak w poprzednich badaniach tutaj równie¿ zosta³ zastosowany wspó³czynnik b³êdu przy dokonywaniu wyborów na ka¿dej z poszczególnych trzech faz tworzenia tras. Bez zmian najlepiej dalej zachowuje siê algorytm A*, który dalej znajdujê œcie¿kê o najmniejszej wartoœci równ¹ 32855 metrów. Tak jak w poprzednich badaniach najgorzej wypad³ algorytm najmniejszej krawêdzi, dla którego najlepsza trasa uzyska³a wynik 34130 metrów co oznacza, ¿e prawie wszystkie wyznaczone trasy przez algorytm A* zdoby³y lepszy wynik.
-Algorytm najbli¿szego s¹siada tym razem poradzi³ sobie tak samo dobrze jak algorytm A*, gdzie dobrze widaæ na tabeli \ref{tab:AZ3OPTM} najlepsze wyniki s¹ niemal równe wynosz¹ce oko³o 38.55\% optymalizacji wzglêdem oryginalnej œcie¿ki.
+Algorytm najbli¿szego s¹siada tym razem poradzi³ sobie tak samo dobrze jak algorytm A*, gdzie dobrze widaæ na tabeli \ref{tab:AZ3OPTM} najlepsze wyniki s¹ niemal równe wynosz¹ce oko³o 38.55\% poprawy wzglêdem oryginalnej œcie¿ki.
 
 
 \begin{table}[!h]
@@ -1344,8 +1360,8 @@ B³¹d (m) & \cellcolor[HTML]{C0C0C0}ANS-1 & \cellcolor[HTML]{C0C0C0}ANS-2 & \cell
 \end{table}
 
 \begin{table}[!h]
-\caption[Trasa III - optymalizacja wyników wzglêdem oryginalnej trasy]
-{Trasa III - optymalizacja wyników wzglêdem oryginalnej trasy}
+\caption[Trasa III - poprawa wyników wzglêdem oryginalnej trasy]
+{Trasa III - poprawa wyników wzglêdem oryginalnej trasy}
 \scalebox{0.8}{
 \begin{tabular}{|
 >{\columncolor[HTML]{C0C0C0}}c |l|l|l|l|l|l|l|l|l|}
@@ -1368,7 +1384,7 @@ B³¹d (m) & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANS-1} & \multicolumn{1}{
 Tabela \ref{tab:AZ32OPT} oraz \ref{tab:AZ32OPTOPTM} przedstawiaj¹ wyniki u¿ycia metody 2-opt na powsta³ych trasach.
 Po zastosowaniu rozwi¹zania 2-opt na zbudowanych wczeœniej trasach okazuje siê, ¿e nowy zwyciêzc¹ spoœród badanych algorytmów sta³ siê algorytm najbli¿szego s¹siada z nowym najlepszym wynikiem równym 31781 metrów co daje a¿ 40.57\% poprawy œcie¿ki wzglêdem uzyskanej pocz¹tkowo.
 
-Rysunek \ref{Trasa3AZCOMPARE} przedstawia porównanie optymalizacji tras z d³ugoœcia oryginalnej trasy. Wszystkie wyniki s¹ znakomite, jednak¿e zastosowanie metody 2-opt pozwoli³o zwiêkszy górny wynik algorytmu najbli¿szego s¹siada do 40.57\%, a algorytmu A* do 38.75\%. Algorytm najmniejszej krawêdzi po zastosowaniu metody 2-opt nie otrzyma³ nowych lepszych wyników.
+Rysunek \ref{Trasa3AZCOMPARE} przedstawia porównanie poprawy tras z d³ugoœci¹ oryginalnej trasy. Wszystkie wyniki s¹ znakomite, jednak¿e zastosowanie metody 2-opt pozwoli³o zwiêkszy górny wynik algorytmu najbli¿szego s¹siada do 40.57\%, a algorytmu A* do 38.75\%. Algorytm najmniejszej krawêdzi po zastosowaniu metody 2-opt nie otrzyma³ nowych lepszych wyników.
 
 \begin{table}[!h]
 \caption[Trasa III - zastosowanie metody 2-opt na powsta³ych trasach]
@@ -1401,8 +1417,8 @@ B³¹d (m) & \cellcolor[HTML]{C0C0C0}ANS-1 & \cellcolor[HTML]{C0C0C0}ANS-2 & \cell
 \end{table}
 
 \begin{table}[!h]
-\caption[Trasa III - optymalizacja powsta³ych tras przez metodê 2-opt]
-{Trasa III - optymalizacja powsta³ych tras przez metodê 2-opt}
+\caption[Trasa III - poprawa powsta³ych tras wzglêdem oryginalnej przez metodê 2-opt]
+{Trasa III - poprawa powsta³ych tras wzglêdem oryginalnej przez metodê 2-opt}
 \scalebox{0.8}{
 \begin{tabular}{|
 >{\columncolor[HTML]{C0C0C0}}c |
