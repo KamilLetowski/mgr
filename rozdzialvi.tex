@@ -291,7 +291,7 @@ czas     & 12.945 & 21.732 & 31.547 \\ \hline
 \label{tab:time_1_mrowkowy}
 \end{table}
 
-Na wykresie \ref{fig:kl_1} przedstawione zosta³o procentowe porównanie œredniej wartoœci dla ka¿dego wspó³czynnika parowania i liczbie iteracji równej 50. Z wykresu mo¿na odczytaæ, ¿e algorytm mrówkowy w najgorszym wygenerowa³ trasê o 3.37\% gorsz¹ od oryginalnej. Pozosta³e przypadki pokazuj¹ jednak, ¿e profit optymalizacji jest wy¿szy od tego spadku. Trasa zosta³a poprawiona o 37.77\%.
+Na wykresie \ref{fig:kl_1} przedstawione zosta³o procentowe porównanie œredniej wartoœci dla ka¿dego wspó³czynnika parowania i liczbie iteracji równej 50. Z wykresu mo¿na odczytaæ, ¿e algorytm mrówkowy w najgorszym wygenerowa³ trasê o 3.37\% gorsz¹ od oryginalnej. Pozosta³e przypadki pokazuj¹ jednak, ¿e œrednia wyników optymalizacji jest wy¿szy od tego spadku. Trasa zosta³a poprawiona o 37.77\%.
 	
 \begin{figure}[!h]
 	\centering
@@ -300,7 +300,7 @@ Na wykresie \ref{fig:kl_1} przedstawione zosta³o procentowe porównanie œredniej 
 	\label{fig:kl_1}
 \end{figure}
 
-Na wykresie \ref{fig:kl_2} zwiêkszona zosta³a iloœæ iteracji do 75. Dziêki tej aktualizacji œrednie wyniki s¹ wiêksze od pierwotnej d³ugoœci trasy. Warte odnotowania jest równie¿ to, ¿e wczeœniej najgorsza wartoœæ jest teraz jedn¹ z najlepszych. Ró¿nica 25 iteracji prze³o¿y³a siê na poprawê o 36.27\%. Wspó³czynniki z zakresu 0.2 0.4 w dalszym ci¹gu przek³adaj¹ siê najwy¿sze œrednie wyniki.
+Na wykresie \ref{fig:kl_2} zwiêkszona zosta³a iloœæ iteracji do 75. Dziêki tej aktualizacji, œrednie wyniki s¹ wiêksze od oryginalnej d³ugoœci trasy. Warte odnotowania jest równie¿ to, ¿e wczeœniej najgorsza wartoœæ jest teraz jedn¹ z najlepszych. Ró¿nica 25 iteracji prze³o¿y³a siê na poprawê o 36.27\%. Wspó³czynniki z zakresu 0.2 0.4 w dalszym ci¹gu przek³adaj¹ siê najwy¿sze œrednie wyniki.
 	
 \begin{figure}[!h]
 	\centering
@@ -498,9 +498,9 @@ Na rysunku \ref{Trasa1PN} przedstawiono najlepsz¹ trasê jak¹ znalaz³ algorytm za
 
 \subsection{Porównanie algorytmów -- KL, PN, PS}
 
-Najlepszy wyniki algorytmów nie s¹ takie same. Wszystkie z wyników s¹ lepsze od oryginalnej trasy. Algorytm genetyczny znalaz³ najlepszy wynik równy 30939. Jest to wynik o 37\% lepszy od pierwotnej trasy. Taki wynik uda³o siê otrzymaæ w 8.33 sekundy. Algorytm mrówkowy wygenerowa³ trasê o ³¹cznej d³ugoœci 27131 metrów co jest lepszym wynikiem od poprzedniego algorytmu. Oryginalna trasa zosta³a poprawiona o 45\%. Czas jaki by³ potrzebny na polepszenie œcie¿ki to 21.73 sekundy. Czas oczekiwania jest wiêc d³u¿szy od czasu jaki potrzebuje algorytm genetyczny. Najlepsza trasa, która uzyska³y algorytmy zach³anne wynosi³a 30205 metrów, a po optymalizacji metod¹ 2-opt trasa zmniejszy³a siê do 29965 metrów. Wynik ten jest o 39\% lepszy od trasy pocz¹tkowej. Wynik taki uda³o siê otrzymaæ w 7.22 sekund.
+Uzyskane wyniki ró¿ni¹ siê w zale¿noœci od algorytmów. Wszystkie z wyników s¹ lepsze od oryginalnej trasy. Algorytm genetyczny znalaz³ najlepszy wynik równy 30939. Jest to wynik o 37\% lepszy od pierwotnej trasy. Taki wynik uda³o siê otrzymaæ w 8.33 sekundy. Algorytm mrówkowy wygenerowa³ trasê o ³¹cznej d³ugoœci 27131 metrów, co jest lepszym wynikiem od poprzedniego algorytmu. Oryginalna trasa zosta³a poprawiona o 45\%. Czas jaki by³ potrzebny na polepszenie œcie¿ki to 21.73 sekundy. Czas oczekiwania jest wiêc d³u¿szy od czasu, jaki potrzebuje algorytm genetyczny. Najlepsza trasa, która uzyska³y algorytmy zach³anne wynosi³a 30205 metrów, a po optymalizacji metod¹ 2-opt trasa zmniejszy³a siê do 29965 metrów. Wynik ten jest o 39\% lepszy od trasy pocz¹tkowej. Wynik taki uda³o siê otrzymaæ w 7.22 sekund.
 
-Porównuj¹c dystans to najs³abiej sobie poradzi³  algorytm genetyczny. Trasa ta zosta³a jednak wyznaczona w czasie oko³o trzy razy krótszym ni¿ algorytm mrówkowy, a wynik by³ gorszy o tylko 8\%. Algorytm A* poradzi³ sobie podobnie jak algorytm genetyczny w czasie o sekundê krótszym znalaz³ o 2\% lepsz¹ trasê.
+Porównuj¹c odleg³oœæ, najs³abiej sobie poradzi³  algorytm genetyczny. Trasa ta zosta³a jednak wyznaczona w czasie oko³o trzy razy krótszym ni¿ algorytm mrówkowy, a wynik by³ gorszy o tylko 8\%. Algorytm A* poradzi³ sobie podobnie jak algorytm genetyczny w czasie o sekundê krótszym znalaz³ o 2\% lepsz¹ trasê.
 
 Na zdjêciach \ref{fig:sum_gen_1}, \ref{fig:sum_mro_1}, \ref{fig:sum_prz_1} zosta³y pokazane przyk³adowe ró¿nice w znalezionych trasach przez algorytmy.
 \begin{figure}[!h]
@@ -509,7 +509,7 @@ Na zdjêciach \ref{fig:sum_gen_1}, \ref{fig:sum_mro_1}, \ref{fig:sum_prz_1} zosta
 	\caption{Fragment trasy algorytmu mrówkowego}
 	\label{fig:sum_mro_1}
 \end{figure}
-Ró¿nice te dotycz¹ kolejnoœci odwiedzania punktów dla takiego samego wycinka trasy. Liczba znajduj¹ca siê w treœci markera oznacza kolejnoœæ odwiedzania tych punktów przez algorytmy. Na rysunku \ref{fig:sum_mro_1} zosta³ pokazany fragment trasy wygenerowanej przez algorytm mrówkowy. Widaæ na pierwszy rzut oka, ¿e jest to on  pocz¹tkiem trasy tego algorytmu, poniewa¿ s¹ to pocz¹tkowe numery. Porównuj¹c algorytm genetyczny \ref{fig:sum_gen_1} w tym samym miejscu, mo¿na zauwa¿yæ, ¿e wierzcho³ki te s¹ odwiedzane dopiero w po³owie trasy. Trasa dla algorytmu mrówkowego i algorytmu A* jest bardzo podobna. Jedyn¹ ró¿nic¹ na tym odcinku jest kolejnoœæ wybrania 3 punktu przez algorytm mrówkowy. W algorytmie A* punkt ten zosta³ odwiedzony jako 11.
+Ró¿nice te dotycz¹ kolejnoœci odwiedzania punktów dla takiego samego wycinka trasy. Liczba znajduj¹ca siê w treœci znacznika na mapie oznacza kolejnoœæ odwiedzania tych punktów przez algorytmy. Na rysunku \ref{fig:sum_mro_1} zosta³ pokazany fragment trasy wygenerowanej przez algorytm mrówkowy. Widaæ na pierwszy rzut oka, ¿e jest to on  pocz¹tkiem trasy tego algorytmu, poniewa¿ s¹ to pocz¹tkowe numery. Porównuj¹c algorytm genetyczny \ref{fig:sum_gen_1} w tym rejonie na mapie, mo¿na zauwa¿yæ, ¿e wierzcho³ki te s¹ odwiedzane dopiero w po³owie trasy. Trasa dla algorytmu mrówkowego i algorytmu A* jest bardzo podobna. Jedyn¹ ró¿nic¹ na tym odcinku jest kolejnoœæ wybrania 3 punktu przez algorytm mrówkowy. W algorytmie A* punkt ten zosta³ odwiedzony jako 11.
 
 \begin{figure}[!h]
 	\centering
@@ -724,9 +724,9 @@ Na rysunku \ref{Trasa2PS} przedstawiono najlepsz¹ trasê jak¹ znalaz³ algorytm ge
 
 \subsection{Wyniki algorytmu mrówkowego -- KL}
 
-Podobnie tak jak w przypadku trasy numer 1, algorytm zosta³ uruchomiony dziesiêciokrotnie dla ka¿dej mo¿liwej wariacji parametrów wejœciowych. Wynikiem jaki jest generowany przez algorytm s¹ punkty w których znajduj¹ siê kontenery z odpadami, przebyty dystans, a tak¿e czas jaki trzeba by³o czekaæ na wygenerowanie wyniku. Tabele z wyliczonymi wynikami równie¿ zosta³y przedstawione wed³ug takiego samego schematu. Wiersze tabeli odpowiadaj¹ iloœciom przeprowadzonych iteracji, a w kolumnach zawarte s¹ informacje o wspó³czynniku parowania.
+Podobnie tak jak w przypadku trasy numer 1, algorytm zosta³ uruchomiony dziesiêciokrotnie dla ka¿dej mo¿liwej wariacji parametrów wejœciowych. Wynikiem jaki jest generowany przez algorytm s¹ punkty, w których znajduj¹ siê kontenery z odpadami, przebyty dystans, a tak¿e czas jaki trzeba by³o czekaæ na wygenerowanie wyniku. Tabele z wyliczonymi wynikami równie¿ zosta³y przedstawione wed³ug takiego samego schematu. Wiersze tabeli odpowiadaj¹ liczbom przeprowadzonych iteracji, a w kolumnach zawarte s¹ informacje o wspó³czynniku parowania.
 
-Najlepszy œredni wynik zosta³ przedstawiony w tabeli \ref{tab:avg_2_mrowkowy} i wynosi 26447. Jest to wynik który zosta³ uzyskany dla wspó³czynnika parowania równego 0.2 i liczbie iteracji równej 50. Wyniki dla takiego samego wspó³czynnika ale innej liczbie iteracji s¹ na zbli¿onym poziomie. Podobnie jak w przypadku poprzedniej trasy, najgorsza œrednia zosta³a obliczona dla wspó³czynnika parowania równego 0.1. Wraz ze wzrostem liczby iteracji nastêpowa³ progres. Ostatecznie dla 100 iteracji d³ugoœæ trasy jest zbli¿ona do najlepszych wyników. Œcie¿ka z najwiêksz¹ œredni¹ jest lepsza od oryginalnej i stanowi 78\% jej d³ugoœci.
+Najlepszy œredni wynik zosta³ przedstawiony w tabeli \ref{tab:avg_2_mrowkowy} i wynosi 26447. Jest to wynik który zosta³ uzyskany dla wspó³czynnika parowania równego 0.2 i liczbie iteracji równej 50. Wyniki dla takiego samego wspó³czynnika ale innej liczbie iteracji s¹ na zbli¿onym poziomie. Podobnie jak w przypadku poprzedniej trasy, najgorsza œrednia zosta³a obliczona dla wspó³czynnika parowania równego 0.1. Wraz ze wzrostem liczby iteracji nastêpowa³ progres. Ostatecznie dla 100 iteracji d³ugoœæ trasy jest zbli¿ona do najlepszych wyników. Œcie¿ka z najni¿sz¹ œredni¹ d³ugoœci¹ jest lepsza od oryginalnej i stanowi 78\% jej d³ugoœci.
 
 \begin{table}[h!]
 \caption[Trasa II - œrednie wyniki dla algorytmu mrówkowego]
@@ -783,7 +783,7 @@ k                           & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.1} &
 \label{tab:sum_2_mrowkowy}
 \end{table} 
 
-Dla najmniejszej iloœci iteracji, zostaj¹ wygenerowane trasy krótsze od pierwotnej. Na wykresie \ref{fig:kl_4} zosta³y przedstawione œrednie wyniki dla 50 iteracji. Mo¿na na tym wykresie zauwa¿yæ, ¿e najd³u¿sze trasy by³y generowane dla najni¿szego wspó³czynnika parowania. Najkrótsze trasy by³y generowane w przedziale od 0.2 do 0.4. Dla pozosta³ych wspó³czynników wartoœci s¹ wiêksze od 24\%.
+Dla najmniejszej liczby iteracji, zostaj¹ wygenerowane trasy krótsze od pierwotnej. Na wykresie \ref{fig:kl_4} zosta³y przedstawione œrednie wyniki dla 50 iteracji. Mo¿na na tym wykresie zauwa¿yæ, ¿e najd³u¿sze trasy by³y generowane dla najni¿szego wspó³czynnika parowania. Najkrótsze trasy by³y generowane w przedziale od 0.2 do 0.4. Dla pozosta³ych wspó³czynników wartoœci s¹ wiêksze od 24\%.
 
 Oprócz krótszych tras uwagê nale¿y zwróciæ na czas jaki program potrzebowa³ na ich optymalizacjê. Œredni czas oczekiwania dla najmniejszej wartoœci iteracji wynosi³ 28.325 sekund. Pomiar czasu trwania algorytmu przy 75 iteracjach trwa³ 42.689. Najd³u¿ej program wykonywa³ siê dla 100 iteracji. Czas ten zosta³ oszacowany na 60.281.
 
@@ -1245,7 +1245,7 @@ k                           & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.1} &
 \label{tab:avg_3_mrowkowy}
 \end{table}
 
-W tabeli numer \ref{tab:best_3_mrowkowy} przedstawione zosta³y najlepsze wyniki algorytmu mrówkowego dla tej trasy. Do wygenerowania najkrótszej trasy potrzeba by³o 75 iteracji. Wspó³czynnik parowania dla tej trasy wynosi 0.1. Mo¿na zauwa¿yæ, jak iloœæ iteracji potrafi wp³yn¹æ na wynik. Dla najni¿szej iloœci iteracji wygenerowana trasa jest du¿o d³u¿sza od pozosta³ych dwóch wariantów. Dla wiêkszoœci wspó³czynników parowania sytuacja jest podobna. Wraz ze wzrostem liczy iteracji wyniki s¹ lepsze. Dla wartoœci z zakresu od 0.6 do 0.9 trend ten jest zmieniony. Przyk³adowo dla wspó³czynnika parowania równego 0.8, program utworzy³ najlepsz¹ trasê przy 75 iteracjach. Najd³u¿sza trasa zosta³a natomiast odnotowana dla najwiêkszej liczby iteracji.
+W tabeli numer \ref{tab:best_3_mrowkowy} przedstawione zosta³y najlepsze wyniki algorytmu mrówkowego dla tej trasy. Do wygenerowania najkrótszej trasy potrzeba by³o 75 iteracji. Wspó³czynnik parowania dla tej trasy wynosi 0.1. Mo¿na zauwa¿yæ, jak liczba iteracji potrafi wp³yn¹æ na wynik. Dla najni¿szej iloœci iteracji wygenerowana trasa jest du¿o d³u¿sza od pozosta³ych dwóch wariantów. Dla wiêkszoœci wspó³czynników parowania sytuacja jest podobna. Wraz ze wzrostem liczby iteracji wyniki s¹ lepsze. Dla wartoœci z zakresu od 0.6 do 0.9 trend ten jest zmieniony. Przyk³adowo dla wspó³czynnika parowania równego 0.8, program utworzy³ najlepsz¹ trasê przy 75 iteracjach. Najd³u¿sza trasa zosta³a natomiast odnotowana dla najwiêkszej liczby iteracji.
 
 \begin{table}[h!]
 \caption[Trasa III - najlepsze wyniki dla algorytmu mrówkowego]
@@ -1264,7 +1264,7 @@ k                           & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.1} &
 \label{tab:best_3_mrowkowy}
 \end{table}
 
-Skutecznoœæ z jak¹ algorytm mrówkowy z optymalizowa³ trasê jest najwy¿sza z mo¿liwych. W tabeli \ref{tab:sum_3_mrowkowy} zosta³a przedstawiona procentowa wartoœæ tras zoptymalizowanych w stosunku do oryginalnej odleg³oœci. Wszystkie z prób okaza³y siê lepsze. Dziêki temu mo¿na zauwa¿yæ, ¿e niezale¿nie od iloœci iteracji wygenerowany wynik da satysfakcjonuj¹cy wynik. Ma to znaczenie w kontekœcie czasu jaki potrzebuje program na ulepszenie trasy. Tak jak w przypadku poprzednich tras, algorytm mrówkowy potrzebuje wykonaæ wiele operacji. Do wykonania 50 prób polepszenia trasy potrzeba œrednio 84.451 sekundy. Jeœli iloœæ prób zosta³a zwiêkszona do 75, to œredni czas wzrós³ do 131.146 sekund. Najd³u¿ej trwa³o obliczanie trasy dla 100 iteracji. Czas ten wyniós³ 176.874 sekund.
+Skutecznoœæ z jak¹ algorytm mrówkowy skróci³ trasê jest najwy¿sza z mo¿liwych. W tabeli \ref{tab:sum_3_mrowkowy} zosta³a przedstawiona procentowa wartoœæ tras zoptymalizowanych w stosunku do oryginalnej odleg³oœci. Wszystkie z prób okaza³y siê lepsze. Dziêki temu mo¿na zauwa¿yæ, ¿e niezale¿nie od liczby iteracji wygenerowany wynik da satysfakcjonuj¹cy wynik. Ma to znaczenie w kontekœcie czasu jaki potrzebuje program na ulepszenie trasy. Tak jak w przypadku poprzednich tras, algorytm mrówkowy potrzebuje wykonaæ wiele operacji. Do wykonania 50 prób polepszenia trasy potrzeba œrednio 84.451 sekundy. Jeœli liczba prób zosta³a zwiêkszona do 75, to œredni czas wzrós³ do 131.146 sekund. Najd³u¿ej trwa³o obliczanie trasy dla 100 iteracji. Czas ten wyniós³ 176.874 sekund.
 
 \begin{table}[h!]
 \caption[Trasa III - skutecznoœæ algorytmu mrówkowego]
