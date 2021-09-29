@@ -13,7 +13,7 @@
 	\label{nearest_neighbour}
 \end{figure}
 
-Na rysunku \ref{nearest_neighbour} zosta³ pokazany schemat blokowy algorytmu najbli¿szego s¹siada. Pierwszym krokiem jest wyznaczenie wyznaczenie wierzcho³ka startowego. Nastêpnie dla~ aktualnego wierzcho³ka nale¿y obliczyæ najkrótsz¹ krawêdŸ ³¹cz¹c¹ aktualny wierzcho³ek spoœród kolekcji wierzcho³ków nieodwiedzonych. Najlepsz¹ opcje po³¹czenia dwóch wierzcho³ków nale¿y dodaæ do rozwi¹zania, a od~ drugiego wierzcho³ka algorytm bêdzie wyznaczaæ kolejne odleg³oœci od nieodwiedzonych jeszcze wierzcho³ków. Czynnoœci nale¿y powtarzaæ do momentu odwiedzenia wszystkich wierzcho³ków w podanym grafie. Na samym koñcu wystarczy jedynie po³¹czyæ ostatni wierzcho³ek z pocz¹tkowym. Po~ wykonaniu wszystkich kroków, algorytm najbli¿szego s¹siada powinien zwróciæ optymalne rozwi¹zanie.
+Na rysunku \ref{nearest_neighbour} zosta³ pokazany schemat blokowy algorytmu najbli¿szego s¹siada. Pierwszym krokiem jest wyznaczenie wyznaczenie wierzcho³ka startowego. Nastêpnie dla~ aktualnego wierzcho³ka nale¿y obliczyæ najkrótsz¹ krawêdŸ ³¹cz¹c¹ aktualny wierzcho³ek spoœród kolekcji wierzcho³ków nieodwiedzonych. Najlepsz¹ opcje po³¹czenia dwóch wierzcho³ków nale¿y dodaæ do rozwi¹zania, a od~ drugiego wierzcho³ka algorytm bêdzie wyznaczaæ kolejne odleg³oœci od nieodwiedzonych jeszcze wierzcho³ków. Czynnoœci nale¿y powtarzaæ do momentu odwiedzenia wszystkich wierzcho³ków w podanym grafie. Na samym koñcu wystarczy jedynie po³¹czyæ ostatni wierzcho³ek z pocz¹tkowym. Po~ wykonaniu wszystkich kroków, algorytm najbli¿szego s¹siada powinien zwróciæ optymalne rozwi¹zanie\cite{kl_alg_najblizszego_sasiada}.
 
 \begin{figure}[h]
 	\centering
@@ -36,7 +36,7 @@ Na rysunku \ref{nearest_neighbour} zosta³ pokazany schemat blokowy algorytmu naj
 	\label{ank}
 \end{figure}
 
-Algorytm rozpoczyna swoje dzia³anie od posortowania wag krawêdzi miêdzy wszystkimi wierzcho³kami oraz umieszcza podane odleg³oœci w kolekcji. Nastêpnie wybierana jest zawsze krawêdŸ o najmniejszej wartoœci oraz od razu usuwana jest ona z podanej kolekcji. Aby wybrane po³¹czenie miêdzy wierzcho³kami zosta³o dodane do rozwi¹zania musi, spe³niaæ warunek nie utworzenia cyklu oraz wierzcho³ka o trzech krawêdziach, w~ przeciwnym wypadku po³¹czenie jest pomijane oraz algorytm wybiera kolejn¹ krawêdŸ. Iteracje s¹ powtarzane do momentu, a¿ liczba dodanych po³¹czeñ jest równa liczbie wszystkich wierzcho³ków. W przypadku ostatniej iteracji wyznaczona krawêdŸ nie musi ju¿ spe³niaæ warunku z utworzeniem cyklu. Po zakoñczeniu dzia³ania algorytmu rozwi¹zanie dla~ algorytmu najmniejszej krawêdzi jest optymalne.
+Algorytm rozpoczyna swoje dzia³anie od posortowania wag krawêdzi miêdzy wszystkimi wierzcho³kami oraz umieszcza podane odleg³oœci w kolekcji. Nastêpnie wybierana jest zawsze krawêdŸ o najmniejszej wartoœci oraz od razu usuwana jest ona z podanej kolekcji. Aby wybrane po³¹czenie miêdzy wierzcho³kami zosta³o dodane do rozwi¹zania musi, spe³niaæ warunek nie utworzenia cyklu oraz wierzcho³ka o trzech krawêdziach, w~ przeciwnym wypadku po³¹czenie jest pomijane oraz algorytm wybiera kolejn¹ krawêdŸ. Iteracje s¹ powtarzane do momentu, a¿ liczba dodanych po³¹czeñ jest równa liczbie wszystkich wierzcho³ków. W przypadku ostatniej iteracji wyznaczona krawêdŸ nie musi ju¿ spe³niaæ warunku z utworzeniem cyklu. Po zakoñczeniu dzia³ania algorytmu rozwi¹zanie dla~ algorytmu najmniejszej krawêdzi jest optymalne\cite{kl_alg_najmniejszej_krawedzi}.
 	
 \begin{figure}[h]
 	\centering
@@ -63,7 +63,14 @@ Dzia³anie algorytmu przedstawione zosta³o na rysunku \ref{ank_initial} przedstaw
 \section{Algorytm A*}
 	Ostatnim omówionym rozwi¹zaniem do znajdowania najkrótszej œcie¿ki w grafie jest algorytm A*, w którym zawsze zostanie znalezione najkorzystniejsze zach³anne rozwi¹zanie. Strategia gwarantuje, ¿e ka¿dy wierzcho³ek zostanie odwiedzony, przy czym dokonuje w danym momencie najlepszych wyborów. 
 	
-	G³ówn¹ zasad¹ algorytmu A* jest minimalizacja funkcji kosztu $g(x)$ oraz funkcji heurystycznej $h(x)$ zdefiniowanej jako funkcja celu $f(x)=g(x)+h(x)$. Funkcja heurystyczna musi spe³niaæ dwa wymagane warunki tj. warunek dopuszczalnoœci i warunek monotonicznoœci. Warunek dopuszczalnoœci polega na tym, aby funkcja heurystyczna stara³a siê minimalizowaæ koszt. Natomiast warunek monotonicznoœci mówi, ¿e oszacowywanie wyniku musi byæ coraz mniej optymistyczne w momencie zbli¿ania siê do rozwi¹zania. Jeœli przestrzeñ przeszukiwañ zawieraæ bêdzie œcie¿ki, mo¿na wówczas sprowadziæ problem do problemu poszukiwania najkrótszej œcie¿ki w grafie. W danym przypadku funkcj¹ heurystyczn¹ bêdzie odleg³oœæ w linii prostej miêdzy wierzcho³kami.
+	G³ówn¹ zasad¹ algorytmu A* jest minimalizacja funkcji kosztu $g(x)$ oraz funkcji heurystycznej $h(x)$ zdefiniowanej jako funkcja celu:
+	
+\begin{equation}
+f(x) = g(x)+h(x)
+\end{equation} 	
+	
+	
+	 Funkcja heurystyczna musi spe³niaæ dwa wymagane warunki tj. warunek dopuszczalnoœci i warunek monotonicznoœci. Warunek dopuszczalnoœci polega na tym, aby funkcja heurystyczna stara³a siê minimalizowaæ koszt. Natomiast warunek monotonicznoœci mówi, ¿e oszacowywanie wyniku musi byæ coraz mniej optymistyczne w momencie zbli¿ania siê do rozwi¹zania. Jeœli przestrzeñ przeszukiwañ zawieraæ bêdzie œcie¿ki, mo¿na wówczas sprowadziæ problem do problemu poszukiwania najkrótszej œcie¿ki w grafie. W danym przypadku funkcj¹ heurystyczn¹ bêdzie odleg³oœæ w linii prostej miêdzy wierzcho³kami.
 	
 \begin{figure}[h]
 	\centering
@@ -72,7 +79,7 @@ Dzia³anie algorytmu przedstawione zosta³o na rysunku \ref{ank_initial} przedstaw
 	\label{astar_schema}
 \end{figure}	
 	
-Schemat blokowy dzia³ania algorytmu A* zosta³ przedstawiony na rysunku \ref{astar_schema}. Algorytm rozpoczyna swoje dzia³anie od wyboru wierzcho³ka startowego oraz koñcowego, gdzie wierzcho³ek startowy staje siê aktualnym. Nastêpnie dla aktualnego wierzcho³ka obliczana i zapisywana jest funkcja celu $f(x)$ dla ka¿dego poszczególnego mo¿liwego po³¹czenia. Kolejnym krokiem jest wybranie spoœród minimalnej funkcji celu dla aktualnego wierzcho³ka oraz minimalnej funkcji celu z poprzednio zapisanych (jeœli takowe istniej¹). Jeœli wybrana funkcja celu nie ³¹czy aktualnego wierzcho³ka z docelowym oraz nie utworzy cyklu lub wierzcho³ka o trzech krawêdziach jest brana dalej pod uwagê i ustalany jest nowy aktualny wierzcho³ek. W przeciwnym wypadku, wybrana funkcja celu nie jest brana pod uwagê i algorytm jeszcze raz porównuje obliczone poprzednio wartoœci funkcji celu. Kroki algorytmu s¹ powtarzane do momentu a¿ wybrana funkcja celu po³¹czy aktualny wierzcho³ek z koñcowym.
+Schemat blokowy dzia³ania algorytmu A* zosta³ przedstawiony na rysunku \ref{astar_schema}. Algorytm rozpoczyna swoje dzia³anie od wyboru wierzcho³ka startowego oraz koñcowego, gdzie wierzcho³ek startowy staje siê aktualnym. Nastêpnie dla aktualnego wierzcho³ka obliczana i zapisywana jest funkcja celu $f(x)$ dla ka¿dego poszczególnego mo¿liwego po³¹czenia. Kolejnym krokiem jest wybranie spoœród minimalnej funkcji celu dla aktualnego wierzcho³ka oraz minimalnej funkcji celu z poprzednio zapisanych (jeœli takowe istniej¹). Jeœli wybrana funkcja celu nie ³¹czy aktualnego wierzcho³ka z docelowym oraz nie utworzy cyklu lub wierzcho³ka o trzech krawêdziach jest brana dalej pod uwagê i ustalany jest nowy aktualny wierzcho³ek. W przeciwnym wypadku, wybrana funkcja celu nie jest brana pod uwagê i algorytm jeszcze raz porównuje obliczone poprzednio wartoœci funkcji celu. Kroki algorytmu s¹ powtarzane do momentu a¿ wybrana funkcja celu po³¹czy aktualny wierzcho³ek z koñcowym\cite{kl_alg_astar}.
 
 
 \begin{figure}[h]
