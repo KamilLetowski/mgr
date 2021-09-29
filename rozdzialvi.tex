@@ -201,11 +201,11 @@ Na rysunku \ref{Trasa1PS} przedstawiono najlepsz¹ trasê jak¹ znalaz³ algorytm ge
 
 \subsection{Wyniki algorytmu mrówkowego - Kamil}
 
-Algorytm zosta³ uruchomiony dziesiêciokrotne dla ka¿dej mo¿liwej kombinacji parametrów wejœciowych. W odpowiedzi program przedstawi³ w odpowiedniej kolejnoœci punkty jakie zosta³y zawarte w rozwi¹zaniu, przebyty dystans oraz czas wykonania algorytmu. Z zebranych danych zosta³a wyliczona œrednia, zosta³ wyznaczony najlepszy wynik oraz wyliczono sumê punktów, których ³¹czny przebyty dystans jest krótszy od orygina³u. Przy wykorzystaniu tych miar mo¿na wykonaæ porównanie z oryginaln¹ tras¹ przebyt¹ w rzeczywistoœci przez ciê¿arówkê. 
+Algorytm zosta³ uruchomiony dziesiêciokrotne dla ka¿dej mo¿liwej kombinacji parametrów wejœciowych. W odpowiedzi program przedstawi³ w odpowiedniej kolejnoœci punkty jakie zosta³y zawarte w rozwi¹zaniu, przebyt¹ odleg³oœæ oraz czas wykonania algorytmu. Z zebranych danych zosta³a wyliczona œrednia, zosta³ wyznaczony najlepszy wynik oraz wyliczono sumê punktów, których ³¹czn¹ przebyt¹ odleg³oœæ jest krótszy od orygina³u. Przy wykorzystaniu tych miar mo¿na wykonaæ porównanie z oryginaln¹ tras¹, przebyt¹ w rzeczywistoœci przez ciê¿arówkê. 
 	
-Ka¿da z tabel przedstawiaj¹ca wynik algorytmu mrówkowego sk³ada siê z takiej samej iloœci kolumn oraz wierszy. W kolumnie z oznaczeniem \textit{k} zosta³a zaprezentowana iloœæ przeprowadzonych iteracji. Wartoœci te zaczynaj¹ siê od 50 i s¹ zwiêkszane co 25 do 100. Ka¿da kolumna przedstawia wspó³czynnik parowania feromonów. Wartoœci te zaczynaj¹ siê od 0.1 i s¹ zwiêkszane co 0.1 do 0.9. 
+Ka¿da z tabel przedstawiaj¹ca wynik algorytmu mrówkowego sk³ada siê z takiej samej liczby kolumn oraz wierszy. W kolumnie z oznaczeniem \textit{k} zosta³a zaprezentowana liczba przeprowadzonych iteracji. Wartoœci te zaczynaj¹ siê od 50 i s¹ zwiêkszane co 25 do 100. Ka¿da kolumna przedstawia wspó³czynnik parowania feromonów. Wartoœci te zaczynaj¹ siê od 0.1 i s¹ zwiêkszane co 0.1 do 0.9. 
 		
-W tabeli numer \ref{tab:avg_1_mrowkowy} znajduj¹ siê œrednie wyniki z dziesiêciu pomiarów dla takich samych parametrów. Najlepsze wyniki wystêpuj¹ dla wspó³czynnika parowania znajduj¹cego siê w zakresie od 0.1 do 0.4 i oscyluj¹ poni¿ej progu 40000 metrów. Wyj¹tkiem jest jedynie wspó³czynnik parowania równy 0.1 jeœli zosta³o wykonanych 50 iteracji. W tym przypadku wartoœæ jest wiêksza od oryginalnej i wynosi 50543. Na tym przyk³adzie mo¿na œwietnie zauwa¿yæ jak istotna jest iloœæ iteracji jaka zostanie wykonana. W kolejnych krokach iloœæ iteracji by³a zwiêkszana, a œrednia odleg³oœæ ulega³a poprawie. Dla stu iteracji odnotowano najlepsz¹ œredni¹ równ¹ 29479.
+W tabeli numer \ref{tab:avg_1_mrowkowy} znajduj¹ siê œrednie wyniki z dziesiêciu pomiarów dla takich samych parametrów. Najlepsze wyniki wystêpuj¹ dla wspó³czynnika parowania znajduj¹cego siê w zakresie od 0.1 do 0.4 i oscyluj¹ poni¿ej progu 40000 metrów. Wyj¹tkiem jest jedynie wspó³czynnik parowania równy 0.1, jeœli zosta³o wykonanych 50 iteracji. W tym przypadku wartoœæ jest wiêksza od oryginalnej i wynosi 50543. Na tym przyk³adzie mo¿na zauwa¿yæ, jak istotna jest iloœæ iteracji jaka zostanie wykonana. W kolejnych krokach iloœæ iteracji by³a zwiêkszana, a œrednia odleg³oœæ ulega³a poprawie. Dla stu iteracji odnotowano najlepsz¹ œredni¹ równ¹ 29479.
 
 \begin{table}[!h]
 \caption[Trasa I - œrednie wyniki dla algorytmu mrówkowego]
@@ -223,7 +223,7 @@ k                           & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.1}  
 \label{tab:avg_1_mrowkowy}
 \end{table}		
 		
-Najlepsze wyniki algorytmu mrówkowego dla trasy numer 1 zosta³y przedstawione w tabeli \ref{tab:best_1_mrowkowy}. Spoœród najlepszych wyników dla danej wariacji, ¿adna próba nie zosta³a sklasyfikowana jako gorsza od oryginalnej odleg³oœci. Najgorszy wynik wyst¹pi³y dla najni¿szej wartoœci iteracji oraz najni¿szego wspó³czynnika parowania. Ta trasa nadal jest lepsza od oryginalnej o 7 439 metrów. Najlepsza wartoœæ jak¹ uda³o siê osi¹gn¹æ to 27131. Jest to wartoœæ jaka zosta³a osi¹gniêta dla 75 iloœci iteracji oraz dla wspó³czynnika parowania wynosz¹cego 0.4. W najlepszym wypadku trasa zosta³a ulepszona o oko³o 55\%.
+Najlepsze wyniki algorytmu mrówkowego dla trasy numer 1 zosta³y przedstawione w tabeli \ref{tab:best_1_mrowkowy}. Spoœród najlepszych wyników dla danej wariacji, ¿adna próba nie zosta³a sklasyfikowana jako gorsza od oryginalnej odleg³oœci. Najgorszy wynik wyst¹pi³y dla najni¿szej wartoœci iteracji oraz najni¿szego wspó³czynnika parowania. Ta trasa nadal jest lepsza od oryginalnej o 7439 metrów. Najlepsza wartoœæ jak¹ uda³o siê osi¹gn¹æ to 27131. Jest to wartoœæ jaka zosta³a osi¹gniêta dla 75 iloœci iteracji oraz dla wspó³czynnika parowania wynosz¹cego 0.4. W najlepszym wypadku trasa zosta³a ulepszona o oko³o 55\%.
 
 \begin{table}[!h]
 \caption[Trasa I - najlepsze wyniki dla algorytmu mrówkowego]
@@ -242,7 +242,7 @@ k                           & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.1} &
 \label{tab:best_1_mrowkowy}
 \end{table}
 
-Istotnym parametrem jaki nale¿y wzi¹æ pod uwagê jest to, jak czêsto algorytm jest w stanie poprawiæ oryginaln¹ trasê. W tym celu zosta³a stworzona tabela numer \ref{tab:sum_1_mrowkowy}. Mo¿emy zauwa¿yæ z jak¹ skutecznoœci¹ program jest w stanie poprawiæ trasê. Wyniki potwierdzaj¹ wczeœniejsze wnioski. Najlepsze wyniki mo¿na zestawiæ ze wspó³czynnikiem parowania feromonów z zakresu od 0.1 do 0.4. Co wiêcej dla iloœci iteracji równej 75 dla ka¿dego ze wspó³czynników trasa zosta³a polepszona. 
+Istotnym parametrem, jaki nale¿y wzi¹æ pod uwagê jest to, jak czêsto algorytm jest w stanie poprawiæ oryginaln¹ trasê. W tym celu zosta³a stworzona tabela numer \ref{tab:sum_1_mrowkowy}. Mo¿emy zauwa¿yæ z jak¹ skutecznoœci¹ program jest w stanie poprawiæ trasê. Wyniki potwierdzaj¹ wczeœniejsze wnioski. Najlepsze wyniki mo¿na zestawiæ ze wspó³czynnikiem parowania feromonów z zakresu od 0.1 do 0.4. Co wiêcej dla iloœci iteracji równej 75 dla ka¿dego ze wspó³czynników trasa zosta³a polepszona. 
 
 \begin{table}[!h]
 \caption[Trasa I - skutecznoœæ algorytmu mrówkowego]
@@ -267,7 +267,7 @@ k   & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.1}    & \multicolumn{1}{c|}{
 \label{tab:sum_1_mrowkowy}
 \end{table}
 
-Oprócz samych prac nad optymalizacjami nale¿y zwróciæ uwagê z jak¹ szybkoœci¹ algorytm jest w stanie przedstawiæ rozwi¹zanie. W tabeli \ref{tab:time_1_mrowkowy} przedstawiony jest œredni czas wykonania algorytmy. Oczywistym wydaje siê, ¿e wraz ze wzrostem iloœci wykonanych iteracji wzrasta czas wykonania programu. Œrednio dla programu z iloœci¹ iteracji równ¹ 50 czas oczekiwania wynosi³ blisko 13 sekund. Dla 75 iteracji by³o to 21.732 sekundy, a dla 100 31.547. Zestawiaj¹c wyniki czasowe z procentowymi wartoœciami tras jakie zosta³y wyprodukowane przez program, mo¿na zauwa¿yæ, ¿e iloœæ wiêksza iloœæ iteracji nie musi oznaczaæ optymalizacji trasy.
+Oprócz samych prac nad optymalizacjami, nale¿y zwróciæ uwagê, z jak¹ szybkoœci¹ algorytm jest w stanie przedstawiæ rozwi¹zanie. W tabeli \ref{tab:time_1_mrowkowy} przedstawiony jest œredni czas wykonania algorytmy. Oczywistym wydaje siê, ¿e wraz ze wzrostem iloœci wykonanych iteracji wzrasta czas wykonania programu. Œrednio dla programu z iloœci¹ iteracji równ¹ 50 czas oczekiwania wynosi³ blisko 13 sekund. Dla 75 iteracji by³o to 21.732 sekundy, a dla 100 31.547. Zestawiaj¹c wyniki czasowe z procentowymi wartoœciami tras, jakie zosta³y wyprodukowane przez program, mo¿na zauwa¿yæ, ¿e wiêksza liczba iteracji nie musi oznaczaæ optymalizacji trasy.
 
 \begin{table}[!h]
 \caption[Trasa I - œrednie wyniki czasu wykonania dla algorytmu mrówkowego dla parametru iloœci iteracji]
