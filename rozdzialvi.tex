@@ -61,7 +61,7 @@ W tabeli \ref{tab:AG1AVG} zosta³y przedstawione œrednie wyniki algorytmu genetyc
 \end{tabular}}
 \label{tab:AG1AVG}
 \end{table}
-W populacji 2000 osobników dla $k$ = 2000 oraz krzy¿owania $CX$ i mutacji $Insert$, zosta³ znaleziony najlepszy wynik globalny 32326 metrów. Równie¿ mo¿na zauwa¿yæ, ¿e od $k$ = 1000 dla wszystkich parametrów z wyj¹tkiem krzy¿owania $OX$ oraz mutacji $Revert$ uda³o siê zoptymalizowaæ trasê. Porównuj¹c krzy¿owania to $PMX$ najlepiej sobie radzi³o do $N$ = 100 oraz $k$ = 2000, dla kolejnych populacji i iteracji, najlepsze wyniki osi¹gnê³o krzy¿owanie $CX$. Z mutacji najlepiej poradzi³a sobie $Insert$, a najgorzej $Revert$.
+W populacji 2000 osobników dla $k$ = 2000 oraz krzy¿owania $CX$ i mutacji $Insert$, zosta³ znaleziony najlepszy wynik globalny 32326 metrów. Równie¿ mo¿na zauwa¿yæ, ¿e od $k$ = 1000 dla wszystkich parametrów z wyj¹tkiem krzy¿owania $OX$ oraz mutacji $Revert$ uda³o siê poprawiæ oryginaln¹ trasê. Porównuj¹c krzy¿owania to $PMX$ najlepiej sobie radzi³o do $N$ = 100 oraz $k$ = 2000, dla kolejnych populacji i iteracji, najlepsze wyniki osi¹gnê³o krzy¿owanie $CX$. Z mutacji najlepiej poradzi³a sobie $Insert$, a najgorzej $Revert$.
 
 W tabeli \ref{tab:AG1Ilosc} zosta³a przedstawiona procentowa iloœæ wyników lepszych od d³ugoœci trasy oryginalnej, czyli skutecznoœæ algorytmu genetycznego. Przy populacji 100 osobników, ani razu algorytm nie osi¹gn¹³ 100\% skutecznoœci. Pierwszy raz uda³o siê to osi¹gn¹æ dla populacji 1000 osobników przy 1000 iteracjach.  Krzy¿owanie $PMX$ oraz $CX$ osi¹gnê³o 100\% skutecznoœci w po³¹czeniu z ka¿d¹ mutacji dla populacji 2000 osobników oraz $k$ = 2000 i $k$ = 4000. Krzy¿owanie $OX$ z mutacj¹ $Revert$ ani razu nie osi¹gnê³o 100\% skutecznoœci. Porównuj¹c mutacje, najs³absza skutecznoœæ osi¹gnê³a $Revert$.
 \begin{table}[!h]
@@ -191,7 +191,7 @@ W populacji $N$ = 1000 (Rys. \ref{Trasa1GAN1000}) dla 100 iteracji algorytm znaj
 	\label{Trasa1GAN1000}
 \end{figure}	
 
- W populacji $N$ = 2000 (Rys. \ref{Trasa1GAN2000}) krzy¿owanie $CX$ dla ka¿dej mutacji zoptymalizowa³o trasê od 8.7\% do 33.89\%. Mo¿na zauwa¿yæ, ¿e  œredni najlepszy wynik nie poprawia³ siê od $k$ = 1000. Krzy¿owanie $PMX$ oraz $OX$ poprawi³o siê o kilka procent porównuj¹c do poprzedniej populacji. Pierwsze maksymalne œrednio poprawi³o oryginaln¹ trasê o 27.59\%, a drugie o 22.11\%.
+ W populacji $N$ = 2000 (Rys. \ref{Trasa1GAN2000}) krzy¿owanie $CX$ dla ka¿dej mutacji ulepszy³o trasê od 8.7\% do 33.89\%. Mo¿na zauwa¿yæ, ¿e  œredni najlepszy wynik nie poprawia³ siê od $k$ = 1000. Krzy¿owanie $PMX$ oraz $OX$ poprawi³o siê o kilka procent porównuj¹c do poprzedniej populacji. Pierwsze maksymalne œrednio poprawi³o oryginaln¹ trasê o 27.59\%, a drugie o 22.11\%.
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.35]{grafika/Trasa1GAN2000.png}
@@ -1264,7 +1264,7 @@ k                           & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}0.1} &
 \label{tab:best_3_mrowkowy}
 \end{table}
 
-Skutecznoœæ z jak¹ algorytm mrówkowy skróci³ trasê jest najwy¿sza z mo¿liwych. W tabeli \ref{tab:sum_3_mrowkowy} zosta³a przedstawiona procentowa wartoœæ tras zoptymalizowanych w stosunku do oryginalnej odleg³oœci. Wszystkie z prób okaza³y siê lepsze. Dziêki temu mo¿na zauwa¿yæ, ¿e niezale¿nie od liczby iteracji wygenerowany wynik da satysfakcjonuj¹cy wynik. Ma to znaczenie w kontekœcie czasu jaki potrzebuje program na ulepszenie trasy. Tak jak w przypadku poprzednich tras, algorytm mrówkowy potrzebuje wykonaæ wiele operacji. Do wykonania 50 prób polepszenia trasy potrzeba œrednio 84.451 sekundy. Jeœli liczba prób zosta³a zwiêkszona do 75, to œredni czas wzrós³ do 131.146 sekund. Najd³u¿ej trwa³o obliczanie trasy dla 100 iteracji. Czas ten wyniós³ 176.874 sekund.
+Skutecznoœæ z jak¹ algorytm mrówkowy skróci³ trasê jest najwy¿sza z mo¿liwych. W tabeli \ref{tab:sum_3_mrowkowy} zosta³a przedstawiona procentowa wartoœæ tras ulepszonych w stosunku do oryginalnej odleg³oœci. Wszystkie z prób okaza³y siê lepsze. Dziêki temu mo¿na zauwa¿yæ, ¿e niezale¿nie od liczby iteracji wygenerowany wynik da satysfakcjonuj¹cy wynik. Ma to znaczenie w kontekœcie czasu jaki potrzebuje program na ulepszenie trasy. Tak jak w przypadku poprzednich tras, algorytm mrówkowy potrzebuje wykonaæ wiele operacji. Do wykonania 50 prób polepszenia trasy potrzeba œrednio 84.451 sekundy. Jeœli liczba prób zosta³a zwiêkszona do 75, to œredni czas wzrós³ do 131.146 sekund. Najd³u¿ej trwa³o obliczanie trasy dla 100 iteracji. Czas ten wyniós³ 176.874 sekund.
 
 \begin{table}[h!]
 \caption[Trasa III - skutecznoœæ algorytmu mrówkowego]
