@@ -325,9 +325,9 @@ Najlepsza trasa otrzymana przez algorytm najbli¿szego s¹siada wynios³a 31895 met
 Od razu mo¿na zauwa¿yæ, ¿e po zastosowaniu wspó³czynnika na pierwszym etapie trasy najgorzej wypad³ algorytm najmniejszej krawêdzi daj¹c wyniki a¿ powy¿ej 40000 metrów. 
 Natomiast algorytm najbli¿szego s¹siada oraz algorytm A* najs³abiej poradzili sobie tworz¹c dodatkowe trasy do badañ na trzecim etapie dzia³ania.
 
-Tabela \ref{tab:AZ1OPTM} przedstawia procentow¹ poprawê oryginalnej trasy nr 1. Wszystkie otrzymane trasy przez ka¿dy z trzech algorytmów da³y lepszy wynik od oryginalnej. Najlepszy wynik otrzymany przez algorytm A* poprawi³ trasê a¿ o 38.23\%.
-Na pierwszy rzut oka mo¿na zauwa¿yæ, ¿e najwy¿sze optymalizacje zosta³y wygenerowane przez algorytm A*. Najgorsze optymalizacje otrzymano przy zastosowaniu algorytmu najmniejszej krawêdzi w pierwszej fazie budowania tras, wszystkie wyniki by³y poni¿ej 20\%.
-Nieco lepiej od poprzednika wypad³ algorytm najbli¿szego s¹siada, jednak najbardziej optymalny wynik jest w obu zbli¿ony równy oko³o 34\%.
+Tabela \ref{tab:AZ1OPTM} przedstawia procentow¹ poprawê oryginalnej trasy numer 1. Wszystkie otrzymane trasy przez ka¿dy z trzech algorytmów da³y lepszy wynik od oryginalnej. Najlepszy wynik otrzymany przez algorytm A* zmniejszy³ d³ugoœæ oryginalnej trasy a¿ o 38.23\%.
+Na pierwszy rzut oka mo¿na zauwa¿yæ, ¿e najlepsze wyniki zosta³y wygenerowane przez algorytm A*. Natomiast najgorsze otrzymano przy zastosowaniu algorytmu najmniejszej krawêdzi w pierwszej fazie budowania tras, wszystkie wyniki by³y poni¿ej 20\%.
+Nieco lepiej od poprzednika wypad³ algorytm najbli¿szego s¹siada, jednak najlepszych ich lokalny wynik jest w obu zbli¿ony równy oko³o 34\%.
 
 \begin{table}[!h]
 \caption[Trasa I - wyniki algorytmów zach³annych]
@@ -352,8 +352,8 @@ B³¹d (m) & \cellcolor[HTML]{C0C0C0}ANS-1 & \cellcolor[HTML]{C0C0C0}ANS-2 & \cell
 \end{table}
 
 \begin{table}[!h]
-\caption[Trasa I - optymalizacja wyników wzglêdem oryginalnej trasy]
-{Trasa I - optymalizacja wyników wzglêdem oryginalnej trasy}
+\caption[Trasa I - poprawa wyników wzglêdem oryginalnej trasy]
+{Trasa I - poprawa wyników wzglêdem oryginalnej trasy}
 \scalebox{0.8}{
 \begin{tabular}{|
 >{\columncolor[HTML]{C0C0C0}}c |l|l|l|l|l|l|l|
@@ -374,7 +374,7 @@ B³¹d (m) & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANS-1} & \multicolumn{1}{
 \end{table}
 
 
-Zastosowanie metody 2-opt na utworzonych trasach znalaz³o nowy najlepszy wynik dla algorytmu A* testowanego w pierwszej fazie budowania tras. Jak mo¿na zauwa¿yæ w tabeli \ref{tab:AZ12OPT} po zastosowaniu optymalizacji nowa najlepsza trasa uzyska³a wynik 29 965 metrów. Dziêki optymalizacji trasa wygenerowana przez algorytm najmniejszej krawêdzi zmniejszy³a siê do 30855 metrów. Dla algorytmu najbli¿szego s¹siada optymalizacja nie przynios³a trasy o mniejszej d³ugoœci od poprzednich. Nowa najlepsza optymalizacja wynosi 38.72\% wzglêdem oryginalnej trasy, a najgorszy wynik to zaledwie 13.40\% poprawy d³ugoœci. Tabela \ref{tab:AZ12OPTOPTM} przedstawia wyniki optymalizacji wzglêdem trasy oryginalnej po zastosowaniu metody 2-opt.
+Zastosowanie metody 2-opt na utworzonych trasach znalaz³o nowy najlepszy wynik dla algorytmu A* testowanego w pierwszej fazie budowania tras. Jak mo¿na zauwa¿yæ w tabeli \ref{tab:AZ12OPT} po zastosowaniu optymalizacji nowa najlepsza trasa uzyska³a wynik 29 965 metrów. Dziêki optymalizacji trasa wygenerowana przez algorytm najmniejszej krawêdzi zmniejszy³a siê do 30855 metrów. Dla algorytmu najbli¿szego s¹siada optymalizacja nie przynios³a trasy o mniejszej d³ugoœci od poprzednich. Nowy najlepszy wynik wynosi 38.72\% wzglêdem oryginalnej trasy, a najgorszy wynik to zaledwie 13.40\% poprawy d³ugoœci. Tabela \ref{tab:AZ12OPTOPTM} przedstawia poprawê tras wzglêdem trasy oryginalnej po zastosowaniu metody 2-opt.
 
 \begin{table}[!h]
 \caption[Trasa I - zastosowanie metody 2-opt na powsta³ych trasach]
@@ -407,8 +407,8 @@ B³¹d (m) & \cellcolor[HTML]{C0C0C0}ANS-1 & \cellcolor[HTML]{C0C0C0}ANS-2 & \cell
 \end{table}
 
 \begin{table}[!h]
-\caption[Trasa I - optymalizacja powsta³ych tras przez metodê 2-opt]
-{Trasa I - optymalizacja powsta³ych tras przez metodê 2-opt}
+\caption[Trasa I - poprawa powsta³ych tras wzglêdem oryginalnej przez metodê 2-opt]
+{Trasa I - poprawa powsta³ych tras wzglêdem oryginalnej przez metodê 2-opt}
 \scalebox{0.8}{
 \begin{tabular}{|
 >{\columncolor[HTML]{C0C0C0}}c |
@@ -825,7 +825,7 @@ Na rysunku \ref{Trasa2KL} przedstawiono najlepsz¹ trasê jak¹ znalaz³ algorytm mr
 \subsection{Wyniki algorytmów zach³annych - Przemys³aw}
 
 W tabeli \ref{tab:AZ2BESTS} zosta³y umieszczone najlepsze wartoœci wygenerowanych tras przez algorytmy zach³anne dla trasy nr 2 przy zastosowaniu wspó³czynnika b³êdu uruchamianego na poszczególnych etapach budowania ca³kowitej trasy.
-Tak jak w poprzedniej trasie algorytm A* uzyska³ najlepszy wynik równy 28757 metrów. Algorytm najbli¿szego s¹siada równie¿ doszed³ do wyniku poni¿ej 30000 metrów, podczas etapu drugiego znalaz³ trasê o d³ugoœci 29 800 metrów. Znów najgorszy okaza³ siê algorytm najmniejszej krawêdzi, który tym razem wyznaczy³ trasê 31745 metrow¹. Najwiêcej najgorszych wyników zwróci³ równie¿ algorytm najmniejszej krawêdzi, gdzie inne algorytmy odda³y wyniki bardzo przybli¿one.
+Tak jak w poprzedniej trasie algorytm A* uzyska³ najlepszy wynik równy 28757 metrów. Algorytm najbli¿szego s¹siada równie¿ doszed³ do wyniku poni¿ej 30000 metrów, podczas etapu drugiego znalaz³ trasê o d³ugoœci 29800 metrów. Znów najgorszy okaza³ siê algorytm najmniejszej krawêdzi, który tym razem wyznaczy³ trasê 31745 metrow¹. Najwiêcej najgorszych wyników zwróci³ równie¿ algorytm najmniejszej krawêdzi, gdzie inne algorytmy odda³y wyniki bardzo przybli¿one.
 
 \begin{table}[!h]
 \caption[Trasa II - wyniki algorytmów zach³annych]
@@ -849,12 +849,12 @@ B³¹d (m) & \cellcolor[HTML]{C0C0C0}ANS-1 & \cellcolor[HTML]{C0C0C0}ANS-2 & \cell
 \label{tab:AZ2BESTS}
 \end{table}
 
-Tabela \ref{tab:AZ2OPTM} przedstawia procentow¹ poprawê oryginalnej trasy nr 2. Wszystkie wyznaczone trasy przez poszczególny z  trzech algorytmów uzyska³y lepszy wynik od trasy oryginalnej. Najlepszy wynik otrzymany przez algorytm A* poprawi³ trasê a¿ o 28.82\%.
-Na pierwszy rzut oka mo¿na zauwa¿yæ, ¿e najwy¿sze optymalizacje zosta³y wygenerowane znów przez algorytm A*. Najgorsze optymalizacje otrzymano przy zastosowaniu algorytmu najmniejszej krawêdzi w trzeciej fazie budowania tras, gdzie wszystkie wyniki by³y poni¿ej 20\%, a dolny wynik to tylko 15.98\%. Algorytm najbli¿szego s¹siada wypad³ tym razem umiarkowanie, daj¹c najlepszy wynik równy 26.24\%, który jest lepszy od niektórych tras wyznaczanych przez algorytm A*.
+Tabela \ref{tab:AZ2OPTM} przedstawia procentow¹ poprawê oryginalnej trasy numer 2. Wszystkie wyznaczone trasy przez poszczególny z  trzech algorytmów uzyska³y lepszy wynik od trasy oryginalnej. Najlepszy wynik otrzymany przez algorytm A* poprawi³ trasê a¿ o 28.82\%.
+Na pierwszy rzut oka mo¿na zauwa¿yæ, ¿e najwy¿sze optymalizacje zosta³y wygenerowane znów przez algorytm A*. Najgorsze wyniki otrzymano przy zastosowaniu algorytmu najmniejszej krawêdzi w trzeciej fazie budowania tras, gdzie wszystkie wyniki by³y poni¿ej 20\%, a dolny wynik to tylko 15.98\%. Algorytm najbli¿szego s¹siada wypad³ tym razem umiarkowanie, daj¹c najlepszy wynik równy 26.24\%, który jest lepszy od niektórych tras wyznaczanych przez algorytm A*.
 
 \begin{table}[!h]
-\caption[Trasa II - optymalizacja wyników wzglêdem oryginalnej trasy]
-{Trasa II - optymalizacja wyników wzglêdem oryginalnej trasy}
+\caption[Trasa II - poprawa wyników wzglêdem oryginalnej trasy]
+{Trasa II - poprawa wyników wzglêdem oryginalnej trasy}
 \scalebox{0.8}{
 \begin{tabular}{|
 >{\columncolor[HTML]{C0C0C0}}c |l|l|l|l|l|l|l|l|l|}
@@ -907,8 +907,8 @@ B³¹d (m) & \cellcolor[HTML]{C0C0C0}ANS-1 & \cellcolor[HTML]{C0C0C0}ANS-2 & \cell
 
 
 \begin{table}[!h]
-\caption[Trasa II - optymalizacja powsta³ych tras przez metodê 2-opt]
-{Trasa II - optymalizacja powsta³ych tras przez metodê 2-opt}
+\caption[Trasa II - poprawa powsta³ych tras wzglêdem oryginalnej przez metodê 2-opt]
+{Trasa II - poprawa powsta³ych tras wzglêdem oryginalnej przez metodê 2-op}
 \scalebox{0.8}{
 \begin{tabular}{|
 >{\columncolor[HTML]{C0C0C0}}c |
@@ -1319,7 +1319,7 @@ Na rysunku \ref{Trasa3KL} przedstawiono najlepsz¹ trasê jak¹ znalaz³ algorytm mr
 \subsection{Wyniki algorytmów zach³annych - Przemys³aw}
 
 Tabela \ref{tab:AZ3BESTS} przedstawia najlepsze wyniki uzyskane przez algorytmy zach³anne dla ostatniej badanej trasy. Jak w poprzednich badaniach tutaj równie¿ zosta³ zastosowany wspó³czynnik b³êdu przy dokonywaniu wyborów na ka¿dej z poszczególnych trzech faz tworzenia tras. Bez zmian najlepiej dalej zachowuje siê algorytm A*, który dalej znajdujê œcie¿kê o najmniejszej wartoœci równ¹ 32855 metrów. Tak jak w poprzednich badaniach najgorzej wypad³ algorytm najmniejszej krawêdzi, dla którego najlepsza trasa uzyska³a wynik 34130 metrów co oznacza, ¿e prawie wszystkie wyznaczone trasy przez algorytm A* zdoby³y lepszy wynik.
-Algorytm najbli¿szego s¹siada tym razem poradzi³ sobie tak samo dobrze jak algorytm A*, gdzie dobrze widaæ na tabeli \ref{tab:AZ3OPTM} najlepsze wyniki s¹ niemal równe wynosz¹ce oko³o 38.55\% optymalizacji wzglêdem oryginalnej œcie¿ki.
+Algorytm najbli¿szego s¹siada tym razem poradzi³ sobie tak samo dobrze jak algorytm A*, gdzie dobrze widaæ na tabeli \ref{tab:AZ3OPTM} najlepsze wyniki s¹ niemal równe wynosz¹ce oko³o 38.55\% poprawy wzglêdem oryginalnej œcie¿ki.
 
 
 \begin{table}[!h]
@@ -1344,8 +1344,8 @@ B³¹d (m) & \cellcolor[HTML]{C0C0C0}ANS-1 & \cellcolor[HTML]{C0C0C0}ANS-2 & \cell
 \end{table}
 
 \begin{table}[!h]
-\caption[Trasa III - optymalizacja wyników wzglêdem oryginalnej trasy]
-{Trasa III - optymalizacja wyników wzglêdem oryginalnej trasy}
+\caption[Trasa III - poprawa wyników wzglêdem oryginalnej trasy]
+{Trasa III - poprawa wyników wzglêdem oryginalnej trasy}
 \scalebox{0.8}{
 \begin{tabular}{|
 >{\columncolor[HTML]{C0C0C0}}c |l|l|l|l|l|l|l|l|l|}
@@ -1368,7 +1368,7 @@ B³¹d (m) & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}ANS-1} & \multicolumn{1}{
 Tabela \ref{tab:AZ32OPT} oraz \ref{tab:AZ32OPTOPTM} przedstawiaj¹ wyniki u¿ycia metody 2-opt na powsta³ych trasach.
 Po zastosowaniu rozwi¹zania 2-opt na zbudowanych wczeœniej trasach okazuje siê, ¿e nowy zwyciêzc¹ spoœród badanych algorytmów sta³ siê algorytm najbli¿szego s¹siada z nowym najlepszym wynikiem równym 31781 metrów co daje a¿ 40.57\% poprawy œcie¿ki wzglêdem uzyskanej pocz¹tkowo.
 
-Rysunek \ref{Trasa3AZCOMPARE} przedstawia porównanie optymalizacji tras z d³ugoœcia oryginalnej trasy. Wszystkie wyniki s¹ znakomite, jednak¿e zastosowanie metody 2-opt pozwoli³o zwiêkszy górny wynik algorytmu najbli¿szego s¹siada do 40.57\%, a algorytmu A* do 38.75\%. Algorytm najmniejszej krawêdzi po zastosowaniu metody 2-opt nie otrzyma³ nowych lepszych wyników.
+Rysunek \ref{Trasa3AZCOMPARE} przedstawia porównanie poprawy tras z d³ugoœci¹ oryginalnej trasy. Wszystkie wyniki s¹ znakomite, jednak¿e zastosowanie metody 2-opt pozwoli³o zwiêkszy górny wynik algorytmu najbli¿szego s¹siada do 40.57\%, a algorytmu A* do 38.75\%. Algorytm najmniejszej krawêdzi po zastosowaniu metody 2-opt nie otrzyma³ nowych lepszych wyników.
 
 \begin{table}[!h]
 \caption[Trasa III - zastosowanie metody 2-opt na powsta³ych trasach]
@@ -1401,8 +1401,8 @@ B³¹d (m) & \cellcolor[HTML]{C0C0C0}ANS-1 & \cellcolor[HTML]{C0C0C0}ANS-2 & \cell
 \end{table}
 
 \begin{table}[!h]
-\caption[Trasa III - optymalizacja powsta³ych tras przez metodê 2-opt]
-{Trasa III - optymalizacja powsta³ych tras przez metodê 2-opt}
+\caption[Trasa III - poprawa powsta³ych tras wzglêdem oryginalnej przez metodê 2-opt]
+{Trasa III - poprawa powsta³ych tras wzglêdem oryginalnej przez metodê 2-opt}
 \scalebox{0.8}{
 \begin{tabular}{|
 >{\columncolor[HTML]{C0C0C0}}c |
