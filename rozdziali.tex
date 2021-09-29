@@ -1,25 +1,25 @@
-\chapter{Ogólny problem -- KL, PN, PS}
-Problem nieoptymalnych tras przejazdów ciê¿arówek gospodarki komunalnej jest przyk³adem nazwanym w informatyce problemem komiwoja¿era. W tym rozdziale zostanie on omówiony oraz metody jego optymalizacji.
+\chapter{Ogólny problem}
+Badany problem jest w informatyce nazywany problemem komiwoja¿era. W tym rozdziale zostanie on omówiony oraz metody optymalizacji.
 
 \section{Problem komiwoja¿era} 
-Problem komiwoja¿era (ang. \textit{Travelling Salesman Problem} - TSP) nale¿y do rodziny problemów NP-trudnych. Znalezienie najlepszego rozwi¹zania jest trudne i fascynuje naukowców od wielu lat. Aktualnie istnieje wiele rozwi¹zañ tego problemu, a proponowane podejœcia s¹ z³o¿one. Niektóre z nich bazuj¹ na lokalnych przeszukiwaniach grafu, a inne opieraj¹ siê na przyk³adach, które wystêpuj¹ w przyrodzie.
+Problem komiwoja¿era (ang. travelling salesman problem - TSP) nale¿y do rodziny problemów NP-trudnych. Znalezienie najlepszego rozwi¹zania jest trudne i fascynuje naukowców od wielu lat. Niektórzy poddaj¹ pod w¹tpliwoœæ znalezienie efektywnego rozwi¹zania, czyli takiego którego czas dzia³ania jest maksymalnie wielomianowy. Aktualnie istnieje wiele rozwi¹zañ tego problemu, a proponowane podejœcia s¹ bardzo interesuj¹ce. Niektóre z nich bazuj¹ na lokalnych przeszukiwaniach grafu, a inne opieraj¹ siê na przyk³adach które wystêpuj¹ w przyrodzie.
 
-Podobnym zagadnieniem do TSP jest problem konika szachowego. Problem ten równie¿ nale¿y do rodziny problemów NP-zupe³nym. Ju¿ w XVIII wieku badania nad tym zagadnieniem rozpocz¹³ Euler \cite{euler_2}. Rozwi¹zanie tego problemu polega na znalezieniu œcie¿ki, jak¹ ma przebyæ konik szachowy, tak aby odwiedziæ ka¿de pole na szachownicy tylko i~ wy³¹cznie raz. Skoczek porusza siê po planszy zgodnie z okreœlonym ruchem, a plansza szachowa mo¿e mieæ ró¿ny rozmiar. Konik porusza siê a¿ do momentu odwiedzenia wszystkich pól lub do momentu, w którym nie ma mo¿liwoœci odwiedzenia kolejnego pola.
+Podobnym problemem do TSP jest problem konika szachowego. Problem ten równie¿ nale¿y do rodziny problemów NP-zupe³nym. Ju¿ w XVIII wieku badania nad tym problemem rozpocz¹³ Euler \cite{euler_2}. Rozwi¹zanie tego problemu polega na znalezieniu œcie¿ki jak¹ ma przebyæ konik szachowy, tak aby odwiedziæ ka¿de pole na szachownicy tylko i wy³¹cznie raz. Skoczek porusza siê po planszy zgodnie z okreœlonym ruchem, a plansza szachowa mo¿e mieæ ró¿ny rozmiar. Konik porusza siê a¿ do momentu odwiedzenia wszystkich pól lub do momentu w którym nie ma mo¿liwoœci odwiedzenia kolejnego pola.
 
-Ludzie od wieków szukaj¹ sposobów na znalezienie jak najkrótszej trasy z punktu do celu. Nawet takie trywialne problemy jak podró¿ pomiêdzy 3 miejscowoœciami mo¿e zostaæ sklasyfikowany jako problem komiwoja¿era. W 1832 roku w przewodniku dla podró¿uj¹cych po Niemczech i Szwajcarii zosta³a zawarta informacja o optymalizacji trasy przejazdu. Nie ma tam zawartych ¿adnych teorii matematycznych w zwi¹zku z czym nie mo¿na uznaæ tego dzie³a za pocz¹tek rozwa¿añ nad problemem komiwoja¿era\cite{kl_poczatek_rozwazan}.
+Optymalizacja tras od zawsze jest obecna w historii ludzkoœci. Nawet takie trywialne problemy jak podró¿ pomiêdzy 3 miejscowoœciami mo¿e zostaæ sklasyfikowany jako problem komiwoja¿era. Chocia¿ dok³adne wskazanie na Ÿród³o problemu TSP nie jest znane, to ju¿ w 1832 roku w przewodniku dla podró¿uj¹cych po Niemczech i Szwajcarii zosta³a zawarta informacja o optymalizacji trasy przejazdu. Nie ma tam zawartych ¿adnych teorii matematycznych w zwi¹zku z czym nie mo¿na uznaæ tego dzie³a za pocz¹tek rozwa¿añ nad problemem komiwoja¿era.\cite{kl_poczatek_rozwazan}
 
-W XIX wieku William Hamilton stworzy³ matematyczne tezy pod definicjê TSP. W~ rozwi¹zaniu problemu komiwoja¿era nale¿y znaleŸæ cykl w grafie. Znaleziony cykl musi siê sk³adaæ ze wszystkich wierzcho³ków, a ka¿dy z nich mo¿e wyst¹piæ tylko raz. Cykl, który spe³nia wymieniony warunek jest cyklem Hamiltona. Jeœli w grafie mo¿na wyró¿niæ cykl z opisanymi powy¿ej warunkami, to graf jest grafem hamiltonowskim. 
+W XIX wieku William Hamilton stworzy³ fundamenty pod definicjê TSP. W rozwi¹zaniu problemu komiwoja¿era nale¿y znaleŸæ cykl w grafie. W sk³ad takiego cyklu musi zostaæ zawarty ka¿dy z wierzcho³ków. Ka¿dy z wierzcho³ków mo¿e znajdowaæ siê w rozwi¹zaniu dok³adnie tylko raz. Cykl który spe³nia wymieniony warunek jest cyklem Hamiltona. Jeœli w grafie mo¿na wyró¿niæ cykl z opisanymi powy¿ej warunkami, to graf jest grafem Hamiltonowskim. 
 
-Na rysunku \ref{kl_graf_nie_hamiltona} zosta³ przedstawiony graf bez cyklu Hamiltona. W grafie tym nie mo¿na znaleŸæ takiego po³¹czenia, które zawiera wszystkie wierzcho³ki przechodz¹c przez ka¿dy z nich dok³adnie raz. Istnieje mo¿liwoœæ przejœcia przez wszystkie wierzcho³ki jedynie po powtórnym odwiedzeniu przynajmniej jednego wierzcho³ka.
+Na \ref{kl_graf_nie_hamiltona} zosta³ przedstawiony graf bez cyklu Hamiltona. W grafie tym nie mo¿na znaleŸæ takiego po³¹czenia które zawiera wszystkie wierzcho³ki przechodz¹c przez ka¿dy z nich dok³adnie raz. Istnieje mo¿liwoœæ przejœcia przez wszystkie wierzcho³ki jedynie po powtórnym odwiedzeniu przynajmniej jednego wierzcho³ka.
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=0.75]{grafika/kl_graf_nie_hamiltona.png}
-	\caption{Graf bez cyklu Hamiltona}
+	\caption{Graf bez cyklu Hamiltona.}
 	\label{kl_graf_nie_hamiltona}
 \end{figure}
 
-Graf z rysunku \ref{kl_graf_hamiltona} posiada po³¹czenie krawêdzi dziêki któremu mo¿na przejœæ po wszystkich wierzcho³kach dok³adnie raz. Takie przejœcie jest w³aœnie cyklem Hamiltona w zwi¹zku z~ czym graf jest hamiltonowski. Wyruszaj¹c na przyk³ad z punktu F mo¿emy przejœæ kolejno do E - G - D - B - A - C. W ten sposób zostan¹ odwiedzone wszystkie wierzcho³ki tylko raz. 
+Graf z \ref{kl_graf_hamiltona} posiada po³¹czenie krawêdzi dziêki któremu mo¿na przejœæ po wszystkich wierzcho³kach dok³adnie raz. Takie przejœcie jest w³aœnie cyklem Hamiltona w zwi¹zku z czym graf jest Hamiltonowski. Wyruszaj¹c przyk³adowo z punktu F mo¿emy przejœæ kolejno do E - G - D - B - A - C. W ten sposób odwiedzimy wszystkie wierzcho³ki tylko raz. 
 
 \begin{figure}[h]
 	\centering
@@ -28,19 +28,16 @@ Graf z rysunku \ref{kl_graf_hamiltona} posiada po³¹czenie krawêdzi dziêki którem
 	\label{kl_graf_hamiltona}
 \end{figure}
 
-W latach 30 XX wieku Merrill Meeks Flood rozpocz¹³ rozwa¿ania nad optymalizacj¹ przejazdu autobusów szkolnych [ODNOSINK]. Dzia³alnoœæ tê mo¿emy uznaæ za pocz¹tek pracy nad problemem TSP. Wraz z up³ywem czasu zainteresowanie problemem optymalizacyjnym narasta³o, a co za tym idzie powstawa³y nowe rozwi¹zania problemu. Jednak ¿aden z nich nie by³ w stanie zaproponowaæ dok³adnego rozwi¹zania, które jest w stanie przedstawiæ rezultat w czasie optymalnym.
+W latach 30 XX wieku Merrill Meeks Flood rozpocz¹³ rozwa¿ania nad optymalizacj¹ przejazdu autobusów szkolnych. Dzia³alnoœæ t¹ mo¿emy uznaæ za pocz¹tek pracy nad problemem TSP. Wraz z up³ywem czasu zainteresowanie problemem optymalizacyjnym narasta³o, a co za tym idzie powstawa³y nowe pomys³y na algorytmy. Jednak ¿aden z pomys³ów nie jest w stanie zaproponowaæ dok³adnego rozwi¹zania które jest w stanie przedstawiæ rezultat w czasie wyra¿onym za pomoc¹ wielomianu.
 
 \section{Metody optymalizacji} 
 	
-Jednym z proponowanych rozwi¹zañ jest algorytm Helda Karpa, który jest oparty na programowaniu dynamicznym \cite{kl_alg_helda_karpa}. Z³o¿onoœæ pamiêciowa tego algorytmy wynosi $\theta$(\(2n^n\))
-, a czasowa $\theta$(\(n^2*2^n\)), gdzie:
--- $n$ jest iloœci¹ wierzcho³ków. 
-W algorytmie tym na ka¿dym kroku wyznaczamy punkt który powinien byæ przedostatni na trasie. Aby wyznaczyæ kolejny punkt, nale¿y skorzystaæ ze wzoru, w którym poszukiwana jest najmniejsza wartoœæ pomiêdzy punktami.
+Jednym z proponowanych rozwi¹zañ jest algorytm Helda Karpa który jest oparty na programowaniu dynamicznym. Z³o¿onoœæ pamiêciowa tego algorytmy wynosi $\theta$(\(2n^n\))
+, a czasowa $\theta$(\(n^2*2^n\)). W algorytmie tym na ka¿dym kroku wyznaczamy punkt który powinien byæ przedostatni na trasie. Aby wyznaczyæ poprzednika nale¿y skorzystaæ ze wzoru w którym poszukiwana jest najmniejsza wartoœæ pomiêdzy punktami.
 
-Innym przyk³adem, który mo¿na wykorzystaæ do rozwi¹zania problemu komiwoja¿era jest algorytm najbli¿szego s¹siada. Rozwi¹zanie to wykorzystuje strategiê zach³ann¹. W algorytmie szukamy aktualnie najlepszego ruchu. W tym celu przeszukiwani s¹ jedynie s¹siedzi, którzy s¹ najbli¿ej aktualnego punktu. Z³o¿onoœæ takiego algorytmu jest szacowana na $\theta$(\(n^2\)), gdzie:
--- $n$ jest iloœci¹ wierzcho³ków. 
+Innym przyk³adem , który mo¿na wykorzystaæ do rozwi¹zania problemu komiwoja¿era jest algorytm najbli¿szego s¹siada. Rozwi¹zanie to wykorzystuje strategiê zach³ann¹. W algorytmie szukamy aktualnie najlepszego ruchu. W tym celu przeszukiwani s¹ jedynie s¹siedzi którzy s¹ najbli¿ej aktualnego punktu. Z³o¿onoœæ takiego algorytmu jest szacowana na $\theta$(\(n^2\)).
 
-Oprócz standardowych przeszukiwañ zbiorów na przestrzeni lat pojawi³y siê propozycje, które wprowadzaj¹ elementy losowoœci. Przyk³adem takiego rozwi¹zania mogê byæ algorytm genetyczny oraz algorytm mrówkowy. Nale¿¹ one do grup algorytmów heurystycznych, czyli do takich, które nie daj¹ gwarancji znalezienia dok³adnego rozwi¹zania.
+Oprócz standardowych przeszukiwañ zbiorów na przestrzeni lat pojawi³y siê propozycje które wprowadzaj¹ elementy losowoœci. Przyk³adem takiego rozwi¹zania mogê byæ algorytm genetyczny oraz algorytm mrówkowy. Nale¿¹ one do grup algorytmów heurystycznych, czyli do takich, które nie daj¹ gwarancji znalezienia dok³adnego rozwi¹zania.
 
 W pracy zostan¹ zbadane rozwi¹zania problemu za pomoc¹ algorytmu genetycznego, mrówkowego oraz zach³annego. W pozosta³ych podrozdzia³ach zostan¹ opisane ich klasyczne wersje.
 
@@ -62,7 +59,7 @@ Medycyna jest jedn¹ z wa¿niejszych dziedzin, gdzie wykorzystuje siê algorytmy ge
 Kolejn¹ ga³êzi¹ gospodarki, w których zastosowanie znajduje algorytm genetyczny, jest przemys³ spo¿ywczy, a konkretnie optymalizacja linii produkcyjnych [ODNOŒNIK]. Za pomoc¹ algorytmu genetycznego wyznacza siê parametry, takie jak temperatura, ciœnienie lub zapotrzebowanie mocy. Dziêki temu wszystkie procesy technologiczne zachodz¹ce w maszynach i urz¹dzeniach s¹ wydajne i zoptymalizowane \cite{genetic_4}. Algorytmy genetyczne czêsto stosuje siê jako  wskazanie punktów pocz¹tkowych w innych metodach optymalizacyjnych. Poza podanymi przyk³adami, znajduj¹ one zastosowanie praktycznie wszêdzie: ekonomia, gie³da, przemys³ lotniczy, kombinatoryka, sieci komputerowe, zarz¹dzanie ³añcuchem dostaw, a tak¿e ustalanie czasu reklamy w telewizji \cite{genetic_5}.
 
 
-\subsection{Algorytm mrówkowy -- KL}
+\subsection{Algorytm mrówkowy}
 
 Obserwacje nad zachowaniami w przyrodzie wielokrotnie mia³y wp³yw na rozwój nowych rozwi¹zañ. Tak jak w przypadku algorytmu genetycznego, tak i w przypadku algorytmu mrówkowego pomys³ zosta³ zaczerpniêty z przyrody. Dok³adne dzia³anie algorytmu mrówkowego wzoruje siê na zachowaniu kolonii mrówek. Dziêki pracy zespo³owej, owady te s¹ w stanie wypracowaæ optymaln¹ œcie¿kê miêdzy siedliskiem a znalezionym pokarmem.
 
@@ -102,7 +99,7 @@ Ostatni z przyk³adów wykorzystania algorytmu mrówkowego jest harmonogram produkc
 W tej metodzie, podobnie jak w metodzie do rozwi¹zania problemu plecakowego, nale¿y stworzyæ graf pe³ny z wierzcho³kami odpowiadaj¹cymi konkretnym zadaniom. Nastêpnie mrówki przechodz¹ przez wszystkie wierzcho³ki i zostawiaj¹ feromony. Czynnikiem decyduj¹cym o wyborze wierzcho³ków nadal jest zwi¹zana z feromonami. Do rozwi¹zania tego problemu nie jest brana pod uwagê liczba feromonów na krawêdzi pomiêdzy wierzcho³kiem a jego s¹siadami. Wykorzystywana jest natomiast suma feromonów na wszystkich krawêdziach do odwiedzanych wierzcho³ków z wierzcho³kami ju¿ odwiedzonymi.
 
 
-\subsection{Algorytmy zach³anne -- PN}
+\subsection{Algorytmy zach³anne}
 	Kolejnym spojrzeniem na poruszany w pracy problem komiwoja¿era s¹ algorytmy zach³anne (ang. \textit{greedy algorithms}). Nie ³atwo znaleŸæ dowód na to czy dla podanego problemu algorytm zach³anny znalaz³ poprawny wynik, jednak stosuj¹c siê do pewnych zasad mo¿na okreœliæ, ¿e dla danego problemu istnieje rozwi¹zanie zach³anne. G³ówn¹ strategi¹ jak¹ siê kieruj¹ jak sama nazwa naprowadza jest dokonywanie wyborów, które w danej chwili wydaj¹ siê najlepsze. Oznacza to, ¿e dokonuje siê wyborów optymalnych lokalnie w nadziei, ¿e te wybory doprowadz¹ do rozwi¹zania globalnego w zadowalaj¹cym czasie. W odró¿nieniu do strategii zastosowanej w programowaniu dynamicznym wybory podejmowane przez algorytmy zach³anne nie s¹ uzale¿nione od wyborów przesz³ych. Kolejnym kryterium stosowanym do ocenienia poprawnoœci rozwi¹zania zach³annego jest w³asnoœæ optymalnej pod struktury, mówi¹ca o tym, ¿e optymalne rozwi¹zanie dla ca³ego problemu istnieje jedynie przy optymalnym rozwi¹zaniu pod problemów. Dane kryterium jest równie¿ istotne w przypadku rozwi¹zywania problemów metod¹ programowania dynamicznego. Algorytmy zach³anne nie zawsze prowadz¹ jednak do optymalnych rozwi¹zañ, jednak¿e dla w wiêkszoœci problemów daj¹ wystarczaj¹ce rezultaty.
 	Skorzystanie z algorytmów zach³annych czêsto okazuje siê niewystarczaj¹ce. Aby uzyskaæ lepszy efekt i polepszyæ zbudowane ju¿ trfasy mo¿emy wykorzystaæ algorytmy lokalnej optymalizacji (ang. \textit{local search}). U¿ycie ich na zwróconych przez algorytmy zach³anne trasach powinno zminimalizowaæ odleg³oœci miêdzy wierzcho³kami w celu poprawienia otrzymanego rozwi¹zania. Dok³adniejszy opis dzia³ania wybranych algorytmów zach³annych i metod optymalizuj¹cych zosta³ przedstawiony w podrozdzia³ach.
 	
