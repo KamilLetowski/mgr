@@ -52,17 +52,17 @@ Medycyna jest jedn¹ z wa¿niejszych dziedzin, gdzie wykorzystuje siê algorytmy ge
 
 \subsection{Algorytm mrówkowy}
 
-Obserwacje nad zachowaniami w przyrodzie wielokrotnie mia³y wp³yw na rozwój nowych rozwi¹zañ. Tak jak w przypadku algorytmu genetycznego, tak i w przypadku algorytmu mrówkowego pomys³ zosta³ zaczerpniêty z przyrody. Dok³adne dzia³anie algorytmu mrówkowego wzoruje siê na zachowaniu kolonii mrówek. Dziêki pracy zespo³owej, owady te s¹ w stanie wypracowaæ optymaln¹ œcie¿kê miêdzy siedliskiem a znalezionym pokarmem.
+Obserwacje nad zachowaniami w przyrodzie wielokrotnie mia³y wp³yw na rozwój nowych rozwi¹zañ. Tak jak w przypadku algorytmu genetycznego, tak i w przypadku algorytmu mrówkowego pomys³ zosta³ zaczerpniêty z przyrody \cite{ant_intro}. Dok³adne dzia³anie algorytmu mrówkowego wzoruje siê na zachowaniu kolonii mrówek. Dziêki pracy zespo³owej, owady te s¹ w stanie wypracowaæ optymaln¹ œcie¿kê miêdzy siedliskiem a znalezionym pokarmem.
 
-Dla niejednego gatunku problematyczne mog³oby byæ odtworzenie przebytej œcie¿ki. Na pocz¹tku nale¿a³oby zadaæ sobie pytanie w jaki sposób te niewielkich rozmiarów owady s¹ w stanie znacz¹co u³atwiæ sobie przetrwanie? Istotn¹ rolê odgrywa tutaj wspomniana ju¿ praca zespo³owa. To dziêki niej mrówki s¹ w stanie optymalizowaæ trasê. Innym wa¿nym czynnikiem determinuj¹cym poprawê œcie¿ki jest zapach jaki zostawiaj¹ mrówki. 
+Dla niejednego gatunku problematyczne mog³oby byæ odtworzenie przebytej œcie¿ki. Na pocz¹tku nale¿a³oby zadaæ sobie pytanie, w jaki sposób te niewielkich rozmiarów owady s¹ w stanie znacz¹co u³atwiæ sobie przetrwanie? Istotn¹ rolê odgrywa tutaj wspomniana ju¿ praca zespo³owa. To dziêki niej mrówki s¹ w stanie optymalizowaæ trasê. Innym wa¿nym czynnikiem determinuj¹cym poprawê œcie¿ki jest zapach, jaki zostawiaj¹ mrówki. 
 
-Zapach nie jest niczym innym jak feromonem wytwarzanym przez mrówki. Dziêki pozostawionemu zapachowi mrówki identyfikuj¹ w jaki sposób poruszali siê ich poprzednicy w zwi¹zku z czym odtworzenie trasy nie stanowi³o ju¿ powa¿nego problemu. Przy kolejnych iteracjach, kolonia próbuje optymalizowaæ aktualn¹ trasê. W tym celu równie¿ wykorzystuje zapach pozostawiony w poprzednich przejœciach. Œcie¿ka jest losowo zmieniana w celu optymalizacji. Jeœli modyfikacja przynios³a oczekiwany efekt, to trasa zostaje zmieniona.
+Zapach nie jest niczym innym jak feromonem wytwarzanym przez mrówki. Dziêki pozostawionemu zapachowi mrówki identyfikuj¹, w jaki sposób poruszali siê ich poprzednicy w zwi¹zku z czym odtworzenie trasy nie stanowi³o ju¿ powa¿nego problemu. Przy kolejnych iteracjach, kolonia próbuje optymalizowaæ aktualn¹ trasê. W tym celu równie¿ wykorzystuje zapach pozostawiony w poprzednich przejœciach. Œcie¿ka jest losowo zmieniana w celu optymalizacji. Jeœli modyfikacja przynios³a oczekiwany efekt, to trasa zostaje zmieniona.
 
-Algorytm mrówkowy znajduje swoje zastosowanie w rozwi¹zywaniu innych problemów. Problem plecakowy jest jednym z takich przyk³adów. Pojawia siê on najczêœciej przy optymalnym zarz¹dzaniu zasobami. Mamy dany zbiór jakichœ przedmiotów z czego ka¿dy z nich posiada okreœlony ciê¿ar i wartoœæ. Do plecaka musimy za³adowaæ przedmioty o jak najwiêkszej wartoœci. Naszym ograniczeniem jest jednak ³¹czny ciê¿ar przedmiotów które mo¿emy udŸwign¹æ. 
+Algorytm mrówkowy znajduje swoje zastosowanie w rozwi¹zywaniu innych problemów. Problem plecakowy jest jednym z takich przyk³adów. Pojawia siê on najczêœciej przy optymalnym zarz¹dzaniu zasobami. Mamy dany zbiór przedmiotów, z czego ka¿dy z nich posiada okreœlony ciê¿ar i wartoœæ. Do plecaka musimy za³adowaæ przedmioty o jak najwiêkszej wartoœci. Naszym ograniczeniem jest jednak ³¹czny ciê¿ar przedmiotów, które mo¿emy udŸwign¹æ. 
 
-Algorytm mrówkowy wygl¹da bardzo podobnie w tym przypadku. Na pocz¹tku jest $N$ agentów - mrówek. Ka¿dy agent iteracyjnie poszukuje jak najlepszego rozwi¹zania. Po ka¿dej iteracji mo¿na wyró¿niæ trzy typy rozwi¹zañ: rozwi¹zanie poœrednie, rozwi¹zanie czêœciowe lub stan. Agenci w celu znalezienia rozwi¹zania wykorzystuj¹ swoje naturalne umiejêtnoœci czyli zostawiaj¹ na wszystkich obiektach w plecaku feromony. Dziêki lotnoœci feromonów mrówki s¹ w stanie identyfikowaæ bardziej zadowalaj¹ce przedmioty.
+Algorytm mrówkowy wygl¹da w tym przypadku podobnie. Na pocz¹tku jest $N$ agentów -- mrówek. Ka¿dy agent iteracyjnie poszukuje jak najlepszego rozwi¹zania. Po ka¿dej iteracji mo¿na wyró¿niæ trzy typy rozwi¹zañ: rozwi¹zanie poœrednie, rozwi¹zanie czêœciowe lub stan. Agenci w celu znalezienia rozwi¹zania wykorzystuj¹ swoje naturalne umiejêtnoœci, czyli zostawiaj¹ na wszystkich obiektach w plecaku feromony. Dziêki lotnoœci feromonów mrówki s¹ w stanie identyfikowaæ przedmioty, które korzystniej jest zabraæ.
 
-Krzysztof Schiff w artykule Ant colony optimization algorithm for the 0-1 knapsack\cite{kl_alg_plecakowy} przedstawi³ rozwi¹zanie problemu plecakowego. Do wyboru najlepszego rozwi¹zania wykorzystane zosta³y trzy metody. Zgodnie z przyjêt¹ konwencj¹ przez autora artyku³u metody maj¹ odpowiednie nazwy: AKA1, AKA2 oraz AKA3. Za wybór najlepszego rozwi¹zania odpowiadaj¹ wzory: 
+Krzysztof Schiff w artykule \textit{Ant colony optimization algorithm for the 0-1 knapsack} \cite{kl_alg_plecakowy} przedstawi³ rozwi¹zanie problemu plecakowego. Do wyboru najlepszego rozwi¹zania wykorzystane zosta³y trzy metody. Zgodnie z przyjêt¹ przez autora konwencj¹ metody maj¹ odpowiednie nazwy: AKA1, AKA2 oraz AKA3. Za wybór najlepszego rozwi¹zania odpowiadaj¹ wzory: 
 	\[
 	    AKA1 = \frac{z}{\frac{w}{V}}
 	\]
@@ -73,17 +73,18 @@ Krzysztof Schiff w artykule Ant colony optimization algorithm for the 0-1 knapsa
 	    AKA3 = \frac{z}{\frac{w}{C}}
 	\]
 gdzie:\\
--- z jest zyskiem wybranego obiektu;\\
--- w jest wag¹ wybranego obiektu;\\
--- V jest aktualn¹ ³adownoœci¹ plecaka;\\
--- z jest zyskiem wybranego obiektu;\\
--- C jest ca³kowit¹ wag¹ plecaka.\\
+-- \textit{z} jest zyskiem wybranego obiektu;\\
+-- \textit{w} jest wag¹ wybranego obiektu;\\
+-- \textit{V} jest aktualn¹ ³adownoœci¹ plecaka;\\
+-- \textit{z} jest zyskiem wybranego obiektu;\\
+-- \textit{C} jest ca³kowit¹ wag¹ plecaka.\\
 
 Problem komiwoja¿era i problem plecakowy s¹ problemami kombinatorycznymi. Ich rozwi¹zanie polega na poszukiwaniu optymalnej œcie¿ki na grafie pe³nym. Inna odmian¹ problemu jest kolorowania grafu. W tej wariacji problem jest od razu zadany na grafie. Dla wszystkich wierzcho³ków w grafie nale¿y dobraæ takie kolory, aby ¿adne dwa s¹siednie wierzcho³ki nie mia³y tego samego koloru \cite{kl_inne_alg_mrowkowe}. 
 
-Mrówki nie dzia³aj¹ bezpoœrednio na grafie pocz¹tkowym poniewa¿ graf ten nie musi byæ grafem pe³nym. Nale¿y stworzyæ dla mrówek alternatywê podobn¹ do orygina³u z zachowaniem takiego samego zbioru wierzcho³ków ale z pe³nymi krawêdziami. Nastêpnie nale¿y dobraæ numeryczne wartoœci odpowiadaj¹ce konkretnym kolorom. Jeœli mrówka odwiedzi dany wierzcho³ek, to zostaje on pokolorowany na najni¿szy kolor który nie zosta³ dotychczas u¿yty do kolorowania któregoœ z s¹siadów.
+Mrówki nie dzia³aj¹ bezpoœrednio na grafie pocz¹tkowym, poniewa¿ graf ten nie musi byæ grafem pe³nym. Nale¿y stworzyæ dla mrówek alternatywê podobn¹ do orygina³u \\
+z zachowaniem takiego samego zbioru wierzcho³ków ale z pe³nymi krawêdziami. Nastêpnie nale¿y dobraæ numeryczne wartoœci odpowiadaj¹ce konkretnym kolorom. Jeœli mrówka odwiedzi dany wierzcho³ek, to zostaje on pokolorowany na kolor, który nie zosta³ dotychczas u¿yty do kolorowania jego s¹siadów.
 
-Tak jak w przypadku poprzednich algorytmów wykorzystywane s¹ zapachy pozostawiane przez mrówki. Iloœæ u¿ytych unikalnych kolorów by³aby odwrotnie proporcjonalna do iloœci feromonów. W efekcie czego heurystyka by³aby odwrotnie proporcjonalna do wykorzystanych kolorów po kolejnych iteracjach. Wynikiem tych operacji bêdzie rozwi¹zanie w którym, w grafie oryginalnym ka¿dy wierzcho³ek bêdzie odwiedzany tylko raz.
+Tak jak w przypadku poprzednich algorytmów, wykorzystywane s¹ zapachy pozostawiane przez mrówki. Liczba u¿ytych unikalnych kolorów by³aby odwrotnie proporcjonalna do iloœci feromonów. W efekcie czego heurystyka by³aby odwrotnie proporcjonalna do wykorzystanych kolorów po kolejnych iteracjach. Wynikiem tych operacji bêdzie rozwi¹zanie w którym, w grafie oryginalnym ka¿dy wierzcho³ek bêdzie odwiedzany tylko raz.
 
 Ostatni z przyk³adów wykorzystania algorytmu mrówkowego jest harmonogram produkcji. W porównaniu do poprzednich metod w tym algorytmie zachodzi pewna modyfikacja. G³ównym problemem w harmonogramie produkcji jest znalezienie takiej kolejnoœci przetwarzanych zadañ, aby jak najszybciej je przetworzyæ. Aby lepiej zobrazowaæ t¹ sytuacjê nale¿y sobie wyobraziæ fabrykê w której znajduj¹ siê linie produkcyjne. Na linii s¹ przetwarzane zadania w odpowiedniej kolejnoœci oraz ka¿de z zadañ mo¿e zostaæ wykonane w ró¿nym czasie\cite{kl_inne_alg_mrowkowe}. 
 

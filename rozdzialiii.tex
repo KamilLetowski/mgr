@@ -1,28 +1,28 @@
 \chapter{Algorytm mrówkowy - Kamil}
 
-S³owo rozwój mo¿e byæ zestawiane z wieloma rzeczownikami. Wiele dziedzin ci¹gle siê rozwija, powstaj¹ nowe udogodnienia które wp³ywaj¹ na wiele dziedzin ¿ycia. Dziêki rozwojowi techniki ludzie s¹ w stanie osi¹gaæ cele, które jakiœ czas temu mog³y byæ tylko marzeniami. Rozwój techniki równie¿ potrzebuje inspiracji do tworzenia nowych, lepszych rozwi¹zañ
+S³owo rozwój mo¿e byæ zestawiane z wieloma rzeczownikami. Wiele dziedzin ci¹gle siê rozwija, powstaj¹ nowe udogodnienia które wp³ywaj¹ na wiele dziedzin ¿ycia. Dziêki rozwojowi techniki ludzie s¹ w stanie osi¹gaæ cele, które jeszcze nie dawno mog³y byæ tylko marzeniami. 
 
-Szybkoœæ oraz dok³adnoœæ rozwoju zale¿y od wielu czynników. Dziêki pracy zespo³owej pewne problemy mog¹ byæ rozwi¹zywane szybciej i dok³adniej. Wysi³ek w³o¿ony przez grupê procentuje szybko, a same efekty mog¹ byæ równie¿ satysfakcjonuj¹ce. Istotnym czynnikiem jest wysi³ek wk³adany przez ka¿dego cz³onka grupy.
+Wykorzystuj¹c pracê zespo³ow¹ mo¿na w dok³adniejszy oraz szybszy sposób udoskonalaæ rozwi¹zanie. Wysi³ek wk³adany przez ka¿d¹ jednostkê jest bardzo istotny. Mo¿na naprawiaæ w³asne b³êdy oraz korygowaæ innych uczestników zespo³u. Kontrola oraz wspó³praca na ka¿dym etapie jest kluczem do sukcesu.
 
-Obserwuj¹c przyrodê mo¿emy zauwa¿yæ w jaki sposób zwierzêta radz¹ sobie z ró¿nymi problemami. Z³o¿one grupy mog¹ byæ spokojniejsze o zdobycie po¿ywienia, czy te¿ o przetrwanie w ciê¿kich warunkach. Praca zespo³owa jest jedn¹ z cech której osobniki w grupie ucz¹ siê nie bêd¹c nawet tego do koñca œwiadomym.
+Obserwuj¹c przyrodê mo¿emy zauwa¿yæ, w jaki sposób zwierzêta radz¹ sobie z ró¿nymi problemami. Z³o¿one grupy mog¹ byæ spokojniejsze o zdobycie po¿ywienia, czy te¿ o przetrwanie w ciê¿kich warunkach. Praca zespo³owa jest jedn¹ z cech, której osobniki w grupie ucz¹ siê, nie bêd¹c nawet tego do koñca œwiadomym.
 
 \section{Wprowadzenie do algorytmu}
 
-Na przestrzeni czasu wiele gatunków zwierz¹t ¿yj¹cych na ziemi przystosowa³o siê do panuj¹cych tu warunków. Jedn¹ z takich gatunków s¹ mrówki. Te niewielkich rozmiarów owady posiadaj¹ zdolnoœci pomagaj¹ce im przetrwaæ wœród najciê¿szych warunków. Mrówki ¿yj¹ w stadach, w zwi¹zku z czym wykorzystuj¹ pracê zespo³ow¹ do rozwi¹zywania problemów jakie codziennie napotykaj¹ na swojej drodze.
+Na przestrzeni czasu gatunki zwierz¹t ¿yj¹cych na ziemi przystosowa³o siê do panuj¹cych tu warunków. Jedn¹ z takich gatunków s¹ mrówki. Te niewielkich rozmiarów owady posiadaj¹ zdolnoœci dziêki którym s¹ w stanie dostosowywaæ siê do otoczenia. Mrówki ¿yj¹ w koloniach, w zwi¹zku z czym wykorzystuj¹ pracê zespo³ow¹ do rozwi¹zywania problemów, jakie codziennie napotykaj¹ na swojej drodze.
 
-Aby zapewniæ przetrwanie stadu, mrówki potrzebuj¹ zapewniæ sobie dostêp do pokarmu. Dziesi¹tki tysiêcy mrówek maj¹ swoje schronienie w mrowiskach. To tam trafia zdobyty przez nich pokarm. Wystarczy aby jedna mrówka znalaz³a miejsce z pokarmem, to po powrocie do mrowiska inne osobniki s¹ w stanie odtworzyæ drogê do po¿ywienia. Na tym etapie nale¿a³oby siê zastanowiæ, w jaki sposób mrówki s¹ w stanie komunikowaæ siê miêdzy sob¹?
+Aby zapewniæ przetrwanie kolonii, mrówki potrzebuj¹ zapewniæ sobie dostêp do pokarmu. Dziesi¹tki tysiêcy mrówek maj¹ swoje schronienie w mrowiskach. To tam trafia zdobyty przez nich pokarm. Wystarczy, aby jedna mrówka znalaz³a miejsce z pokarmem, to po powrocie do mrowiska inne osobniki s¹ w stanie odtworzyæ drogê do po¿ywienia. Na tym etapie nale¿a³oby siê zastanowiæ, w jaki sposób mrówki s¹ w stanie komunikowaæ siê miêdzy sob¹?
 
-Jednym z opisywanych przez nas rozwi¹zañ do wyznaczania zoptymalizowanej trasy jest algorytm mrówkowy, inaczej nazywany ACO - Ant Colony Optimization. Pomys³ ten zosta³ zaczerpniêty z natury. Jak sama nazwa wskazuje dzia³anie algorytmy jest zwi¹zane z mrówkami, a dok³adnie z koloni¹ mrówek. Pomys³ na algorytm zosta³ zaproponowany na pocz¹tku lat 90 XX wieku przez w³oskiego badacza - Marco Dorigo \cite{ant_intro}.
+Jednym z opisywanych rozwi¹zañ do wyznaczania zoptymalizowanej trasy jest algorytm mrówkowy, inaczej nazywany ACO - (ang. \textit{Ant Colony Optimization}). Jak sama nazwa wskazuje dzia³anie algorytmu jest zwi¹zane z mrówkami, a dok³adnie z koloni¹ mrówek. Pomys³ na algorytm zosta³ zaproponowany na pocz¹tku lat 90 XX wieku przez w³oskiego badacza - Marco Dorigo \cite{ant_intro}.
 
-Tak jak zosta³o wspomniane wczeœniej, algorytm opiera siê na pracy mrówek. Chodzi tutaj dok³adnie o trasê jak¹ mrówki pokonuj¹ od swojego siedliska do miejsca w którym znajduje siê po¿ywienie. Wa¿ne jest znaczenie tutaj pracy zespo³owej. Trasê kszta³tuje ca³a kolonia mrówek, a nie pojedyncze przypadki. Mrówki z ka¿d¹ kolejn¹ podró¿¹ wykszta³caj¹ coraz to bardziej optymaln¹ trasê.
+Mrówki, dziêki pracy jak¹ wykonuj¹, optymalizuj¹ przebyt¹ drogê. Chodzi dok³adnie o trasê jak¹ pokonuj¹ od swojego siedliska do miejsca, w którym znajduje siê po¿ywienie. Trasê kszta³tuje ca³a kolonia mrówek, a nie pojedyncze przypadki. Mrówki przebywaj¹c ka¿d¹ kolejn¹ podró¿ wykszta³caj¹ coraz to krótsz¹ trasê.
 
 \section{Opis dzia³ania algorytmu}
 
-Mrówka w celu znalezienia pokarmu w sposób losowy wyrusza z mrowiska. Losowo przesuwaj¹c siê po terenie szuka pokarmu. Gdy ju¿ go znajdzie wraca do siedliska i informuje o tym fakcie pozosta³e mrówki. Aby dostarczyæ wiêcej pokarmu mrówki wyruszaj¹ do miejsca spoczynku po¿ywienia. Chc¹c unikn¹æ sytuacji w której zdobycz mo¿e zostaæ zabrana przez inne owady, mrówki musz¹ jak najbardziej zoptymalizowaæ trasê jak¹ maj¹ do pokonania.
+Mrówka w celu znalezienia pokarmu wyrusza z mrowiska bez obrania konkretnego kierunku. Losowo przesuwaj¹c siê po terenie szuka pokarmu. Gdy ju¿ go znajdzie wraca do siedliska i informuje o tym fakcie pozosta³e mrówki. Aby dostarczyæ wiêcej pokarmu czêœæ kolonii mrówek wyrusza do miejsca spoczynku po¿ywienia. Chc¹c unikn¹æ sytuacji w której zdobycz mo¿e zostaæ zabrana przez inne owady, mrówki musz¹ znaleŸæ jak najkrótsz¹ trasê jak¹ maj¹ do pokonania.
 
-Mimo posiadania informacje o znalezionym pokarmie, ka¿da mrówka sama musi zlokalizowaæ Ÿród³o. Czy mrówki poruszaj¹ siê t¹ sam¹ tras¹ przy ka¿dym wyjœciu z mrowiska? Aby trafiæ do miejsca w którym znajduje siê pokarm, wspomniane owady wykorzystuj¹ œlady pozostawione przez osobników które ju¿ natrafi³y na po¿ywienie. W ten sposób mrówka która wyrusza w sposób losowy, natrafia na œlad poprzednika który jest wskazówk¹ do znalezienia poszukiwanego pokarmu. Wspomniany œlad nazywa siê feromonem. To dziêki tej w³aœciwoœci mrówki s¹ w stanie lokalizowaæ trasy prowadz¹ce do pokarmu.
+Mimo posiadania informacje o znalezionym pokarmie, ka¿da mrówka mo¿e wyznaczyæ na nowo lokalizacjê po¿ywienia. Czy mrówki poruszaj¹ siê t¹ sam¹ tras¹ przy ka¿dym wyjœciu z mrowiska? Aby trafiæ do miejsca, w którym znajduje siê pokarm, wspomniane owady wykorzystuj¹ œlady pozostawione przez osobników, które ju¿ natrafi³y na po¿ywienie. W ten sposób mrówka, natrafia na œlad poprzednika, który jest wskazówk¹ do znalezienia poszukiwanego pokarmu. Wspomniany œlad nazywa siê feromonem. To dziêki tej w³aœciwoœci mrówki s¹ w stanie lokalizowaæ trasy prowadz¹ce do pokarmu.
 
-Na rysunku \ref{fig:kl_przyklad1} zosta³ przedstawiony graf z wierzcho³kami A-B-C-D-E-F. Nad krawêdziami kolorem czerwonym zosta³y oznaczone wagi. Na pocz¹tku za³ó¿my, ¿e mamy do dyspozycji 80 agentów. Przez N pierwszych iteracji mrówki porusza³y siê losowo i powsta³ nastêpuj¹cy podzia³:
+Na rysunku \ref{fig:kl_przyklad1} zosta³ przedstawiony graf z wierzcho³kami A-B-C-D-E-F. Nad krawêdziami kolorem czerwonym zosta³y oznaczone wagi. Na pocz¹tku za³ó¿my, ¿e mamy do dyspozycji 80 agentów. Przez \textit{K} pierwszych iteracji mrówki porusza³y siê losowo i powsta³ nastêpuj¹cy podzia³:
 
 \begin{figure}[h!]
 	\centering
@@ -31,7 +31,7 @@ Na rysunku \ref{fig:kl_przyklad1} zosta³ przedstawiony graf z wierzcho³kami A-B-
 	\label{fig:kl_przyklad1}
 \end{figure}
 
-Tak jak mo¿na to zauwa¿yæ na grafice \ref{fig:kl_przyklad2}, po pierwszych iteracjach, przez obie œcie¿ki przechodzi taka sama liczba agentów. Dzieje siê tak poniewa¿ mrówki rozpoczynaj¹ pracê w sposób losowy. W dalszych krokach nastêpuj¹ modyfikacje i agenci d¹¿¹ do wyznaczenia najoptymalniejszej œcie¿ki.
+Tak jak mo¿na to zauwa¿yæ na rysunku \ref{fig:kl_przyklad2}, po pierwszych iteracjach, przez obie œcie¿ki przechodzi taka sama liczba agentów. Dzieje siê tak, poniewa¿ mrówki rozpoczynaj¹ pracê w sposób losowy. W dalszych krokach nastêpuj¹ modyfikacje i agenci d¹¿¹ do wyznaczenia optymalnej œcie¿ki.
 
 \begin{figure}[h!]
 	\centering
@@ -47,17 +47,17 @@ Tak jak mo¿na to zauwa¿yæ na grafice \ref{fig:kl_przyklad2}, po pierwszych itera
 	\label{fig:kl_przyklad3}
 \end{figure}
 
-Liczba agentów odwiedzaj¹cych œcie¿ki zmienia siê. Bardziej optymalna trasa zyskuje widoczn¹ przewagê. W kolejnych iteracjach mrówki wykorzystuj¹ si³ê feromonów. Bardziej optymalne œcie¿ki s¹ czêœciej odwiedzane w zwi¹zku z czym zapach na tych krawêdziach jest silniejszy oraz podtrzymywany. Na mniej optymalnych trasach zapach zanika i przestaj¹ one byæ atrakcyjne dla agentów. Opisana sytuacja prowadzi do wyznaczenia trasy która jest najatrakcyjniejsza do przebycia dla mrówek.
+Liczba agentów odwiedzaj¹cych œcie¿ki zmienia siê. Lepsza trasa zyskuje widoczn¹ przewagê. W kolejnych iteracjach mrówki wykorzystuj¹ si³ê feromonów. Krótsze œcie¿ki s¹ czêœciej odwiedzane w zwi¹zku z czym zapach na tych krawêdziach jest silniejszy oraz podtrzymywany. Na d³u¿szych trasach zapach zanika i przestaj¹ one byæ atrakcyjne dla agentów. Opisana sytuacja prowadzi do wyznaczenia trasy która jest najatrakcyjniejsza do przebycia dla mrówek.
 
 \section{Feromony}
 
-Feromony posiadaj¹ cechê która mo¿e siê wydawaæ, ¿e negatywnie wp³ywa na wyznaczanie œcie¿ki. Chodzi tutaj o ulatnianie siê zostawionego zapachu. Na pierwszy rzut oka mo¿e siê to zjawisko wydawaæ niepo¿¹danym, ale w rzeczywistoœci ma du¿y wp³ywa na optymalizacjê. Jeœli feromony nie straci³yby na swojej sile, to bardzo prawdopodobne, ¿e pierwotna œcie¿ka mog³aby zostaæ uznana za najbardziej optymaln¹.
+Feromony posiadaj¹ cechê, która mo¿e siê wydawaæ, ¿e negatywnie wp³ywa na wyznaczanie œcie¿ki. Chodzi tutaj o ulatnianie siê zostawionego zapachu. Na pocz¹tku zjawisko to mo¿e wydawaæ siê niepo¿¹danym, ale w rzeczywistoœci ma du¿y wp³ywa wyznaczenie krótszej trasy. Jeœli feromony nie straci³yby na swojej sile, to bardzo prawdopodobne, ¿e pierwotna œcie¿ka mog³aby zostaæ uznana za bardziej atrakcyjn¹.
 
-W jaki sposób wyznaczona zostaje najbardziej optymalna œcie¿ka? Zapach feromonów jest podtrzymywany przez wêdruj¹ce mrówki. Z czasem owady te same zbaczaj¹ z drogi w celu poszukiwania alternatywnej trasy. Jeœli wybrana trasa jest optymalniejsza od pozosta³ych to œlad jest podtrzymywany, a na innych zanika. Dziêki temu w sposób iteracyjny mo¿na wyró¿niæ trasê najoptymalniejsz¹, a s³absze z czasem zostaj¹ odrzucone poniewa¿ przestaj¹ byæ odwiedzane.
+W jaki sposób wyznaczona zostaje najkrótsza œcie¿ka? Zapach feromonów jest podtrzymywany przez wêdruj¹ce mrówki. Z czasem owady te same zbaczaj¹ z drogi w celu poszukiwania alternatywnej trasy. Jeœli wybrana trasa jest krótsza od pozosta³ych to œlad jest podtrzymywany, a na innych zanika. Dziêki temu w sposób iteracyjny mo¿na wyró¿niæ trasê najkrótsz¹, a s³absze z czasem zostaj¹ odrzucone, poniewa¿ przestaj¹ byæ odwiedzane.
 
-Feromony s¹ istotnym czynnikiem w ca³ym procesie. To dziêki nim trasa jest ulepszana. Zapach posiada jedn¹ z charakterystyk która na pocz¹tku mo¿e wydawaæ siê problematyczna. Wraz z up³ywem czasu si³a zapachu s³abnie a¿ do ca³kowitego zanikniêcia. W³aœciwoœæ ta jest zaletê, a nie wadê. To dziêki pracy zespo³owej zapach na najlepszej trasie jest podtrzymywany, a na s³abszych zanika. Dziêki tej selekcji d³u¿sze trasy nie s¹ brane pod uwagê w wyniku czego zostaje trasa najkorzystniejsza.
+Feromony s¹ istotnym czynnikiem w ca³ym procesie. To dziêki nim trasa jest ulepszana. Zapach posiada jedn¹ z charakterystyk, która na pocz¹tku mo¿e wydawaæ siê problematyczna. Wraz z up³ywem czasu si³a zapachu s³abnie a¿ do ca³kowitego zanikniêcia. W³aœciwoœæ ta jest zaletê, a nie wadê. To dziêki pracy zespo³owej zapach na najlepszej trasie jest podtrzymywany, a na s³abszych zanika. Dziêki tej selekcji d³u¿sze trasy nie s¹ brane pod uwagê w wyniku czego zostaje trasa najkorzystniejsza.
 
-Do wyznaczenia optymalnej trasy potrzebne s¹ d³ugoœci jakie nale¿y przebyæ do przemieszczania siê miêdzy punktami. W \ref{tabela_kosztow_ant} przedstawione s¹ przyk³adowe odleg³oœci.
+Do wyznaczenia optymalnej trasy potrzebne s¹ d³ugoœci jakie nale¿y przebyæ do przemieszczania siê miêdzy punktami. W tabeli \ref{tabela_kosztow_ant} przedstawione s¹ przyk³adowe odleg³oœci.
 
 \begin{table}[htb]
 \centering
@@ -73,6 +73,17 @@ D & 2 & 4 & 1 & 0 \\\hline
 \label{tabela_kosztow_ant}
 \end{table}
 
+Równie wa¿ne jest wyznaczenie pocz¹tkowych wspó³czynników feromonów. Na pocz¹tku nadajmy wszystkim krawêdziom w grafie wartoœci równe 1, a wspó³czynnik parowania niech wynosi 0.5. Jak zosta³y rozmieszczone wartoœci feromonów na grafie mo¿na zobaczyæ na rysunku \ref{fig:kl_init_feromony}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{grafika/kl_init_p_alg.png}
+	\caption{Graf z pocz¹tkowymi wartoœciami feromonów}
+	\label{fig:kl_init_feromony}
+\end{figure}
+
+Na rysunku \ref{fig:kl_init_trasa_alg} zosta³ przedstawiony graf z wartoœciami feromonów jakie s¹ pocz¹tkowo umieszczone na krawêdziach. Pocz¹tkowe dane wyznaczmy w sposób losowy trasy dla dwóch agentów: L1 i L2. Na rysunku \ref{fig:kl_trasa_l1} zosta³a przedstawiona trasa agenta L1. Odwiedzone zosta³y wierzcho³ki w nastêpuj¹cej kolejnoœci: A, B, C, D, A. 
+
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.75]{grafika/kl_init_trasa_alg.png}
@@ -80,57 +91,51 @@ D & 2 & 4 & 1 & 0 \\\hline
 	\label{fig:kl_init_trasa_alg}
 \end{figure}
 
-Równie wa¿ne jest wyznaczenie pocz¹tkowych wspó³czynników feromonów. Na pocz¹tku nadajmy wszystkim krawêdziom w grafie wartoœci równe 1, a wspó³czynnik parowania niech wynosi 0.5.
-
-\begin{table}[htb]
-\centering
-\caption[Wartoœci feromonów]{Wartoœci feromonów}
-\begin{tabular}{|c|c|c|c|c|}
-\hline
-  & A & B & C & D \\\hline
-A & 0 & 1 & 1 & 1 \\\hline
-B & 1 & 0 & 1 & 1 \\\hline
-C & 1 & 1 & 0 & 1 \\\hline
-D & 1 & 1 & 1 & 0 \\\hline
-\end{tabular}
-\label{tabela_feromonow_ant}
-\end{table}
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=0.75]{grafika/kl_init_p_alg.png}
-	\caption{Graf z pocz¹tkowymi wartoœciami feromonów}
-	\label{fig:kl_init_trasa_alg}
-\end{figure}
-
-Posiadaj¹c pocz¹tkowe dane wyznaczmy w sposób losowy trasy dla dwóch agentów: L1 i L2. Agent L1 porusza³ siê tras¹ w której odwiedzi³ wierzcho³ki w nastêpuj¹cej kolejnoœci: A, B, C, D, A. 
-
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.75]{grafika/kl_l1_trasa_alg.png}
 	\caption{Trasa przebyta przez agenta L1}
-	\label{fig:kl_init_trasa_alg}
+	\label{fig:kl_trasa_l1}
 \end{figure}
 
-Agent L2 wyznaczy³ nastêpuj¹c¹ trasê: A, C, B, D, A. 
+Agent L2 wyznaczy³ nastêpuj¹c¹ trasê: A, C, B, D, A. Trasa ta zosta³a przestawiona na rysunku \ref{fig:kl_trasa_l2}.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.75]{grafika/kl_l2_trasa_alg.png}
 	\caption{Trasa przebyta przez agenta L2}
-	\label{fig:kl_init_trasa_alg}
+	\label{fig:kl_trasa_l2}
 \end{figure}
 
-Mrówki odpowiednio pokona³y dystans 8 i 16 punktów. Dziêki tej informacji mo¿na zaktualizowaæ wartoœci feromonów na poszczególnych krawêdziach. Do obliczeñ wykorzystany jest wzór: $\tau\textsubscript{i,j}=$\((1-p)\tau\textsubscript{i,j}+\sum\limits_{k=1}^m \Delta\tau_{i,j}^k\). Krawêdzie A-B i C-D zosta³y odwiedzona jedynie przez agenta L1 w wyniku czego wartoœæ feromonu zostaje zmieniona na 10/16. Nastêpnie krawêdzie A-C i B-D zostaj¹ zaktualizowane na 9/16. Krawêdzie A-D i B-C s¹ odwiedzone dwukrotnie a wartoœæ feromonów wynosi 11/16.
+Mrówki odpowiednio pokona³y dystans 8 i 16 punktów. Dziêki tej informacji mo¿na zaktualizowaæ wartoœci feromonów na poszczególnych krawêdziach. Do obliczeñ wykorzystany jest wzór: \\
+\begin{equation}
+\tau\textsubscript{i,j}=((1-p)\tau\textsubscript{i,j}+\sum\limits_{k=1}^m \Delta\tau_{i,j}^k)
+\end{equation}
+
+gdzie: \\
+-- \textit{p} jest wspó³czynnikiem parowania feromonów;\\
+-- \textit{i} jest wierzcho³kiem pocz¹tkowym;\\
+-- \textit{j} jest wierzcho³kiem docelowym;\\
+-- \textit{k} jest wag¹ miêdzy punktami;\\
+
+Krawêdzie A-B i C-D zosta³y odwiedzona jedynie przez agenta L1 w wyniku czego wartoœæ feromonu zostaje zmieniona na 10/16. Nastêpnie krawêdzie A-C i B-D zostaj¹ zaktualizowane na 9/16. Krawêdzie A-D i B-C s¹ odwiedzone dwukrotnie a wartoœæ feromonów wynosi 11/16. Aktualne rozmieszczenie wartoœci feromonów zosta³o przedstawione na rysunku \ref{fig:kl_feromony1}.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.75]{grafika/kl_p_alg.png}
 	\caption{Graf z wartoœciami feromonów po modyfikacji}
-	\label{fig:kl_init_trasa_alg}
+	\label{fig:kl_feromony1}
 \end{figure}
 
-Ostatni¹ faz¹ algorytmu jest wyznaczenie prawdopodobieñstwa z jakim kolejni agenci bêd¹ wybieraæ kolejny wierzcho³ek. W kolejnej iteracji agent L3 znajduje siê w wierzcho³ku B. Do wyboru ma krawêdzie A, C i D. Wed³ug wzoru $p\textsubscript{i,j}=\frac{(\tau\textsubscript{i,j})^\alpha(\eta\textsubscript{i,j})^\beta}{\sum(\tau\textsubscript{i,j})^\alpha(\eta\textsubscript{i,j})^\beta)}\) wyliczane jest prawdopodobieñstwo dla wszystkich mo¿liwoœci. Przejœcie z krawêdzi B do krawêdzi A wynosi oko³o 20\%, do krawêdzi D 30\%, a do krawêdzi C oko³o 50\%. 
+Ostatni¹ faz¹ algorytmu jest wyznaczenie prawdopodobieñstwa z jakim kolejni agenci bêd¹ wybieraæ kolejny wierzcho³ek. W kolejnej iteracji agent L3 znajduje siê w wierzcho³ku B. Do wyboru ma krawêdzie A, C i D. Dla wszystkich mo¿liwoœci wyliczane jest prawdopodobieñstwo wed³ug wzoru\\
+\begin{equation}
+p\textsubscript{i,j}=\frac{(\tau\textsubscript{i,j})(\eta\textsubscript{i,j})}{\sum(\tau\textsubscript{i,j})(\eta\textsubscript{i,j}))})
+\end{equation}
+gdzie:\\
+-- \textit{i} jest wierzcho³kiem pocz¹tkowym;\\
+-- \textit{j} jest wierzcho³kiem docelowym;\\
+ 
+Prawdopodobieñstwo przejœcia z krawêdzi B do krawêdzi A wynosi oko³o 20\%, do krawêdzi D 30\%, a do krawêdzi C oko³o 50\%. 
 
-Optymalna trasa zostanie wykszta³cona po wykonaniu wielu iteracji. Iloœæ iteracji nie jest zdefiniowana i dla ka¿dego przypadku mo¿e byæ ró¿na. Sytuacja wygl¹da identycznie w przypadku wyboru wartoœci p. Wa¿ne jest natomiast to, aby w trakcie dzia³ania algorytmu nie modyfikowaæ tej wartoœci. Powinno ona byæ taka sama na ka¿dym kroku algorytmu.
+Optymalna trasa zostanie wyznaczona po wykonaniu wielu iteracji. Liczba iteracji nie jest zdefiniowana i dla ka¿dego przypadku mo¿e byæ ró¿na. Sytuacja wygl¹da identycznie w przypadku wyboru wartoœci p. Wa¿ne jest natomiast to, aby w trakcie dzia³ania algorytmu nie modyfikowaæ tej wartoœci. Powinno ona byæ taka sama na ka¿dym kroku algorytmu.
 
